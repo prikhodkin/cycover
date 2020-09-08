@@ -1,8 +1,8 @@
 .footer__top {
-  background-color: #1d3474;
-  padding: 35px 20px;
   display: flex;
   align-items: center;
+  padding: 35px 20px;
+  background-color: #1d3474;
 }
 
 .footer__logo {
@@ -20,20 +20,20 @@
 }
 
 .footer__button {
-  color: #ffffff;
+  padding: 13px 17px 14px 23px;
+  font-weight: 500;
   font-size: 12px;
   line-height: 15px;
-  font-weight: 500;
+  color: #ffffff;
   border: 1px solid #ffffff;
-  border-radius: 100px 0px 80px 100px;
-  padding: 13px 17px 14px 23px;
+  border-radius: 100px 0 80px 100px;
 }
 
 .footer__bottom {
-  background-color: #334c8f;
   padding: 13px 20px;
   font-size: 10px;
   color: rgba(255, 255, 255, 0.5);
+  background-color: #334c8f;
 }
 
 .footer__copyright {
