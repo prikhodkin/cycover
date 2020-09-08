@@ -1,3 +1,28 @@
 .button {
-  background-color: aqua;
+  @include reset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: 500;
+  font-family: $first-font;
+  border-radius: 100px 0 100px 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &--thin {
+    min-height: 50px;
+    color: #304bab;
+    border: 1px solid #304bab;
+
+    &:hover {
+      color: #ffffff;
+      background: #304bab;
+    }
+  }
+
+  &--light {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
 }
