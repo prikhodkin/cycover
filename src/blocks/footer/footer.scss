@@ -32,8 +32,8 @@
 }
 
 .footer__copyright {
-  line-height: 15px;
   margin-bottom: 13px;
+  line-height: 15px;
 }
 
 .footer__link-site {
@@ -64,9 +64,9 @@
   }
 
   .footer__link {
-    color: rgba(255, 255, 255, 0.7);
     font-size: 15px;
     line-height: 18px;
+    color: rgba(255, 255, 255, 0.7);
 
     &:hover {
       font-weight: 500;
