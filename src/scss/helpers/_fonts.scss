@@ -7,6 +7,10 @@
 }
 
 @font-face {
+  @include includeFont(400, $first-font, "Montserrat-Italic", "italic");
+}
+
+@font-face {
   @include includeFont(400, $first-font, "Montserrat-Regular");
 }
 
@@ -22,9 +26,6 @@
   @include includeFont(700, $first-font, "Montserrat-Bold");
 }
 
-// @font-face {
-//   @include includeFont(400 italic, $first-font, "Montserrat-Italic");
-// }
 
 @font-face {
   @include includeFont(400, $second-font, "OpenSans-Regular");
