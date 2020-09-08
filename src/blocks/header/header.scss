@@ -1,0 +1,134 @@
+.header {
+  background-color: transparent;
+  transition: all 0.3s;
+
+  &--active {
+    background-color: #f3f6ff;
+  }
+}
+
+.header__top {
+  padding: 14px 40px 0 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.header__phone {
+  display: none;
+}
+
+.header__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27px 20px;
+}
+
+
+.header__logo {
+  display: block;
+  width: 103px;
+
+  img {
+    display: block;
+  }
+}
+
+.header__menu {
+  position: absolute;
+  top: 114px;
+  left: 0;
+  width: 100%;
+  padding-bottom: 40px;
+  background-color: #f3f6ff;
+  transform: translateY(-200%);
+  transition: all 0.3s;
+
+  &--active {
+    transform: translateY(0);
+  }
+}
+
+.header__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-right: 29px;
+    fill: #304bab;
+  }
+}
+
+.header__callback {
+  width: 174px;
+}
+
+@media (min-width: 1280px) {
+  .header__top {
+    @include page-wrapper;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 21px;
+  }
+
+  .header__bottom {
+    @include page-wrapper;
+    align-items: center;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  .header__logo {
+    width: 148px;
+  }
+
+  .header__menu {
+    position: relative;
+    top: unset;
+    left: unset;
+    display: flex;
+    align-items: center;
+    margin-left: 107px;
+    padding-bottom: 0;
+    background-color: transparent;
+    transform: translateY(0);
+  }
+
+  .header__button {
+    margin-left: auto;
+
+    svg {
+      display: none;
+    }
+  }
+
+  .header__callback {
+    width: 149px;
+    padding: 0;
+  }
+
+  .header__phone {
+    display: flex;
+    margin-bottom: 21px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.045em;
+    transition: all 0.3s;
+
+    svg {
+      margin-right: 10px;
+      opacity: 0.3;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      color: #304bab;
+
+      svg {
+        opacity: 1;
+        fill: #304bab;
+      }
+    }
+  }
+}

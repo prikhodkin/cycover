@@ -1,0 +1,39 @@
+.modifier {
+  @include list-reset;
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(#000000, 0.5);
+  letter-spacing: 0.045em;
+}
+
+.modifier__item {
+  margin-bottom: -1px;
+  padding-bottom: 14px;
+
+  &:first-child {
+    margin-right: 40px;
+  }
+
+  &--active {
+    font-weight: 500;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+  }
+}
+
+@media (min-width: 1280px) {
+  .modifier {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .modifier__item {
+    padding-bottom: 21px;
+
+    &:first-child {
+      margin-right: 32px;
+    }
+  }
+}
