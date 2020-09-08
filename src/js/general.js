@@ -3,5 +3,8 @@ import {showMenu, editWidthMenu} from "%modules%/menu/menu";
 
 const items = document.querySelectorAll(`.menu__item`);
 
-editWidthMenu(items);
+if(window.matchMedia("(min-width: 1280px)").matches) {
+  editWidthMenu(items)
+}
+
 changeBurger(showMenu);
