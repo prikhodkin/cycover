@@ -1,3 +1,47 @@
 @font-face {
   @include includeFont(200, $first-font, "Montserrat-Thin");
 }
+
+@font-face {
+  @include includeFont(300, $first-font, "Montserrat-Light");
+}
+
+@font-face {
+  @include includeFont(400, $first-font, "Montserrat-Regular");
+}
+
+@font-face {
+  @include includeFont(500, $first-font, "Montserrat-Medium");
+}
+
+@font-face {
+  @include includeFont(600, $first-font, "Montserrat-SemiBold");
+}
+
+@font-face {
+  @include includeFont(700, $first-font, "Montserrat-Bold");
+}
+
+// @font-face {
+//   @include includeFont(400 italic, $first-font, "Montserrat-Italic");
+// }
+
+@font-face {
+  @include includeFont(400, $second-font, "OpenSans-Regular");
+}
+
+@font-face {
+  @include includeFont(500, $second-font, "OpenSans-SemiBold");
+}
+
+@font-face {
+  @include includeFont(700, $second-font, "OpenSans-Bold");
+}
+
+@font-face {
+  @include includeFont(800, $third-font, "Kinetika-Ultra");
+}
+
+@font-face {
+  @include includeFont(500, $fourth-font, "Geometria-Medium");
+}
