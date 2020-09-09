@@ -1,0 +1,127 @@
+.security {
+  padding: 30px 20px;
+}
+
+.security__title {
+  margin-bottom: 40px;
+  font-weight: 800;
+  font-size: 20px;
+  font-family: $third-font, sans-serif;
+  color: #191c1f;
+  text-transform: uppercase;
+}
+
+.security__list {
+  @include list-reset;
+}
+
+.security__item {
+  position: relative;
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &--regist::before {
+    width: 79px;
+    height: 16px;
+    background-image: url("../../img/logo-removebg-preview@2x.png");
+    background-size: 79px 16px;
+  }
+
+  &--connect::before {
+    width: 28px;
+    height: 28px;
+    background-image: url("../../img/padlock@2x.png");
+    background-size: 28px;
+  }
+
+  &--data::before {
+    width: 27px;
+    height: 27px;
+    background-image: url("../../img/shield@2x.png");
+    background-size: 27px;
+  }
+
+  &--host::before {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../img/france@2x.png");
+    background-size: 24px;
+  }
+}
+
+.security__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.security__name {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.security__desc {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1280px) {
+  .security {
+    @include page-wrapper;
+  }
+
+  .security__title {
+    margin-bottom: 60px;
+    font-size: 25px;
+    line-height: 31px;
+  }
+
+  .security__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .security__item {
+    display: flex;
+    margin: 0;
+    margin-left: 138px;
+
+    &--connect {
+      margin-left: 132px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &::before {
+      margin-bottom: 0;
+    }
+
+    &--regist::before {
+      width: 102px;
+      height: 21px;
+      background-size: 102px 21px;
+    }
+  }
+
+  .security__text {
+    margin-left: 15px;
+
+    &--regist {
+      margin-left: 30px;
+    }
+  }
+}
