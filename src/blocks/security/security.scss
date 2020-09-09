@@ -3,12 +3,12 @@
 }
 
 .security__title {
-  font-family: $third-font, sans-serif;
+  margin-bottom: 40px;
   font-weight: 800;
   font-size: 20px;
-  text-transform: uppercase;
+  font-family: $third-font, sans-serif;
   color: #191c1f;
-  margin-bottom: 40px;
+  text-transform: uppercase;
 }
 
 .security__list {
@@ -30,31 +30,31 @@
   }
 
   &--regist::before {
-    background-image: url("../../img/logo-removebg-preview@2x.png");
-    background-size: 79px 16px;
     width: 79px;
     height: 16px;
+    background-image: url("../../img/logo-removebg-preview@2x.png");
+    background-size: 79px 16px;
   }
 
   &--connect::before {
-    background-image: url("../../img/padlock@2x.png");
-    background-size: 28px;
     width: 28px;
     height: 28px;
+    background-image: url("../../img/padlock@2x.png");
+    background-size: 28px;
   }
 
   &--data::before {
-    background-image: url("../../img/shield@2x.png");
-    background-size: 27px;
     width: 27px;
     height: 27px;
+    background-image: url("../../img/shield@2x.png");
+    background-size: 27px;
   }
 
   &--host::before {
-    background-image: url("../../img/france@2x.png");
-    background-size: 24px;
     width: 24px;
     height: 24px;
+    background-image: url("../../img/france@2x.png");
+    background-size: 24px;
   }
 }
 
@@ -64,10 +64,10 @@
 }
 
 .security__name {
+  margin-bottom: 5px;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  margin-bottom: 5px;
 }
 
 .security__desc {
@@ -82,9 +82,9 @@
   }
 
   .security__title {
+    margin-bottom: 60px;
     font-size: 25px;
     line-height: 31px;
-    margin-bottom: 60px;
   }
 
   .security__list {
@@ -94,9 +94,9 @@
   }
 
   .security__item {
+    display: flex;
     margin: 0;
     margin-left: 138px;
-    display: flex;
 
     &--connect {
       margin-left: 132px;
@@ -111,9 +111,9 @@
     }
 
     &--regist::before {
-      background-size: 102px 21px;
       width: 102px;
       height: 21px;
+      background-size: 102px 21px;
     }
   }
 
