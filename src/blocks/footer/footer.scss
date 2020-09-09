@@ -38,6 +38,11 @@
 
 .footer__link-site {
   line-height: 12px;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 @media (min-width: 1280px) {
