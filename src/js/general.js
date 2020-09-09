@@ -7,4 +7,10 @@ if(window.matchMedia("(min-width: 1280px)").matches) {
   editWidthMenu(items)
 }
 
+const itemsFooter = document.querySelectorAll(`.footer__item`);
+
+if(window.matchMedia("(min-width: 1280px)").matches) {
+  editWidthMenu(itemsFooter)
+}
+
 changeBurger(showMenu);
