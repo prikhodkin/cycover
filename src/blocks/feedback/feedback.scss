@@ -1,7 +1,6 @@
 .feedback {
-  max-width: 320px;
-  margin: 0 auto;
   padding: 40px 20px;
+  overflow: hidden;
 }
 
 .feedback__title {
@@ -23,6 +22,7 @@
 
 .feedback__list {
   @include list-reset;
+  display: flex;
   margin-bottom: 30px;
 }
 
@@ -66,10 +66,20 @@
   fill: #304bab;
 }
 
+@media (min-width: 600px) {
+  .feedback__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
 @media (min-width: 1280px) {
   .feedback {
     max-width: 100%;
     margin: 0;
+    padding-right: 0;
+    padding-left: 0;
     overflow: hidden;
   }
 
@@ -88,16 +98,14 @@
   }
 
   .feedback__list {
+    @include page-wrapper;
     display: flex;
     margin-bottom: 50px;
-    padding-left: calc(50% - 640px);
   }
 
   .feedback__item {
-    margin-left: 55px;
-
-    &:first-child {
-      margin-left: 0;
+    &:not(:last-child) {
+      margin-right: 55px;
     }
   }
 
@@ -107,8 +115,6 @@
   }
 
   .feedback__button {
-    &--back {
-      margin-left: -2px;
-    }
+    cursor: pointer;
   }
 }
