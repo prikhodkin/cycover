@@ -1,0 +1,108 @@
+.customer-card {
+  width: 100%;
+}
+
+.customer-card__box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.customer-card__foto {
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  background-color: #ababab;
+  border-radius: 20px 0 20px 20px;
+}
+
+.customer-card__img {
+  object-fit: cover;
+}
+
+.customer-card__list {
+  @include list-reset;
+  margin-left: 30px;
+}
+
+.customer-card__item {
+  &--name {
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &--position {
+    font-size: 13px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.customer-card__comment {
+  position: relative;
+  display: flex;
+  width: 279px;
+  height: 114px;
+  padding: 30px;
+  border: 1px solid #e3e3e3;
+  border-radius: 20px 0 20px 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    width: 68px;
+    height: 67px;
+    background-image: url("../../img/quotation-marks.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.05;
+  }
+}
+
+.customer-card__text {
+  font-size: 12px;
+  line-height: 162.43%;
+  font-style: italic;
+}
+
+@media (min-width: 1280px) {
+  .customer-card__foto {
+    width: 96px;
+    height: 96px;
+  }
+
+  .customer-card__item {
+    &--name {
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &--position {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  .customer-card__comment {
+    width: 297px;
+    height: 198px;
+
+
+    &::before {
+      content: "";
+      width: 84px;
+      height: 84px;
+      opacity: 0.05;
+    }
+  }
+
+  .customer-card__text {
+    font-size: 16px;
+    line-height: 162.43%;
+  }
+}
