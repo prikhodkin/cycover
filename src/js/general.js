@@ -1,15 +1,10 @@
-import "alpinejs";
-import changeBurger from "%modules%/burger/burger";
-import {showMenu, editWidthMenu, test} from "%modules%/menu/menu";
+import Turbolinks from "turbolinks";
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-const items = document.querySelectorAll(`.menu__item`);
-const itemsFooter = document.querySelectorAll(`.footer__item`);
+Turbolinks.start();
 
-if(window.matchMedia("(min-width: 1280px)").matches) {
-  editWidthMenu(items)
-  editWidthMenu(itemsFooter)
-}
+const application = Application.start()
+const context = require.context("./controllers", true, /\.js$/);
+application.load(definitionsFromContext(context));
 
-changeBurger(showMenu);
-
-window.test = test;
