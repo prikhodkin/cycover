@@ -14,4 +14,12 @@ const editWidthMenu = (items) => {
   })
 }
 
-export {showMenu, editWidthMenu };
+const test = () => {
+  return {
+    editWidth() {
+      this.querySelectorAll(``)
+    }
+  }
+}
+
+export {showMenu, editWidthMenu, test };

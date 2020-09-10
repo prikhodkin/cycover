@@ -1,5 +1,6 @@
+import "alpinejs";
 import changeBurger from "%modules%/burger/burger";
-import {showMenu, editWidthMenu} from "%modules%/menu/menu";
+import {showMenu, editWidthMenu, test} from "%modules%/menu/menu";
 
 const items = document.querySelectorAll(`.menu__item`);
 const itemsFooter = document.querySelectorAll(`.footer__item`);
@@ -10,3 +11,5 @@ if(window.matchMedia("(min-width: 1280px)").matches) {
 }
 
 changeBurger(showMenu);
+
+window.test = test;
