@@ -63,6 +63,16 @@
   font-weight: bold;
   font-size: 16px;
   color: #191c1f;
+  transition: all 0.3s;
+
+
+  &:hover {
+    color: #304bab;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
 }
 
 .contact__desc {
