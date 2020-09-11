@@ -1,0 +1,49 @@
+.tariff {
+  padding: 20px;
+}
+
+.tariff__title {
+  margin-bottom: 85px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 142.43%;
+  font-family: $third-font, sans-serif;
+  text-align: center;
+  color: #191c1f;
+  text-transform: uppercase;
+}
+
+.tariff__list {
+  @include list-reset;
+}
+
+.tariff__item {
+  margin-bottom: 70px;
+}
+
+@media (min-width: 1280px) {
+  .tariff {
+    @include page-wrapper;
+  }
+
+  .tariff__title {
+    margin-bottom: 115px;
+    font-size: 40px;
+    line-height: 142.43%;
+  }
+
+  .tariff__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tariff__item {
+    width: 359px;
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: 70px;
+    }
+  }
+}

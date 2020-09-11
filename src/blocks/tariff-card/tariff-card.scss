@@ -1,0 +1,249 @@
+.tariff-card {
+  position: relative;
+  padding: 0 30px;
+  padding-top: 70px;
+  padding-bottom: 25px;
+  background-color: #f8f8f8;
+  border-radius: 40px 0 40px 40px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 86px;
+    height: 86px;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px 0 30px 30px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.05);
+    transform: translate(-50%, -50%);
+  }
+
+  &--prime {
+    background-color: #304bab;
+  }
+
+  &--base::before {
+    background-image: url("../../img/send.svg");
+  }
+
+  &--prime::before {
+    background-image: url("../../img/plane.svg");
+  }
+
+  &--business::before {
+    background-image: url("../../img/people.svg");
+  }
+}
+
+.tariff-card__name {
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 182.43%;
+  font-family: $third-font, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+
+  &--prime {
+    color: #ffffff;
+  }
+}
+
+.tariff-card__price {
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  font-weight: 300;
+  font-size: 33px;
+  line-height: 182.43%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+
+  &--prime {
+    color: #ffffff;
+  }
+}
+
+.tariff-card__list {
+  @include list-reset;
+  margin-bottom: 25px;
+}
+
+.tariff-card__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.tariff-card__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  &--available {
+    background-color: #304bab;
+  }
+
+  &--unavailable {
+    background-color: #dddddd;
+  }
+
+  &--prime-available {
+    background-color: #ffffff;
+  }
+
+  &--prime-unavailable {
+    background-color: #485bc2;
+  }
+}
+
+.tariff-card__img {
+  &--tick {
+    width: 7px;
+    height: 5px;
+    fill: #ffffff;
+  }
+
+  &--cross {
+    width: 5px;
+    height: 5px;
+    fill: #9d9d9d;
+  }
+
+  &--prime-tick {
+    fill: #304bab;
+  }
+
+  &--prime-cross {
+    fill: #8894d7;
+  }
+}
+
+.tariff-card__desc {
+  margin-left: 10px;
+  font-size: 12px;
+  line-height: 182.43%;
+
+  &--prime {
+    color: #ffffff;
+  }
+}
+
+.tariff-card__button {
+  padding: 17px 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $fourth-font, sans-serif;
+  color: #ffffff;
+  background-color: #304bab;
+  background-image: url("../../img/button__background-blue.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:hover {
+    background-image: none;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &--prime {
+    color: #1a2789;
+    background-color: #ffffff;
+    background-image: none;
+  }
+
+  &--prime:hover {
+    color: #ffffff;
+    background-color: #304bab;
+    background-image: url("../../img/button__background-blue.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.tariff-card__text-prime {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .tariff-card {
+    padding: 0 35px;
+    padding-top: 90px;
+    padding-bottom: 30px;
+  }
+
+  .tariff-card__name {
+    padding-bottom: 40px;
+    font-size: 25px;
+    line-height: 130%;
+
+    &--business {
+      padding-bottom: 10px;
+    }
+  }
+
+  .tariff-card__price {
+    margin-bottom: 30px;
+    font-size: 45px;
+  }
+
+  .tariff-card__list {
+    margin-bottom: 35px;
+  }
+
+  .tariff-card__icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .tariff-card__img {
+    &--tick {
+      width: 9px;
+      height: 9px;
+    }
+
+    &--cross {
+      width: 7px;
+      height: 7px;
+    }
+  }
+
+  .tariff-card__desc {
+    font-size: 14px;
+  }
+
+  .tariff-card__button {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .tariff-card__text-prime {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #233596;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+  }
+}
