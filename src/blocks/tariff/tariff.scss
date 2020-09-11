@@ -43,6 +43,7 @@
 @media (min-width: 1280px) {
   .tariff {
     padding-top: 60px;
+    padding-bottom: 70px;
 
     @include page-wrapper;
   }
