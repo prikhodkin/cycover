@@ -4,7 +4,7 @@ import { tns } from "tiny-slider/src/tiny-slider"
 export default class extends Controller {
   static targets = [ `next`, `prev`, `list` ]
 
-  connect() {
+  initialize() {
    this.init();
   }
 

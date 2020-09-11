@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Gulp v4.1</title>
+  @@include('../blocks/favicon/favicon.html')
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/Kinetika-Ultra.woff2" as="font" crossorigin="">
+  <script src="js/vendor.js"></script>
+  <script src="js/general.js" defer></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="page">
+<header class="page__header header">
+  <div class="header__top">
+    <ul class="header__control modifier">
+      <li class="modifier__item"><a href="index.html">Обычный</a></li>
+      <li class="modifier__item modifier__item--active"><a href="#">Профессиональный</a></li>
+    </ul>
+    <a href="tel:+25994244353" class="header__phone">
+      <svg width="17" height="17">
+        <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+      </svg>
+      <span>+2 599 424-43-53</span>
+    </a>
+  </div>
+  <div class="header__bottom" data-controller="menu">
+    <a href="#" class="header__logo">
+      <picture>
+        <source media="(min-width: 1280px)" srcset="../img/logo-header@desktop.png">
+        <source type="image/webp" media="(min-width: 1280px)" srcset="../img/logo-header@desktop.webp">
+        <source type="image/webp" srcset="../img/logo-header@mobile.webp">
+        <img src="../img/logo-header@mobile.png" alt="logo">
+      </picture>
+    </a>
+    <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
+      <span class="burger__inner">Открыть меню</span>
+    </button>
+    <nav class="header__menu menu">
+      <ul class="menu__list">
+        <li class="menu__item" data-target="menu.item"><a href="#">Accueil</a></li>
+        <li class="menu__item" data-target="menu.item"><a href="#">À propos</a></li>
+        <li class="menu__item" data-target="menu.item"><a href="#">Comment ça marche</a></li>
+        <li class="menu__item" data-target="menu.item"><a href="#">Nos avantages</a></li>
+        <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
+        <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
+      </ul>
+      <div class="header__button">
+        <svg width="22" height="22">
+          <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+        </svg>
+        <a href="" class="header__callback button button--thin">Espace client</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<body class="page__body body">
+@@include('../blocks/feedback/feedback.html')
+@@include('../blocks/contact/contact.html')
+@@include('../blocks/security/security.html')
+</body>
+
+@@include('../blocks/footer/footer.html')
+</body>
+</html>

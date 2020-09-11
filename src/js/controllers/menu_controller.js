@@ -4,7 +4,7 @@ import {UNIT, ADD_WIDTH} from "../../js/util";
 export default class extends Controller {
   static targets = [ `item`, `trigger` ]
 
-  connect() {
+  initialize() {
     this.init();
   }
 
