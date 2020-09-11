@@ -2,10 +2,14 @@ import { Controller } from "stimulus";
 import {UNIT, ADD_WIDTH} from "../../js/util";
 
 export default class extends Controller {
-  static targets = [ "item", "trigger" ]
+  static targets = [ `item`, `trigger` ]
 
   connect() {
-    if(window.matchMedia("(min-width: 1280px)").matches) {
+    this.init();
+  }
+
+  init() {
+    if(window.matchMedia(`(min-width: 1280px)`).matches) {
       this.itemTargets.forEach((item) => {
         this.changeWidth(item);
       })
