@@ -60,10 +60,43 @@
 
   <body class="page__body body">
 
-    <section class="body__tariff tariff">
+    <section class="guide">
+      <h2 class="guide__title">Comment ça marche ?</h2>
+      <ul class="guide__list">
+        <li class="guide__item guide__item--one">
+          <span class="guide__number">1</span>
+          <div class="guide__box">
+            <p class="guide__name">Simulez votre prêt</p>
+            <p class="guide__text">Pretto est le seul simulateur de prêt immobilier en ligne vraiment transparent.</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--two">
+          <span class="guide__number">2</span>
+          <div class="guide__box">
+            <p class="guide__name guide__name--two">Nos experts à votre écoute</p>
+            <p class="guide__text">Avec votre conseiller Pretto, vous affinez votre demande de crédit et optimisez votre
+              dossier: apport, assurance, prêts aidés.</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--three">
+          <span class="guide__number">3</span>
+          <div class="guide__box">
+            <p class="guide__name">Obtenez votre prêt</p>
+            <p class="guide__text">Pretto vous accompagne jusqu’à La signature de votre prêt, sans engagement.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="tariff">
       <h2 class="tariff__title">Comment ça marche ?</h2>
       <ul class="tariff__list ">
         <li class="tariff__item tariff-card tariff-card--base ">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--send">
+              <use xlink:href="img/sprites/sprite.svg#icon__send"></use>
+            </svg>
+          </div>
           <p class="tariff-card__name">de base</p>
           <p class="tariff-card__price">$499</p>
           <ul class="tariff-card__list">
@@ -108,9 +141,14 @@
               <p class="tariff-card__desc">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button button" href="#">Order now</a>
+          <a class="tariff-card__button button button--background" href="#">Order now</a>
         </li>
         <li class="tariff__item tariff-card tariff-card--prime">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--plane">
+              <use xlink:href="img/sprites/sprite.svg#icon__plane"></use>
+            </svg>
+          </div>
           <p class="tariff-card__name tariff-card__name--prime">Prime</p>
           <p class="tariff-card__price tariff-card__price--prime">$999</p>
           <ul class="tariff-card__list">
@@ -155,11 +193,16 @@
               <p class="tariff-card__desc tariff-card__desc--prime">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button tariff-card__button--prime button" href="#">Order now</a>
+          <a class="tariff-card__button button--white button button--background" href="#">Order now</a>
           <p class="tariff-card__text-prime">Most popular</p>
         </li>
         <li class="tariff__item tariff-card tariff-card--business">
-          <p class="tariff-card__name tariff-card__name--business">pour les entreprises</p>
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--people">
+              <use xlink:href="img/sprites/sprite.svg#icon__people"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name tariff-card__name--business">pour les <br> entreprises</p>
           <p class="tariff-card__price">$1 500</p>
           <ul class="tariff-card__list">
             <li class="tariff-card__item tariff-card__item--available">
@@ -203,7 +246,7 @@
               <p class="tariff-card__desc">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button button" href="#">Order now</a>
+          <a class="tariff-card__button button button--background" href="#">Order now</a>
         </li>
       </ul>
     </section>
