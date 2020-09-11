@@ -1,0 +1,15 @@
+.title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 142.43%;
+  font-family: $third-font, sans-serif;
+  color: #191c1f;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 40px;
+    line-height: 142.43%;
+  }
+}
