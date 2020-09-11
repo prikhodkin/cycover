@@ -21,6 +21,25 @@
   margin-bottom: 70px;
 }
 
+@media (min-width: 768px) {
+  .tariff {
+    padding: 0 30px;
+  }
+
+  .tariff__list {
+    display: flex;
+  }
+
+  .tariff__item {
+    width: calc((100% / 3) - 20px);
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: auto;
+    }
+  }
+}
+
 @media (min-width: 1280px) {
   .tariff {
     @include page-wrapper;
@@ -35,7 +54,6 @@
   .tariff__list {
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   .tariff__item {

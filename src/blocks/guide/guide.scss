@@ -1,0 +1,62 @@
+.guide {
+  padding: 0 20px;
+}
+
+.guide__title {
+  margin-bottom: 45px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 142.43%;
+  font-family: $third-font, sans-serif;
+  color: #191c1f;
+  text-transform: uppercase;
+}
+
+.guide__list {
+  @include list-reset;
+}
+
+.guide__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+
+  &:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    width: 2px;
+    height: 130px;
+    background-color: #304bab;
+  }
+}
+
+.guide__number {
+  position: relative;
+  padding: 5px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 158.68%;
+  font-family: $second-font, sans-serif;
+  color: #ffffff;
+  background-color: #304bab;
+  border-radius: 50%;
+}
+
+.guide__box {
+  margin-left: 20px;
+}
+
+.guide__name {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 158.68%;
+  font-family: $second-font, sans-serif;
+}
+
+.guide__text {
+  font-size: 12px;
+  line-height: 158.68%;
+}
