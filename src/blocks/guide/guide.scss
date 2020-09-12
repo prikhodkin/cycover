@@ -68,6 +68,7 @@
 @media (min-width: 1280px) {
   .guide {
     padding: 60px 0;
+    padding-top: 80px;
 
     @include page-wrapper;
   }

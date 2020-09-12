@@ -1,0 +1,39 @@
+.control {
+  display: flex;
+}
+
+.control__button {
+  width: 49px;
+  height: 49px;
+  background-color: #ffffff;
+  border: 1px solid #304bab;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &--forward {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &--back {
+    margin-left: -1px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  &:hover {
+    background-color: #304bab;
+  }
+
+  &:hover .feedback-icon {
+    fill: #ffffff;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.control-icon {
+  width: 18px;
+  height: 100%;
+  fill: #304bab;
+}

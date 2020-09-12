@@ -1,0 +1,152 @@
+.insurance {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 50px;
+  background-color: #f1f4fd;
+}
+
+.insurance__title {
+  margin-bottom: 30px;
+}
+
+.insurance__text {
+  margin-bottom: 50px;
+  font-size: 12px;
+  line-height: 168.93%;
+
+  &--semibold {
+    font-weight: 600;
+  }
+}
+
+.insurance__list {
+  @include list-reset;
+  margin-bottom: 40px;
+}
+
+.insurance__item {
+  position: relative;
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 163.43%;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &--vulnerabilities::before {
+    width: 25px;
+    height: 26px;
+    background-image: url("../../img/insurance__vulnerabilities.svg");
+  }
+
+  &--risks::before {
+    width: 31px;
+    height: 31px;
+    background-image: url("../../img/insurance__risks.svg");
+  }
+
+  &--insure::before {
+    width: 26px;
+    height: 27px;
+    background-image: url("../../img/insurance__insure.svg");
+  }
+}
+
+.insurance__box--img {
+  order: -1;
+  min-width: 297px;
+  height: 320px;
+  margin: 0 -20px;
+  background-image: url("../../img/insurance__banks@mobile.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (min-width: 1280px) {
+  .insurance {
+    flex-direction: row;
+
+    @include page-wrapper;
+    padding-top: 80px;
+  }
+
+  .insurance__box {
+    &--text {
+      max-width: 690px;
+    }
+  }
+
+  .insurance__title {
+    max-width: 490px;
+    margin-bottom: 40px;
+    font-size: 35px;
+  }
+
+  .insurance__text {
+    max-width: 625px;
+    margin-bottom: 45px;
+    font-size: 14px;
+  }
+
+  .insurance__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  .insurance__item {
+    margin-bottom: 0;
+    font-size: 16px;
+
+    &::before {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: 37px;
+    }
+
+    &--vulnerabilities {
+      max-width: 162px;
+    }
+
+    &--risks {
+      max-width: 196px;
+    }
+
+    &--insure {
+      max-width: 237px;
+    }
+  }
+
+  .insurance__button {
+    max-width: 228px;
+  }
+
+  .insurance__box--img {
+    order: inherit;
+    width: 591px;
+    height: 587px;
+    margin: 0;
+    margin-left: auto;
+    background-image: url("../../img/insurance__banks@desktop.png");
+  }
+}
