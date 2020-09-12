@@ -3,11 +3,11 @@
 }
 
 .control__button {
-  cursor: pointer;
   width: 49px;
   height: 49px;
   background-color: #ffffff;
   border: 1px solid #304bab;
+  cursor: pointer;
   transition: all 0.3s;
 
   &--forward {
