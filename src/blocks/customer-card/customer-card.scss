@@ -91,12 +91,16 @@
   .customer-card__comment {
     min-height: 198px;
 
-
     &::before {
       content: "";
       width: 84px;
       height: 84px;
       opacity: 0.05;
+    }
+
+    &:hover {
+      color: #ffffff;
+      background-color: #304BAB;
     }
   }
 
