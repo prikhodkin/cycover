@@ -25,35 +25,50 @@
     color: #ffffff;
     border-color: #ffffff;
   }
-}
 
-.button--background {
-  font-family: $fourth-font, sans-serif;
-  color: #ffffff;
-  background-color: #304bab;
-  background-image: url("../../img/button__background-blue.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  &:hover {
-    background-image: none;
-  }
-
-  &:active {
-    opacity: 0.5;
-  }
-}
-
-.button--white {
-  color: #1a2789;
-  background-color: #ffffff;
-  background-image: none;
-
-  &:hover {
+  &--background {
+    font-weight: 500;
+    font-size: 12px;
+    font-family: $fourth-font, sans-serif;
     color: #ffffff;
     background-color: #304bab;
     background-image: url("../../img/button__background-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 0.3s;
+
+    &:hover {
+      background-image: unset;
+      transition: all 0.3s;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &--white {
+    color: #1a2789;
+    background-color: #ffffff;
+    background-image: unset;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #304bab;
+      background-image: url("../../img/button__background-blue.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: all 0.3s;
+    }
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .button {
+    &--background {
+      font-size: 14px;
+    }
   }
 }
