@@ -63,6 +63,7 @@
   "dependencies": {
     "hc-sticky": "^2.2.3",
     "jquery": "^3.5.1",
+    "simplebar": "^6.0.0-beta.4",
     "slick-carousel": "^1.8.1",
     "stimulus": "^1.1.1",
     "tiny-slider": "^2.9.3",
