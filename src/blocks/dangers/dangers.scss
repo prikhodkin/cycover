@@ -1,9 +1,9 @@
 .dangers {
-  padding: 40px 20px;
-  padding-bottom: 130px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
+  padding: 40px 20px;
+  padding-bottom: 130px;
 }
 
 .dangers__title {
@@ -12,8 +12,8 @@
 
 .dangers__control {
   position: absolute;
-  left: 50%;
   bottom: 50px;
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -27,26 +27,26 @@
   min-height: 344px;
   padding: 30px;
   padding-top: 35px;
-  border: 1px solid #E3E3E3;
-  border-radius: 40px 0px 40px 40px;
+  border: 1px solid #e3e3e3;
+  border-radius: 40px 0 40px 40px;
 
   &:hover {
-    border: none;
-    box-shadow: 0px 10px 45px rgba(0, 0, 0, 0.05);
     padding: 31px;
     padding-top: 36px;
+    border: none;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.05);
   }
 }
 
 .dangers__icon {
   width: 80px;
   height: 79px;
-  border-radius: 30px 0px 30px 30px;
-  background-color: #F5F5F5;
+  margin-bottom: 30px;
+  background-color: #f5f5f5;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 32px 36px;
-  margin-bottom: 30px;
+  border-radius: 30px 0 30px 30px;
 
   &--extorsion {
     background-image: url("../../img/dangers__extorsion.svg");
@@ -62,25 +62,25 @@
 }
 
 .dangers__name {
-  font-family: $third-font;
+  margin-bottom: 15px;
   font-weight: 800;
   font-size: 18px;
   line-height: 182.43%;
-  letter-spacing: 0.02em;
-  margin-bottom: 15px;
+  font-family: $third-font;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .dangers__text {
+  margin-bottom: 15px;
   font-size: 12px;
   line-height: 182.43%;
-  margin-bottom: 15px;
 }
 
 .dangers__button {
-  margin-top: auto;
   width: 162px;
   height: 54px;
+  margin-top: auto;
 }
 
 @media (min-width: 768px) {
@@ -90,10 +90,10 @@
   }
 
   .dangers__box {
-    padding: 0 30px;
     display: flex;
     align-items: center;
     margin-bottom: 40px;
+    padding: 0 30px;
   }
 
   .dangers__title {
@@ -103,20 +103,20 @@
 
   .dangers__control {
     position: static;
-    left: inherit;
     bottom: inherit;
-    transform: inherit;
+    left: inherit;
     margin-left: auto;
+    transform: inherit;
   }
 
   .dangers__list {
-    padding-left: 30px;
     display: flex;
+    padding-left: 30px;
   }
 
   .dangers__item {
-    min-width: 279px;
     width: 279px;
+    min-width: 279px;
 
     &:not(:first-child) {
       margin-left: 20px;
@@ -139,11 +139,11 @@
   }
 
   .dangers__item {
+    min-width: 359px;
+    min-height: 435px;
     padding: 44px;
     padding-top: 50px;
     padding-bottom: 38px;
-    min-width: 359px;
-    min-height: 435px;
 
     &:not(:first-child) {
       margin-left: 40px;
