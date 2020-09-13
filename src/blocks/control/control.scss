@@ -23,7 +23,7 @@
     background-color: #304bab;
   }
 
-  &:hover .feedback-icon {
+  &:hover .control-icon {
     fill: #ffffff;
   }
 
@@ -36,4 +36,11 @@
   width: 18px;
   height: 100%;
   fill: #304bab;
+}
+
+@media (min-width: 1280px) {
+  .control__button {
+    width: 56px;
+    height: 56px;
+  }
 }
