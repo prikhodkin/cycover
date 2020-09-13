@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = [ `modal` ]
 
   initialize() {
-    this.init();
+    // this.init();
     console.log(this.data.get('parent'));
   }
 
