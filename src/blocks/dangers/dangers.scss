@@ -21,10 +21,11 @@
   @include list-reset;
 }
 
-.dangers__item {
+.dangers__wrap {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  min-height: 344px;
   padding-top: 35px;
   border: 1px solid #e3e3e3;
   border-radius: 40px 0 40px 40px;
@@ -84,19 +85,7 @@
 
 @media (min-width: 600px) {
   .dangers {
-    padding: 40px 30px;
-  }
-
-  .dangers__item {
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .dangers {
-    overflow: hidden;
+    padding-bottom: 40px;
   }
 
   .dangers__box {
@@ -118,6 +107,24 @@
     margin-left: auto;
     transform: inherit;
   }
+
+  .dangers__item {
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  .dangers__wrap {
+    padding: 30px 15px;
+
+    &:hover {
+      padding: 31px 16px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
 
   .dangers__list {
     display: flex;
@@ -141,20 +148,28 @@
     margin-bottom: 70px;
   }
 
+  .dangers__title {
+    max-width: 590px;
+    margin: 0;
+  }
+
   .dangers__list {
     @include page-wrapper;
   }
 
   .dangers__item {
+
+    &:not(:first-child) {
+      margin-left: 40px;
+    }
+  }
+
+  .dangers__wrap {
     min-width: 359px;
     min-height: 435px;
     padding: 44px;
     padding-top: 50px;
     padding-bottom: 38px;
-
-    &:not(:first-child) {
-      margin-left: 40px;
-    }
 
     &:hover {
       padding: 45px;
