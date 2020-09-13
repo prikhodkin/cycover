@@ -135,7 +135,7 @@
   }
 
   .dangers__list {
-    padding-left: calc(50% - 640px);
+    @include page-wrapper;
   }
 
   .dangers__item {
