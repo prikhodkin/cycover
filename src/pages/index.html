@@ -341,8 +341,11 @@
         </li>
       </ul>
     </section>
-    <section class="map">
+    <section class="map" data-controller="scroll">
       <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
+      <div class="map__inner" data-target="scroll.item">
+        <img class="map__img" src="../img/map.png" alt="map">
+      </div>
     </section>
     @@include('../blocks/feedback/feedback.html')
     @@include('../blocks/contact/contact.html')
