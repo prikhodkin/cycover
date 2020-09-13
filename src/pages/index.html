@@ -134,7 +134,14 @@
         <a class="insurance__button button button--thin" href="#">Se protéger</a>
       </div>
 
-      <div class="insurance__box insurance__box--img"></div>
+      <div class="insurance__box insurance__box--img">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.png">
+          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.webp">
+          <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
+          <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
+        </picture>
+      </div>
     </section>
     <section class="advantages">
       <h2 class="visually-hidden">Advantages</h2>
@@ -399,6 +406,6 @@
     @@include('../blocks/contact/contact.html')
     @@include('../blocks/security/security.html')
     @@include('../blocks/footer/footer.html')
-</body>
+ </body>
 
 </html>
