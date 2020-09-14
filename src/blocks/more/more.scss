@@ -52,4 +52,16 @@
   .more {
     @include page-wrapper;
   }
+
+  .more__title {
+    font-size: 30px;
+    line-height: 128.93%;
+  }
+
+  .more__button {
+    font-size: 14px;
+    line-height: 18px;
+    width: 227px;
+    height: 66px;
+  }
 }
