@@ -22,22 +22,22 @@
 }
 
 .focus__img {
-  border-radius: 50%;
   width: 208px;
   height: 208px;
   margin: 0 auto;
+  border-radius: 50%;
 }
 
 .focus__title {
-  text-align: center;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .focus__text {
+  margin-bottom: 25px;
   font-size: 12px;
   line-height: 128.2%;
   text-align: center;
-  margin-bottom: 25px;
 }
 
 .focus__button {
@@ -64,22 +64,20 @@
   }
 
   .focus__wrap {
-    max-width: inherit;
-    max-width: 550px;
 
     display: flex;
     align-items: center;
+    max-width: 550px;
   }
 
   .focus__box {
-
     &--img {
       margin: 0;
     }
 
     &--text {
-      margin-left: auto;
       max-width: 260px;
+      margin-left: auto;
     }
   }
 
@@ -94,17 +92,17 @@
   .focus__button {
     margin: 0;
   }
-
 }
 
 @media (min-width: 1280px) {
   .focus {
+    padding-top: 50px;
+    padding-bottom: 60px;
     background-image: url("../../img/focus__background-cycover@desktop.png");
     background-position: center;
     background-size: 90%;
+
     @include page-wrapper;
-    padding-top: 50px;
-    padding-bottom: 60px;
   }
 
   .focus__wrap {
@@ -112,7 +110,6 @@
   }
 
   .focus__box {
-
     &--img {
       width: 420px;
     }
@@ -128,18 +125,17 @@
   }
 
   .focus__title {
-    font-size: 35px;
     margin-bottom: 30px;
+    font-size: 35px;
   }
 
   .focus__text {
-    font-size: 25px;
     margin-bottom: 45px;
+    font-size: 25px;
   }
 
   .focus__button {
     width: 248px;
     height: 69px;
   }
-
 }
