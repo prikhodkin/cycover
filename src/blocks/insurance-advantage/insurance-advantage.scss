@@ -1,0 +1,51 @@
+.insurance-advantage {
+  padding: 20px 40px;
+  padding-bottom: 50px;
+  background-color: #F3F6FF;
+}
+
+.insurance-advantage__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.insurance-advantage__list {
+  @include list-reset;
+}
+
+.insurance-advantage__item {
+  margin-bottom: 20px;
+}
+
+.insurance-advantage__box {
+  position: relative;
+}
+
+.insurance-advantage__img {
+  width: 194px;
+  height: 183px;
+  border-radius: 50%;
+}
+
+.insurance-advantage__number {
+  font-family: $third-font, sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 78.93%;
+  text-transform: uppercase;
+  color: #304BAB;
+}
+
+.insurance-advantage__name {
+  font-family: $third-font, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 142.43%;
+  color: #191C1F;
+}
+
+.insurance-advantage__text {
+  font-size: 12px;
+line-height: 167.43%;
+text-align: center;
+}
