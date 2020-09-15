@@ -87,34 +87,48 @@
 
       <ul class="dangers__list" data-target="slider.list">
         <li class="dangers__item">
-          <div class="dangers__icon dangers__icon--extorsion"></div>
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
           <p class="dangers__name">cyber extorsion</p>
           <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
           <a class="dangers__button button button--background" href="#">Se protéger</a>
+          </div>
         </li>
         <li class="dangers__item">
-          <div class="dangers__icon dangers__icon--phishing"></div>
-          <p class="dangers__name">phishing</p>
-          <p class="dangers__text">Vol de données personnelles</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--phishing"></div>
+            <p class="dangers__name">phishing</p>
+            <p class="dangers__text">Vol de données personnelles</p>
+            <a class="dangers__button button button--background" href="#">Se protéger</a>
+          </div>
+
         </li>
         <li class="dangers__item">
-          <div class="dangers__icon dangers__icon--data-loss"></div>
-          <p class="dangers__name">perte de données</p>
-          <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--data-loss"></div>
+            <p class="dangers__name">perte de données</p>
+            <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
+            <a class="dangers__button button button--background" href="#">Se protéger</a>
+          </div>
+
         </li>
         <li class="dangers__item">
-          <div class="dangers__icon dangers__icon--extorsion"></div>
-          <p class="dangers__name">cyber extorsion</p>
-          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#">Se protéger</a>
+          </div>
+
         </li>
         <li class="dangers__item">
-          <div class="dangers__icon dangers__icon--extorsion"></div>
-          <p class="dangers__name">cyber extorsion</p>
-          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#">Se protéger</a>
+          </div>
+
         </li>
       </ul>
     </section>
@@ -134,7 +148,14 @@
         <a class="insurance__button button button--thin" href="#">Se protéger</a>
       </div>
 
-      <div class="insurance__box insurance__box--img"></div>
+      <div class="insurance__box insurance__box--img">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.png">
+          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.webp">
+          <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
+          <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
+        </picture>
+      </div>
     </section>
     <section class="advantages">
       <h2 class="visually-hidden">Advantages</h2>
@@ -399,6 +420,6 @@
     @@include('../blocks/contact/contact.html')
     @@include('../blocks/security/security.html')
     @@include('../blocks/footer/footer.html')
-</body>
+ </body>
 
 </html>

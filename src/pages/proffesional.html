@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <title>Gulp v4.1</title>
@@ -11,56 +12,289 @@
   <script src="js/general.js" defer></script>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="page">
-<header class="page__header header">
-  <div class="header__top">
-    <ul class="header__control modifier">
-      <li class="modifier__item"><a href="index.html">Обычный</a></li>
-      <li class="modifier__item modifier__item--active"><a href="#">Профессиональный</a></li>
-    </ul>
-    <a href="tel:+25994244353" class="header__phone">
-      <svg width="17" height="17">
-        <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
-      </svg>
-      <span>+2 599 424-43-53</span>
-    </a>
-  </div>
-  <div class="header__bottom" data-controller="menu">
-    <a href="#" class="header__logo">
-      <picture>
-        <source media="(min-width: 1280px)" srcset="../img/logo-header@desktop.png">
-        <source type="image/webp" media="(min-width: 1280px)" srcset="../img/logo-header@desktop.webp">
-        <source type="image/webp" srcset="../img/logo-header@mobile.webp">
-        <img src="../img/logo-header@mobile.png" alt="logo">
-      </picture>
-    </a>
-    <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
-      <span class="burger__inner">Открыть меню</span>
-    </button>
-    <nav class="header__menu menu">
-      <ul class="menu__list">
-        <li class="menu__item" data-target="menu.item"><a href="#">Accueil</a></li>
-        <li class="menu__item" data-target="menu.item"><a href="#">À propos</a></li>
-        <li class="menu__item" data-target="menu.item"><a href="#">Comment ça marche</a></li>
-        <li class="menu__item" data-target="menu.item"><a href="#">Nos avantages</a></li>
-        <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
-        <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
+
+<body class="page" data-controller="popup" data-popup-parent="parent">
+  <header class="page__header header">
+    <div class="header__top">
+      <ul class="header__control modifier">
+        <li class="modifier__item "><a href="index.html">Обычный</a></li>
+        <li class="modifier__item modifier__item--active"><a href="#">Профессиональный</a></li>
       </ul>
-      <div class="header__button">
-        <svg width="22" height="22">
+      <a href="tel:+25994244353" class="header__phone">
+        <svg width="17" height="17">
           <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
         </svg>
-        <a href="" class="header__callback button button--thin">Espace client</a>
+        <span>+2 599 424-43-53</span>
+      </a>
+    </div>
+    <div class="header__bottom" data-controller="menu">
+      <a href="#" class="header__logo">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="../img/logo-header@desktop.png">
+          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/logo-header@desktop.webp">
+          <source type="image/webp" srcset="../img/logo-header@mobile.webp">
+          <img src="../img/logo-header@mobile.png" alt="logo">
+        </picture>
+      </a>
+      <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
+        <span class="burger__inner">Открыть меню</span>
+      </button>
+      <nav class="header__menu menu">
+        <ul class="menu__list">
+          <li class="menu__item" data-target="menu.item"><a href="#">Accueil</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">À propos</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Comment ça marche</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Nos avantages</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
+        </ul>
+        <div class="header__button">
+          <svg width="22" height="22">
+            <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+          </svg>
+          <a href="" class="header__callback button button--thin">Espace client</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="promo">
+    <picture>
+      <source media="(min-width:700px)" srcset="../img/promo__bg@desktop.png">
+      <img src="../img/promo__bg@mobile.png" alt="bg" class="promo__img">
+    </picture>
+    <div class="promo__body">
+      <h1 class="promo__title title">PROTÉGEZ VOTRE MISSION</h1>
+      <p class="promo__desc">Vos appareils securises, et toute la famille est protegee!</p>
+      <a class="promo__button button button--background" href="#">Souscrire en ligne</a>
+    </div>
+  </section>
+  <section class="dangers" data-controller="slider">
+    <div class="dangers__box">
+      <h2 class="dangers__title title">Your whole financial life at your fingertips</h2>
+      <div class="dangers__control control">
+        <button class="control__button control__button--forward" data-target="slider.prev">
+          <svg class="control-icon">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+          </svg>
+        </button>
+        <button class="control__button control__button--back" data-target="slider.next">
+          <svg class="control-icon">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+          </svg>
+        </button>
       </div>
-    </nav>
-  </div>
-</header>
-<body class="page__body body">
-@@include('../blocks/feedback/feedback.html')
-@@include('../blocks/contact/contact.html')
-@@include('../blocks/security/security.html')
+    </div>
+
+    <ul class="dangers__list" data-target="slider.list">
+      <li class="dangers__item">
+        <div class="dangers__wrap">
+          <div class="dangers__icon dangers__icon--extorsion"></div>
+          <p class="dangers__name">cyber extorsion</p>
+          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+          <a class="dangers__button button button--background" href="#">Se protéger</a>
+        </div>
+
+      </li>
+      <li class="dangers__item">
+        <div class="dangers__wrap">
+          <div class="dangers__icon dangers__icon--phishing"></div>
+          <p class="dangers__name">phishing</p>
+          <p class="dangers__text">Vol de données personnelles</p>
+          <a class="dangers__button button button--background" href="#">Se protéger</a>
+        </div>
+
+      </li>
+      <li class="dangers__item">
+        <div class="dangers__wrap">
+          <div class="dangers__icon dangers__icon--data-loss"></div>
+          <p class="dangers__name">perte de données</p>
+          <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
+          <a class="dangers__button button button--background" href="#">Se protéger</a>
+        </div>
+
+      </li>
+      <li class="dangers__item">
+        <div class="dangers__wrap">
+          <div class="dangers__icon dangers__icon--extorsion"></div>
+          <p class="dangers__name">cyber extorsion</p>
+          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+          <a class="dangers__button button button--background" href="#">Se protéger</a>
+        </div>
+
+      </li>
+      <li class="dangers__item">
+        <div class="dangers__wrap">
+          <div class="dangers__icon dangers__icon--extorsion"></div>
+          <p class="dangers__name">cyber extorsion</p>
+          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+          <a class="dangers__button button button--background" href="#">Se protéger</a>
+        </div>
+
+      </li>
+    </ul>
+  </section>
+  <section class="insurance">
+    <div class="insurance__box insurance__box--text">
+      <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cyber</h2>
+      <p class="insurance__text">
+        <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est
+          de vous accompagner davantage.</span>
+        Nous vous aidons à identifier vos risques Cyber et Fraude, à élaborer une stratégie efficace de prévention, de
+        préparation et de
+        protection pour votre organisation. Nos équipes vous accompagnent et vous proposent un ensemble de services afin
+        de renforcer votre cyber résilience.
+      </p>
+      <ul class="insurance__list">
+        <li class="insurance__item insurance__item--vulnerabilities">Audit de vos vulnerabilites</li>
+        <li class="insurance__item insurance__item--risks">Protection face aux risques Cyber</li>
+        <li class="insurance__item insurance__item--insure">Assurance de vos risques cyber et fraude</li>
+      </ul>
+      <a class="insurance__button button button--thin" href="#">Se protéger</a>
+    </div>
+
+    <div class="insurance__box insurance__box--img">
+      <picture>
+        <source media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.png">
+        <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.webp">
+        <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
+        <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
+      </picture>
+    </div>
+  </section>
+  @@include('../blocks/more/more.html')
+  <section class="contracts">
+    <h2 class="contracts__title title">que couvrent nos contrats de cyber-assurance ?</h2>
+    <p class="contracts__text">CYCOVER spécialiste de la cyberassurance en France s’appuie sur son expertise et sur les meilleures Compagnies  afin de proposer des contrats d’assurance adaptés à tous les profils de risques. Notre objectif est de mesurer au mieux les conséquences financières d'une violation des données personnelles pour une entreprise afin de proportionner notre offre assurantielle. Nos solutions sont adaptées à toutes les tailles d’entreprise, de la PME à l’ETI et prennent en compte votre niveau de cyber-défense.</p>
+    <ul class="contracts__list">
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--1">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-1"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">gestion de l’incident</p>
+        <p class="contracts__desc">Actions d’urgence, assistance 24 / 24 – 7J/7J, restauration des données, nos assurés bénéficient d’un large réseau d’experts informatiques <br> (cyber-sécurité, gestion de crise, cyber-extorsion) afin de les accompagner.</p>
+      </li>
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--2">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-2"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">dommages subis</p>
+        <p class="contracts__desc">Pertes d’exploitation, cyber-extorsion, frais d’enquêtes et d’investigation,  frais de notification dans le cadre du RGPD, sanction administrative légalement assurable, fraude au système téléphonique, fraude informatique, atteinte à la réputation.</p>
+      </li>
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--3">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-3"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">garanties <br> responsabilite civile</p>
+        <p class="contracts__desc">Frais d’urgence, atteinte aux données, atteinte à la sécurité des systèmes informatiques, manquement à l’obligation de notification. </p>
+      </li>
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--4">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-4"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">Documents supplémentaires à télécharger</p>
+        <p class="contracts__desc">Actions d’urgence, assistance 24 / 24 – 7J/7J, restauration des données, nos assurés.</p>
+        <ul class="contracts__list-link">
+          <li class="contracts__item-link">
+            <a class="contracts__link contracts__link--pdf" href="#"></a>
+          </li>
+          <li class="contracts__item-link">
+            <a class="contracts__link contracts__link--png" href="#"></a>
+          </li>
+          <li class="contracts__item-link">
+            <a class="contracts__link contracts__link--exe" href="#"></a>
+          </li>
+        </ul>
+      </li>
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--5">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-5"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">Exigences pour les entreprises</p>
+        <p class="contracts__desc">Pertes d’exploitation, cyber-extorsion, frais d’enquêtes et d’investigation,  frais de notification dans le cadre du RGPD. </p>
+        <a class="contracts__button button button--thin" href="#">Download</a>
+      </li>
+      <li class="contracts__item">
+        <div class="contracts__img contracts__img--6">
+          <svg class="contracts__icon">
+            <use xlink:href="img/sprites/sprite.svg#contracts__icon-6"></use>
+          </svg>
+        </div>
+        <p class="contracts__name">Consulter un spécialiste</p>
+        <p class="contracts__desc">Frais d’urgence, atteinte aux données, atteinte à la sécurité des systèmes informatiques, manquement à l’obligation de notification. </p>
+        <a class="contracts__button button button--thin" href="#">Contacter</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="insurance-advantage">
+    <h2 class="insurance-advantage__title title">les atouts de l'assurance cyber cover</h2>
+    <ul class="insurance-advantage__list">
+      <li class="insurance-advantage__item">
+        <div class="insurance-advantage__box">
+          <picture>
+            <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__01@desktop.jpg">
+            <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance-advantage__01@desktop.webp">
+            <source type="image/webp" srcset="../img/insurance-advantage__01@mobile.webp">
+            <img class="insurance-advantage__img" src="../img/insurance-advantage__01@mobile.jpg" alt="diagnostic">
+          </picture>
+          <p class="insurance-advantage__number">01</p>
+        </div>
+        <p class="insurance-advantage__name">cyber diagnostic</p>
+        <p class="insurance-advantage__text">Découvrez le niveau d'exposition de votre entreprise face aux risques cyber et nos conseils en termes de gouvernance informatique.</p>
+      </li>
+      <li class="insurance-advantage__item">
+        <div class="insurance-advantage__box">
+          <picture>
+            <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__02@desktop.jpg">
+            <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance-advantage__02@desktop.webp">
+            <source type="image/webp" srcset="../img/insurance-advantage__02@mobile.webp">
+            <img class="insurance-advantage__img" src="../img/insurance-advantage__02@mobile.jpg" alt="resilience">
+          </picture>
+          <p class="insurance-advantage__number">02</p>
+        </div>
+        <p class="insurance-advantage__name">cyber résilience</p>
+        <p class="insurance-advantage__text">Nous concevons la cyber assurance dans une démarche de cyber résilience. Nous vous accompagnons dans la compréhension de vos risques numériques.</p>
+      </li>
+      <li class="insurance-advantage__item">
+        <div class="insurance-advantage__box">
+          <picture>
+            <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__03@desktop.jpg">
+            <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance-advantage__03@desktop.webp">
+            <source type="image/webp" srcset="../img/insurance-advantage__03@mobile.webp">
+            <img class="insurance-advantage__img" src="../img/insurance-advantage__03@mobile.jpg" alt="assistance">
+          </picture>
+          <p class="insurance-advantage__number">03</p>
+        </div>
+        <p class="insurance-advantage__name">assistance cyber criminalité 24/24</p>
+        <p class="insurance-advantage__text">En cas d'attaque sur votre système d'information, nous vous mettons en relation avec des prestataires agréés par les Compagnies d’Assurance.</p>
+      </li>
+    </ul>
+  </section>
+  @@include('../blocks/more/more.html')
+  <section class="video"></section>
+
+  <section class="map" data-controller="scroll">
+    <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
+    <div class="map__inner" data-target="scroll.item">
+      <img class="map__img" src="../img/map.png" alt="map">
+    </div>
+  </section>
+  @@include('../blocks/more/more.html')
+  @@include('../blocks/feedback/feedback.html')
+  @@include('../blocks/focus/focus.html')
+  @@include('../blocks/contact/contact.html')
+  @@include('../blocks/security/security.html')
+  @@include('../blocks/footer/footer.html')
 </body>
 
-@@include('../blocks/footer/footer.html')
-</body>
 </html>

@@ -39,6 +39,10 @@
 }
 
 @font-face {
+  @include includeFont(300, $third-font, "Kinetika-light");
+}
+
+@font-face {
   @include includeFont(800, $third-font, "Kinetika-Ultra");
 }
 

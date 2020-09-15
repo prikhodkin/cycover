@@ -1,0 +1,172 @@
+.insurance-advantage {
+  padding: 20px 40px;
+  padding-bottom: 50px;
+  background-color: #f3f6ff;
+}
+
+.insurance-advantage__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.insurance-advantage__list {
+  @include list-reset;
+}
+
+.insurance-advantage__item {
+  margin-bottom: 20px;
+}
+
+.insurance-advantage__box {
+  position: relative;
+  width: 183px;
+  height: 183px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    background-color: #304bab;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    width: 15px;
+    height: 15px;
+    background-color: #304bab;
+    border-radius: 50%;
+  }
+}
+
+.insurance-advantage__img {
+  position: relative;
+  z-index: 2;
+  width: 183px;
+  height: 183px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.insurance-advantage__number {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  z-index: 0;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 78.93%;
+  font-family: $third-font, sans-serif;
+  color: #304bab;
+  text-transform: uppercase;
+}
+
+.insurance-advantage__name {
+  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 142.43%;
+  font-family: $third-font, sans-serif;
+  text-align: center;
+  color: #191c1f;
+  text-transform: uppercase;
+}
+
+.insurance-advantage__text {
+  font-size: 12px;
+  line-height: 167.43%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .insurance-advantage {
+    padding: 30px 40px;
+    padding-bottom: 50px;
+  }
+
+  .insurance-advantage__list {
+    display: flex;
+  }
+
+  .insurance-advantage__item {
+    flex-basis: 30%;
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .insurance-advantage {
+    @include page-wrapper;
+    padding-top: 90px;
+    padding-bottom: 50px;
+  }
+
+  .insurance-advantage__title {
+    max-width: 625px;
+    margin: 0 auto;
+    margin-bottom: 90px;
+  }
+
+  .insurance-advantage__item {
+    max-width: 378px;
+    margin-bottom: 50px;
+  }
+
+  .insurance-advantage__box {
+    width: 260px;
+    height: 260px;
+    margin-bottom: 60px;
+
+    &::before {
+      content: "";
+      bottom: 20px;
+      left: 10px;
+      width: 42px;
+      height: 42px;
+    }
+
+
+    &::after {
+      content: "";
+      top: 25px;
+      right: 30px;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+
+  .insurance-advantage__img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .insurance-advantage__number {
+    font-size: 70px;
+    line-height: 78.93%;
+  }
+
+  .insurance-advantage__name {
+    margin-bottom: 45px;
+    font-size: 25px;
+  }
+
+  .insurance-advantage__text {
+    font-size: 16px;
+    line-height: 167.43%;
+  }
+}
