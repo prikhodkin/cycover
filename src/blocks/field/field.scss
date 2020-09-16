@@ -1,0 +1,45 @@
+.field {
+  position: relative;
+}
+
+
+.field__label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  opacity: 0.1;
+}
+
+.field__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.field__input {
+  width: 100%;
+  &::placeholder {
+    color: #000000;
+  }
+
+  &--registration {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    border: none;
+    border-bottom: 2px solid #000000;
+    opacity: 0.12;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #304bab;
+    opacity: 1;
+  }
+
+  &:hover + .field__label,
+  &:focus + .field__label {
+    opacity: 1;
+    fill: #304bab;
+  }
+}
