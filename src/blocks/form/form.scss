@@ -1,6 +1,6 @@
 .form__wrap {
-  padding: 0;
   margin-bottom: 30px;
+  padding: 0;
   border: none;
 }
 
@@ -8,11 +8,11 @@
   width: 100%;
   height: 69px;
   margin-bottom: 20px;
-  background-image: none;
-  font-family: $first-font, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
+  font-family: $first-font, sans-serif;
+  background-image: none;
 }
 
 .form__box {
