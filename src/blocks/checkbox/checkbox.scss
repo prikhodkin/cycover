@@ -1,0 +1,39 @@
+.checkbox__text {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+
+  &::before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: #304bab;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    display: none;
+    width: 10px;
+    height: 10px;
+    background-image: url("../../img/checkbox__tick.svg");
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+  }
+}
+
+.checkbox__input:checked + .checkbox__text::after {
+  display: block;
+}
+
+.checkbox__dev--privacy {
+  margin-left: 10px;
+  font-size: 11px;
+  line-height: 13px;
+  opacity: 0.5;
+}

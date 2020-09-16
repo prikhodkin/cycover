@@ -1,0 +1,35 @@
+.modal-registration {
+  position: relative;
+  width: 418px;
+  height: 495px;
+  padding: 40px 60px;
+  border-radius: 20px;
+}
+
+.modal-registration__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.modal-registration__button {
+  background-color: transparent;
+
+  border: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-image: url("../../img/modal__close.svg");
+    background-repeat: no-repeat;
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
