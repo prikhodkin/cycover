@@ -5,6 +5,10 @@
   font-family: $third-font, sans-serif;
   color: #191c1f;
   text-transform: uppercase;
+
+  &--balck {
+    color: #000000;
+  }
 }
 
 @media (min-width: 1280px) {

@@ -17,6 +17,7 @@
   }
 
   &--partner {
+
     padding: 25px 26px;
     background-color: rgba(243, 246, 255, 0.79);
     border-radius: 20px;
@@ -68,34 +69,13 @@
   color: #ffffff;
 }
 
-.situation__name-partner {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  font-family: $first-font;
-  text-align: center;
-}
 
-.situation__item {
-  margin-left: 17px;
-}
-
-.situation__img {
-  width: 66px;
-  height: 40px;
-}
 
 @media (min-width: 768px) {
   .situation__box {
     &--choose {
       display: flex;
       padding: 0 60px;
-    }
-
-    &--partner {
-      display: flex;
-      align-items: center;
-      padding: 25px 60px;
     }
   }
 
@@ -115,24 +95,6 @@
   .situation__title {
     font-size: 30px;
   }
-
-  .situation__list-partner {
-    margin-left: auto;
-  }
-
-  .situation__name-partner {
-    min-width: 120px;
-    margin-bottom: 0;
-    text-align: left;
-  }
-
-  .situation__item {
-    margin-left: 17px;
-
-    &:nth-child(4n) {
-      margin-left: 17px;
-    }
-  }
 }
 
 @media (min-width: 1120px) {
@@ -151,23 +113,7 @@
     line-height: 37px;
   }
 
-  .situation__name-partner {
-    font-size: 20px;
-    line-height: 24px;
-  }
 
-  .situation__item {
-    margin-left: 40px;
-
-    &:nth-child(4n) {
-      margin-left: 40px;
-    }
-  }
-
-  .situation__img {
-    width: 107px;
-    height: 64px;
-  }
 }
 
 @media (min-width: 1280px) {

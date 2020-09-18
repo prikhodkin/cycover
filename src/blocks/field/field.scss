@@ -18,6 +18,7 @@
 
 .field__input {
   width: 100%;
+  transition: all 0.3s;
 
   &::placeholder {
     color: #000000;
