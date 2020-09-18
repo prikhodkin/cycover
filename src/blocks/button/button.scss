@@ -35,11 +35,12 @@
     background-image: url("../../img/button__background-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
+    border: 1px solid transparent;
     transition: all 0.3s;
 
     &:hover {
       background-image: unset;
-      transition: all 0.3s;
+      // transition: all 0.3s;
     }
 
     &:active {
@@ -64,15 +65,15 @@
   }
 
   &--back {
-    background-color: #F3F5FC;
+    background-color: #f3f5fc;
     border-radius: 100px;
 
     &:hover {
-      background-color: #304BAB;
+      background-color: #304bab;
     }
 
     &:hover .button__icon {
-      fill: #F3F5FC;
+      fill: #f3f5fc;
     }
 
     &:active {
@@ -81,12 +82,25 @@
   }
 
   &--forth {
+    display: flex;
     font-weight: 500;
     font-size: 12px;
     font-family: $fourth-font, sans-serif;
     color: #ffffff;
     background-color: #304bab;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &--forth-white {
     display: flex;
+    font-weight: 500;
+    font-size: 12px;
+    font-family: $fourth-font, sans-serif;
+    color: #304bab;
+    background-color: #ffffff;
 
     &:active {
       opacity: 0.7;
@@ -95,21 +109,22 @@
 }
 
 .button__icon {
-  min-width: 15px;
   width: 15px;
+  min-width: 15px;
   height: 9px;
-  fill: #304BAB;
+  margin-left: 5px;
+  fill: #304bab;
 
   &--forth {
-    fill: #ffffff;
     margin-left: 5px;
+    fill: #ffffff;
   }
 }
 
 @media (min-width: 1120px) {
   .button__icon {
-    min-width: 18px;
     width: 18px;
+    min-width: 18px;
   }
 }
 

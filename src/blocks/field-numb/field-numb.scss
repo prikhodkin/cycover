@@ -1,26 +1,20 @@
 .field-numb {
   display: flex;
   flex-direction: column;
-
-  &:not(:last-child) {
-    margin-bottom: 30px;
-  }
 }
 
 .field-numb__input {
   width: 89px;
-  border: none;
+  padding: 9px 24px;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  padding: 9px 24px;
-  background-color: #F3F6FD;
-  border-radius: 5px;
-  appearance: textfield;
-  -webkit-appearance: textfield;
-  -moz-appearance: textfields;
   text-align: center;
+  background-color: #f3f6fd;
+  border: none;
+  border-radius: 5px;
   transition: all 0.3s;
+  appearance: textfield;
 
   &::placeholder {
     color: #000000;
