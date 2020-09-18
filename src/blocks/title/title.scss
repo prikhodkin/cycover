@@ -6,8 +6,10 @@
   color: #191c1f;
   text-transform: uppercase;
 
-  &--balck {
+  &--black {
     color: #000000;
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 
@@ -15,5 +17,10 @@
   .title {
     font-size: 40px;
     line-height: 142.43%;
+  }
+
+  &--black {
+    font-size: 25px;
+    line-height: 146%;
   }
 }

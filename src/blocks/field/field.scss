@@ -19,6 +19,9 @@
 .field__input {
   width: 100%;
   transition: all 0.3s;
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
 
   &::placeholder {
     color: #000000;
@@ -44,4 +47,9 @@
     opacity: 1;
     fill: #304bab;
   }
+}
+
+.field__input::-webkit-outer-spin-button,
+.field__input::-webkit-inner-spin-button {
+  appearance: none;
 }

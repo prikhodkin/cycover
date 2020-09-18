@@ -5,6 +5,7 @@
 
 .calculator__title {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .calculator__wrap {
@@ -19,6 +20,7 @@
 }
 
 .calculator__box {
+  @include list-reset;
 
   &--button {
     display: flex;
@@ -26,7 +28,10 @@
   }
 
   &--select {
-    @include list-reset;
+    margin-bottom: 30px;
+  }
+
+  &--amount-data {
     margin-bottom: 30px;
   }
 }
