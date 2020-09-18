@@ -29,11 +29,10 @@
   padding-top: 35px;
   border: 1px solid #e3e3e3;
   border-radius: 40px 0 40px 40px;
+  transition: all 0.3s;
 
   &:hover {
-    padding: 31px;
-    padding-top: 36px;
-    border: none;
+    border-color: transparent;
     box-shadow: 0 10px 45px rgba(0, 0, 0, 0.05);
   }
 }
@@ -116,10 +115,6 @@
 
   .dangers__wrap {
     padding: 30px 15px;
-
-    &:hover {
-      padding: 31px 16px;
-    }
   }
 }
 
@@ -139,7 +134,7 @@
 @media (min-width: 1280px) {
   .dangers {
     padding: 40px 0;
-    padding-bottom: 85px;
+    padding-bottom: 45px;
   }
 
   .dangers__box {
@@ -153,7 +148,10 @@
   }
 
   .dangers__list {
+    display: flex;
+
     @include page-wrapper;
+    padding-bottom: 40px;
   }
 
   .dangers__item {
@@ -163,17 +161,10 @@
   }
 
   .dangers__wrap {
-    min-width: 359px;
-    min-height: 435px;
+    height: 100%;
     padding: 44px;
     padding-top: 50px;
     padding-bottom: 38px;
-
-    &:hover {
-      padding: 45px;
-      padding-top: 51px;
-      padding-bottom: 39px;
-    }
   }
 
   .dangers__icon {
@@ -204,5 +195,11 @@
   .dangers__button {
     width: 164px;
     height: 57px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .dangers__list {
+    padding-right: calc(50% - 840px);
   }
 }

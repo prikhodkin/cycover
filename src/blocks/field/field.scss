@@ -19,9 +19,9 @@
 .field__input {
   width: 100%;
   transition: all 0.3s;
-  appearance: textfield;
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
+  appearance: textfield;
 
   &::placeholder {
     color: #000000;
