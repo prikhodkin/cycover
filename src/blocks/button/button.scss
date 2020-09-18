@@ -62,6 +62,55 @@
       transition: all 0.3s;
     }
   }
+
+  &--back {
+    background-color: #F3F5FC;
+    border-radius: 100px;
+
+    &:hover {
+      background-color: #304BAB;
+    }
+
+    &:hover .button__icon {
+      fill: #F3F5FC;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &--forth {
+    font-weight: 500;
+    font-size: 12px;
+    font-family: $fourth-font, sans-serif;
+    color: #ffffff;
+    background-color: #304bab;
+    display: flex;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}
+
+.button__icon {
+  min-width: 15px;
+  width: 15px;
+  height: 9px;
+  fill: #304BAB;
+
+  &--forth {
+    fill: #ffffff;
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .button__icon {
+    min-width: 18px;
+    width: 18px;
+  }
 }
 
 

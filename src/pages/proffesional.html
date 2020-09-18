@@ -347,7 +347,7 @@
   @@include('../blocks/security/security.html')
   @@include('../blocks/footer/footer.html')
   <section class="modal-registration">
-    <h2 class="modal-registration__title">Заголовок</h2>
+    <p class="modal-registration__title">Заголовок</p>
     <form class="modal-registration__form form" action="#" method="POST">
       <fieldset class="form__wrap">
         <div class="form__box field field--registration">
@@ -400,37 +400,174 @@
     </button>
   </section>
   <!-- Calculator -->
-  <section class="situation">
-    <h2 class="situation__title title">Choisissez votre situation</h2>
-    <div class="situation__box situation__box--choose">
-      <div class="situation__inner situation__inner--professional">
-        <a class="situation__link" href="#">Professional</a>
+  <section class="calculator">
+    <div class="calculator">
+      <h2 class="calculator__title title">Choisissez votre situation</h2>
+      <div class="calculator__box calculator__box--choose">
+        <div class="calculator__inner calculator__inner--professional">
+          <a class="situation__link" href="#">Professional</a>
+        </div>
+        <div class="situation__inner situation__inner--particuller">
+          <a class="situation__link" href="#">Particuller</a>
+        </div>
       </div>
-      <div class="situation__inner situation__inner--particuller">
-        <a class="situation__link" href="#">Particuller</a>
+      <div class="situation__box situation__box--partner partner">
+        <p class="partner__title situation__name-partner">Nos partenaires</p>
+        <ul class="partner__list situation__list-partner">
+          <li class="partner__item situation__item">
+            <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item situation__item">
+            <img class="partner__img situation__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item situation__item">
+            <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item situation__item">
+            <img class="partner__img situation__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item situation__item">
+            <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
+          </li>
+        </ul>
       </div>
-    </div>
-    <div class="situation__box situation__box--partner partner">
-      <p class="partner__title situation__name-partner">Nos partenaires</p>
-      <ul class="partner__list situation__list-partner">
-        <li class="partner__item situation__item">
-          <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
-        </li>
-        <li class="partner__item situation__item">
-          <img class="partner__img situation__img" src="../img/partner__img-2.png" alt="">
-        </li>
-        <li class="partner__item situation__item">
-          <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
-        </li>
-        <li class="partner__item situation__item">
-          <img class="partner__img situation__img" src="../img/partner__img-2.png" alt="">
-        </li>
-        <li class="partner__item situation__item">
-          <img class="partner__img situation__img" src="../img/partner__img-1.png" alt="">
-        </li>
-      </ul>
     </div>
   </section>
+
+  <section class="calculator">
+    <div class="calculator__wrap">
+      <h2 class="calculator__title title title--black">Votre cyber assurance en ligne </h2>
+      <ul class="calculator__box calculator__box--select">
+        <li class="calculator__select select">
+          <p class="select__name">Chiffre d’affaires consolidé HT</p>
+          <div class="select__box select__box--active">
+            <select class="select__list" name="select-list" id="select-revenue">
+              <option class="select__item" value="revenue-1">130 000</option>
+              <option class="select__item" value="revenue-2">30 000</option>
+              <option class="select__item" value="revenue-3">10 000</option>
+            </select>
+          </div>
+        </li>
+        <li class="calculator__select select">
+          <p class="select__name">Montant de la garantie souhaité</p>
+          <div class="select__box">
+            <select class="select__list" name="garantie-list" id="select-garantie">
+              <option class="select__item" value="garantie-1">100 000</option>
+              <option class="select__item" value="garantie-2">40 000</option>
+              <option class="select__item" value="garantie-3">20 000</option>
+            </select>
+          </div>
+        </li>
+        <li class="calculator__select select">
+          <p class="select__name">Effectif</p>
+          <div class="select__box">
+            <select class="select__list" name="effectif-list" id="select-effectif">
+              <option class="select__item" value="effectif-1">10</option>
+              <option class="select__item" value="effectif-2">5</option>
+              <option class="select__item" value="effectif-3">3</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+      <div class="calculator__box calculator__box--button">
+        <a class="calculator__button calculator__button--back button button--back" href="#">
+          <svg class="button__icon">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+          </svg>
+        </a>
+        <a class="calculator__button calculator__button--forth button button--forth" href="#">
+          Continuer
+          <svg class="button__icon button__icon--forth">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="calculator__footer partner">
+        <p class="partner__title calculator__name-partner">Nos partenaires</p>
+        <ul class="partner__list calculator__list-partner">
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item calculator__item--6">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+        </ul>
+    </div>
+  </section>
+
+  <section class="calculator calculator--amount-data">
+    <div class="calculator__wrap">
+      <h2 class="calculator__title title title--black">nature & volume des données personnelles détenues par le proposant et ses filiales </h2>
+      <ul class="calculator__box calculator__box--amount-data">
+        <li class="calculator__field-number field-numb">
+          <input class="field-numb__input" type="number" id="field-numb__1" placeholder="3000">
+          <label class="field-numb__label" for="field-numb__1">Nombre d’enregistrements par nature de données</label>
+        </li>
+        <li class="calculator__field-number field-numb">
+          <input class="field-numb__input" type="number" id="field-numb__2" placeholder="3000">
+          <label class="field-numb__label" for="field-numb__2">Données personnelles y compris données des employés </label>
+        </li>
+        <li class="calculator__field-number field-numb">
+          <input class="field-numb__input" type="number" id="field-numb__3" placeholder="500">
+          <label class="field-numb__label" for="field-numb__3">Dont Données médicales</label>
+        </li>
+        <li class="calculator__field-number field-numb">
+          <input class="field-numb__input" type="number" id="field-numb__4" placeholder="50">
+          <label class="field-numb__label" for="field-numb__4">Données de carte de paiment (nombre de transactions bancaires)</label>
+        </li>
+      </ul>
+      <div class="calculator__box calculator__box--button">
+        <a class="calculator__button calculator__button--back button button--back" href="#">
+          <svg class="button__icon">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+          </svg>
+        </a>
+        <a class="calculator__button calculator__button--forth button button--forth" href="#">
+          Continuer
+          <svg class="button__icon button__icon--forth">
+            <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="calculator__footer partner">
+        <p class="partner__title calculator__name-partner">Nos partenaires</p>
+        <ul class="partner__list calculator__list-partner">
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-2.png" alt="">
+          </li>
+          <li class="partner__item calculator__item">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+          <li class="partner__item calculator__item calculator__item--6">
+            <img class="partner__img calculator__img" src="../img/partner__img-1.png" alt="">
+          </li>
+        </ul>
+    </div>
+  </section>
+
 </body>
 
 </html>
