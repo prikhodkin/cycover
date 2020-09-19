@@ -2,25 +2,42 @@
   position: relative;
 }
 
-
 .field__label {
   position: absolute;
   top: 50%;
   left: 10px;
+  line-height: 0;
   transform: translateY(-50%);
   opacity: 0.1;
+
+  &--calculator {
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 1;
+  }
 }
 
 .field__icon {
   width: 16px;
   height: 16px;
+
+  &--calculator {
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+    fill: #304bab;
+  }
 }
 
 .field__input {
   width: 100%;
   transition: all 0.3s;
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
   appearance: textfield;
 
   &::placeholder {
@@ -47,9 +64,35 @@
     opacity: 1;
     fill: #304bab;
   }
+
+  &--calculator {
+    padding: 18px 15px;
+    padding-bottom: 19px;
+    padding-left: 60px;
+    font-size: 14px;
+    line-height: 19px;
+    font-family: $second-font, sans-serif;
+    background-color: #f3f6fd;
+    border: 1px solid #adbfff;
+    border-radius: 6px;
+
+    &::placeholder {
+      color: #787878;
+      opacity: 0.5;
+    }
+  }
 }
 
 .field__input::-webkit-outer-spin-button,
 .field__input::-webkit-inner-spin-button {
   appearance: none;
+}
+
+@media (min-width: 768px) {
+  .field__input {
+    &--calculator {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
 }

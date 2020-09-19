@@ -1,4 +1,4 @@
-modules.define('online-insurance', ['i-bem-dom'], function(provide, bemDom) {
+modules.define('radio-calc', ['i-bem-dom'], function(provide, bemDom) {
 
 provide(bemDom.declBlock(this.name, {
     onSetMod: {

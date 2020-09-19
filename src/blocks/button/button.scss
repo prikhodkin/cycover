@@ -40,11 +40,12 @@
     background-image: url("../../img/button__background-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
+    border: 1px solid transparent;
     transition: all 0.3s;
 
     &:hover {
       background-image: unset;
-      transition: all 0.3s;
+      // transition: all 0.3s;
     }
 
     &:active {
@@ -97,12 +98,31 @@
       opacity: 0.7;
     }
   }
+
+  &--forth-white {
+    display: flex;
+    font-weight: 500;
+    font-size: 12px;
+    font-family: $fourth-font, sans-serif;
+    color: #304bab;
+    background-color: #ffffff;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &--calc-form {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 .button__icon {
   width: 15px;
   min-width: 15px;
   height: 9px;
+  margin-left: 5px;
   fill: #304bab;
 
   &--forth {

@@ -1,5 +1,3 @@
-.select {}
-
 .select__name {
   margin-bottom: 10px;
   font-size: 12px;
@@ -9,7 +7,6 @@
 .select__box {
   position: relative;
   width: 100%;
-  // height: 50px;
   overflow: hidden;
 
   &::after {

@@ -1,4 +1,4 @@
-modules.define('data', ['i-bem-dom'], function(provide, bemDom) {
+modules.define('circle-c', ['i-bem-dom'], function(provide, bemDom) {
 
 provide(bemDom.declBlock(this.name, {
     onSetMod: {
