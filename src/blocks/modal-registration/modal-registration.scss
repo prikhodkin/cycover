@@ -3,8 +3,12 @@
   // display: none;
   max-width: 418px;
   height: 495px;
-  padding: 40px 60px;
+
   border-radius: 20px;
+}
+
+.modal-registration__wrap {
+  padding: 40px 60px;
 }
 
 .modal-registration__title {
@@ -13,24 +17,9 @@
 }
 
 .modal-registration__button {
-  background-color: transparent;
 
-  border: none;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    background-image: url("../../img/modal__close.svg");
-    background-repeat: no-repeat;
-    transform: translateX(-50%);
-    opacity: 0.5;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
 }

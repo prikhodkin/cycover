@@ -347,7 +347,8 @@
   @@include('../blocks/security/security.html')
   @@include('../blocks/footer/footer.html')
   <section class="modal-registration">
-    <p class="modal-registration__title">Заголовок</p>
+    <div class="modal-registration__wrap">
+      <p class="modal-registration__title">Заголовок</p>
     <form class="modal-registration__form form" action="#" method="POST">
       <fieldset class="form__wrap">
         <div class="form__box field field--registration">
@@ -395,23 +396,30 @@
         </label>
       </div>
     </form>
-    <button class="modal-registration__button">
+    <button class="modal-registration__button button-close">
       <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
     </button>
+    </div>
   </section>
+
   <!-- Calculator -->
+
   <section class="calculator">
-    <div class="calculator">
-      <h2 class="calculator__title title">Choisissez votre situation</h2>
-      <div class="calculator__box calculator__box--choose">
-        <div class="calculator__inner calculator__inner--professional">
-          <a class="situation__link" href="#">Professional</a>
-        </div>
-        <div class="situation__inner situation__inner--particuller">
-          <a class="situation__link" href="#">Particuller</a>
-        </div>
-      </div>
-      <div class="calculator__footer partner">
+    <div class="calculator__wrap">
+      <h2 class="calculator__title title title--black">Choisissez votre situation</h2>
+      <ul class="calculator__list calculator__list--situation">
+        <li class="calculator__item calculator__item--situation situation situation--professional">
+          <a class="situation__link situation__link--professional" href="#">Professional </a>
+        </li>
+        <li class="calculator__item calculator__item--situation situation situation--particuller">
+          <a class="situation__link situation__link--particuller" href="#">Particuller </a>
+        </li>
+      </ul>
+    </div>
+    <div class="calculator__footer partner">
         <p class="partner__title calculator__name-partner">Nos partenaires</p>
         <ul class="partner__list calculator__list--partner">
           <li class="partner__item calculator__item calculator__item--partner">
@@ -434,7 +442,12 @@
           </li>
         </ul>
     </div>
-    </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
   <section class="calculator">
@@ -509,6 +522,12 @@
           </li>
         </ul>
     </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
   <section class="calculator calculator--amount-data">
@@ -569,6 +588,12 @@
         </li>
       </ul>
   </div>
+  <button class="calculator__button-close button-close">
+    <span class="visually-hidden">close</span>
+    <svg class="button-close__icon">
+      <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+    </svg>
+  </button>
   </section>
 
   <section class="calculator calculator--amount-data-next">
@@ -644,6 +669,12 @@
         </li>
       </ul>
     </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
   <section class="calculator calculator--circle">
@@ -678,6 +709,12 @@
         </li>
       </ul>
     </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
   <section class="calculator calculator--tariff">
@@ -814,6 +851,12 @@
         </li>
       </ul>
     </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
   <section class="calculator calculator--personal-data">
@@ -885,6 +928,25 @@
         </li>
       </ul>
     </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
+  </section>
+
+  <section class="calculator calculator--approved">
+    <div class="calculator__wrap calculator__wrap--approved">
+      <div class="calculator__tick"></div>
+      <p class="calculator__desc calculator__desc--approved">Votre demande sera approuver</p>
+    </div>
+    <button class="calculator__button-close button-close">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
   </section>
 
 </body>
