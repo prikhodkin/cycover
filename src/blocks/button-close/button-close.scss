@@ -1,0 +1,19 @@
+.button-close {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.button-close__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+}

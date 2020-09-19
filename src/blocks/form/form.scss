@@ -42,16 +42,8 @@
     }
 
     &--calculator {
-      min-width: 300px;
-      margin: 25px 40px;
-    }
-  }
-}
-
-@media (min-width: 1120px) {
-  .form__box {
-    &--calculator {
       min-width: 35%;
+      margin: 25px 40px;
     }
   }
 }
