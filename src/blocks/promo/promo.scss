@@ -75,5 +75,15 @@
     width: 450px;
     min-width: 450px;
     margin-right: auto;
+
+    &--inner {
+      width: 470px;
+      min-width: 470px;
+      margin-right: 120px;
+
+      .title {
+        margin-bottom: 36px;
+      }
+    }
   }
 }
