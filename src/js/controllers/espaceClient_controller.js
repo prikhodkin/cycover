@@ -43,6 +43,10 @@ export default class extends Controller {
   toggle() {
     const popup = document.querySelector(`.modal-registration__main-box`);
     const overlay = document.querySelector(`.overlay`);
+
+    const scrollY = window.pageYOffset;
+    console.log(scrollY)
+    popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
     popup.classList.toggle(`modal-registration__main-box--active`);
     overlay.classList.toggle(`overlay--active`)
   }
