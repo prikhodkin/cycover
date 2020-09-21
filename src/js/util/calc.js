@@ -1,4 +1,4 @@
-const mainElement = document.querySelector(`#calculator`);
+
 
 const render = (template) => {
   const wrapper = document.createElement(`div`);
@@ -7,6 +7,7 @@ const render = (template) => {
 };
 
 const changeScreen = (element) => {
+  const mainElement = document.querySelector(`#calculator`);
   mainElement.innerHTML = ``;
   mainElement.appendChild(element);
 };

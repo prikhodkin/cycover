@@ -5,6 +5,8 @@ export default class extends Controller {
 
   static targets = [ `form`,`link` ]
 
+  initialize() {}
+
   showPopup(e){
     e.preventDefault();
     this.toggle();
