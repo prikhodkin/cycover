@@ -18,36 +18,36 @@ module.exports = function images() {
   return gulp.src(paths.images.src)
     .pipe(plumber())
     .pipe(newer(paths.images.dest))
-    .pipe(gulpif(production, imagemin([
-      imageminGiflossy({
-        optimizationLevel: 3,
-        optimize: 3,
-        lossy: 2
-      }),
-      imageminPngquant({
-        speed: 5,
-        quality: [0.6, 0.8]
-      }),
-      imageminZopfli({
-        more: true
-      }),
-      imageminMozjpeg({
-        progressive: true,
-        quality: 90
-      }),
-      imagemin.svgo({
-        plugins: [
-          { removeViewBox: false },
-          { removeUnusedNS: false },
-          { removeUselessStrokeAndFill: false },
-          { cleanupIDs: false },
-          { removeComments: true },
-          { removeEmptyAttrs: true },
-          { removeEmptyText: true },
-          { collapseGroups: true }
-        ]
-      })
-    ])))
+    // .pipe(gulpif(production, imagemin([
+    //   imageminGiflossy({
+    //     optimizationLevel: 3,
+    //     optimize: 3,
+    //     lossy: 2
+    //   }),
+    //   imageminPngquant({
+    //     speed: 5,
+    //     quality: [0.6, 0.8]
+    //   }),
+    //   imageminZopfli({
+    //     more: true
+    //   }),
+    //   imageminMozjpeg({
+    //     progressive: true,
+    //     quality: 90
+    //   }),
+    //   imagemin.svgo({
+    //     plugins: [
+    //       { removeViewBox: false },
+    //       { removeUnusedNS: false },
+    //       { removeUselessStrokeAndFill: false },
+    //       { cleanupIDs: false },
+    //       { removeComments: true },
+    //       { removeEmptyAttrs: true },
+    //       { removeEmptyText: true },
+    //       { collapseGroups: true }
+    //     ]
+    //   })
+    // ])))
     .pipe(gulp.dest(paths.images.dest))
     .pipe(browserSync.reload({
       stream: true
