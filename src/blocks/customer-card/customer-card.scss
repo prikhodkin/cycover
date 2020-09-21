@@ -56,10 +56,9 @@
     bottom: 5px;
     width: 68px;
     height: 67px;
-    background-image: url("../../img/quotation-marks.svg");
+    background-image: url("../../img/quotation-marks.png");
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.05;
   }
 
   &:hover {
@@ -101,7 +100,6 @@
       content: "";
       width: 84px;
       height: 84px;
-      opacity: 0.05;
     }
   }
 
