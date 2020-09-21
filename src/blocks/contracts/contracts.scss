@@ -10,6 +10,15 @@
   margin-bottom: 45px;
   font-size: 12px;
   line-height: 174.7%;
+  max-width: 276px;
+}
+
+.contracts__subtext {
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 .contracts__list {
@@ -107,6 +116,10 @@
     margin: -15px;
   }
 
+  .contracts__text {
+    max-width: inherit;
+  }
+
   .contracts__item {
     width: calc((100% / 3) - 30px);
     min-height: 360px;
@@ -144,6 +157,7 @@
     margin-bottom: 65px;
     font-size: 14px;
     line-height: 155.7%;
+    max-width: 1140px;
   }
 
   .contracts__item {
