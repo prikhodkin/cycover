@@ -27,6 +27,7 @@ export default class VotreView extends AbstractView {
 
     nexts.forEach(it => {
       it.addEventListener(`click`, (e) => {
+        e.preventDefault();
         this.onClickNext(e);
       });
     })

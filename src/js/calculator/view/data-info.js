@@ -48,11 +48,13 @@ export default class DataInfoView extends AbstractView {
     const next = this.element.querySelector(`.calculator__button--forth`);
     const back = this.element.querySelector(`.calculator__button--back`);
 
-    next.addEventListener(`click`, () => {
+    next.addEventListener(`click`, (e) => {
+      e.preventDefault()
       this.onClickNext();
     });
 
-    back.addEventListener(`click`, () => {
+    back.addEventListener(`click`, (e) => {
+      e.preventDefault()
       this.onClickBack();
     })
   }

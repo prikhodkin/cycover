@@ -71,11 +71,13 @@ export default class AssuranceView extends AbstractView {
     const back = this.element.querySelector(`.calculator__button--back`);
     const select = this.element.querySelector(`#select-garantie`)
 
-    next.addEventListener(`click`, () => {
+    next.addEventListener(`click`, (e) => {
+      e.preventDefault()
       this.onClickNext();
     });
 
-    back.addEventListener(`click`, () => {
+    back.addEventListener(`click`, (e) => {
+      e.preventDefault
       this.onClickBack();
     });
 

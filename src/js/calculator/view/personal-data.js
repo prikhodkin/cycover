@@ -62,6 +62,7 @@ export default class PersonalDataView extends AbstractView {
     const next = this.element.querySelector(`.button--forth`);
 
     next.addEventListener(`click`, (e) => {
+      e.preventDefault()
       this.onClickNext(e);
     });
 
