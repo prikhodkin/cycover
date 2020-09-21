@@ -391,8 +391,12 @@
 }
 
 @media (min-width: 1280px) {
-  .calculator__wrap {
+  .calculator__main-box {
     @include page-wrapper;
+
+  }
+  .calculator__wrap {
+
 
     &--approved {
       padding: 60px 70px;
@@ -400,6 +404,6 @@
   }
 
   .calculator__footer {
-    @include page-wrapper;
-  }
+    padding: 25px 80px;
+}
 }

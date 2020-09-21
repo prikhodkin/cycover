@@ -5,6 +5,8 @@ export default class extends Controller {
 
   static targets = [ `form`,`link` ]
 
+  initialize() {}
+
   showPopup(e){
     e.preventDefault();
     this.toggle();
@@ -25,7 +27,11 @@ export default class extends Controller {
       url: `vendor/mail.php`, // Change
       data: form.serialize()
     }).done(function () {
-      this.toggle();
+      // this.toggle();
+      const popup = $(`.modal-registration__main-box`);
+      const overlay = $(`.overlay`)
+      $(popup).toggleClass(`modal-registration__main-box--active`)
+      $(overlay).toggleClass(`overlay--active`)
       setTimeout(function () {
         // Done Functions
         form.trigger(`reset`);
