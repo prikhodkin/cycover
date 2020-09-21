@@ -107,8 +107,11 @@
   .video {
     padding-top: 80px;
     padding-bottom: 50px;
-    // @include page-wrapper;
     padding-left: calc(50% - 640px);
+  }
+
+  .video__title {
+    margin-bottom: 35px;
   }
 
   .video__box {

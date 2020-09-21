@@ -117,6 +117,8 @@
 
 @media (min-width: 1280px) {
   .security {
+    padding-top: 55px;
+    padding-bottom: 45px;
     @include page-wrapper;
   }
 
