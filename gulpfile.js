@@ -46,7 +46,7 @@ module.exports.build = gulp.series(
     style,
     scripts,
     sprite,
-    webp,
+    // webp,
     vendor
   ),
   hash
