@@ -1,10 +1,22 @@
 .modal-registration {
   position: relative;
-  // display: none;
   max-width: 418px;
   height: 495px;
-
   border-radius: 20px;
+  background: white;
+  margin: 0 auto;
+}
+
+.modal-registration__main-box {
+  display: none;
+  z-index: 11;
+  width: 100%;
+
+  &--active {
+    display: block;
+    position: fixed;
+    top: 20px;
+  }
 }
 
 .modal-registration__wrap {

@@ -18,9 +18,11 @@
       <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Contact</a></li>
     </ul>
 
-    <a class="footer__button button button--thin button button--light" href="#">
-      Espace client
-    </a>
+    <div style="margin-left: auto;" data-controller="espaceClient">
+      <a class="footer__button button button--thin button button--light" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">
+        Espace client
+      </a>
+    </div>
   </div>
 
   <div class="footer__bottom">
