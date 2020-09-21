@@ -7,6 +7,9 @@ export default class PersonalDataView extends AbstractView {
       <section class="calculator calculator--personal-data" data-controller="calculator">
         <div class="calculator__wrap calculator__wrap--personal-data">
           <form class="calculator__form form form--calculator" action="#" method="POST">
+            <input type="hidden" name="project_name" value="cycover">
+            <input type="hidden" name="admin_email" value="089ax@mail.ru">
+            <input type="hidden" name="form_subject" value="calculator">
             <div class="form__wrap form__wrap--calculator">
               <div class="form__box form__box--calculator field field--calculator">
                 <input class="field__input field__input--calculator" type="text" id="form-siret" name="siret" placeholder="Siret">
@@ -50,7 +53,7 @@ export default class PersonalDataView extends AbstractView {
             </button>
           </form>
         </div>
-        ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }
@@ -58,8 +61,8 @@ export default class PersonalDataView extends AbstractView {
   bind() {
     const next = this.element.querySelector(`.button--forth`);
 
-    next.addEventListener(`click`, () => {
-      this.onClickNext();
+    next.addEventListener(`click`, (e) => {
+      this.onClickNext(e);
     });
 
   }

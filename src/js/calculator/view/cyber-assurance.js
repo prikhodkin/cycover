@@ -1,7 +1,9 @@
 import AbstractView from '../abstract-view.js';
 import footerTemplate from './footer'
+import {garanties} from '../../util/calc'
 
 export default class AssuranceView extends AbstractView {
+
   get template() {
     return `
       <section class="calculator" data-controller="calculator">
@@ -21,10 +23,15 @@ export default class AssuranceView extends AbstractView {
             <li class="calculator__item calculator__item--select select">
               <p class="select__name">Montant de la garantie souhaité</p>
               <div class="select__box">
-                <select class="select__list" name="garantie-list" id="select-garantie">
-                  <option class="select__item" value="garantie-1">100 000</option>
-                  <option class="select__item" value="garantie-2">40 000</option>
-                  <option class="select__item" value="garantie-3">20 000</option>
+                <select class="select__list" name="garantie-list" id="select-garantie"}>
+
+
+                  ${garanties.map(it => {
+                    return `
+                      <option class="select__item" value="${it.value}" ${it.selected ? 'selected' : ''}>${it.value}</option>
+                    `
+                  }).join(``)}
+
                 </select>
               </div>
             </li>
@@ -53,7 +60,7 @@ export default class AssuranceView extends AbstractView {
             </a>
           </div>
         </div>
-        ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }
@@ -62,6 +69,7 @@ export default class AssuranceView extends AbstractView {
 
     const next = this.element.querySelector(`.calculator__button--forth`);
     const back = this.element.querySelector(`.calculator__button--back`);
+    const select = this.element.querySelector(`#select-garantie`)
 
     next.addEventListener(`click`, () => {
       this.onClickNext();
@@ -69,9 +77,16 @@ export default class AssuranceView extends AbstractView {
 
     back.addEventListener(`click`, () => {
       this.onClickBack();
+    });
+
+    select.addEventListener(`change`, (e) => {
+
+      this.onChangeSelect(e);
     })
   }
 
+
   onClickNext() {};
   onClickBack() {};
+  onChangeSelect() {}
 }

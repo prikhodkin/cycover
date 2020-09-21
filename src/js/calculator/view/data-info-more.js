@@ -54,7 +54,7 @@ export default class DataInfoMoreView extends AbstractView {
             </a>
           </div>
         </div>
-        ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }

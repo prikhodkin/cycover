@@ -2,6 +2,7 @@ import AbstractView from '../abstract-view.js';
 import footerTemplate from './footer'
 
 export default class VotreView extends AbstractView {
+
   get template() {
     return `
       <section class="calculator" data-controller="calculator">
@@ -16,7 +17,7 @@ export default class VotreView extends AbstractView {
             </li>
           </ul>
         </div>
-        ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }
@@ -25,8 +26,8 @@ export default class VotreView extends AbstractView {
     const nexts = this.element.querySelectorAll(`.situation__link`);
 
     nexts.forEach(it => {
-      it.addEventListener(`click`, () => {
-        this.onClickNext();
+      it.addEventListener(`click`, (e) => {
+        this.onClickNext(e);
       });
     })
 

@@ -2,6 +2,11 @@ import AbstractView from '../abstract-view.js';
 import footerTemplate from './footer'
 
 export default class TariffView extends AbstractView {
+  constructor(state) {
+    super();
+    this._state = state;
+    console.log(this._state)
+  }
   get template() {
     return `
       <section class="calculator calculator--tariff" data-controller="calculator">
@@ -51,7 +56,7 @@ export default class TariffView extends AbstractView {
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc">$100</p>
+              <p class="tariff-card__price tariff-card__price--calc">$ ${this._state.garantie.base}</p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#">
                 Continuer
                 <svg class="button__icon button__icon--forth">
@@ -105,7 +110,7 @@ export default class TariffView extends AbstractView {
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">$100</p>
+              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">$ ${this._state.garantie.prime}</p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#">
                 Continuer
                 <svg class="button__icon">
@@ -115,7 +120,7 @@ export default class TariffView extends AbstractView {
             </div>
           </li>
         </ul>
-       ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }

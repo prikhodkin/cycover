@@ -1,4 +1,4 @@
-import {render} from '../util/view-calc';
+import {render} from '../util/calc';
 
 export default class AbstractView {
 

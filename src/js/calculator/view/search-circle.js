@@ -13,7 +13,7 @@ export default class searchCircleView extends AbstractView {
           </div>
           <p class="calculator__desc">Nous cherchons les meilleurs propositions...</p>
         </div>
-        ${footerTemplate}
+        <div id="calc-footer"></div>
       </section>
     `;
   }

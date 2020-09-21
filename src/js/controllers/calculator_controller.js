@@ -1,5 +1,5 @@
 import { Controller } from "stimulus";
-import Router from "../calculator/application"
+import Router from "../calculator/application";
 
 export default class extends Controller {
   static targets = [ `link` ]
