@@ -77,7 +77,7 @@ export default class AssuranceView extends AbstractView {
     });
 
     back.addEventListener(`click`, (e) => {
-      e.preventDefault
+      e.preventDefault()
       this.onClickBack();
     });
 

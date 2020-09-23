@@ -1,7 +1,8 @@
 import PersonalDataView from '../view/personal-data';
 import Router from '../application.js';
 import FooterScreen from './footer';
-import $ from 'jquery';
+import IMask from 'imask';
+import ajax from '../../util/ajaxSend'
 
 export default class PersonalDataScreen {
   constructor(state) {
@@ -10,21 +11,10 @@ export default class PersonalDataScreen {
     this.view = new PersonalDataView();
     this.view.onClickNext = (e) => {
       e.preventDefault();
-      const form = $(`.calculator__form`)
-      $.ajax({
-        type: `POST`,
-        url: `vendor/mail.php`, // Change
-        data: form.serialize()
-      }).done(function () {
-        Router.showApproved();
-        setTimeout(function () {
-          // Done Functions
-          form.trigger(`reset`);
-        }, 1000);
-      });
-      console.log(this._state)
-      return false
+      this.sendAjax()
     };
+
+    this.init()
   }
 
   get element() {
@@ -32,5 +22,29 @@ export default class PersonalDataScreen {
     const footerWrap = element.querySelector(`#calc-footer`)
     footerWrap.appendChild(new FooterScreen(this._state).element)
     return element
+  }
+
+  init() {
+    this.checkPhone()
+  }
+
+  sendAjax() {
+    const form = this.view.element.querySelector(`.calculator__form`);
+    const postURL = `vendor/mail.php`;
+    const formData = new FormData(form);
+
+    ajax(postURL, `post`, formData)
+      .then(() => {
+        form.reset();
+        Router.showApproved();
+      })
+  }
+
+  checkPhone() {
+    const phone = this.view.element.querySelector(`#form-number-calc`)
+    const phoneOption = {
+      mask: '+{7} (000) 000-00-00'
+    }
+    IMask(phone, phoneOption)
   }
 }

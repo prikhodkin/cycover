@@ -28,7 +28,7 @@ export default class PersonalDataView extends AbstractView {
                 </label>
               </div>
               <div class="form__box form__box--calculator field field--calculator">
-                <input class="field__input field__input--calculator" type="number" id="form-number-calc" name="number-calc" placeholder="Numéro de tel">
+                <input class="field__input field__input--calculator" type="tel" id="form-number-calc" name="number-calc" placeholder="Numéro de tel">
                 <label class="field__label field__label--calculator" for="form-number-calc">
                   <svg class="field__icon field__icon--calculator">
                     <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
