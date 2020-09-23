@@ -971,10 +971,14 @@ var AssuranceView = /*#__PURE__*/function (_AbstractView) {
       var next = this.element.querySelector(".calculator__button--forth");
       var back = this.element.querySelector(".calculator__button--back");
       var select = this.element.querySelector("#select-garantie");
-      next.addEventListener("click", function () {
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickNext();
       });
-      back.addEventListener("click", function () {
+      back.addEventListener("click", function (e) {
+        e.preventDefault;
+
         _this.onClickBack();
       });
       select.addEventListener("change", function (e) {
@@ -1061,10 +1065,14 @@ var DataInfoMoreView = /*#__PURE__*/function (_AbstractView) {
 
       var next = this.element.querySelector(".calculator__button--forth");
       var back = this.element.querySelector(".calculator__button--back");
-      next.addEventListener("click", function () {
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickNext();
       });
-      back.addEventListener("click", function () {
+      back.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickBack();
       });
     }
@@ -1143,10 +1151,14 @@ var DataInfoView = /*#__PURE__*/function (_AbstractView) {
 
       var next = this.element.querySelector(".calculator__button--forth");
       var back = this.element.querySelector(".calculator__button--back");
-      next.addEventListener("click", function () {
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickNext();
       });
-      back.addEventListener("click", function () {
+      back.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickBack();
       });
     }
@@ -1298,6 +1310,8 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
 
       var next = this.element.querySelector(".button--forth");
       next.addEventListener("click", function (e) {
+        e.preventDefault();
+
         _this.onClickNext(e);
       });
     }
@@ -1520,6 +1534,8 @@ var VotreView = /*#__PURE__*/function (_AbstractView) {
       var nexts = this.element.querySelectorAll(".situation__link");
       nexts.forEach(function (it) {
         it.addEventListener("click", function (e) {
+          e.preventDefault();
+
           _this.onClickNext(e);
         });
       });
@@ -1630,14 +1646,24 @@ var _default = /*#__PURE__*/function (_Controller) {
   }
 
   _createClass(_default, [{
+    key: "initialize",
+    value: function initialize() {}
+  }, {
     key: "showCalc",
     value: function showCalc(e) {
       e.preventDefault();
       var calc = document.querySelector("#calculator");
       var overlay = document.querySelector(".overlay");
-      _calculator_application__WEBPACK_IMPORTED_MODULE_1__["default"].initial();
+      var scrollY = window.pageYOffset;
       calc.classList.toggle("calculator__main-box--active");
+      calc.style.top = scrollY + 100 + 'px';
       overlay.classList.toggle("overlay--active");
+
+      if (window.matchMedia("(max-width: 1280px)").matches) {
+        calc.style.top = scrollY + 60 + 'px';
+      }
+
+      _calculator_application__WEBPACK_IMPORTED_MODULE_1__["default"].initial();
     }
   }, {
     key: "closeCalc",
@@ -1710,6 +1736,9 @@ var _default = /*#__PURE__*/function (_Controller) {
   }
 
   _createClass(_default, [{
+    key: "initialize",
+    value: function initialize() {}
+  }, {
     key: "showPopup",
     value: function showPopup(e) {
       e.preventDefault();
@@ -1732,7 +1761,11 @@ var _default = /*#__PURE__*/function (_Controller) {
         // Change
         data: form.serialize()
       }).done(function () {
-        this.toggle();
+        // this.toggle();
+        var popup = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-registration__main-box");
+        var overlay = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".overlay");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(popup).toggleClass("modal-registration__main-box--active");
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(overlay).toggleClass("overlay--active");
         setTimeout(function () {
           // Done Functions
           form.trigger("reset");
@@ -1745,6 +1778,9 @@ var _default = /*#__PURE__*/function (_Controller) {
     value: function toggle() {
       var popup = document.querySelector(".modal-registration__main-box");
       var overlay = document.querySelector(".overlay");
+      var scrollY = window.pageYOffset;
+      console.log(scrollY);
+      popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px";
       popup.classList.toggle("modal-registration__main-box--active");
       overlay.classList.toggle("overlay--active");
     }
@@ -2184,8 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "state", function() { return state; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "garanties", function() { return garanties; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_STATE", function() { return INITIAL_STATE; });
-var mainElement = document.querySelector("#calculator");
-
 var render = function render(template) {
   var wrapper = document.createElement("div");
   wrapper.innerHTML = template.trim();
@@ -2193,6 +2227,7 @@ var render = function render(template) {
 };
 
 var changeScreen = function changeScreen(element) {
+  var mainElement = document.querySelector("#calculator");
   mainElement.innerHTML = "";
   mainElement.appendChild(element);
 };
