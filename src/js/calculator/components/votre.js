@@ -7,7 +7,7 @@ export default class VotreScreen {
     this._state = state;
     this.view = new VotreView();
     this.view.onClickNext = (e) => {
-      this.updateState(e)
+      this._updateState(e)
       Router.showAssuranse(this._state);
     };
   }
@@ -23,7 +23,7 @@ export default class VotreScreen {
     return this._state;
   }
 
-  updateState(target) {
+  _updateState(target) {
     this._state = Object.assign({}, this._state, {
       type: target.target.innerHTML
     })

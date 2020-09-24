@@ -14,9 +14,9 @@ export default class AssuranceView extends AbstractView {
               <p class="select__name">Chiffre d’affaires consolidé HT</p>
               <div class="select__box select__box--active">
                 <select class="select__list" name="select-list" id="select-revenue">
-                  <option class="select__item" value="revenue-1">130 000</option>
-                  <option class="select__item" value="revenue-2">30 000</option>
-                  <option class="select__item" value="revenue-3">10 000</option>
+                  <option class="select__item" value="130 000">130 000</option>
+                  <option class="select__item" value="30 000">30 000</option>
+                  <option class="select__item" value="10 000">10 000</option>
                 </select>
               </div>
             </li>
@@ -39,9 +39,9 @@ export default class AssuranceView extends AbstractView {
               <p class="select__name">Effectif</p>
               <div class="select__box">
                 <select class="select__list" name="effectif-list" id="select-effectif">
-                  <option class="select__item" value="effectif-1">10</option>
-                  <option class="select__item" value="effectif-2">5</option>
-                  <option class="select__item" value="effectif-3">3</option>
+                  <option class="select__item" value="10">10</option>
+                  <option class="select__item" value="5">5</option>
+                  <option class="select__item" value="3">3</option>
                 </select>
               </div>
             </li>

@@ -2,6 +2,12 @@ import AbstractView from '../abstract-view.js';
 import footerTemplate from './footer'
 
 export default class PersonalDataView extends AbstractView {
+  constructor(state) {
+    super();
+    this._state = state;
+    console.log(Object.entries(this._state))
+  }
+
   get template() {
     return `
       <section class="calculator calculator--personal-data" data-controller="calculator">
@@ -10,6 +16,13 @@ export default class PersonalDataView extends AbstractView {
             <input type="hidden" name="project_name" value="cycover">
             <input type="hidden" name="admin_email" value="089ax@mail.ru">
             <input type="hidden" name="form_subject" value="calculator">
+
+            ${Object.entries(this._state).map(elem => {
+              return `
+              <input type="hidden" name="${elem[0]}" value="${elem[0] === 'garantie' ? elem[1].value : elem[1]}">
+              `
+            }).join(``)}
+
             <div class="form__wrap form__wrap--calculator">
               <div class="form__box form__box--calculator field field--calculator">
                 <input class="field__input field__input--calculator" type="text" id="form-siret" name="siret" placeholder="Siret">

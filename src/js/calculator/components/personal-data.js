@@ -8,13 +8,13 @@ export default class PersonalDataScreen {
   constructor(state) {
     this._state = state;
 
-    this.view = new PersonalDataView();
+    this.view = new PersonalDataView(this._state);
     this.view.onClickNext = (e) => {
       e.preventDefault();
-      this.sendAjax()
+      this._sendAjax()
     };
 
-    this.init()
+    this._init()
   }
 
   get element() {
@@ -24,11 +24,11 @@ export default class PersonalDataScreen {
     return element
   }
 
-  init() {
-    this.checkPhone()
+  _init() {
+    this._checkPhone()
   }
 
-  sendAjax() {
+  _sendAjax() {
     const form = this.view.element.querySelector(`.calculator__form`);
     const postURL = `vendor/mail.php`;
     const formData = new FormData(form);
@@ -40,7 +40,7 @@ export default class PersonalDataScreen {
       })
   }
 
-  checkPhone() {
+  _checkPhone() {
     const phone = this.view.element.querySelector(`#form-number-calc`)
     const phoneOption = {
       mask: '+{7} (000) 000-00-00'
