@@ -2,6 +2,22 @@ import { Controller } from "stimulus";
 import IMask from 'imask';
 import ajax from '../util/ajaxSend'
 
+const popup = document.querySelector(`.modal-registration__main-box`);
+const overlay = document.querySelector(`.overlay`);
+
+const escPressHandler = (e) => {
+  if(e.keyCode && e.keyCode === 27) {
+    close()
+  }
+}
+
+const close = () => {
+  popup.classList.remove(`modal-registration__main-box--active`);
+  overlay.classList.remove(`overlay--active`)
+
+  document.removeEventListener(`keydown`, escPressHandler)
+}
+
 export default class extends Controller {
 
   static targets = [ `form`,`link` ]
@@ -11,12 +27,18 @@ export default class extends Controller {
   showPopup(e){
     e.preventDefault();
     this.checkPhone();
-    this.toggle();
+    const scrollY = window.pageYOffset;
+
+    popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
+    popup.classList.toggle(`modal-registration__main-box--active`);
+    overlay.classList.toggle(`overlay--active`)
+
+    document.addEventListener(`keydown`, escPressHandler)
   }
 
   closePopup(e) {
     e.preventDefault();
-    this.toggle();
+    close()
   }
 
   makeRequest(e) {
@@ -25,27 +47,15 @@ export default class extends Controller {
   }
 
   sendAjax() {
-    const overlay = document.querySelector(`.overlay`);
     const form = this.formTarget;
     const formData = new FormData(form)
     const postURL = `vendor/mail.php`;
 
     ajax(postURL, `post`, formData)
       .then(() => {
-        this.element.classList.toggle(`modal-registration__main-box--active`)
-        overlay.classList.toggle(`overlay--active`)
+        close()
         form.reset();
       })
-  }
-
-  toggle() {
-    const popup = document.querySelector(`.modal-registration__main-box`);
-    const overlay = document.querySelector(`.overlay`);
-    const scrollY = window.pageYOffset;
-
-    popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
-    popup.classList.toggle(`modal-registration__main-box--active`);
-    overlay.classList.toggle(`overlay--active`)
   }
 
   checkPhone() {
