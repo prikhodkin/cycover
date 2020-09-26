@@ -4,22 +4,22 @@ import Router from "../calculator/application";
 const calc = document.querySelector(`#calculator`);
 const overlay = document.querySelector(`.overlay`);
 
-const escPressHandler = (e) => {
-  if(e.keyCode && e.keyCode === 27) {
-    close()
-  }
-}
-
-const close = () => {
-  calc.classList.remove(`calculator__main-box--active`);
-  overlay.classList.remove(`overlay--active`)
-  calc.innerHTML = ``;
-
-  document.removeEventListener(`keydown`, escPressHandler)
-}
-
 export default class extends Controller {
   static targets = [ `link` ]
+
+  escPressHandler = (e) => {
+    if(e.keyCode && e.keyCode === 27) {
+      this.close()
+    }
+  }
+
+  close = () => {
+    calc.classList.remove(`calculator__main-box--active`);
+    overlay.classList.remove(`overlay--active`)
+    calc.innerHTML = ``;
+
+    document.removeEventListener(`keydown`, this.escPressHandler)
+  }
 
   initialize() {}
 
@@ -36,10 +36,10 @@ export default class extends Controller {
     }
     Router.initial();
 
-    document.addEventListener(`keydown`, escPressHandler)
+    document.addEventListener(`keydown`, this.escPressHandler)
   }
 
   closeCalc() {
-    close()
+    this.close()
   }
 }

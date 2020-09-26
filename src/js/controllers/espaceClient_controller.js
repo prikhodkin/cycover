@@ -5,22 +5,22 @@ import ajax from '../util/ajaxSend'
 const popup = document.querySelector(`.modal-registration__main-box`);
 const overlay = document.querySelector(`.overlay`);
 
-const escPressHandler = (e) => {
-  if(e.keyCode && e.keyCode === 27) {
-    close()
-  }
-}
-
-const close = () => {
-  popup.classList.remove(`modal-registration__main-box--active`);
-  overlay.classList.remove(`overlay--active`)
-
-  document.removeEventListener(`keydown`, escPressHandler)
-}
-
 export default class extends Controller {
 
   static targets = [ `form`,`link` ]
+
+  escPressHandler = (e) => {
+    if(e.keyCode && e.keyCode === 27) {
+      this.close()
+    }
+  }
+
+  close = () => {
+    popup.classList.remove(`modal-registration__main-box--active`);
+    overlay.classList.remove(`overlay--active`)
+
+    document.removeEventListener(`keydown`, this.escPressHandler)
+  }
 
   initialize() {}
 
@@ -33,12 +33,12 @@ export default class extends Controller {
     popup.classList.toggle(`modal-registration__main-box--active`);
     overlay.classList.toggle(`overlay--active`)
 
-    document.addEventListener(`keydown`, escPressHandler)
+    document.addEventListener(`keydown`, this.escPressHandler)
   }
 
   closePopup(e) {
     e.preventDefault();
-    close()
+    this.close()
   }
 
   makeRequest(e) {
@@ -53,7 +53,7 @@ export default class extends Controller {
 
     ajax(postURL, `post`, formData)
       .then(() => {
-        close()
+        this.close()
         form.reset();
       })
   }
