@@ -61,7 +61,8 @@
     "yargs": "^15.4.1"
   },
   "dependencies": {
-    "hc-sticky": "^2.2.3",
+    "hc-sticky": "^2.2.6",
+    "imask": "^6.0.5",
     "jquery": "^3.5.1",
     "simplebar": "^6.0.0-beta.4",
     "slick-carousel": "^1.8.1",

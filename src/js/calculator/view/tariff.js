@@ -57,7 +57,7 @@ export default class TariffView extends AbstractView {
             </ul>
             <div class="calculator__box calculator__box--button">
               <p class="tariff-card__price tariff-card__price--calc">$ ${this._state.garantie.base}</p>
-              <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#">
+              <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
                 Continuer
                 <svg class="button__icon button__icon--forth">
                   <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
@@ -111,7 +111,7 @@ export default class TariffView extends AbstractView {
             </ul>
             <div class="calculator__box calculator__box--button">
               <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">$ ${this._state.garantie.prime}</p>
-              <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#">
+              <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#" data-name="PRIME" data-price="${this._state.garantie.prime}">
                 Continuer
                 <svg class="button__icon">
                   <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
@@ -131,7 +131,7 @@ export default class TariffView extends AbstractView {
     nexts.forEach(it => {
       it.addEventListener(`click`, (e) => {
         e.preventDefault();
-        this.onClickNext();
+        this.onClickNext(it);
       });
     })
    }

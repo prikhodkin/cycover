@@ -48,11 +48,11 @@
           <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
           <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
         </ul>
-        <div class="header__button">
+        <div class="header__button" data-controller="calculator">
           <svg width="22" height="22">
             <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
           </svg>
-          <a href="" class="header__callback button button--thin">Espace client</a>
+          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Espace client</a>
         </div>
       </nav>
     </div>
@@ -62,10 +62,10 @@
         <source media="(min-width:700px)" srcset="../img/promo__bg@desktop.png">
         <img src="../img/promo__bg@mobile.png" alt="bg" class="promo__img">
       </picture>
-      <div class="promo__body">
+      <div class="promo__body" data-controller="espaceClient">
         <h1 class="promo__title title">PROTÉGEZ VOTRE MISSION</h1>
         <p class="promo__desc">Vos appareils securises, et toute la famille est protegee!</p>
-        <a class="promo__button button button--background" href="#">Souscrire en ligne</a>
+        <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
       </div>
     </section>
     <section class="dangers" data-controller="slider">
@@ -86,54 +86,54 @@
       </div>
 
       <ul class="dangers__list" data-target="slider.list">
-        <li class="dangers__item">
+        <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
             <div class="dangers__icon dangers__icon--extorsion"></div>
           <p class="dangers__name">cyber extorsion</p>
           <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
         </li>
-        <li class="dangers__item">
+        <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
             <div class="dangers__icon dangers__icon--phishing"></div>
             <p class="dangers__name">phishing</p>
             <p class="dangers__text">Vol de données personnelles</p>
-            <a class="dangers__button button button--background" href="#">Se protéger</a>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
-        <li class="dangers__item">
+        <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
             <div class="dangers__icon dangers__icon--data-loss"></div>
             <p class="dangers__name">perte de données</p>
             <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
-            <a class="dangers__button button button--background" href="#">Se protéger</a>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
-        <li class="dangers__item">
+        <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
             <div class="dangers__icon dangers__icon--extorsion"></div>
             <p class="dangers__name">cyber extorsion</p>
             <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-            <a class="dangers__button button button--background" href="#">Se protéger</a>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
-        <li class="dangers__item">
+        <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
             <div class="dangers__icon dangers__icon--extorsion"></div>
             <p class="dangers__name">cyber extorsion</p>
             <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-            <a class="dangers__button button button--background" href="#">Se protéger</a>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
       </ul>
     </section>
     <section class="insurance">
-      <div class="insurance__box insurance__box--text">
+      <div class="insurance__box insurance__box--text" data-controller="calculator">
         <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cyber</h2>
         <p class="insurance__text">
           <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est de vous accompagner davantage.</span>
@@ -145,7 +145,7 @@
           <li class="insurance__item insurance__item--risks">Protection face aux risques Cyber</li>
           <li class="insurance__item insurance__item--insure">Assurance de vos risques cyber et fraude</li>
         </ul>
-        <a class="insurance__button button button--thin" href="#">Se protéger</a>
+        <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
       </div>
 
       <div class="insurance__box insurance__box--img">
@@ -165,13 +165,13 @@
             <img src="../img/advantages__img.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
-          <div class="advantages__content">
+          <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Manage your money better with spending analytics</p>
             <ul class="advantages__options">
               <li class="advantages__option">Set budgets, get instant spending notifications, and see weekly insights to keep your spending on track</li>
               <li class="advantages__option">Connect your other bank accounts to Revolut with Open Banking and manage all your finances in one place</li>
             </ul>
-            <a class="advantages__button button button--background" href="#">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -179,14 +179,14 @@
             <img src="../img/advantages__img2.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
-          <div class="advantages__content">
+          <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Get daily discounts<br> and cashback</p>
             <ul class="advantages__options">
               <li class="advantages__option">Save money every day with Rewards</li>
               <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
               <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
             </ul>
-            <a class="advantages__button button button--background" href="#">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -194,14 +194,14 @@
             <img src="../img/advantages__img3.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
-          <div class="advantages__content">
+          <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Manage your money better with spending analytics</p>
             <ul class="advantages__options">
               <li class="advantages__option">Save money every day with Rewards</li>
               <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
               <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
             </ul>
-            <a class="advantages__button button button--background" href="#">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -209,14 +209,14 @@
             <img src="../img/advantages__img4.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
-          <div class="advantages__content">
+          <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Get daily discounts<br> and cashback</p>
             <ul class="advantages__options">
               <li class="advantages__option">Save money every day with Rewards</li>
               <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
               <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
             </ul>
-            <a class="advantages__button button button--background" href="#">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
           </div>
         </li>
       </ul>
@@ -251,7 +251,7 @@
     <section class="tariff">
       <h2 class="tariff__title">Сhoisissez votre tarif</h2>
       <ul class="tariff__list ">
-        <li class="tariff__item tariff-card tariff-card--base ">
+        <li class="tariff__item tariff-card tariff-card--base " data-controller="espaceClient">
           <div class="tariff-card__main-icon">
             <svg class="tariff-card__main-img tariff-card__main-img--send">
               <use xlink:href="img/sprites/sprite.svg#icon__send"></use>
@@ -301,9 +301,9 @@
               <p class="tariff-card__desc tariff-card__desc--unavailable">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button button button--background" href="#">Order now</a>
+          <a class="tariff-card__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Order now</a>
         </li>
-        <li class="tariff__item tariff-card tariff-card--prime">
+        <li class="tariff__item tariff-card tariff-card--prime" data-controller="espaceClient">
           <div class="tariff-card__main-icon">
             <svg class="tariff-card__main-img tariff-card__main-img--plane">
               <use xlink:href="img/sprites/sprite.svg#icon__plane"></use>
@@ -353,7 +353,7 @@
               <p class="tariff-card__desc tariff-card__desc--unavailable tariff-card__desc--prime">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button button--white button button--background" href="#">Order now</a>
+          <a class="tariff-card__button button--white button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Order now</a>
           <p class="tariff-card__text-prime">Most popular</p>
         </li>
         <li class="tariff__item tariff-card tariff-card--business">
@@ -406,7 +406,7 @@
               <p class="tariff-card__desc">Какие-то преимущества</p>
             </li>
           </ul>
-          <a class="tariff-card__button button button--background" href="#">Order now</a>
+          <a class="tariff-card__button button button--background" href="proffesional.html">Order now</a>
         </li>
       </ul>
     </section>
@@ -420,6 +420,71 @@
     @@include('../blocks/contact/contact.html')
     @@include('../blocks/security/security.html')
     @@include('../blocks/footer/footer.html')
+    <div class="modal-registration__main-box" data-controller="espaceClient">
+      <section class="modal-registration">
+        <div class="modal-registration__wrap">
+          <p class="modal-registration__title">Заголовок</p>
+        <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
+          <input type="hidden" name="project_name" value="cycover">
+          <input type="hidden" name="admin_email" value="089ax@mail.ru">
+          <input type="hidden" name="form_subject" value="registration">
+          <fieldset class="form__wrap">
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
+              <label class="field__label" for="form-name">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
+              <label class="field__label" for="form-password">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
+              <label class="field__label" for="form-number">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="yourmail@gmail.com">
+              <label class="field__label" for="form-email">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
+                </svg>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Envoyer</button>
+
+          <div class="form__box checkbox checkbox--privacy">
+            <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
+              <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy">
+              <span class="checkbox__text checkbox__text--privacy">
+                <span class="checkbox__dev--privacy">Согласен с политикой конфиденциальности</span>
+              </span>
+            </label>
+          </div>
+        </form>
+        <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
+          <span class="visually-hidden">close</span>
+          <svg class="button-close__icon" style="pointer-events: none;">
+            <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+          </svg>
+        </button>
+        </div>
+      </section>
+    </div>
+    <div id="calculator" class="calculator__main-box"></div>
+    <section class="overlay" data-controller="overlay" data-target="overlay.area" data-action="click->overlay#closeModal"></section>
  </body>
 
 </html>

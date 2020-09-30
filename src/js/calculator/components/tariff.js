@@ -7,8 +7,8 @@ export default class TariffScreen {
     this._state = state;
 
     this.view = new TariffView(this._state);
-    this.view.onClickNext = () => {
-      console.log(this._state.garantie)
+    this.view.onClickNext = (it) => {
+      this._updateState(it)
       Router.showPersonalData(this._state);
     };
   }
@@ -18,5 +18,14 @@ export default class TariffScreen {
     const footerWrap = element.querySelector(`#calc-footer`)
     footerWrap.appendChild(new FooterScreen(this._state).element)
     return element
+  }
+
+  _updateState(element) {
+    const key = element.getAttribute(`data-name`);
+    const value = element.getAttribute(`data-price`);
+
+    this._state = Object.assign({}, this._state, {
+      [key]: value
+    })
   }
 }
