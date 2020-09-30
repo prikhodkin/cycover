@@ -1,53 +1,69 @@
 import { Controller } from "stimulus";
-import $ from "jquery";
+import IMask from 'imask';
+import ajax from '../util/ajaxSend'
+
+const popup = document.querySelector(`.modal-registration__main-box`);
+const overlay = document.querySelector(`.overlay`);
 
 export default class extends Controller {
 
   static targets = [ `form`,`link` ]
 
+  escPressHandler = (e) => {
+    if(e.keyCode && e.keyCode === 27) {
+      this.close()
+    }
+  }
+
+  close = () => {
+    popup.classList.remove(`modal-registration__main-box--active`);
+    overlay.classList.remove(`overlay--active`)
+
+    document.removeEventListener(`keydown`, this.escPressHandler)
+  }
+
   initialize() {}
 
   showPopup(e){
     e.preventDefault();
-    this.toggle();
+    this.checkPhone();
+    const scrollY = window.pageYOffset;
+
+    popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
+    popup.classList.toggle(`modal-registration__main-box--active`);
+    overlay.classList.toggle(`overlay--active`)
+
+    document.addEventListener(`keydown`, this.escPressHandler)
   }
 
   closePopup(e) {
     e.preventDefault();
-    this.toggle();
+    this.close()
   }
 
   makeRequest(e) {
     e.preventDefault();
-
-    const form = $('.modal-registration__form');
-
-    $.ajax({
-      type: `POST`,
-      url: `vendor/mail.php`, // Change
-      data: form.serialize()
-    }).done(function () {
-      // this.toggle();
-      const popup = $(`.modal-registration__main-box`);
-      const overlay = $(`.overlay`)
-      $(popup).toggleClass(`modal-registration__main-box--active`)
-      $(overlay).toggleClass(`overlay--active`)
-      setTimeout(function () {
-        // Done Functions
-        form.trigger(`reset`);
-      }, 1000);
-    });
-    return false;
+    this.sendAjax()
   }
 
-  toggle() {
-    const popup = document.querySelector(`.modal-registration__main-box`);
-    const overlay = document.querySelector(`.overlay`);
+  sendAjax() {
+    const form = this.formTarget;
+    const formData = new FormData(form)
+    const postURL = `vendor/mail.php`;
 
-    const scrollY = window.pageYOffset;
-    console.log(scrollY)
-    popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
-    popup.classList.toggle(`modal-registration__main-box--active`);
-    overlay.classList.toggle(`overlay--active`)
+    ajax(postURL, `post`, formData)
+      .then(() => {
+        this.close()
+        form.reset();
+      })
+  }
+
+  checkPhone() {
+    const phone = document.querySelector(`#form-number`);
+    const phoneOption = {
+      mask: '+{7} (000) 000-00-00'
+    }
+
+    IMask(phone, phoneOption)
   }
 }

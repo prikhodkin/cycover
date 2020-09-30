@@ -48,11 +48,11 @@
           <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
           <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
         </ul>
-        <div class="header__button">
+        <div class="header__button" data-controller="calculator">
           <svg width="22" height="22">
             <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
           </svg>
-          <a href="" class="header__callback button button--thin">Espace client</a>
+          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Espace client</a>
         </div>
       </nav>
     </div>
@@ -62,10 +62,10 @@
       <source media="(min-width:700px)" srcset="../img/promo__bg@prof.png">
       <img src="../img/promo__bg-prof@mobile.png" alt="bg" class="promo__img">
     </picture>
-    <div class="promo__body promo__body--inner">
+    <div class="promo__body promo__body--inner" data-controller="espaceClient">
       <h1 class="title">L’ASSURANCE  DES ENTREPRISES FACE À LA CYBER CRIMINALITÉ</h1>
       <p class="promo__desc">Vos appareils securises, et toute la famille est protegee!</p>
-      <a class="promo__button button button--background" href="#">Souscrire en ligne</a>
+      <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
     </div>
   </section>
   <section class="dangers" data-controller="slider">
@@ -86,54 +86,54 @@
     </div>
 
     <ul class="dangers__list" data-target="slider.list">
-      <li class="dangers__item">
-        <div class="dangers__wrap">
+      <li class="dangers__item" data-controller="calculator">
+        <div class="dangers__wrap" >
           <div class="dangers__icon dangers__icon--extorsion"></div>
           <p class="dangers__name">cyber extorsion</p>
           <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
 
       </li>
-      <li class="dangers__item">
+      <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
           <div class="dangers__icon dangers__icon--phishing"></div>
           <p class="dangers__name">phishing</p>
           <p class="dangers__text">Vol de données personnelles</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
 
       </li>
-      <li class="dangers__item">
+      <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
           <div class="dangers__icon dangers__icon--data-loss"></div>
           <p class="dangers__name">perte de données</p>
           <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
 
       </li>
-      <li class="dangers__item">
+      <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
           <div class="dangers__icon dangers__icon--extorsion"></div>
           <p class="dangers__name">cyber extorsion</p>
           <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
 
       </li>
-      <li class="dangers__item">
+      <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
           <div class="dangers__icon dangers__icon--extorsion"></div>
           <p class="dangers__name">cyber extorsion</p>
           <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
-          <a class="dangers__button button button--background" href="#">Se protéger</a>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
       </li>
     </ul>
   </section>
   <section class="insurance">
-    <div class="insurance__box insurance__box--text">
+    <div class="insurance__box insurance__box--text" data-controller="calculator">
       <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cyber</h2>
       <p class="insurance__text">
         <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est
@@ -148,7 +148,7 @@
         <li class="insurance__item insurance__item--risks">Protection face aux risques Cyber</li>
         <li class="insurance__item insurance__item--insure">Assurance de vos risques cyber et fraude</li>
       </ul>
-      <a class="insurance__button button button--thin" href="#">Se protéger</a>
+      <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
     </div>
 
     <div class="insurance__box insurance__box--img">
@@ -371,7 +371,7 @@
             </label>
           </div>
           <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="number" id="form-number" name="number" placeholder="Numéro de tel">
+            <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
             <label class="field__label" for="form-number">
               <svg class="field__icon">
                 <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
