@@ -71,6 +71,54 @@
     padding-top: 80px;
 
     @include page-wrapper;
+
+    &--active {
+      .guide__item {
+        &:first-child {
+          .guide__number {
+            &::before {
+              animation: filling 1s both;
+            }
+          }
+
+          .guide__box {
+            animation: fadeIn 1s both 500ms;
+          }
+
+          &::before {
+            animation: fillingWidth 2s both 700ms;
+          }
+        }
+
+        &:nth-child(2) {
+          .guide__number {
+            &::before {
+              animation: filling 1s both 2200ms;
+            }
+          }
+
+          .guide__box {
+            animation: fadeIn 1s both 2900ms;
+          }
+
+          &::before {
+            animation: fillingWidth 2s both 2900ms;
+          }
+        }
+
+        &:nth-child(3) {
+          .guide__number {
+            &::before {
+              animation: filling 1s both 4500ms;
+            }
+          }
+
+          .guide__box {
+            animation: fadeIn 1s both 4900ms;
+          }
+        }
+      }
+    }
   }
 
   .guide__title {
@@ -95,9 +143,20 @@
       position: absolute;
       top: 25px;
       left: 15px;
-      width: 100%;
+      z-index: 5;
+      width: 0;
       height: 2px;
       background-color: #304bab;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 15px;
+      width: 100%;
+      height: 2px;
+      background-color: #f8f8f8;
     }
 
     &--one {
@@ -115,13 +174,35 @@
 
   .guide__box {
     margin-left: 0;
+    opacity: 0.5;
   }
 
   .guide__number {
+    position: relative;
+    z-index: 10;
+    width: 0;
     min-width: 50px;
     height: 50px;
     margin-bottom: 30px;
+    overflow: hidden;
     font-size: 20px;
+
+    background: #f8f8f8;
+
+    &::before {
+      @include pseudo;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #304bab;
+      transform: translateX(-100%);
+    }
+
+    span {
+      position: relative;
+    }
   }
 
   .guide__name {

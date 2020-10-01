@@ -150,8 +150,8 @@
 
       <div class="insurance__box insurance__box--img">
         <picture>
-          <source media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.png">
-          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.webp">
+<!--          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance@desktop.webp">-->
+          <source media="(min-width: 1280px)" srcset="../img/insurance@desktop.png">
           <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
           <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
         </picture>
@@ -159,9 +159,12 @@
     </section>
     <section class="advantages">
       <h2 class="visually-hidden">Advantages</h2>
-      <ul class="advantages__list">
+      <ul class="advantages__list" data-controller="parallax">
         <li class="advantages__item">
           <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
             <img src="../img/advantages__img.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
@@ -176,6 +179,9 @@
         </li>
         <li class="advantages__item">
           <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
             <img src="../img/advantages__img2.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
@@ -191,6 +197,9 @@
         </li>
         <li class="advantages__item">
           <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
             <img src="../img/advantages__img3.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
@@ -206,6 +215,9 @@
         </li>
         <li class="advantages__item">
           <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
             <img src="../img/advantages__img4.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
@@ -221,18 +233,18 @@
         </li>
       </ul>
     </section>
-    <section class="guide">
+    <section class="guide" data-controller="filling">
       <h2 class="guide__title">Comment ça marche ?</h2>
       <ul class="guide__list">
         <li class="guide__item guide__item--one">
-          <span class="guide__number">1</span>
+          <div class="guide__number"><span>1</span></div>
           <div class="guide__box">
             <p class="guide__name">Simulez votre prêt</p>
             <p class="guide__text">Pretto est le seul simulateur de prêt immobilier en ligne vraiment transparent.</p>
           </div>
         </li>
         <li class="guide__item guide__item--two">
-          <span class="guide__number">2</span>
+          <div class="guide__number"><span>2</span></div>
           <div class="guide__box">
             <p class="guide__name guide__name--two">Nos experts à votre écoute</p>
             <p class="guide__text">Avec votre conseiller Pretto, vous affinez votre demande de crédit et optimisez votre
@@ -240,7 +252,7 @@
           </div>
         </li>
         <li class="guide__item guide__item--three">
-          <span class="guide__number">3</span>
+          <div class="guide__number"><span>3</span></div>
           <div class="guide__box">
             <p class="guide__name">Obtenez votre prêt</p>
             <p class="guide__text">Pretto vous accompagne jusqu’à La signature de votre prêt, sans engagement.</p>

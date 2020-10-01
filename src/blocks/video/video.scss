@@ -130,6 +130,14 @@
       &::before {
         top: -20px;
         right: -20px;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        &::before {
+          top: -40px;
+          right: -40px;
+        }
       }
     }
   }

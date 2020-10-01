@@ -60,16 +60,6 @@
     border-radius: 50%;
   }
 
-  &::after {
-    @include pseudo;
-    position: absolute;
-    top: 7px;
-    left: -15px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #304bab;
-    border-radius: 50%;
-  }
 
   img {
     position: relative;
@@ -79,6 +69,15 @@
     border-radius: 50%;
     object-fit: cover;
   }
+}
+
+.advantages__border {
+  @include pseudo;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #304bab;
+  border-radius: 50%;
 }
 
 .advantages__circle {
@@ -97,6 +96,14 @@
   &:not(:last-child) {
     margin-bottom: 70px;
   }
+}
+
+.advantages__parallax {
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -146,15 +153,15 @@
     height: 500px;
     margin: 0;
 
-    &::after {
-      top: 30px;
-      left: -40px;
-    }
-
     &::before {
       width: 110px;
       height: 110px;
     }
+  }
+
+  .advantages__parallax {
+    top: 30px;
+    left: -40px;
   }
 
   .advantages__circle {
@@ -180,7 +187,7 @@
           display: none;
         }
 
-        .advantages__circle {
+        .advantages__parallax {
           right: -40px;
           bottom: 85px;
           left: unset;

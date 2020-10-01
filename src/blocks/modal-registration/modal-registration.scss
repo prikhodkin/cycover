@@ -2,21 +2,21 @@
   position: relative;
   max-width: 418px;
   height: 495px;
-  border-radius: 20px;
-  background: white;
   margin: 0 auto;
+  background: white;
+  border-radius: 20px;
 }
 
 .modal-registration__main-box {
-  display: none;
   z-index: 11;
+  display: none;
   width: 100%;
   padding: 0 15px;
 
   &--active {
-    display: block;
     position: absolute;
     top: 20px;
+    display: block;
   }
 }
 

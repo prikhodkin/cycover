@@ -1,8 +1,8 @@
 .calculator__main-box {
-  display: none;
   position: absolute;
   top: 20px;
   z-index: 20;
+  display: none;
   width: 100%;
   padding: 0 15px;
 
@@ -10,11 +10,12 @@
     display: block;
   }
 }
+
 .calculator {
   position: relative;
+  background: white;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: white;
 
   &--approved {
     max-width: 290px;
@@ -400,11 +401,9 @@
 @media (min-width: 1280px) {
   .calculator__main-box {
     @include page-wrapper;
-
   }
+
   .calculator__wrap {
-
-
     &--approved {
       padding: 60px 70px;
     }
@@ -412,5 +411,5 @@
 
   .calculator__footer {
     padding: 25px 80px;
-}
+  }
 }

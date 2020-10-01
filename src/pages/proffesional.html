@@ -136,12 +136,9 @@
     <div class="insurance__box insurance__box--text" data-controller="calculator">
       <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cyber</h2>
       <p class="insurance__text">
-        <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est
-          de vous accompagner davantage.</span>
-        Nous vous aidons à identifier vos risques Cyber et Fraude, à élaborer une stratégie efficace de prévention, de
-        préparation et de
-        protection pour votre organisation. Nos équipes vous accompagnent et vous proposent un ensemble de services afin
-        de renforcer votre cyber résilience.
+        <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est de vous accompagner davantage.</span>
+        Nous vous aidons à identifier vos risques Cyber et Fraude, à élaborer une stratégie efficace de prévention, de préparation et de
+        protection pour votre organisation. Nos équipes vous accompagnent et vous proposent un ensemble de services afin de renforcer votre cyber résilience.
       </p>
       <ul class="insurance__list">
         <li class="insurance__item insurance__item--vulnerabilities">Audit de vos vulnerabilites</li>
@@ -153,13 +150,14 @@
 
     <div class="insurance__box insurance__box--img">
       <picture>
-        <source media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.png">
-        <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance__banks@desktop.webp">
+        <!--          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance@desktop.webp">-->
+        <source media="(min-width: 1280px)" srcset="../img/insurance@desktop.png">
         <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
         <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
       </picture>
     </div>
   </section>
+
   @@include('../blocks/more/more.html')
   <section class="contracts">
     <h2 class="contracts__title title">que couvrent nos contrats de cyber-assurance ?</h2>
@@ -246,10 +244,11 @@
     </ul>
   </section>
 
-  <section class="insurance-advantage">
+  <section class="insurance-advantage" data-controller="filling-inner">
     <h2 class="insurance-advantage__title title">les atouts de l'assurance cyber cover</h2>
     <ul class="insurance-advantage__list">
       <li class="insurance-advantage__item insurance-advantage__item--1">
+        <div class="insurance-advantage__circle"></div>
         <div class="insurance-advantage__box">
           <picture>
             <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__01@desktop.jpg">
@@ -264,6 +263,7 @@
           et nos conseils en termes de gouvernance informatique.</p>
       </li>
       <li class="insurance-advantage__item insurance-advantage__item--2">
+        <div class="insurance-advantage__circle"></div>
         <div class="insurance-advantage__box">
           <picture>
             <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__02@desktop.jpg">
@@ -278,6 +278,7 @@
           Nous vous accompagnons dans la compréhension de vos risques numériques.</p>
       </li>
       <li class="insurance-advantage__item insurance-advantage__item--3">
+        <div class="insurance-advantage__circle"></div>
         <div class="insurance-advantage__box">
           <picture>
             <source media="(min-width: 1280px)" srcset="../img/insurance-advantage__03@desktop.jpg">
