@@ -1,0 +1,59 @@
+@keyframes filling {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fillingWidth {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fillingWidthInner {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 880px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes noColor {
+  from {
+    filter: grayscale(100%);
+  }
+
+  to {
+    filter: grayscale(0%);
+  }
+}
