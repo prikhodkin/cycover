@@ -829,6 +829,82 @@ a {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px); }
 
+@-webkit-keyframes filling {
+  from {
+    transform: translateX(-100%); }
+  to {
+    transform: translateX(0); } }
+
+@keyframes filling {
+  from {
+    transform: translateX(-100%); }
+  to {
+    transform: translateX(0); } }
+
+@-webkit-keyframes fillingWidth {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@keyframes fillingWidth {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@-webkit-keyframes fillingWidthInner {
+  from {
+    width: 0; }
+  to {
+    width: 880px; } }
+
+@keyframes fillingWidthInner {
+  from {
+    width: 0; }
+  to {
+    width: 880px; } }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0.5; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes noColor {
+  from {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
+  to {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); } }
+
+@keyframes noColor {
+  from {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
+  to {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); } }
+
 .button {
   padding: 0;
   background: transparent;
@@ -1591,8 +1667,8 @@ a {
     max-width: 100%;
     margin: 0;
     padding-top: 80px;
-    padding-bottom: 85px;
     padding-right: 0;
+    padding-bottom: 85px;
     padding-left: 0;
     overflow: hidden; }
   .feedback__title {
@@ -1604,10 +1680,10 @@ a {
   .feedback__text {
     padding-right: calc(50% - 640px);
     padding-left: calc(50% - 640px);
+    margin-bottom: 80px;
     font-size: 20px;
     line-height: 162.43%;
-    text-align: center;
-    margin-bottom: 80px; }
+    text-align: center; }
   .feedback__list {
     padding-right: calc(50% - 640px);
     padding-left: calc(50% - 640px);
@@ -2051,6 +2127,30 @@ a {
     padding-top: 80px;
     padding-right: calc(50% - 640px);
     padding-left: calc(50% - 640px); }
+    .guide--active .guide__item:first-child .guide__number::before {
+      -webkit-animation: filling 1s both;
+      animation: filling 1s both; }
+    .guide--active .guide__item:first-child .guide__box {
+      -webkit-animation: fadeIn 1s both 500ms;
+      animation: fadeIn 1s both 500ms; }
+    .guide--active .guide__item:first-child::before {
+      -webkit-animation: fillingWidth 2s both 700ms;
+      animation: fillingWidth 2s both 700ms; }
+    .guide--active .guide__item:nth-child(2) .guide__number::before {
+      -webkit-animation: filling 1s both 2200ms;
+      animation: filling 1s both 2200ms; }
+    .guide--active .guide__item:nth-child(2) .guide__box {
+      -webkit-animation: fadeIn 1s both 2900ms;
+      animation: fadeIn 1s both 2900ms; }
+    .guide--active .guide__item:nth-child(2)::before {
+      -webkit-animation: fillingWidth 2s both 2900ms;
+      animation: fillingWidth 2s both 2900ms; }
+    .guide--active .guide__item:nth-child(3) .guide__number::before {
+      -webkit-animation: filling 1s both 4500ms;
+      animation: filling 1s both 4500ms; }
+    .guide--active .guide__item:nth-child(3) .guide__box {
+      -webkit-animation: fadeIn 1s both 4900ms;
+      animation: fadeIn 1s both 4900ms; }
   .guide__title {
     font-size: 40px;
     text-align: center; }
@@ -2066,9 +2166,18 @@ a {
       position: absolute;
       top: 25px;
       left: 15px;
-      width: 100%;
+      z-index: 5;
+      width: 0;
       height: 2px;
       background-color: #304bab; }
+    .guide__item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 15px;
+      width: 100%;
+      height: 2px;
+      background-color: #f8f8f8; }
     .guide__item--one {
       max-width: 450px; }
     .guide__item--two {
@@ -2076,12 +2185,32 @@ a {
     .guide__item--three {
       max-width: 313px; }
   .guide__box {
-    margin-left: 0; }
+    margin-left: 0;
+    opacity: 0.5; }
   .guide__number {
+    position: relative;
+    z-index: 10;
+    width: 0;
     min-width: 50px;
     height: 50px;
     margin-bottom: 30px;
-    font-size: 20px; }
+    overflow: hidden;
+    font-size: 20px;
+    background: #f8f8f8; }
+    .guide__number::before {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #304bab;
+      transform: translateX(-100%); }
+    .guide__number span {
+      position: relative; }
   .guide__name {
     font-size: 25px;
     font-family: "Montserrat", sans-serif; }
@@ -2147,18 +2276,6 @@ a {
     height: 40px;
     background-color: #304bab;
     border-radius: 50%; }
-  .advantages__img::after {
-    content: "";
-    display: block;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    top: 7px;
-    left: -15px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #304bab;
-    border-radius: 50%; }
   .advantages__img img {
     position: relative;
     z-index: 10;
@@ -2167,6 +2284,17 @@ a {
     border-radius: 50%;
     -o-object-fit: cover;
     object-fit: cover; }
+
+.advantages__border {
+  content: "";
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #304bab;
+  border-radius: 50%; }
 
 .advantages__circle {
   content: "";
@@ -2184,6 +2312,13 @@ a {
 
 .advantages__item:not(:last-child) {
   margin-bottom: 70px; }
+
+.advantages__parallax {
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  width: 100%;
+  height: 100%; }
 
 @media (min-width: 768px) {
   .advantages {
@@ -2218,12 +2353,12 @@ a {
     min-width: 500px;
     height: 500px;
     margin: 0; }
-    .advantages__img::after {
-      top: 30px;
-      left: -40px; }
     .advantages__img::before {
       width: 110px;
       height: 110px; }
+  .advantages__parallax {
+    top: 30px;
+    left: -40px; }
   .advantages__circle {
     bottom: 40px;
     left: 70px;
@@ -2236,7 +2371,7 @@ a {
     left: unset; }
   .advantages__item:nth-child(2n) .advantages__img::before {
     display: none; }
-  .advantages__item:nth-child(2n) .advantages__img .advantages__circle {
+  .advantages__item:nth-child(2n) .advantages__img .advantages__parallax {
     right: -40px;
     bottom: 85px;
     left: unset; }
@@ -2327,9 +2462,10 @@ a {
 @media (min-width: 1280px) {
   .insurance {
     flex-direction: row;
+    padding-top: 80px;
+    overflow: hidden;
     padding-right: calc(50% - 640px);
-    padding-left: calc(50% - 640px);
-    padding-top: 80px; }
+    padding-left: calc(50% - 640px); }
   .insurance__box--text {
     max-width: 690px; }
   .insurance__title {
@@ -2364,10 +2500,28 @@ a {
   .insurance__button {
     max-width: 228px; }
   .insurance__box--img {
+    position: relative;
     width: 485px;
     height: 480px;
     margin: 0;
-    margin-left: auto; } }
+    margin-left: auto; }
+    .insurance__box--img::before {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      width: 225px;
+      height: 222px;
+      background-image: url("../img/cycover_circle.png");
+      background-size: contain;
+      transform: translate(-50%, -48%); }
+  .insurance__img {
+    -webkit-animation: rotate 20s linear infinite;
+    animation: rotate 20s linear infinite; } }
 
 .popup {
   position: fixed;
@@ -3068,6 +3222,39 @@ a {
     padding-left: calc(50% - 640px);
     padding-top: 90px;
     padding-bottom: 90px; }
+    .insurance-advantage--active .insurance-advantage__list::after {
+      -webkit-animation: fillingWidthInner 7s both;
+      animation: fillingWidthInner 7s both; }
+    .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__img {
+      -webkit-animation: noColor 2s both;
+      animation: noColor 2s both; }
+    .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__text,
+    .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__name {
+      -webkit-animation: fadeIn 1s both 500ms;
+      animation: fadeIn 1s both 500ms; }
+    .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__circle::before {
+      -webkit-animation: filling 1s both;
+      animation: filling 1s both; }
+    .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__img {
+      -webkit-animation: noColor 2s both 2000ms;
+      animation: noColor 2s both 2000ms; }
+    .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__text,
+    .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__name {
+      -webkit-animation: fadeIn 1s both 2000ms;
+      animation: fadeIn 1s both 2000ms; }
+    .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__circle::before {
+      -webkit-animation: filling 1s both 2000ms;
+      animation: filling 1s both 2000ms; }
+    .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__img {
+      -webkit-animation: noColor 2s both 5000ms;
+      animation: noColor 2s both 5000ms; }
+    .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__text,
+    .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__name {
+      -webkit-animation: fadeIn 1s both 5000ms;
+      animation: fadeIn 1s both 5000ms; }
+    .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__circle::before {
+      -webkit-animation: filling 1s both 5000ms;
+      animation: filling 1s both 5000ms; }
   .insurance-advantage__title {
     max-width: 625px;
     margin: 0 auto;
@@ -3081,37 +3268,59 @@ a {
       left: 50%;
       width: 880px;
       height: 2px;
-      background: linear-gradient(90deg, #304bab 0%, rgba(48, 75, 171, 0) 98.41%);
+      background: #e6e9f5;
       transform: translateX(-50%); }
-  .insurance-advantage__item {
-    max-width: 365px; }
-    .insurance-advantage__item--3 {
-      max-width: 345px; }
-    .insurance-advantage__item::before {
+    .insurance-advantage__list::after {
       content: "";
       position: absolute;
       bottom: 0;
+      left: 200px;
+      z-index: 10;
+      width: 0;
+      height: 2px;
+      background: #304bab; }
+  .insurance-advantage__item {
+    max-width: 365px; }
+    .insurance-advantage__item .insurance-advantage__circle {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      z-index: 100;
+      overflow: hidden;
       border-radius: 50%;
       transform: translateY(50%); }
-    .insurance-advantage__item--1::before {
+      .insurance-advantage__item .insurance-advantage__circle::before {
+        content: "";
+        display: block;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #304bab;
+        transform: translateX(-100%); }
+    .insurance-advantage__item--1 .insurance-advantage__circle {
       left: 180px;
       width: 23px;
       height: 23px;
-      background-color: #304bab; }
-    .insurance-advantage__item--2::before {
+      background-color: #ffffff;
+      border: 1px solid #304bab; }
+    .insurance-advantage__item--2 .insurance-advantage__circle {
       left: 50%;
       width: 33px;
       height: 33px;
       background-color: #ffffff;
       border: 1px solid #304bab;
       transform: translate(-50%, 50%); }
-    .insurance-advantage__item--3::before {
-      left: 83%;
-      width: 43px;
-      height: 43px;
-      background-color: #ffffff;
-      border: 1px solid #304bab;
-      transform: translate(-50%, 50%); }
+    .insurance-advantage__item--3 {
+      max-width: 345px; }
+      .insurance-advantage__item--3 .insurance-advantage__circle {
+        left: 83%;
+        width: 43px;
+        height: 43px;
+        background-color: #ffffff;
+        border: 1px solid #304bab;
+        transform: translate(-50%, 50%); }
   .insurance-advantage__box {
     width: 260px;
     height: 260px;
@@ -3130,16 +3339,20 @@ a {
       height: 22px; }
   .insurance-advantage__img {
     width: 260px;
-    height: 260px; }
+    height: 260px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
   .insurance-advantage__number {
     font-size: 70px;
     line-height: 78.93%; }
   .insurance-advantage__name {
     margin-bottom: 45px;
-    font-size: 25px; }
+    font-size: 25px;
+    opacity: 0.5; }
   .insurance-advantage__text {
     font-size: 16px;
-    line-height: 167.43%; } }
+    line-height: 167.43%;
+    opacity: 0.5; } }
 
 .contracts {
   padding: 50px 20px; }
@@ -3148,10 +3361,10 @@ a {
   margin-bottom: 30px; }
 
 .contracts__text {
+  max-width: 276px;
   margin-bottom: 45px;
   font-size: 12px;
-  line-height: 174.7%;
-  max-width: 276px; }
+  line-height: 174.7%; }
 
 .contracts__subtext {
   display: block; }
@@ -3256,10 +3469,10 @@ a {
     font-size: 25px;
     line-height: 142.43%; }
   .contracts__text {
+    max-width: 1140px;
     margin-bottom: 65px;
     font-size: 14px;
-    line-height: 155.7%;
-    max-width: 1140px; }
+    line-height: 155.7%; }
   .contracts__item {
     min-height: 374px;
     padding: 30px 40px;
@@ -3373,7 +3586,11 @@ a {
     border-radius: 30px 0 30px 30px; }
     .video__box--img::before {
       top: -20px;
-      right: -20px; }
+      right: -20px;
+      transition: all 0.3s; }
+    .video__box--img:hover::before {
+      top: -40px;
+      right: -40px; }
   .video__text {
     font-size: 16px;
     line-height: 155.7%; }
@@ -3617,19 +3834,19 @@ a {
   position: relative;
   max-width: 418px;
   height: 495px;
-  border-radius: 20px;
+  margin: 0 auto;
   background: white;
-  margin: 0 auto; }
+  border-radius: 20px; }
 
 .modal-registration__main-box {
-  display: none;
   z-index: 11;
+  display: none;
   width: 100%;
   padding: 0 15px; }
   .modal-registration__main-box--active {
-    display: block;
     position: absolute;
-    top: 20px; }
+    top: 20px;
+    display: block; }
 
 .modal-registration__wrap {
   padding: 40px 60px; }
@@ -3690,10 +3907,10 @@ a {
     line-height: 37px; } }
 
 .calculator__main-box {
-  display: none;
   position: absolute;
   top: 20px;
   z-index: 20;
+  display: none;
   width: 100%;
   padding: 0 15px; }
   .calculator__main-box--active {
@@ -3701,9 +3918,9 @@ a {
 
 .calculator {
   position: relative;
+  background: white;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: white; }
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
   .calculator--approved {
     max-width: 290px;
     min-height: 270px;
@@ -4267,18 +4484,18 @@ a {
 
 .button-close__icon {
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 20px;
   height: 20px;
   fill: white; }
 
 .overlay {
-  display: none;
   position: fixed;
+  z-index: 10;
+  display: none;
   width: 100%;
   height: 100%;
-  z-index: 10;
   background: rgba(0, 0, 0, 0.7); }
   .overlay--active {
     display: block; }

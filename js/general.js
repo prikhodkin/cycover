@@ -363,6 +363,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../application.js */ "./src/js/calculator/application.js");
 /* harmony import */ var _util_calc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/calc */ "./src/js/util/calc.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer */ "./src/js/calculator/components/footer.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -373,6 +375,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
+var selects = {
+  'revenue': 'select-revenue',
+  'effectif': 'select-effectif'
+};
 
 var AssuranceScreen = /*#__PURE__*/function () {
   function AssuranceScreen(state) {
@@ -381,10 +387,15 @@ var AssuranceScreen = /*#__PURE__*/function () {
     _classCallCheck(this, AssuranceScreen);
 
     this._state = state;
-    console.log(this._state);
     this.view = new _view_cyber_assurance__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
     this.view.onClickNext = function () {
+      // ЭТИ СЕЛЕКТЫ ПРОПИСАНЫ В HTML, ЗНАЧЕНИЯ ВЗЯТЫ ИЗ РАЗМЕТКИ
+      _this._checkSelects(selects.revenue);
+
+      _this._checkSelects(selects.effectif); //
+
+
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showDataInfo(_this._state);
     };
 
@@ -397,7 +408,8 @@ var AssuranceScreen = /*#__PURE__*/function () {
       _util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].forEach(function (it) {
         return it.selected = false;
       });
-      var option = e.target.options[e.target.selectedIndex].value;
+      var option = e.target.options[e.target.selectedIndex].value; // ЗНАЧЕНИЯ ДЛЯ ЭТОГО СЕЛЕКТА БЕРУТСЯ ИЗ ВНЕШНЕГО ФАЙЛА, РАЗМЕТКА ЗАПОЛНЯЕТСЯ ИЗ JS
+
       var elem = _util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].find(function (it) {
         // Добавляем selected выбранному option
         if (it.value == option) {
@@ -407,16 +419,24 @@ var AssuranceScreen = /*#__PURE__*/function () {
         return it.value == option;
       });
 
-      _this.updateState(elem);
+      _this._updateState(elem); //
+
     };
-  }
+  } //ОСТАВИЛ 2 ВАРИАНТА С СЕЛЕКТАМИ, ПОСКОЛЬКУ НЕТ ИНФОРМАЦИИ КАК ЭТО ВСЕ БУДЕТ ЗАПОЛНЯТЬСЯ"
+
 
   _createClass(AssuranceScreen, [{
-    key: "updateState",
-    value: function updateState(garant) {
+    key: "_updateState",
+    value: function _updateState(garant) {
       this._state = Object.assign({}, this._state, {
         garantie: garant
       });
+    }
+  }, {
+    key: "_checkSelects",
+    value: function _checkSelects(selectID) {
+      var select = this.view.element.querySelector("#".concat(selectID));
+      this._state = Object.assign({}, this._state, _defineProperty({}, selectID, select.options[select.selectedIndex].value));
     }
   }, {
     key: "element",
@@ -448,6 +468,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_data_info_more__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/data-info-more */ "./src/js/calculator/view/data-info-more.js");
 /* harmony import */ var _application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../application.js */ "./src/js/calculator/application.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./src/js/calculator/components/footer.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -465,9 +487,11 @@ var DataInfoMoreScreen = /*#__PURE__*/function () {
     _classCallCheck(this, DataInfoMoreScreen);
 
     this._state = state;
-    this.view = new _view_data_info_more__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this.view = new _view_data_info_more__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function () {
+      _this._updateState(_this.view.element);
+
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showSearchCircle(_this._state);
     };
 
@@ -477,12 +501,30 @@ var DataInfoMoreScreen = /*#__PURE__*/function () {
   }
 
   _createClass(DataInfoMoreScreen, [{
+    key: "_updateState",
+    value: function _updateState(element) {
+      var _this2 = this;
+
+      var radios = element.querySelectorAll("input[type=\"radio\"]:checked");
+      var gouvernInput = element.querySelector("input[name=\"Donn\xE9es gouvernementale\"]");
+      this._state = Object.assign({}, this._state, _defineProperty({}, gouvernInput.name, gouvernInput.value));
+      radios.forEach(function (it) {
+        _this2._state = Object.assign({}, _this2._state, _defineProperty({}, it.name, it.value));
+      });
+      console.log(this._state);
+    }
+  }, {
     key: "element",
     get: function get() {
       var element = this.view.element;
       var footerWrap = element.querySelector("#calc-footer");
       footerWrap.appendChild(new _footer__WEBPACK_IMPORTED_MODULE_2__["default"](this._state).element);
       return element;
+    }
+  }, {
+    key: "state",
+    get: function get() {
+      return this._state;
     }
   }]);
 
@@ -506,6 +548,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_data_info__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/data-info */ "./src/js/calculator/view/data-info.js");
 /* harmony import */ var _application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../application.js */ "./src/js/calculator/application.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./src/js/calculator/components/footer.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -523,9 +567,12 @@ var DataInfoScreen = /*#__PURE__*/function () {
     _classCallCheck(this, DataInfoScreen);
 
     this._state = state;
-    this.view = new _view_data_info__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    console.log(this._state);
+    this.view = new _view_data_info__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function () {
+      _this._updateState(_this.view.element);
+
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showDataInfoMore(_this._state);
     };
 
@@ -535,12 +582,27 @@ var DataInfoScreen = /*#__PURE__*/function () {
   }
 
   _createClass(DataInfoScreen, [{
+    key: "_updateState",
+    value: function _updateState(element) {
+      var _this2 = this;
+
+      var inputs = element.querySelectorAll("input");
+      inputs.forEach(function (it) {
+        _this2._state = Object.assign({}, _this2._state, _defineProperty({}, it.name, it.value));
+      });
+    }
+  }, {
     key: "element",
     get: function get() {
       var element = this.view.element;
       var footerWrap = element.querySelector("#calc-footer");
       footerWrap.appendChild(new _footer__WEBPACK_IMPORTED_MODULE_2__["default"](this._state).element);
       return element;
+    }
+  }, {
+    key: "state",
+    get: function get() {
+      return this._state;
     }
   }]);
 
@@ -618,13 +680,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_personal_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/personal-data */ "./src/js/calculator/view/personal-data.js");
 /* harmony import */ var _application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../application.js */ "./src/js/calculator/application.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./src/js/calculator/components/footer.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+/* harmony import */ var _util_ajaxSend__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/ajaxSend */ "./src/js/util/ajaxSend.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -638,29 +701,43 @@ var PersonalDataScreen = /*#__PURE__*/function () {
     _classCallCheck(this, PersonalDataScreen);
 
     this._state = state;
-    this.view = new _view_personal_data__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this.view = new _view_personal_data__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function (e) {
       e.preventDefault();
-      var form = jquery__WEBPACK_IMPORTED_MODULE_3___default()(".calculator__form");
-      jquery__WEBPACK_IMPORTED_MODULE_3___default.a.ajax({
-        type: "POST",
-        url: "vendor/mail.php",
-        // Change
-        data: form.serialize()
-      }).done(function () {
-        _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showApproved();
-        setTimeout(function () {
-          // Done Functions
-          form.trigger("reset");
-        }, 1000);
-      });
-      console.log(_this._state);
-      return false;
+
+      _this._sendAjax();
     };
+
+    this._init();
   }
 
   _createClass(PersonalDataScreen, [{
+    key: "_init",
+    value: function _init() {
+      this._checkPhone();
+    }
+  }, {
+    key: "_sendAjax",
+    value: function _sendAjax() {
+      var form = this.view.element.querySelector(".calculator__form");
+      var postURL = "vendor/mail.php";
+      var formData = new FormData(form);
+      Object(_util_ajaxSend__WEBPACK_IMPORTED_MODULE_4__["default"])(postURL, "post", formData).then(function () {
+        form.reset();
+        _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showApproved();
+      });
+    }
+  }, {
+    key: "_checkPhone",
+    value: function _checkPhone() {
+      var phone = this.view.element.querySelector("#form-number-calc");
+      var phoneOption = {
+        mask: '+{7} (000) 000-00-00'
+      };
+      Object(imask__WEBPACK_IMPORTED_MODULE_3__["default"])(phone, phoneOption);
+    }
+  }, {
     key: "element",
     get: function get() {
       var element = this.view.element;
@@ -743,6 +820,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_tariff__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/tariff */ "./src/js/calculator/view/tariff.js");
 /* harmony import */ var _application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../application.js */ "./src/js/calculator/application.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./src/js/calculator/components/footer.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -762,13 +841,21 @@ var TariffScreen = /*#__PURE__*/function () {
     this._state = state;
     this.view = new _view_tariff__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
-    this.view.onClickNext = function () {
-      console.log(_this._state.garantie);
+    this.view.onClickNext = function (it) {
+      _this._updateState(it);
+
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showPersonalData(_this._state);
     };
   }
 
   _createClass(TariffScreen, [{
+    key: "_updateState",
+    value: function _updateState(element) {
+      var key = element.getAttribute("data-name");
+      var value = element.getAttribute("data-price");
+      this._state = Object.assign({}, this._state, _defineProperty({}, key, value));
+    }
+  }, {
     key: "element",
     get: function get() {
       var element = this.view.element;
@@ -818,15 +905,15 @@ var VotreScreen = /*#__PURE__*/function () {
     this.view = new _view_votre_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
     this.view.onClickNext = function (e) {
-      _this.updateState(e);
+      _this._updateState(e);
 
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showAssuranse(_this._state);
     };
   }
 
   _createClass(VotreScreen, [{
-    key: "updateState",
-    value: function updateState(target) {
+    key: "_updateState",
+    value: function _updateState(target) {
       this._state = Object.assign({}, this._state, {
         type: target.target.innerHTML
       });
@@ -977,7 +1064,7 @@ var AssuranceView = /*#__PURE__*/function (_AbstractView) {
         _this.onClickNext();
       });
       back.addEventListener("click", function (e) {
-        e.preventDefault;
+        e.preventDefault();
 
         _this.onClickBack();
       });
@@ -997,9 +1084,9 @@ var AssuranceView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Votre cyber assurance en ligne </h2>\n          <ul class=\"calculator__list calculator__list--select\">\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Chiffre d\u2019affaires consolid\xE9 HT</p>\n              <div class=\"select__box select__box--active\">\n                <select class=\"select__list\" name=\"select-list\" id=\"select-revenue\">\n                  <option class=\"select__item\" value=\"revenue-1\">130 000</option>\n                  <option class=\"select__item\" value=\"revenue-2\">30 000</option>\n                  <option class=\"select__item\" value=\"revenue-3\">10 000</option>\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Montant de la garantie souhait\xE9</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"garantie-list\" id=\"select-garantie\"}>\n\n\n                  ".concat(_util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].map(function (it) {
+      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Votre cyber assurance en ligne </h2>\n          <ul class=\"calculator__list calculator__list--select\">\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Chiffre d\u2019affaires consolid\xE9 HT</p>\n              <div class=\"select__box select__box--active\">\n                <select class=\"select__list\" name=\"select-list\" id=\"select-revenue\">\n                  <option class=\"select__item\" value=\"130 000\">130 000</option>\n                  <option class=\"select__item\" value=\"30 000\">30 000</option>\n                  <option class=\"select__item\" value=\"10 000\">10 000</option>\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Montant de la garantie souhait\xE9</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"garantie-list\" id=\"select-garantie\"}>\n\n\n                  ".concat(_util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].map(function (it) {
         return "\n                      <option class=\"select__item\" value=\"".concat(it.value, "\" ").concat(it.selected ? 'selected' : '', ">").concat(it.value, "</option>\n                    ");
-      }).join(""), "\n\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Effectif</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"effectif-list\" id=\"select-effectif\">\n                  <option class=\"select__item\" value=\"effectif-1\">10</option>\n                  <option class=\"select__item\" value=\"effectif-2\">5</option>\n                  <option class=\"select__item\" value=\"effectif-3\">3</option>\n                </select>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      }).join(""), "\n\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Effectif</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"effectif-list\" id=\"select-effectif\">\n                  <option class=\"select__item\" value=\"10\">10</option>\n                  <option class=\"select__item\" value=\"5\">5</option>\n                  <option class=\"select__item\" value=\"3\">3</option>\n                </select>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1052,28 +1139,33 @@ var DataInfoMoreView = /*#__PURE__*/function (_AbstractView) {
 
   var _super = _createSuper(DataInfoMoreView);
 
-  function DataInfoMoreView() {
+  function DataInfoMoreView(state) {
+    var _this;
+
     _classCallCheck(this, DataInfoMoreView);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this._state = state;
+    console.log(_this._state);
+    return _this;
   }
 
   _createClass(DataInfoMoreView, [{
     key: "bind",
     value: function bind() {
-      var _this = this;
+      var _this2 = this;
 
       var next = this.element.querySelector(".calculator__button--forth");
       var back = this.element.querySelector(".calculator__button--back");
       next.addEventListener("click", function (e) {
         e.preventDefault();
 
-        _this.onClickNext();
+        _this2.onClickNext();
       });
       back.addEventListener("click", function (e) {
         e.preventDefault();
 
-        _this.onClickBack();
+        _this2.onClickBack();
       });
     }
   }, {
@@ -1085,7 +1177,9 @@ var DataInfoMoreView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--amount-data-next\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">nature & volume des donn\xE9es personnelles d\xE9tenues par le proposant et ses filiales </h2>\n          <ul class=\"calculator__list calculator__list--amount-data-next\">\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__5\" placeholder=\"0\">\n              <label class=\"field-numb__label\" for=\"field-numb__5\">Donn\xE9es gouvernementales class\xE9es confidentielles</label>\n            </li>\n\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez-vous plus de 25 % de votre chiffre d'affaires en ligne ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"radio-calc__1\" value=\"yes-1\" id=\"radio-yes-1\">\n                  <label class=\"radio-calc__label\" for=\"radio-yes-1\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"radio-calc__1\" value=\"not-1\" id=\"radio-not-1\">\n                  <label class=\"radio-calc__label\" for=\"radio-not-1\">Non</label>\n                </div>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez-vous plus de 25 % de votre chiffre d'affaires par des paiements par cartes bancaires ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"radio-calc__1\" value=\"yes-1\" id=\"radio-yes-2\">\n                  <label class=\"radio-calc__label\" for=\"radio-yes-2\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"radio-calc__1\" value=\"not-1\" id=\"radio-not-2\">\n                  <label class=\"radio-calc__label\" for=\"radio-not-2\">Non</label>\n                </div>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      var _this$_state$DonnEs;
+
+      return "\n      <section class=\"calculator calculator--amount-data-next\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">nature & volume des donn\xE9es personnelles d\xE9tenues par le proposant et ses filiales </h2>\n          <ul class=\"calculator__list calculator__list--amount-data-next\">\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__5\" placeholder=\"0\" name=\"Donn\xE9es gouvernementale\" value=\"".concat((_this$_state$DonnEs = this._state['Données gouvernementale']) !== null && _this$_state$DonnEs !== void 0 ? _this$_state$DonnEs : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__5\">Donn\xE9es gouvernementales class\xE9es confidentielles</label>\n            </li>\n\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez-vous plus de 25 % de votre chiffre d'affaires en ligne ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 en ligne\" value=\"yes\" id=\"radio-yes-1\" checked>\n                  <label class=\"radio-calc__label\" for=\"radio-yes-1\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 en ligne\" value=\"not\" id=\"radio-not-1\">\n                  <label class=\"radio-calc__label\" for=\"radio-not-1\">Non</label>\n                </div>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez-vous plus de 25 % de votre chiffre d'affaires par des paiements par cartes bancaires ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 cartes bancaires\" value=\"yes\" id=\"radio-yes-2\" checked>\n                  <label class=\"radio-calc__label\" for=\"radio-yes-2\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 cartes bancaires\" value=\"not\" id=\"radio-not-2\">\n                  <label class=\"radio-calc__label\" for=\"radio-not-2\">Non</label>\n                </div>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1138,28 +1232,32 @@ var DataInfoView = /*#__PURE__*/function (_AbstractView) {
 
   var _super = _createSuper(DataInfoView);
 
-  function DataInfoView() {
+  function DataInfoView(state) {
+    var _this;
+
     _classCallCheck(this, DataInfoView);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this._state = state;
+    return _this;
   }
 
   _createClass(DataInfoView, [{
     key: "bind",
     value: function bind() {
-      var _this = this;
+      var _this2 = this;
 
       var next = this.element.querySelector(".calculator__button--forth");
       var back = this.element.querySelector(".calculator__button--back");
       next.addEventListener("click", function (e) {
         e.preventDefault();
 
-        _this.onClickNext();
+        _this2.onClickNext();
       });
       back.addEventListener("click", function (e) {
         e.preventDefault();
 
-        _this.onClickBack();
+        _this2.onClickBack();
       });
     }
   }, {
@@ -1171,7 +1269,9 @@ var DataInfoView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--amount-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">nature & volume des donn\xE9es personnelles d\xE9tenues par le proposant et ses filiales </h2>\n          <ul class=\"calculator__list calculator__list--amount-data\">\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__1\" placeholder=\"3000\">\n              <label class=\"field-numb__label\" for=\"field-numb__1\">Nombre d\u2019enregistrements par nature de donn\xE9es</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__2\" placeholder=\"3000\">\n              <label class=\"field-numb__label\" for=\"field-numb__2\">Donn\xE9es personnelles y compris donn\xE9es des employ\xE9s\xA0</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__3\" placeholder=\"500\">\n              <label class=\"field-numb__label\" for=\"field-numb__3\">Dont Donn\xE9es m\xE9dicales</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__4\" placeholder=\"50\">\n              <label class=\"field-numb__label\" for=\"field-numb__4\">Donn\xE9es de carte de paiment (nombre de transactions bancaires)</label>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      var _this$_state$NombreD, _this$_state$DonnEs, _this$_state$DonnEs2, _this$_state$DonnEs3;
+
+      return "\n      <section class=\"calculator calculator--amount-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">nature & volume des donn\xE9es personnelles d\xE9tenues par le proposant et ses filiales </h2>\n          <ul class=\"calculator__list calculator__list--amount-data\">\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__1\" placeholder=\"3000\" name=\"Nombre denregistrements par\" value=\"".concat((_this$_state$NombreD = this._state['Nombre denregistrements par']) !== null && _this$_state$NombreD !== void 0 ? _this$_state$NombreD : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__1\">Nombre d\u2019enregistrements par nature de donn\xE9es</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__2\" placeholder=\"3000\" name=\"Donn\xE9es personnelles\" value=\"").concat((_this$_state$DonnEs = this._state['Données personnelles']) !== null && _this$_state$DonnEs !== void 0 ? _this$_state$DonnEs : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__2\">Donn\xE9es personnelles y compris donn\xE9es des employ\xE9s\xA0</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__3\" placeholder=\"500\" name=\"Donn\xE9es m\xE9dicales\" value=\"").concat((_this$_state$DonnEs2 = this._state['Données médicales']) !== null && _this$_state$DonnEs2 !== void 0 ? _this$_state$DonnEs2 : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__3\">Dont Donn\xE9es m\xE9dicales</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__4\" placeholder=\"50\" name=\"Donn\xE9es de carte de paiment\" value=\"").concat((_this$_state$DonnEs3 = this._state['Données de carte de paiment']) !== null && _this$_state$DonnEs3 !== void 0 ? _this$_state$DonnEs3 : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__4\">Donn\xE9es de carte de paiment (nombre de transactions bancaires)</label>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1297,22 +1397,27 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
 
   var _super = _createSuper(PersonalDataView);
 
-  function PersonalDataView() {
+  function PersonalDataView(state) {
+    var _this;
+
     _classCallCheck(this, PersonalDataView);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this._state = state;
+    console.log(Object.entries(_this._state));
+    return _this;
   }
 
   _createClass(PersonalDataView, [{
     key: "bind",
     value: function bind() {
-      var _this = this;
+      var _this2 = this;
 
       var next = this.element.querySelector(".button--forth");
       next.addEventListener("click", function (e) {
         e.preventDefault();
 
-        _this.onClickNext(e);
+        _this2.onClickNext(e);
       });
     }
   }, {
@@ -1321,7 +1426,9 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--personal-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--personal-data\">\n          <form class=\"calculator__form form form--calculator\" action=\"#\" method=\"POST\">\n            <input type=\"hidden\" name=\"project_name\" value=\"cycover\">\n            <input type=\"hidden\" name=\"admin_email\" value=\"089ax@mail.ru\">\n            <input type=\"hidden\" name=\"form_subject\" value=\"calculator\">\n            <div class=\"form__wrap form__wrap--calculator\">\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-siret\" name=\"siret\" placeholder=\"Siret\">\n                <label class=\"field__label field__label--calculator\" for=\"form-siret\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__identity-card\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-name-calc\" name=\"name-calc\" placeholder=\"Votre nom et pr\xE9nom\">\n                <label class=\"field__label field__label--calculator\" for=\"form-name-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__user\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"number\" id=\"form-number-calc\" name=\"number-calc\" placeholder=\"Num\xE9ro de tel\">\n                <label class=\"field__label field__label--calculator\" for=\"form-number-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__phone\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"email\" id=\"form-email-calc\" name=\"email-calc\" placeholder=\"E-mail\">\n                <label class=\"field__label field__label--calculator\" for=\"form-email-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__at\"></use>\n                  </svg>\n                </label>\n              </div>\n            </div>\n\n            <button class=\"calculator__button calculator__button--form-calc button button--forth button--calc-form\" type=\"submit\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </button>\n          </form>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      return "\n      <section class=\"calculator calculator--personal-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--personal-data\">\n          <form class=\"calculator__form form form--calculator\" action=\"#\" method=\"POST\">\n            <input type=\"hidden\" name=\"project_name\" value=\"cycover\">\n            <input type=\"hidden\" name=\"admin_email\" value=\"089ax@mail.ru\">\n            <input type=\"hidden\" name=\"form_subject\" value=\"calculator\">\n\n            ".concat(Object.entries(this._state).map(function (elem) {
+        return "\n              <input type=\"hidden\" name=\"".concat(elem[0], "\" value=\"").concat(elem[0] === 'garantie' ? elem[1].value : elem[1], "\">\n              ");
+      }).join(""), "\n\n            <div class=\"form__wrap form__wrap--calculator\">\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-siret\" name=\"siret\" placeholder=\"Siret\">\n                <label class=\"field__label field__label--calculator\" for=\"form-siret\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__identity-card\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-name-calc\" name=\"name-calc\" placeholder=\"Votre nom et pr\xE9nom\">\n                <label class=\"field__label field__label--calculator\" for=\"form-name-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__user\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"tel\" id=\"form-number-calc\" name=\"number-calc\" placeholder=\"Num\xE9ro de tel\">\n                <label class=\"field__label field__label--calculator\" for=\"form-number-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__phone\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"email\" id=\"form-email-calc\" name=\"email-calc\" placeholder=\"E-mail\">\n                <label class=\"field__label field__label--calculator\" for=\"form-email-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__at\"></use>\n                  </svg>\n                </label>\n              </div>\n            </div>\n\n            <button class=\"calculator__button calculator__button--form-calc button button--forth button--calc-form\" type=\"submit\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </button>\n          </form>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1457,7 +1564,7 @@ var TariffView = /*#__PURE__*/function (_AbstractView) {
         it.addEventListener("click", function (e) {
           e.preventDefault();
 
-          _this2.onClickNext();
+          _this2.onClickNext(it);
         });
       });
     }
@@ -1467,7 +1574,7 @@ var TariffView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">de base</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">$ ".concat(this._state.garantie.base, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Prime</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">$ ").concat(this._state.garantie.prime, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">de base</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">$ ".concat(this._state.garantie.base, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\" data-name=\"BASE\" data-price=\"").concat(this._state.garantie.base, "\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Prime</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">$ ").concat(this._state.garantie.prime, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\" data-name=\"PRIME\" data-price=\"").concat(this._state.garantie.prime, "\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1531,13 +1638,11 @@ var VotreView = /*#__PURE__*/function (_AbstractView) {
     value: function bind() {
       var _this = this;
 
-      var nexts = this.element.querySelectorAll(".situation__link");
-      nexts.forEach(function (it) {
-        it.addEventListener("click", function (e) {
-          e.preventDefault();
+      var next = this.element.querySelector(".situation__link--professional");
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
 
-          _this.onClickNext(e);
-        });
+        _this.onClickNext(e);
       });
     }
   }, {
@@ -1546,7 +1651,7 @@ var VotreView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Choisissez votre situation</h2>\n          <ul class=\"calculator__list calculator__list--situation\">\n            <li class=\"calculator__item calculator__item--situation situation situation--professional\">\n              <a class=\"situation__link situation__link--professional\" href=\"#\">Professional </a>\n            </li>\n            <li class=\"calculator__item calculator__item--situation situation situation--particuller\">\n              <a class=\"situation__link situation__link--particuller\" href=\"#\">Particuller </a>\n            </li>\n          </ul>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Choisissez votre situation</h2>\n          <ul class=\"calculator__list calculator__list--situation\">\n            <li class=\"calculator__item calculator__item--situation situation situation--professional\">\n              <a class=\"situation__link situation__link--professional\" href=\"#\">Professional </a>\n            </li>\n            <li class=\"calculator__item calculator__item--situation situation situation--particuller\">\n              <a class=\"situation__link situation__link--particuller\" href=\"index.html\">Particuller </a>\n            </li>\n          </ul>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
     }
   }]);
 
@@ -1567,8 +1672,12 @@ var VotreView = /*#__PURE__*/function (_AbstractView) {
 var map = {
 	"./calculator_controller.js": "./src/js/controllers/calculator_controller.js",
 	"./espaceClient_controller.js": "./src/js/controllers/espaceClient_controller.js",
+	"./filling-inner_controller.js": "./src/js/controllers/filling-inner_controller.js",
+	"./filling_controller.js": "./src/js/controllers/filling_controller.js",
 	"./map_controller.js": "./src/js/controllers/map_controller.js",
 	"./menu_controller.js": "./src/js/controllers/menu_controller.js",
+	"./overlay_controller.js": "./src/js/controllers/overlay_controller.js",
+	"./parallax_controller.js": "./src/js/controllers/parallax_controller.js",
 	"./scroll_controller.js": "./src/js/controllers/scroll_controller.js",
 	"./slider_controller.js": "./src/js/controllers/slider_controller.js"
 };
@@ -1633,6 +1742,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var calc = document.querySelector("#calculator");
+var overlay = document.querySelector(".overlay");
 
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
@@ -1640,9 +1751,30 @@ var _default = /*#__PURE__*/function (_Controller) {
   var _super = _createSuper(_default);
 
   function _default() {
+    var _this;
+
     _classCallCheck(this, _default);
 
-    return _super.apply(this, arguments);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "escPressHandler", function (e) {
+      if (e.keyCode && e.keyCode === 27) {
+        _this.close();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "close", function () {
+      calc.classList.remove("calculator__main-box--active");
+      overlay.classList.remove("overlay--active");
+      calc.innerHTML = "";
+      document.removeEventListener("keydown", _this.escPressHandler);
+    });
+
+    return _this;
   }
 
   _createClass(_default, [{
@@ -1652,8 +1784,6 @@ var _default = /*#__PURE__*/function (_Controller) {
     key: "showCalc",
     value: function showCalc(e) {
       e.preventDefault();
-      var calc = document.querySelector("#calculator");
-      var overlay = document.querySelector(".overlay");
       var scrollY = window.pageYOffset;
       calc.classList.toggle("calculator__main-box--active");
       calc.style.top = scrollY + 100 + 'px';
@@ -1664,14 +1794,12 @@ var _default = /*#__PURE__*/function (_Controller) {
       }
 
       _calculator_application__WEBPACK_IMPORTED_MODULE_1__["default"].initial();
+      document.addEventListener("keydown", this.escPressHandler);
     }
   }, {
     key: "closeCalc",
-    value: function closeCalc(e) {
-      var calc = document.querySelector("#calculator");
-      var overlay = document.querySelector(".overlay");
-      calc.classList.toggle("calculator__main-box--active");
-      overlay.classList.toggle("overlay--active");
+    value: function closeCalc() {
+      this.close();
     }
   }]);
 
@@ -1695,8 +1823,8 @@ _defineProperty(_default, "targets", ["link"]);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
 /* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+/* harmony import */ var _util_ajaxSend__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/ajaxSend */ "./src/js/util/ajaxSend.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1724,6 +1852,135 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var popup = document.querySelector(".modal-registration__main-box");
+var overlay = document.querySelector(".overlay");
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    var _this;
+
+    _classCallCheck(this, _default);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "escPressHandler", function (e) {
+      if (e.keyCode && e.keyCode === 27) {
+        _this.close();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "close", function () {
+      popup.classList.remove("modal-registration__main-box--active");
+      overlay.classList.remove("overlay--active");
+      document.removeEventListener("keydown", _this.escPressHandler);
+    });
+
+    return _this;
+  }
+
+  _createClass(_default, [{
+    key: "initialize",
+    value: function initialize() {}
+  }, {
+    key: "showPopup",
+    value: function showPopup(e) {
+      e.preventDefault();
+      this.checkPhone();
+      var scrollY = window.pageYOffset;
+      popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px";
+      popup.classList.toggle("modal-registration__main-box--active");
+      overlay.classList.toggle("overlay--active");
+      document.addEventListener("keydown", this.escPressHandler);
+    }
+  }, {
+    key: "closePopup",
+    value: function closePopup(e) {
+      e.preventDefault();
+      this.close();
+    }
+  }, {
+    key: "makeRequest",
+    value: function makeRequest(e) {
+      e.preventDefault();
+      this.sendAjax();
+    }
+  }, {
+    key: "sendAjax",
+    value: function sendAjax() {
+      var _this2 = this;
+
+      var form = this.formTarget;
+      var formData = new FormData(form);
+      var postURL = "vendor/mail.php";
+      Object(_util_ajaxSend__WEBPACK_IMPORTED_MODULE_2__["default"])(postURL, "post", formData).then(function () {
+        _this2.close();
+
+        form.reset();
+      });
+    }
+  }, {
+    key: "checkPhone",
+    value: function checkPhone() {
+      var phone = document.querySelector("#form-number");
+      var phoneOption = {
+        mask: '+{7} (000) 000-00-00'
+      };
+      Object(imask__WEBPACK_IMPORTED_MODULE_1__["default"])(phone, phoneOption);
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+_defineProperty(_default, "targets", ["form", "link"]);
+
+
+
+/***/ }),
+
+/***/ "./src/js/controllers/filling-inner_controller.js":
+/*!********************************************************!*\
+  !*** ./src/js/controllers/filling-inner_controller.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
 
@@ -1736,60 +1993,100 @@ var _default = /*#__PURE__*/function (_Controller) {
   }
 
   _createClass(_default, [{
-    key: "initialize",
-    value: function initialize() {}
-  }, {
-    key: "showPopup",
-    value: function showPopup(e) {
-      e.preventDefault();
-      this.toggle();
-    }
-  }, {
-    key: "closePopup",
-    value: function closePopup(e) {
-      e.preventDefault();
-      this.toggle();
-    }
-  }, {
-    key: "makeRequest",
-    value: function makeRequest(e) {
-      e.preventDefault();
-      var form = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.modal-registration__form');
-      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.ajax({
-        type: "POST",
-        url: "vendor/mail.php",
-        // Change
-        data: form.serialize()
-      }).done(function () {
-        // this.toggle();
-        var popup = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".modal-registration__main-box");
-        var overlay = jquery__WEBPACK_IMPORTED_MODULE_1___default()(".overlay");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(popup).toggleClass("modal-registration__main-box--active");
-        jquery__WEBPACK_IMPORTED_MODULE_1___default()(overlay).toggleClass("overlay--active");
-        setTimeout(function () {
-          // Done Functions
-          form.trigger("reset");
-        }, 1000);
+    key: "connect",
+    value: function connect() {
+      var _this = this;
+
+      document.addEventListener("scroll", function () {
+        _this.init();
       });
-      return false;
     }
   }, {
-    key: "toggle",
-    value: function toggle() {
-      var popup = document.querySelector(".modal-registration__main-box");
-      var overlay = document.querySelector(".overlay");
-      var scrollY = window.pageYOffset;
-      console.log(scrollY);
-      popup.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px";
-      popup.classList.toggle("modal-registration__main-box--active");
-      overlay.classList.toggle("overlay--active");
+    key: "init",
+    value: function init() {
+      if (this.element.getBoundingClientRect().top <= 0) {
+        this.element.classList.add("insurance-advantage--active");
+      } else {
+        this.element.classList.remove("insurance-advantage--active");
+      }
     }
   }]);
 
   return _default;
 }(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
 
-_defineProperty(_default, "targets", ["form", "link"]);
+
+
+/***/ }),
+
+/***/ "./src/js/controllers/filling_controller.js":
+/*!**************************************************!*\
+  !*** ./src/js/controllers/filling_controller.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    _classCallCheck(this, _default);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(_default, [{
+    key: "connect",
+    value: function connect() {
+      var _this = this;
+
+      document.addEventListener("scroll", function () {
+        _this.init();
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.element.getBoundingClientRect().top <= 100) {
+        this.element.classList.add("guide--active");
+      } else {
+        this.element.classList.remove("guide--active");
+      }
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
 
 
 
@@ -2020,6 +2317,161 @@ _defineProperty(_default, "targets", ["item", "trigger"]);
 
 /***/ }),
 
+/***/ "./src/js/controllers/overlay_controller.js":
+/*!**************************************************!*\
+  !*** ./src/js/controllers/overlay_controller.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var popup = document.querySelector(".modal-registration__main-box");
+var calc = document.querySelector("#calculator");
+var overlay = document.querySelector(".overlay");
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    var _this;
+
+    _classCallCheck(this, _default);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "escPressHandler", function (e) {
+      if (e.keyCode && e.keyCode === 27) {
+        _this.close();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "close", function () {
+      popup.classList.remove("modal-registration__main-box--active");
+      calc.classList.remove("calculator__main-box--active");
+      overlay.classList.remove("overlay--active");
+      calc.innerHTML = "";
+      document.removeEventListener("keydown", _this.escPressHandler);
+    });
+
+    return _this;
+  }
+
+  _createClass(_default, [{
+    key: "closeModal",
+    value: function closeModal() {
+      this.close();
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+_defineProperty(_default, "targets", ["area"]);
+
+
+
+/***/ }),
+
+/***/ "./src/js/controllers/parallax_controller.js":
+/*!***************************************************!*\
+  !*** ./src/js/controllers/parallax_controller.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+/* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! parallax-js */ "./node_modules/parallax-js/dist/parallax.js");
+/* harmony import */ var parallax_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(parallax_js__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    _classCallCheck(this, _default);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(_default, [{
+    key: "connect",
+    value: function connect() {
+      var parallaxBorders = document.querySelectorAll(".advantages__parallax");
+      parallaxBorders.forEach(function (item) {
+        return new parallax_js__WEBPACK_IMPORTED_MODULE_1___default.a(item);
+      });
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+
+
+/***/ }),
+
 /***/ "./src/js/controllers/scroll_controller.js":
 /*!*************************************************!*\
   !*** ./src/js/controllers/scroll_controller.js ***!
@@ -2203,6 +2655,36 @@ var application = stimulus__WEBPACK_IMPORTED_MODULE_1__["Application"].start();
 var context = __webpack_require__("./src/js/controllers sync recursive \\.js$");
 
 application.load(Object(stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_2__["definitionsFromContext"])(context));
+
+/***/ }),
+
+/***/ "./src/js/util/ajaxSend.js":
+/*!*********************************!*\
+  !*** ./src/js/util/ajaxSend.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (url, method, data) {
+  return fetch(url, {
+    method: method,
+    headers: {
+      "X-Requested-With": "XMLHttpRequest"
+    },
+    body: data
+  }).then(function (response) {
+    if (response.status !== 200) {
+      console.log('Looks like there was a problem. Status Code: ' + response.status);
+      return;
+    }
+
+    return response.json();
+  })["catch"](function (error) {
+    return console.log(error);
+  });
+});
 
 /***/ }),
 
