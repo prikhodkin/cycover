@@ -5,6 +5,10 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  width: 100%;
+  background-color: #f3f6ff;
+  z-index: 10000;
+  box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4);
 }
 
 .cookies__content {
