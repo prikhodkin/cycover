@@ -1,0 +1,80 @@
+.cookies {
+  padding: 0 20px;
+  padding-top: 27px;
+  padding-bottom: 22px;
+  // position: fixed;
+}
+
+.cookies__content {
+  margin-bottom: 30px;
+}
+
+.cookies__title {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.cookies__text {
+  font-size: 12px;
+  line-height: 167.43%;
+}
+
+.cookies__box {
+  display: flex;
+}
+
+.cookies__button {
+  width: 130px;
+  min-height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: "Geometria", sans-serif;
+
+  &:not(:first-child) {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .cookies {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    padding-top: 27px;
+    padding-bottom: 22px;
+  }
+
+  .cookies__title {
+    font-size: 18px;
+  }
+
+  .cookies__text {
+    font-size: 16px;
+  }
+
+  .cookies__content {
+    margin-bottom: 0;
+  }
+
+
+  .cookies__button {
+    font-size: 14px;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .cookies {
+    @include page-wrapper;
+  }
+
+  .cookies__button {
+    width: 140px;
+  }
+}
