@@ -57,3 +57,9 @@
     filter: grayscale(0%);
   }
 }
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}

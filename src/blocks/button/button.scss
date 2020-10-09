@@ -44,8 +44,9 @@
     transition: all 0.3s;
 
     &:hover {
-      background-image: unset;
+      //background-image: unset;
       // transition: all 0.3s;
+      background-color: #f1f4fd;
     }
 
     &:active {

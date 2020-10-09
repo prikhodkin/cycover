@@ -14,11 +14,11 @@
 </head>
 
 <body class="page" data-controller="popup" data-popup-parent="parent">
-    <header class="page__header header">
+  <header class="page__header header">
     <div class="header__top">
       <ul class="header__control modifier">
-        <li class="modifier__item modifier__item--active"><a href="#">Обычный</a></li>
         <li class="modifier__item"><a href="proffesional.html">Профессиональный</a></li>
+        <li class="modifier__item modifier__item--active"><a href="#">Обычный</a></li>
       </ul>
       <a href="tel:+25994244353" class="header__phone">
         <svg width="17" height="17">
@@ -84,7 +84,6 @@
           </button>
         </div>
       </div>
-
       <ul class="dangers__list" data-target="slider.list">
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
@@ -130,6 +129,15 @@
           </div>
 
         </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
       </ul>
     </section>
     <section class="insurance">
@@ -149,12 +157,27 @@
       </div>
 
       <div class="insurance__box insurance__box--img">
-        <picture>
+        <div class="insurance__line">
+          <img src="../img/vtb.png">
+        </div>
+        <div class="insurance__line">
+          <img src="../img/f1.png" alt="">
+        </div>
+        <div class="insurance__line">
+          <img src="../img/f2.png" alt="">
+        </div>
+        <div class="insurance__line">
+          <img src="../img/f3.png" alt="">
+        </div>
+        <div class="insurance__line">
+          <img src="../img/f4.png" alt="">
+        </div>
+<!--        <picture>-->
 <!--          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/insurance@desktop.webp">-->
-          <source media="(min-width: 1280px)" srcset="../img/insurance@desktop.png">
-          <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">
-          <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">
-        </picture>
+<!--          <source media="(min-width: 1280px)" srcset="../img/insurance@desktop.png">-->
+<!--          <source type="image/webp" srcset="../img/insurance__banks@mobile.webp">-->
+<!--          <img class="insurance__img" src="../img/insurance__banks@mobile.png" alt="Banks">-->
+<!--        </picture>-->
       </div>
     </section>
     <section class="advantages">
