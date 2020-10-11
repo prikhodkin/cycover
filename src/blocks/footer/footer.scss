@@ -31,9 +31,10 @@
   background-color: #334c8f;
 }
 
-.footer__copyright {
+.footer__bottom-politic {
+  display: flex;
   margin-bottom: 13px;
-  line-height: 15px;
+  flex-wrap: wrap;
 }
 
 .footer__link-site {

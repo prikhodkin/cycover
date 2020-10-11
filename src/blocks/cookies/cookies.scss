@@ -9,6 +9,10 @@
   background-color: #f3f6ff;
   z-index: 10000;
   box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4);
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .cookies__content {
@@ -51,6 +55,10 @@
     padding: 0 30px;
     padding-top: 27px;
     padding-bottom: 22px;
+
+    &--hidden {
+      display: none;
+    }
   }
 
   .cookies__title {
