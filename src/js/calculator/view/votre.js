@@ -13,7 +13,7 @@ export default class VotreView extends AbstractView {
               <a class="situation__link situation__link--professional" href="#">Professional </a>
             </li>
             <li class="calculator__item calculator__item--situation situation situation--particuller">
-              <a class="situation__link situation__link--particuller" href="index.html">Particuller </a>
+              <a class="situation__link situation__link--particuller" href="professional.html">Particuller </a>
             </li>
           </ul>
         </div>

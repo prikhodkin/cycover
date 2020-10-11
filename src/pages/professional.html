@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gulp v4.1</title>
+  @@include('../blocks/favicon/favicon.html')
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="fonts/Montserrat-regular.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/Kinetika-Ultra.woff2" as="font" crossorigin="">
+  <script src="js/vendor.js"></script>
+  <script src="js/general.js" defer></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="page" data-controller="popup" data-popup-parent="parent">
+  <header class="page__header header">
+    <div class="header__top">
+      <ul class="header__control modifier">
+        <li class="modifier__item"><a href="index.html">Профессиональный</a></li>
+        <li class="modifier__item modifier__item--active"><a href="#">Обычный</a></li>
+      </ul>
+      <a href="tel:+25994244353" class="header__phone">
+        <svg width="17" height="17">
+          <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+        </svg>
+        <span>+2 599 424-43-53</span>
+      </a>
+    </div>
+    <div class="header__bottom" data-controller="menu">
+      <a href="#" class="header__logo">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="../img/logo-header@desktop.png">
+          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/logo-header@desktop.webp">
+          <source type="image/webp" srcset="../img/logo-header@mobile.webp">
+          <img src="../img/logo-header@mobile.png" alt="logo">
+        </picture>
+      </a>
+      <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
+        <span class="burger__inner">Открыть меню</span>
+      </button>
+      <nav class="header__menu menu">
+        <ul class="menu__list">
+          <li class="menu__item" data-target="menu.item"><a href="#">Accueil</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">À propos</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Comment ça marche</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Nos avantages</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
+        </ul>
+        <div class="header__button" data-controller="calculator">
+          <svg width="22" height="22">
+            <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+          </svg>
+          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Espace client</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+    <section class="promo">
+      <picture>
+        <source media="(min-width:700px)" srcset="../img/promo__bg@desktop.png">
+        <img src="../img/promo__bg@mobile.png" alt="bg" class="promo__img">
+      </picture>
+      <div class="promo__body" data-controller="espaceClient">
+        <h1 class="promo__title title">PROTÉGEZ VOTRE MISSION</h1>
+        <p class="promo__desc">Vos appareils securises, et toute la famille est protegee!</p>
+        <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
+      </div>
+    </section>
+    <section class="dangers" data-controller="slider">
+      <div class="dangers__box">
+        <h2 class="dangers__title title">Your whole financial life at your fingertips</h2>
+        <div class="dangers__control control">
+          <button class="control__button control__button--forward" data-target="slider.prev">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+            </svg>
+          </button>
+          <button class="control__button control__button--back" data-target="slider.next">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <ul class="dangers__list" data-target="slider.list">
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+          <p class="dangers__name">cyber extorsion</p>
+          <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--phishing"></div>
+            <p class="dangers__name">phishing</p>
+            <p class="dangers__text">Vol de données personnelles</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--data-loss"></div>
+            <p class="dangers__name">perte de données</p>
+            <p class="dangers__text">Suppression de fichiers ou dossiers complets</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <p class="dangers__name">cyber extorsion</p>
+            <p class="dangers__text">Demande de rançon en échange d’une clé de décryptage</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+      </ul>
+    </section>
+    <section class="insurance">
+      <div class="insurance__box insurance__box--text" data-controller="calculator">
+        <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cyber</h2>
+        <p class="insurance__text">
+          <span class="insurance__text-semibold">En tant que spécialiste de l'assurance Cyber et Fraude, notre souhait est de vous accompagner davantage.</span>
+          Nous vous aidons à identifier vos risques Cyber et Fraude, à élaborer une stratégie efficace de prévention, de préparation et de
+          protection pour votre organisation. Nos équipes vous accompagnent et vous proposent un ensemble de services afin de renforcer votre cyber résilience.
+        </p>
+        <ul class="insurance__list">
+          <li class="insurance__item insurance__item--vulnerabilities">Audit de vos vulnerabilites</li>
+          <li class="insurance__item insurance__item--risks">Protection face aux risques Cyber</li>
+          <li class="insurance__item insurance__item--insure">Assurance de vos risques cyber et fraude</li>
+        </ul>
+        <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+      </div>
+
+      <div class="insurance__box insurance__box--img">
+        <div class="insurance__wrapper">
+          <div class="insurance__line">
+            <img src="../img/vtb.png">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f1.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f2.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f3.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f4.png" alt="">
+          </div>
+        </div>
+        <div class="insurance__center"></div>
+      </div>
+    </section>
+    <section class="advantages">
+      <h2 class="visually-hidden">Advantages</h2>
+      <ul class="advantages__list" data-controller="parallax">
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="../img/advantages__img.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Manage your money better with spending analytics</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Set budgets, get instant spending notifications, and see weekly insights to keep your spending on track</li>
+              <li class="advantages__option">Connect your other bank accounts to Revolut with Open Banking and manage all your finances in one place</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="../img/advantages__img2.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Get daily discounts<br> and cashback</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Save money every day with Rewards</li>
+              <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
+              <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="../img/advantages__img3.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Manage your money better with spending analytics</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Save money every day with Rewards</li>
+              <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
+              <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="../img/advantages__img4.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Get daily discounts<br> and cashback</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Save money every day with Rewards</li>
+              <li class="advantages__option">Earn rewards you'll actually use on travel,<br> retail, restaurants and more</li>
+              <li class="advantages__option">Unlock new offers when you use your Revolut cards</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="guide" data-controller="filling">
+      <h2 class="guide__title">Comment ça marche ?</h2>
+      <ul class="guide__list">
+        <li class="guide__item guide__item--one">
+          <div class="guide__number"><span>1</span></div>
+          <div class="guide__box">
+            <p class="guide__name">Simulez votre prêt</p>
+            <p class="guide__text">Pretto est le seul simulateur de prêt immobilier en ligne vraiment transparent.</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--two">
+          <div class="guide__number"><span>2</span></div>
+          <div class="guide__box">
+            <p class="guide__name guide__name--two">Nos experts à votre écoute</p>
+            <p class="guide__text">Avec votre conseiller Pretto, vous affinez votre demande de crédit et optimisez votre
+              dossier: apport, assurance, prêts aidés.</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--three">
+          <div class="guide__number"><span>3</span></div>
+          <div class="guide__box">
+            <p class="guide__name">Obtenez votre prêt</p>
+            <p class="guide__text">Pretto vous accompagne jusqu’à La signature de votre prêt, sans engagement.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="tariff">
+      <h2 class="tariff__title">Сhoisissez votre tarif</h2>
+      <ul class="tariff__list ">
+        <li class="tariff__item tariff-card tariff-card--base " data-controller="espaceClient">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--send">
+              <use xlink:href="img/sprites/sprite.svg#icon__send"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name">de base</p>
+          <p class="tariff-card__price">$499</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--unavailable">
+              <div class="tariff-card__icon tariff-card__icon--unavailable">
+                <svg class="tariff-card__img tariff-card__img--cross">
+                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--unavailable">
+              <div class="tariff-card__icon tariff-card__icon--unavailable">
+                <svg class="tariff-card__img tariff-card__img--cross">
+                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--unavailable">
+              <div class="tariff-card__icon tariff-card__icon--unavailable">
+                <svg class="tariff-card__img tariff-card__img--cross">
+                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Какие-то преимущества</p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Order now</a>
+        </li>
+        <li class="tariff__item tariff-card tariff-card--prime" data-controller="espaceClient">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--plane">
+              <use xlink:href="img/sprites/sprite.svg#icon__plane"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name tariff-card__name--prime">Prime</p>
+          <p class="tariff-card__price tariff-card__price--prime">$999</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--unavailable">
+              <div class="tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable">
+                <svg class="tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross">
+                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable tariff-card__desc--prime">Какие-то преимущества</p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button--white button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Order now</a>
+          <p class="tariff-card__text-prime">Most popular</p>
+        </li>
+        <li class="tariff__item tariff-card tariff-card--business">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--people">
+              <use xlink:href="img/sprites/sprite.svg#icon__people"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name tariff-card__name--business">pour les <br> entreprises</p>
+          <p class="tariff-card__price">$1 500</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Какие-то преимущества</p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button button--background" href="proffesional.html">Order now</a>
+        </li>
+      </ul>
+    </section>
+    <section class="map" data-controller="scroll map">
+      <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
+      <div class="map__inner" data-target="scroll.item map.item">
+        <img class="map__img" src="../img/map.png" alt="map">
+      </div>
+    </section>
+    @@include('../blocks/feedback/feedback.html')
+    @@include('../blocks/contact/contact.html')
+    @@include('../blocks/security/security.html')
+    @@include('../blocks/footer/footer.html')
+    @@include('../blocks/politics/politics.html')
+    <div class="modal-registration__main-box" data-controller="espaceClient">
+      <section class="modal-registration">
+        <div class="modal-registration__wrap">
+          <p class="modal-registration__title">Заголовок</p>
+        <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
+          <input type="hidden" name="project_name" value="cycover">
+          <input type="hidden" name="admin_email" value="089ax@mail.ru">
+          <input type="hidden" name="form_subject" value="registration">
+          <fieldset class="form__wrap">
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
+              <label class="field__label" for="form-name">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
+              <label class="field__label" for="form-password">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
+              <label class="field__label" for="form-number">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="yourmail@gmail.com">
+              <label class="field__label" for="form-email">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
+                </svg>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Envoyer</button>
+
+          <div class="form__box checkbox checkbox--privacy">
+            <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
+              <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy">
+              <span class="checkbox__text checkbox__text--privacy">
+                <span class="checkbox__dev--privacy">Согласен с политикой конфиденциальности</span>
+              </span>
+            </label>
+          </div>
+        </form>
+        <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
+          <span class="visually-hidden">close</span>
+          <svg class="button-close__icon" style="pointer-events: none;">
+            <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+          </svg>
+        </button>
+        </div>
+      </section>
+    </div>
+    <div id="calculator" class="calculator__main-box"></div>
+    <section class="overlay" data-controller="overlay" data-target="overlay.area" data-action="click->overlay#closeModal"></section>
+
+    <section class="cookies">
+      <div class="cookies__content">
+        <h2 class="cookies__title">Сбор куков</h2>
+        <p class="cookies__text">positives en faveur de l’intérêt général et de l’économie solidaire. On a mobilisé plus de 35</p>
+      </div>
+      <div class="cookies__box">
+        <button class="cookies__button button button--background">Принять</button>
+        <button class="cookies__button button button--thin">Отклонить</button>
+      </div>
+    </section>
+ </body>
+</html>
