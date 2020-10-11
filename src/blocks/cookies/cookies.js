@@ -28,8 +28,14 @@ export const initialCookieModal = () => {
 
 const addIsFirstInfo = () => {
   const acceptButton = modal.querySelector(`.button--background`)
+  const denyButton = modal.querySelector(`.button--thin`)
+
   acceptButton.addEventListener(`click`, ()=>{
     setCookie('is_first', 'false', { expires:365 })
+    modal.classList.add(`cookies--hidden`)
+  })
+
+  denyButton.addEventListener(`click`, () => {
     modal.classList.add(`cookies--hidden`)
   })
 }
