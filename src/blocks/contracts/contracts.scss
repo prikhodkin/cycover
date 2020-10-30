@@ -6,6 +6,11 @@
   margin-bottom: 30px;
 }
 
+.contracts__row {
+  display: flex;
+  align-items: center;
+}
+
 .contracts__text {
   max-width: 276px;
   margin-bottom: 45px;
@@ -58,6 +63,7 @@
   font-family: $third-font;
   color: #191c1f;
   text-transform: uppercase;
+  margin-left: 20px;
 }
 
 .contracts__desc {

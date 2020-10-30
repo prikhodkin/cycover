@@ -2,32 +2,28 @@
   <div class="footer__top">
     <a class="footer__logo" href="#">
       <picture>
-        <source media="(min-width: 1280px)" type="image/webp" srcset="../../img/logo-footer@desktop.webp">
-        <source type="image/webp" srcset="../../img/logo-footer@mobile.webp">
         <source media="(min-width: 1280px)" srcset="../../img/logo-footer@desktop.png">
         <img class="footer__img" src="../../img/logo-footer@mobile.png" alt="Логотип">
       </picture>
     </a>
 
     <ul class="footer__list" data-controller="menu">
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Accueil</a></li>
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">À propos</a></li>
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Comment ça marche</a></li>
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Nos avantages</a></li>
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Avis clients</a></li>
-      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#">Contact</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Accueil">Accueil</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#propos">À propos</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Comment">Comment ça marche</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#avantages">Nos avantages</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#clients">Avis clients</a></li>
+      <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Contact">Contact</a></li>
     </ul>
 
     <div style="margin-left: auto;" data-controller="calculator">
-      <a class="footer__button button button--thin button button--light" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">
-        Espace client
-      </a>
+      <a class="footer__button button button--thin button button--light" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
     </div>
   </div>
 
   <div class="footer__bottom" data-controller="politic">
     <div class="footer__bottom-politic">
-      <p class="footer__copyright">© Simpleo 2020 | </p>
+      <p class="footer__copyright">© Cycover 2020 | </p>
       <a href="#" data-target="politic.link" data-action="click->politic#showFirst">&nbsp; Politique de confidélité | </a>
       <a href="#" data-target="politic.link" data-action="click->politic#showSecond">&nbsp; Mentions Légales </a>
     </div>

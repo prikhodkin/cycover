@@ -1,5 +1,12 @@
 .promo {
   padding: 0 20px 32.5px 20px;
+
+  .title {
+
+   & > span {
+      display: block;
+    }
+  }
 }
 
 .promo__img {
@@ -14,8 +21,22 @@
   color: #191c1f;
 }
 
-.promo__desc {
+.promo__txt {
+  color: #191c1f;
+  font-size: 14px;
+  line-height: 155.15%;
+}
+
+
+.promo__list {
+  @include list-reset;
   margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 155.15%;
+}
+
+.promo__desc {
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 155.15%;
   color: #000000;
@@ -61,9 +82,15 @@
   }
 
   .promo__desc {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-size: 20px;
     line-height: 32px;
+  }
+
+  .promo__txt {
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 120px;
   }
 
   .promo__button {
