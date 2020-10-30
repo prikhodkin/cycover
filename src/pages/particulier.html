@@ -16,7 +16,7 @@
     <div class="header__top">
       <ul class="header__control modifier">
         <li class="modifier__item"><a href="index.html">Professionnel</a></li>
-        <li class="modifier__item modifier__item--active"><a href="#">Обычный</a></li>
+        <li class="modifier__item modifier__item--active"><a href="#">Particulier</a></li>
       </ul>
       <a href="tel:+33661317808" class="header__phone">
         <svg width="17" height="17">
@@ -28,8 +28,6 @@
     <div class="header__bottom" data-controller="menu">
       <a href="#" class="header__logo">
         <picture>
-          <source media="(min-width: 1280px)" srcset="../img/logo-header@desktop.png">
-          <source type="image/webp" media="(min-width: 1280px)" srcset="../img/logo-header@desktop.webp">
           <source type="image/webp" srcset="../img/logo-header@mobile.webp">
           <img src="../img/logo-header@mobile.png" alt="logo">
         </picture>
@@ -85,7 +83,7 @@
       <ul class="dangers__list" data-target="slider.list">
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-1-usurpation.svg')"></div>
           <p class="dangers__name">Usurpation d'identité</p>
           <p class="dangers__text">Protégez-vous en face de l’utilisation de vos données à caractère personnel</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -93,7 +91,7 @@
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--phishing"></div>
+            <div class="dangers__icon dangers__icon--phishing" style="background-image: url('../img/ico-2-atteinte.svg')"></div>
             <p class="dangers__name">Atteinte à l'e-réputation</p>
             <p class="dangers__text">Condamnez le responsable et obtenez la réparation du préjudice subi</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -102,7 +100,7 @@
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--data-loss"></div>
+            <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('../img/ico-3-vol.svg')"></div>
             <p class="dangers__name">Vol lors d'un achat sur internet</p>
             <p class="dangers__text">Protégez vos achats à distance contre les risques de perte ou de vol</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -111,7 +109,7 @@
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-4-escroquerie.svg')"></div>
             <p class="dangers__name">Escroquerie sur Internet</p>
             <p class="dangers__text">Soyez tranquilles face aux techniques les plus utilisées pour escroquer</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -120,7 +118,7 @@
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-5-mal-banc.svg')"></div>
             <p class="dangers__name">Malveillance compte bancaires</p>
             <p class="dangers__text">N’hésitez pas à surveiller régulièrement vos comptes bancaires</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -129,7 +127,7 @@
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion"></div>
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-6-perte.svg')"></div>
             <p class="dangers__name">Perte, vol de données</p>
             <p class="dangers__text">Identifiez et faites-vous protéger des menaces réalisables via les supports des données</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -140,13 +138,13 @@
     </section>
     <section class="insurance">
       <div class="insurance__box insurance__box--text" data-controller="calculator">
-        <h2 class="insurance__title title">cycover – le spécialiste de l'assurance cybIdentifiez et faites-vous protéger des menaces réalisables via les supports des donnéeser</h2>
+        <h2 class="insurance__title title">CYCOVER – SURFEZ COUVERT</h2>
         <p class="insurance__text">
           <span class="insurance__text-semibold">Nous vous protégeons contre les aléas de la vie numérique. Cyber criminalité et la sécurité informatique sont prépondérantes dans la vie de chaquan. Notre objectif est de vous protéger des aléas liés à la vie numérique.</span>
         </p>
         <ul class="insurance__list">
-          <li class="insurance__item insurance__item--vulnerabilities">Protéction de vos donnees</li>
-          <li class="insurance__item insurance__item--risks">Protéction de votre identite</li>
+          <li class="insurance__item insurance__item--donnes">Protéction de vos donnees</li>
+          <li class="insurance__item insurance__item--identite" >Protéction de votre identite</li>
           <li class="insurance__item insurance__item--insure">Protection de vos finances</li>
         </ul>
         <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
@@ -155,19 +153,19 @@
       <div class="insurance__box insurance__box--img">
         <div class="insurance__wrapper">
           <div class="insurance__line">
-            <img src="../img/vtb.png">
+            <img src="../img/f5.jpg ">
           </div>
           <div class="insurance__line">
             <img src="../img/f1.png" alt="">
           </div>
           <div class="insurance__line">
-            <img src="../img/f2.png" alt="">
+            <img src="../img/f2.jpg" alt="">
           </div>
           <div class="insurance__line">
             <img src="../img/f3.png" alt="">
           </div>
           <div class="insurance__line">
-            <img src="../img/f4.png" alt="">
+            <img src="../img/f4.svg" alt="">
           </div>
         </div>
         <div class="insurance__center"></div>
@@ -181,7 +179,7 @@
             <div class="advantages__parallax">
               <div data-depth="1" class="advantages__border"></div>
             </div>
-            <img src="../img/advantages__img.jpg" alt="photo">
+            <img src="../img/1-comptes.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
@@ -198,7 +196,7 @@
             <div class="advantages__parallax">
               <div data-depth="1" class="advantages__border"></div>
             </div>
-            <img src="../img/advantages__img2.jpg" alt="photo">
+            <img src="../img/2-harcelement.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
@@ -215,7 +213,7 @@
             <div class="advantages__parallax">
               <div data-depth="1" class="advantages__border"></div>
             </div>
-            <img src="../img/advantages__img3.jpg" alt="photo">
+            <img src="../img/3-shopping.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
@@ -232,7 +230,7 @@
             <div class="advantages__parallax">
               <div data-depth="1" class="advantages__border"></div>
             </div>
-            <img src="../img/advantages__img4.jpg" alt="photo">
+            <img src="../img/4-data-assistance.jpg" alt="photo">
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
@@ -291,7 +289,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Gestion de crise</p>
+              <p class="tariff-card__desc">Protection juridique </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">
@@ -299,23 +297,23 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Responsabilité civile</p>
+              <p class="tariff-card__desc">Protection en cas d’atteintes à la personnalité sur Internet </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--unavailable">
-                <svg class="tariff-card__img tariff-card__img--cross">
-                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Enquêtes et sanctions</p>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection du compte en ligne</p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--unavailable">
-                <svg class="tariff-card__img tariff-card__img--cross">
-                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Perte d’exploitation</p>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection des achats en ligne </p>
             </li>
             <li class="tariff-card__item tariff-card__item--unavailable">
               <div class="tariff-card__icon tariff-card__icon--unavailable">
@@ -323,7 +321,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Fraude</p>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Sauvetage et restauration des données </p>
             </li>
           </ul>
           <a class="tariff-card__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
@@ -343,7 +341,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--prime">Gestion de crise</p>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection juridique </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -351,7 +349,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--prime">Responsabilité civile</p>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection en cas d’atteintes à la personnalité sur Internet </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -359,7 +357,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--prime">Enquêtes et sanctions</p>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection du compte en ligne </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -367,23 +365,15 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--prime">Perte d’exploitation</p>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection des achats en ligne </p>
             </li>
-            <li class="tariff-card__item tariff-card__item--unavailable">
-              <div class="tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable">
-                <svg class="tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross">
-                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable tariff-card__desc--prime">Cyber-extorsion</p>
-            </li>
-            <li class="tariff-card__item tariff-card__item--unavailable">
-              <div class="tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable">
-                <svg class="tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross">
-                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable tariff-card__desc--prime">Fraude</p>
+              <p class="tariff-card__desc tariff-card__desc--prime">Sauvetage et restauration des données  </p>
             </li>
           </ul>
           <a class="tariff-card__button button--white button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
@@ -421,6 +411,14 @@
                 </svg>
               </div>
               <p class="tariff-card__desc">Enquêtes et sanctions</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Perte d’exploitation </p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">

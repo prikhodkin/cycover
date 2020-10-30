@@ -12,12 +12,18 @@
   width: 72px;
   height: 72px;
   overflow: hidden;
-  background-color: #ababab;
+  //background-color: #ababab;
   border-radius: 20px 0 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .customer-card__img {
-  object-fit: cover;
+  //object-fit: cover;
+  width: 80%;
+  display: block;
+  margin: auto;
 }
 
 .customer-card__list {

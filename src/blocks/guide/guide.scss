@@ -77,44 +77,44 @@
         &:first-child {
           .guide__number {
             &::before {
-              animation: filling 1s both;
+              animation: filling 0.5s both;
             }
           }
 
           .guide__box {
-            animation: fadeIn 1s both 500ms;
+            animation: fadeIn 0.5s both 250ms;
           }
 
           &::before {
-            animation: fillingWidth 2s both 700ms;
+            animation: fillingWidth 1s both 500ms;
           }
         }
 
         &:nth-child(2) {
           .guide__number {
             &::before {
-              animation: filling 1s both 2200ms;
+              animation: filling 0.5s both 1200ms;
             }
           }
 
           .guide__box {
-            animation: fadeIn 1s both 2900ms;
+            animation: fadeIn 0.5s both 1200ms;
           }
 
           &::before {
-            animation: fillingWidth 2s both 2900ms;
+            animation: fillingWidth 1s both 1700ms;
           }
         }
 
         &:nth-child(3) {
           .guide__number {
             &::before {
-              animation: filling 1s both 4500ms;
+              animation: filling 0.5s both 2500ms;
             }
           }
 
           .guide__box {
-            animation: fadeIn 1s both 4900ms;
+            animation: fadeIn 0.5s both 2300ms;
           }
         }
       }

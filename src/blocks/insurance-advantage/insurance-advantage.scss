@@ -119,58 +119,58 @@
     &--active {
       .insurance-advantage__list {
         &::after {
-          animation: fillingWidthInner 7s both;
+          animation: fillingWidthInner 5s both;
         }
       }
 
       .insurance-advantage__item {
         &--1 {
           .insurance-advantage__img {
-            animation: noColor 2s both;
+            animation: noColor 1s both;
           }
 
           .insurance-advantage__text,
           .insurance-advantage__name {
-            animation: fadeIn 1s both 500ms;
+            animation: fadeIn 1s both 250ms;
           }
 
           .insurance-advantage__circle {
             &::before {
-              animation: filling 1s both;
+              animation: filling 0.5s both;
             }
           }
         }
 
         &--2 {
           .insurance-advantage__img {
-            animation: noColor 2s both 2000ms;
+            animation: noColor 1s both 1000ms;
           }
 
           .insurance-advantage__text,
           .insurance-advantage__name {
-            animation: fadeIn 1s both 2000ms;
+            animation: fadeIn 1s both 1000ms;
           }
 
           .insurance-advantage__circle {
             &::before {
-              animation: filling 1s both 2000ms;
+              animation: filling 0.5s both 1500ms;
             }
           }
         }
 
         &--3 {
           .insurance-advantage__img {
-            animation: noColor 2s both 5000ms;
+            animation: noColor 1s both 3000ms;
           }
 
           .insurance-advantage__text,
           .insurance-advantage__name {
-            animation: fadeIn 1s both 5000ms;
+            animation: fadeIn 1s both 3000ms;
           }
 
           .insurance-advantage__circle {
             &::before {
-              animation: filling 1s both 5000ms;
+              animation: filling 0.5s both 3400ms;
             }
           }
         }

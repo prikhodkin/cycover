@@ -26,7 +26,7 @@ export default class extends Controller {
         900: {
           items: 3
         },
-        1100: {
+        1600: {
           items: 4
         }
       }
