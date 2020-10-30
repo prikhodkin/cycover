@@ -14,9 +14,15 @@ export default class AssuranceView extends AbstractView {
               <p class="select__name">Chiffre d’affaires consolidé HT</p>
               <div class="select__box select__box--active">
                 <select class="select__list" name="select-list" id="select-revenue">
-                  <option class="select__item" value="130 000">130 000</option>
-                  <option class="select__item" value="30 000">30 000</option>
-                  <option class="select__item" value="10 000">10 000</option>
+                  <option class="select__item" value="50 000">< 50 000 &#8364;</option>
+                  <option class="select__item" value="100 000">< 100 000 &#8364;</option>
+                  <option class="select__item" value="500 000">< 500 000 &#8364;</option>
+                  <option class="select__item" value="1 000 000">< 1 000 000 &#8364;</option>
+                  <option class="select__item" value="5 000 000">< 5 000 000 &#8364;</option>
+                  <option class="select__item" value="10 000 000">< 10 000 000 &#8364;</option>
+                  <option class="select__item" value="50 000 000">< 50 000 000 &#8364;</option>
+                  <option class="select__item" value="100 000 000">< 100 000 000 &#8364;</option>
+                  <option class="select__item" value="500 000 000">< 500 000 000 &#8364;</option>
                 </select>
               </div>
             </li>
@@ -28,7 +34,7 @@ export default class AssuranceView extends AbstractView {
 
                   ${garanties.map(it => {
                     return `
-                      <option class="select__item" value="${it.value}" ${it.selected ? 'selected' : ''}>${it.value}</option>
+                      <option class="select__item" value="${it.value}" ${it.selected ? 'selected' : ''}>${it.text}</option>
                     `
                   }).join(``)}
 
@@ -39,9 +45,12 @@ export default class AssuranceView extends AbstractView {
               <p class="select__name">Effectif</p>
               <div class="select__box">
                 <select class="select__list" name="effectif-list" id="select-effectif">
-                  <option class="select__item" value="10">10</option>
-                  <option class="select__item" value="5">5</option>
-                  <option class="select__item" value="3">3</option>
+                  <option class="select__item" value="1-10">1-10</option>
+                  <option class="select__item" value="10-50">10-50</option>
+                  <option class="select__item" value="50-100">50-100</option>
+                  <option class="select__item" value="100-500">100-500</option>
+                  <option class="select__item" value="500-1000">500-1000</option>
+                  <option class="select__item" value="1000+">1000+</option>
                 </select>
               </div>
             </li>

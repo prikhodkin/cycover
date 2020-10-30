@@ -1,3 +1,4 @@
+import { nodeName } from "jquery";
 import {setCookie, getCookie} from "../../js/util/cookie"
 
 const modal = document.querySelector(`.cookies`);
@@ -36,7 +37,8 @@ const addIsFirstInfo = () => {
   })
 
   denyButton.addEventListener(`click`, () => {
-    modal.classList.add(`cookies--hidden`)
+    // modal.classList.add(`cookies--hidden`)
+    denyButton.style = "pointer-events : none"
   })
 }
 

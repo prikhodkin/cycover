@@ -7,11 +7,16 @@ import ajax from '../../util/ajaxSend'
 export default class PersonalDataScreen {
   constructor(state) {
     this._state = state;
+    this.inputErrors = 0;
 
     this.view = new PersonalDataView(this._state);
     this.view.onClickNext = (e) => {
-      e.preventDefault();
-      this._sendAjax()
+      // e.preventDefault();
+      this._checkValid();
+
+      if(this.inputErrors === 0) {
+        this._sendAjax()
+      }
     };
 
     this._init()
@@ -46,5 +51,18 @@ export default class PersonalDataScreen {
       mask: '+{7} (000) 000-00-00'
     }
     IMask(phone, phoneOption)
+  }
+
+  _checkValid() {
+    this.inputErrors = 0;
+
+    const inputs = this.view.element.querySelectorAll(`.field__input`);
+
+    inputs.forEach(it => {
+      if (!it.value) {
+        this.inputErrors += 1;
+      }
+    })
+
   }
 }

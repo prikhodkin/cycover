@@ -1,6 +1,7 @@
 import { Controller } from "stimulus";
 
 const popup = document.querySelector(`.modal-registration__main-box`);
+const politics = document.querySelectorAll(`.politic`);
 const calc = document.querySelector(`#calculator`);
 const overlay = document.querySelector(`.overlay`);
 
@@ -14,6 +15,11 @@ export default class extends Controller {
   }
 
   close = () => {
+    politics.forEach(it => {
+      if (it.classList.contains(`politic--active`)) {
+        it.classList.remove(`politic--active`)
+      }
+    })
     popup.classList.remove(`modal-registration__main-box--active`);
     calc.classList.remove(`calculator__main-box--active`);
     overlay.classList.remove(`overlay--active`)

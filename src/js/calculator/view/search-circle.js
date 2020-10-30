@@ -7,9 +7,7 @@ export default class searchCircleView extends AbstractView {
       <section class="calculator calculator--circle" data-controller="calculator">
         <div class="calculator__wrap calculator__wrap--circle">
           <div class="calculator__icon circle-c">
-            <svg class="circle-c__img calculator__image">
-              <use xlink:href="img/sprites/sprite.svg#icon__calc-circle"></use>
-            </svg>
+            <img src="../img/256_circ-8.png">
           </div>
           <p class="calculator__desc">Nous cherchons les meilleurs propositions...</p>
         </div>
@@ -19,3 +17,4 @@ export default class searchCircleView extends AbstractView {
   }
 
 }
+

@@ -19,13 +19,13 @@ export default class PersonalDataView extends AbstractView {
 
             ${Object.entries(this._state).map(elem => {
               return `
-              <input type="hidden" name="${elem[0]}" value="${elem[0] === 'garantie' ? elem[1].value : elem[1]}">
+                <input type="hidden" name="${elem[0]}" value="${elem[0] === 'garantie' ? elem[1].value : elem[1]}">
               `
             }).join(``)}
 
             <div class="form__wrap form__wrap--calculator">
               <div class="form__box form__box--calculator field field--calculator">
-                <input class="field__input field__input--calculator" type="text" id="form-siret" name="siret" placeholder="Siret">
+                <input class="field__input field__input--calculator" type="text" id="form-siret" name="siret" placeholder="Siret" required>
                 <label class="field__label field__label--calculator" for="form-siret">
                   <svg class="field__icon field__icon--calculator">
                     <use xlink:href="img/sprites/sprite.svg#icon__identity-card"></use>
@@ -33,7 +33,7 @@ export default class PersonalDataView extends AbstractView {
                 </label>
               </div>
               <div class="form__box form__box--calculator field field--calculator">
-                <input class="field__input field__input--calculator" type="text" id="form-name-calc" name="name-calc" placeholder="Votre nom et prénom">
+                <input class="field__input field__input--calculator" type="text" id="form-name-calc" name="name-calc" placeholder="Votre nom et prénom" required>
                 <label class="field__label field__label--calculator" for="form-name-calc">
                   <svg class="field__icon field__icon--calculator">
                     <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
@@ -41,7 +41,7 @@ export default class PersonalDataView extends AbstractView {
                 </label>
               </div>
               <div class="form__box form__box--calculator field field--calculator">
-                <input class="field__input field__input--calculator" type="tel" id="form-number-calc" name="number-calc" placeholder="Numéro de tel">
+                <input class="field__input field__input--calculator" type="tel" id="form-number-calc" name="number-calc" placeholder="Numéro de tel" required>
                 <label class="field__label field__label--calculator" for="form-number-calc">
                   <svg class="field__icon field__icon--calculator">
                     <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
@@ -49,7 +49,7 @@ export default class PersonalDataView extends AbstractView {
                 </label>
               </div>
               <div class="form__box form__box--calculator field field--calculator">
-                <input class="field__input field__input--calculator" type="email" id="form-email-calc" name="email-calc" placeholder="E-mail">
+                <input class="field__input field__input--calculator" type="email" id="form-email-calc" name="email-calc" placeholder="E-mail" required>
                 <label class="field__label field__label--calculator" for="form-email-calc">
                   <svg class="field__icon field__icon--calculator">
                     <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
@@ -75,7 +75,7 @@ export default class PersonalDataView extends AbstractView {
     const next = this.element.querySelector(`.button--forth`);
 
     next.addEventListener(`click`, (e) => {
-      e.preventDefault()
+      // e.preventDefault()
       this.onClickNext(e);
     });
 

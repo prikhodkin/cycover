@@ -20,7 +20,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc">Gestion de crise</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--available">
@@ -28,7 +28,31 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc">Responsabilité civile</p>
+              </li>
+              <li class="tariff-card__item tariff-card__item--available">
+                <div class="tariff-card__icon tariff-card__icon--available">
+                  <svg class="tariff-card__img tariff-card__img--tick">
+                    <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                  </svg>
+                </div>
+                <p class="tariff-card__desc tariff-card__desc--calc">Enquêtes et sanctions </p>
+              </li>
+              <li class="tariff-card__item tariff-card__item--available">
+                <div class="tariff-card__icon tariff-card__icon--available">
+                  <svg class="tariff-card__img tariff-card__img--tick">
+                    <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                  </svg>
+                </div>
+                <p class="tariff-card__desc tariff-card__desc--calc">Perte d’exploitation</p>
+              </li>
+              <li class="tariff-card__item tariff-card__item--available">
+                <div class="tariff-card__icon tariff-card__icon--available">
+                  <svg class="tariff-card__img tariff-card__img--tick">
+                    <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                  </svg>
+                </div>
+                <p class="tariff-card__desc tariff-card__desc--calc">Cyber-extorsion</p>
               </li>
               <li class="tariff-card__item tariff-card__item--unavailable">
                 <div class="tariff-card__icon tariff-card__icon--unavailable">
@@ -36,27 +60,12 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc">Fraude</p>
               </li>
-              <li class="tariff-card__item tariff-card__item--unavailable">
-                <div class="tariff-card__icon tariff-card__icon--unavailable">
-                  <svg class="tariff-card__img tariff-card__img--cross">
-                    <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
-                  </svg>
-                </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Какие-то преимущества</p>
-              </li>
-              <li class="tariff-card__item tariff-card__item--unavailable">
-                <div class="tariff-card__icon tariff-card__icon--unavailable">
-                  <svg class="tariff-card__img tariff-card__img--cross">
-                    <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
-                  </svg>
-                </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Какие-то преимущества</p>
-              </li>
+
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc">$ ${this._state.garantie.base}</p>
+              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${this._state.garantie.base}</p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
                 Continuer
                 <svg class="button__icon button__icon--forth">
@@ -74,7 +83,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Gestion de crise</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -82,7 +91,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Responsabilité civile</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -90,7 +99,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Enquêtes et sanctions</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -98,19 +107,27 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Perte d’exploitation</p>
               </li>
-              <li class="tariff-card__item tariff-card__item--unavailable">
-                <div class="tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable">
-                  <svg class="tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross">
-                    <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+              <li class="tariff-card__item tariff-card__item--available">
+                <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                  <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                    <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Какие-то преимущества</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Cyber-extorsion</p>
+              </li>
+              <li class="tariff-card__item tariff-card__item--available">
+                <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                  <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                    <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                  </svg>
+                </div>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Fraude</p>
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">$ ${this._state.garantie.prime}</p>
+              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${this._state.garantie.prime}</p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#" data-name="PRIME" data-price="${this._state.garantie.prime}">
                 Continuer
                 <svg class="button__icon">
