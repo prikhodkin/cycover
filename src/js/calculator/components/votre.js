@@ -10,6 +10,9 @@ export default class VotreScreen {
       this._updateState(e)
       Router.showAssuranse(this._state);
     };
+    this.view.onClickCheck = () => {
+      this._checkOverLay()
+    }
   }
 
   get element() {
@@ -27,5 +30,13 @@ export default class VotreScreen {
     this._state = Object.assign({}, this._state, {
       type: target.target.innerHTML
     })
+  }
+
+  _checkOverLay() {
+    const overlay = document.querySelector(`.overlay`);
+
+    if (overlay.classList.contains(`overlay--active`)) {
+      overlay.classList.remove(`overlay--active`);
+    }
   }
 }

@@ -15,9 +15,10 @@ const changeScreen = (element) => {
 const INITIAL_STATE = {
   type : '',
   garantie: {
-    'value' : 1000,
-    'base' : 10,
-    'prime' : 15,
+    'value' : 50000,
+    'text' : '50 000 &#8364;',
+    'base' : 239,
+    'prime' : 263,
     'selected' : true
   }
 }
@@ -29,63 +30,73 @@ const state = {
 
 const garanties = [
   {
-    'value' : 1000,
-    'base' : 10,
-    'prime' : 15,
+    'value' : 50000,
+    'text' : '50 000 &#8364;',
+    'base' : 239,
+    'prime' : 263,
     'selected' : true
   },
   {
-    'value' : 10000,
-    'base' : 14,
-    'prime' : 20,
-    'selected' : false
-  },
-  {
-    'value' : 20000,
-    'base' : 18,
-    'prime' : 25,
-    'selected' : false
-  },
-  {
-    'value' : 40000,
-    'base' : 21,
-    'prime' : 28,
-    'selected' : false
-  },
-  {
-    'value' : 50000,
-    'base' : 25,
-    'prime' : 32,
-    'selected' : false
-  },
-  {
-    'value' : 80000,
-    'base' : 30,
-    'prime' : 36,
-    'selected' : false
-  },
-  {
     'value' : 100000,
-    'base' : 40,
-    'prime' : 46,
+    'text' : '100 000 &#8364;',
+    'base' : 420,
+    'prime' : 462,
     'selected' : false
   },
   {
-    'value' : 120000,
-    'base' : 45,
-    'prime' : 50,
+    'value' : 250000,
+    'text' : '250 000 &#8364;',
+    'base' : 600,
+    'prime' : 660,
     'selected' : false
   },
   {
-    'value' : 140000,
-    'base' : 51,
-    'prime' : 57,
+    'value' : 500000,
+    'text' : '500 000 &#8364;',
+    'base' : 900,
+    'prime' : 990,
     'selected' : false
   },
   {
-    'value' : 200000,
-    'base' : 65,
-    'prime' : 70,
+    'value' : 750000,
+    'text' : '750 000 &#8364;',
+    'base' : 1200,
+    'prime' : 1320,
+    'selected' : false
+  },
+  {
+    'value' : 1000000,
+    'text' : '1 000 000 &#8364;',
+    'base' : 1368,
+    'prime' : 1505,
+    'selected' : false
+  },
+  {
+    'value' : 1500000,
+    'text' : '1 500 000 &#8364;',
+    'base' : 1740,
+    'prime' : 1914,
+    'selected' : false
+  },
+  {
+    'value' : 2000000,
+    'text' : '2 000 000 &#8364;',
+    'base' : 1944,
+    'prime' : 2138,
+    'selected' : false
+  },
+  {
+    'value' : 2500000,
+    'text' : '2 500 000 &#8364;',
+    'base' : 2346,
+    'prime' : 2581,
+    'selected' : false
+  },
+  {
+    'value' : 3000000,
+    'text' : '3 000 000 &#8364;',
+    'base' : 2574,
+    'prime' : 2831,
     'selected' : false
   }
 ]

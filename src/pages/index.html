@@ -586,9 +586,9 @@
       <h2 class="cookies__title">Les cookies</h2>
       <p class="cookies__text">Cycover utilise les cookies pour améliorer votre expérience.</p>
     </div>
-    <div class="cookies__box">
+    <div class="cookies__box" data-controller="politic">
       <button class="cookies__button button button--background">Accepter</button>
-      <button class="cookies__button button button--thin">Savoir plus</button>
+      <button class="cookies__button button button--thin" data-target="politic.link" data-action="click->politic#showFirst">Savoir plus</button>
     </div>
   </section>
   <script src="js/vendor.js"></script>
