@@ -13,19 +13,17 @@ export default class extends Controller {
     minPlace: 0,
     itemSelector: `.map__item`,
     place: [
-      `Gestion de crise`,
-      `Frais de surveillance`,
-      `Prise en charge des dommages`,
-      `Accompagnement`,
-      `Prise en charge des sanctions`,
-      `Remboursement`
+      `Récupération des données `,
+      `Dédommagement `,
+      `Soutien juridique`,
+      `Remboursement `
     ],
     placeAccent: [
-      `Piratage`,
-      `Perte ou vol de données`,
-      `Erreur humaine`,
-      `Cyber extorsion de fonds`,
-      `Malveillance interne`
+      `Usurpation d'identité`,
+      `Vol lors d'un achat`,
+      `Escroquerie`,
+      `Perte de données`,
+      `Vol de données`
     ]
   }
 

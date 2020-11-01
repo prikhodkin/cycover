@@ -30,6 +30,20 @@
   align-items: center;
   opacity: 1;
   transition: all 0.3s;
+
+  &--accent {
+    .map__circle {
+      background-color: red;
+
+      &--middle {
+        background: rgba(red, 0.4);
+      }
+
+      &--big {
+        background: rgba(red, 0.2);
+      }
+    }
+  }
 }
 
 .map__text {

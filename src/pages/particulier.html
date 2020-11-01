@@ -37,12 +37,12 @@
       </button>
       <nav class="header__menu menu">
         <ul class="menu__list">
-          <li class="menu__item" data-target="menu.item"><a href="#">Accueil</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#">À propos</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#">Comment ça marche</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#">Nos avantages</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#">Avis clients</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#">Contact</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Accueil">Accueil</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Nous">Nous</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Comment">Comment ça marche</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#tarif">Les tarifs</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#clients">Avis clients</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Contact">Contact</a></li>
         </ul>
         <div class="header__button" data-controller="calculator">
           <svg width="22" height="22">
@@ -53,7 +53,7 @@
       </nav>
     </div>
   </header>
-    <section class="promo">
+    <section id="Accueil" class="promo">
       <picture>
         <source media="(min-width:700px)" srcset="../img/promo__bg@desktop.png">
         <img src="../img/promo__bg@mobile.png" alt="bg" class="promo__img">
@@ -136,7 +136,7 @@
         </li>
       </ul>
     </section>
-    <section class="insurance">
+    <section class="insurance" id="Nous">
       <div class="insurance__box insurance__box--text" data-controller="calculator">
         <h2 class="insurance__title title">CYCOVER – SURFEZ COUVERT</h2>
         <p class="insurance__text">
@@ -156,7 +156,7 @@
             <img src="../img/f5.jpg ">
           </div>
           <div class="insurance__line">
-            <img src="../img/f1.png" alt="">
+            <img src="../img/f1.jpg" alt="">
           </div>
           <div class="insurance__line">
             <img src="../img/f2.jpg" alt="">
@@ -245,7 +245,7 @@
         </li>
       </ul>
     </section>
-    <section class="guide" data-controller="filling">
+    <section class="guide" id="Comment" data-controller="filling">
       <h2 class="guide__title">Comment ça marche ?</h2>
       <ul class="guide__list">
         <li class="guide__item guide__item--one">
@@ -441,17 +441,51 @@
         </li>
       </ul>
     </section>
-    <section class="map" data-controller="scroll map">
+    <section class="map" data-controller="scroll map-inner">
       <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
-      <div class="map__inner" data-target="scroll.item map.item">
+      <div class="map__inner" data-target="scroll.item map-inner.item">
         <img class="map__img" src="../img/map.png" alt="map">
       </div>
     </section>
     @@include('../blocks/feedback/feedback.html')
     @@include('../blocks/contact/contact.html')
     @@include('../blocks/security/security.html')
-    @@include('../blocks/footer/footer.html')
-    @@include('../blocks/politics/politics.html')
+  <footer class="page__footer footer">
+    <div class="footer__top">
+      <a class="footer__logo" href="#">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="../../img/logo-footer@desktop.png">
+          <img class="footer__img" src="../../img/logo-footer@mobile.png" alt="Логотип">
+        </picture>
+      </a>
+
+      <ul class="footer__list" data-controller="menu">
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Accueil">Accueil</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Nous">Nous</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Comment">Comment ça marche</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#tarif">Les tarifs</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#clients">Avis clients</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Contact">Contact</a></li>
+      </ul>
+
+      <div style="margin-left: auto;" data-controller="calculator">
+        <a class="footer__button button button--thin button button--light" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom" data-controller="politic">
+      <div class="footer__bottom-politic">
+        <p class="footer__copyright">© Cycover 2020 | </p>
+        <a href="#" data-target="politic.link" data-action="click->politic#showFirst">&nbsp; Politique de confidélité | </a>
+        <a href="#" data-target="politic.link" data-action="click->politic#showSecond">&nbsp; Mentions Légales </a>
+      </div>
+      <!-- <p class="footer__copyright">© Simpleo 2020 | Politique de confidélité | Mentions Légales </p> -->
+      <a class="footer__link-site" href="#">Créations des sites web en France</a>
+    </div>
+
+  </footer>
+
+  @@include('../blocks/politics/politics.html')
     <div class="modal-registration__main-box" data-controller="espaceClient">
       <section class="modal-registration">
         <div class="modal-registration__wrap">
@@ -523,9 +557,9 @@
       <h2 class="cookies__title">Les cookies</h2>
       <p class="cookies__text">Cycover utilise les cookies pour améliorer votre expérience.</p>
     </div>
-    <div class="cookies__box">
+    <div class="cookies__box" data-controller="politic">
       <button class="cookies__button button button--background">Accepter</button>
-      <button class="cookies__button button button--thin">Savoir plus</button>
+      <button class="cookies__button button button--thin" data-target="politic.link" data-action="click->politic#showFirst">Savoir plus</button>
     </div>
   </section>
   <script src="js/vendor.js"></script>
