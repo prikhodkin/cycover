@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cycover</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png" data-mce-href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png" data-mce-href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png" data-mce-href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png" data-mce-href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png" data-mce-href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png" data-mce-href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png" data-mce-href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png" data-mce-href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png" data-mce-href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32" data-mce-href="/favicon-32x32.png">
+<link rel="icon" type="image/png" href="img/favicons/android-chrome-192x192.png" sizes="192x192" data-mce-href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96" data-mce-href="/favicon-96x96.png">
+<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16" data-mce-href="/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="img/favicons//mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="fonts/Montserrat-regular.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/Kinetika-Ultra.woff2" as="font" crossorigin="">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="page" data-controller="popup" data-popup-parent="parent">
+  <header class="page__header header">
+    <div class="header__top">
+      <ul class="header__control modifier">
+        <li class="modifier__item"><a href="index.html">Professionnel</a></li>
+        <li class="modifier__item modifier__item--active"><a href="#">Particulier</a></li>
+      </ul>
+      <a href="tel:+33661317808" class="header__phone">
+        <svg width="17" height="17">
+          <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+        </svg>
+        <span>+33 (6) 61-31-78-08</span>
+      </a>
+    </div>
+    <div class="header__bottom" data-controller="menu">
+      <a href="#" class="header__logo">
+        <picture>
+          <source type="image/webp" srcset="img/logo-header@mobile.webp">
+          <img src="img/logo-header@mobile.png" alt="logo">
+        </picture>
+      </a>
+      <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
+        <span class="burger__inner">Открыть меню</span>
+      </button>
+      <nav class="header__menu menu">
+        <ul class="menu__list">
+          <li class="menu__item" data-target="menu.item"><a href="#Accueil">Accueil</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Nous">Nous</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Comment">Comment ça marche</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#tarif">Les tarifs</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#clients">Avis clients</a></li>
+          <li class="menu__item" data-target="menu.item"><a href="#Contact">Contact</a></li>
+        </ul>
+        <div class="header__button" data-controller="calculator">
+          <svg width="22" height="22">
+            <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+          </svg>
+          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+    <section id="Accueil" class="promo">
+      <picture>
+        <source media="(min-width:700px)" srcset="img/promo__bg@desktop.png">
+        <img src="img/promo__bg@mobile.png" alt="bg" class="promo__img">
+      </picture>
+      <div class="promo__body" data-controller="espaceClient">
+        <h1 class="promo__title title">SURFEZ COUVERT</h1>
+        <p class="promo__desc">Proteger votre vis numérique et celle de votre famille!</p>
+        <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
+      </div>
+    </section>
+    <section class="dangers" data-controller="slider">
+      <div class="dangers__box">
+        <h2 class="dangers__title title">DES RISQUES NUMÉRIQUES TOUJOURS PLUS PRÉSENTS</h2>
+        <div class="dangers__control control">
+          <button class="control__button control__button--forward" data-target="slider.prev">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+            </svg>
+          </button>
+          <button class="control__button control__button--back" data-target="slider.next">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <ul class="dangers__list" data-target="slider.list">
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-1-usurpation.svg')"></div>
+          <p class="dangers__name">Usurpation d'identité</p>
+          <p class="dangers__text">Protégez-vous en face de l’utilisation de vos données à caractère personnel</p>
+          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--phishing" style="background-image: url('img/ico-2-atteinte.svg')"></div>
+            <p class="dangers__name">Atteinte à l'e-réputation</p>
+            <p class="dangers__text">Condamnez le responsable et obtenez la réparation du préjudice subi</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('img/ico-3-vol.svg')"></div>
+            <p class="dangers__name">Vol lors d'un achat sur internet</p>
+            <p class="dangers__text">Protégez vos achats à distance contre les risques de perte ou de vol</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-4-escroquerie.svg')"></div>
+            <p class="dangers__name">Escroquerie sur Internet</p>
+            <p class="dangers__text">Soyez tranquilles face aux techniques les plus utilisées pour escroquer</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-5-mal-banc.svg')"></div>
+            <p class="dangers__name">Malveillance compte bancaires</p>
+            <p class="dangers__text">N’hésitez pas à surveiller régulièrement vos comptes bancaires</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-6-perte.svg')"></div>
+            <p class="dangers__name">Perte, vol de données</p>
+            <p class="dangers__text">Identifiez et faites-vous protéger des menaces réalisables via les supports des données</p>
+            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+      </ul>
+    </section>
+    <section class="insurance" id="Nous">
+      <div class="insurance__box insurance__box--text" data-controller="calculator">
+        <h2 class="insurance__title title">CYCOVER – SURFEZ COUVERT</h2>
+        <p class="insurance__text">
+          <span class="insurance__text-semibold">Nous vous protégeons contre les aléas de la vie numérique. Cyber criminalité et la sécurité informatique sont prépondérantes dans la vie de chaquan. Notre objectif est de vous protéger des aléas liés à la vie numérique.</span>
+        </p>
+        <ul class="insurance__list">
+          <li class="insurance__item insurance__item--donnes">Protéction de vos donnees</li>
+          <li class="insurance__item insurance__item--identite" >Protéction de votre identite</li>
+          <li class="insurance__item insurance__item--insure">Protection de vos finances</li>
+        </ul>
+        <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+      </div>
+
+      <div class="insurance__box insurance__box--img">
+        <div class="insurance__wrapper">
+          <div class="insurance__line">
+            <img src="img/f5.jpg ">
+          </div>
+          <div class="insurance__line">
+            <img src="img/f1.jpg" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="img/f2.jpg" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="img/f3.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="img/f4.svg" alt="">
+          </div>
+        </div>
+        <div class="insurance__center"></div>
+      </div>
+    </section>
+    <section class="advantages">
+      <h2 class="visually-hidden">Advantages</h2>
+      <ul class="advantages__list" data-controller="parallax">
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="img/1-comptes.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Compte en ligne & cartes</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Sécurisez vos paiements en ligne</li>
+              <li class="advantages__option">Soyez protégé des tentatives de fraude</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="img/2-harcelement.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Harcelement en ligne</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Suivi santé et psycologique</li>
+              <li class="advantages__option">Soutien juridique</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="img/3-shopping.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Shopping en ligne</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Dédommagement</li>
+              <li class="advantages__option">Procédure à l’encontre du site malveillant</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+        <li class="advantages__item">
+          <div class="advantages__img">
+            <div class="advantages__parallax">
+              <div data-depth="1" class="advantages__border"></div>
+            </div>
+            <img src="img/4-data-assistance.jpg" alt="photo">
+            <div class="advantages__circle"></div>
+          </div>
+          <div class="advantages__content" data-controller="calculator">
+            <p class="advantages__title title">Datas et assistance<br>informatique</p>
+            <ul class="advantages__options">
+              <li class="advantages__option">Récupération des données</li>
+              <li class="advantages__option">Réparation du matériel</li>
+              <li class="advantages__option">Dédommagement</li>
+            </ul>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="guide" id="Comment" data-controller="filling">
+      <h2 class="guide__title">Comment ça marche ?</h2>
+      <ul class="guide__list">
+        <li class="guide__item guide__item--one">
+          <div class="guide__number"><span>1</span></div>
+          <div class="guide__box">
+            <p class="guide__name">Risque survenu</p>
+            <p class="guide__text">Exemple – Votre achat n’a pas était livré suite à une commande sur internet</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--two">
+          <div class="guide__number"><span>2</span></div>
+          <div class="guide__box">
+            <p class="guide__name guide__name--two">Vous déclarez le sinistre</p>
+            <p class="guide__text">Un expert dédié intervient pour vous trouver une solution</p>
+          </div>
+        </li>
+        <li class="guide__item guide__item--three">
+          <div class="guide__number"><span>3</span></div>
+          <div class="guide__box">
+            <p class="guide__name">Dédommagement</p>
+            <p class="guide__text">Vous êtes indemnisé pour votre commande et une procedure est engagée a l’encontre du site malveillant</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="tariff" id="tarif">
+      <h2 class="tariff__title">Сhoisissez votre tarif</h2>
+      <ul class="tariff__list ">
+        <li class="tariff__item tariff-card tariff-card--base " data-controller="espaceClient">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--send">
+              <use xlink:href="img/sprites/sprite.svg#icon__send"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name">Standard</p>
+          <p class="tariff-card__price">7€/mois</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Protection juridique </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Protection en cas d’atteintes à la personnalité sur Internet </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection du compte en ligne</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection des achats en ligne </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--unavailable">
+              <div class="tariff-card__icon tariff-card__icon--unavailable">
+                <svg class="tariff-card__img tariff-card__img--cross">
+                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--unavailable">Sauvetage et restauration des données </p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
+        </li>
+        <li class="tariff__item tariff-card tariff-card--prime" data-controller="espaceClient">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--plane">
+              <use xlink:href="img/sprites/sprite.svg#icon__plane"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name tariff-card__name--prime">Prime</p>
+          <p class="tariff-card__price tariff-card__price--prime">12€/mois</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection juridique </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection en cas d’atteintes à la personnalité sur Internet </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection du compte en ligne </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Protection des achats en ligne </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc tariff-card__desc--prime">Sauvetage et restauration des données  </p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button--white button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
+          <p class="tariff-card__text-prime">Le plus populaire</p>
+        </li>
+        <li class="tariff__item tariff-card tariff-card--business">
+          <div class="tariff-card__main-icon">
+            <svg class="tariff-card__main-img tariff-card__main-img--people">
+              <use xlink:href="img/sprites/sprite.svg#icon__people"></use>
+            </svg>
+          </div>
+          <p class="tariff-card__name tariff-card__name--business">pour les <br> entreprises</p>
+          <p class="tariff-card__price">sur mesure</p>
+          <ul class="tariff-card__list">
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Gestion de crise</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Responsabilité civile</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Enquêtes et sanctions</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Perte d’exploitation </p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Cyber-extorsion</p>
+            </li>
+            <li class="tariff-card__item tariff-card__item--available">
+              <div class="tariff-card__icon tariff-card__icon--available">
+                <svg class="tariff-card__img tariff-card__img--tick">
+                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
+                </svg>
+              </div>
+              <p class="tariff-card__desc">Fraude</p>
+            </li>
+          </ul>
+          <a class="tariff-card__button button button--background" href="index.html">Souscrire</a>
+        </li>
+      </ul>
+    </section>
+    <section class="map" data-controller="scroll map-inner">
+      <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
+      <div class="map__inner" data-target="scroll.item map-inner.item">
+        <img class="map__img" src="img/map.png" alt="map">
+      </div>
+    </section>
+    <section class="feedback" id="clients" data-controller="slider">
+  <h2 class="feedback__title">What customers say</h2>
+  <p class="feedback__text">We like to let people talk on our behalf and explain how <br> the Firewl solution improved their lives</p>
+  <ul class="feedback__list" data-target="slider.list">
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Michelle P.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Service très pratique pour choisir la meilleure couverture. Pratique surtout pour les problèmes avec les livraisons d'achats sur internet, efficacité prouvée !</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Coline M.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Déjà que l'on fait très attention à l'utilisation des portables et tablettes, l'accès aux experts permet de se rassurer.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name"> Max C.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Je sais toujours qu'un recours est possible ! On ne navigue plus à vue sur le net et c'est mieux comme ca.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name"> Lambert M.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Toute notre famille fait des courses sur internet, après nombreux pépins nous sommes couverts maintenant.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Carmen B.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Simple fait d'évoquer qu'on est couvert et qu'un expert peut intervenir permet de résoudre des situations. </p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Marie-Claire C.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Avec le nombre de spam, d'attaques, de virus...j'ai trouvé la meilleure solution, à moindre coût. </p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Pierre T.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Interface agréable, pratique pour les informations et les mises à jour d'applis. Un portail d'actu et d'info à développer</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Henri B.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Au-delà de l'assurance, concept intéressant et prometteur. Pas d'obligation de souscription, vous pouvez vous former et se mettre à la page pour la sécurité.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Cécile B.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Mes enfants sont accros au net et aux réseaux sociaux. Ils prennent tout à coeur. Service important pour une famille avec des ados. </p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Marie-Hélène A.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">J'apprécie la rapidité et le sérieux de cette entreprise.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Clément V.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Interlocuteur toujours à l'écoute et très agréable. Société très réactive et professionnelle.</p>
+      </div>
+    </li>
+    <li class="feedback__item customer-card">
+      <div class="customer-card__box">
+        <div class="customer-card__foto">
+          <img class="customer-card__img" src="img/quote-2.svg" alt="Фото клиента">
+        </div>
+        <ul class="customer-card__list">
+          <li class="customer-card__item customer-card__item--name">Thibault S.</li>
+        </ul>
+      </div>
+      <div class="customer-card__comment">
+        <p class="customer-card__text">Très satisfait du traitement de mon sinistre.</p>
+      </div>
+    </li>
+  </ul>
+  <div class="feedback__control">
+    <button class="feedback__button feedback__button--forward" data-target="slider.prev">
+      <svg class="feedback-icon">
+        <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+      </svg>
+    </button>
+    <button class="feedback__button feedback__button--back" data-target="slider.next">
+      <svg class="feedback-icon">
+        <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <section id="Contact" class="body__contact contact">
+  <div class="contact__container">
+    <h2 class="contact__title">Avez-vous besoin d'aide?</h2>
+    <p class="contact__text">Nous sommes là pour répondre a toutes vos questions</p>
+  </div>
+  <ul class="contact__list">
+    <li class="contact__item contact__item--phone">
+      <div class="contact__box">
+        <a class="contact__link" href="tel:0661317808">06-61-31-78-08</a>
+        <span class="contact__desc">Lun - Ven de 8h a 18h</span>
+      </div>
+    </li>
+    <li class="contact__item contact__item--email">
+      <div class="contact__box">
+        <a class="contact__link" href="mailto:support@cycover.com">support@cycover.com</a>
+        <span class="contact__desc">Nous répondons sous 1 heure</span>
+      </div>
+    </li>
+  </ul>
+</section>
+
+    <section class="body__security security">
+  <h2 class="security__title">Nous pensons et nous engageons pour votre sécurité</h2>
+  <ul class="security__list">
+    <li class="security__item security__item--regist">
+      <p class="security__text security__text--regist">
+        <span class="security__name">Immatriculé et<br> réglementé</span>
+        <span class="security__desc">18000011</span>
+      </p>
+    </li>
+    <li class="security__item security__item--connect">
+      <p class="security__text">
+        <span class="security__name">Connection SSL</span>
+        <span class="security__desc">100% sécurisée</span>
+      </p>
+    </li>
+    <li class="security__item security__item--data">
+      <p class="security__text">
+        <span class="security__name">Données protégées</span>
+        <span class="security__desc">SSL certifié</span>
+      </p>
+    </li>
+    <li class="security__item security__item--host">
+      <p class="security__text">
+        <span class="security__name">Hébérgementent France</span>
+        <span class="security__desc">Sous la législation<br> française</span>
+      </p>
+    </li>
+  </ul>
+</section>
+
+  <footer class="page__footer footer">
+    <div class="footer__top">
+      <a class="footer__logo" href="#">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="img/logo-footer@desktop.png">
+          <img class="footer__img" src="img/logo-footer@mobile.png" alt="Логотип">
+        </picture>
+      </a>
+
+      <ul class="footer__list" data-controller="menu">
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Accueil">Accueil</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Nous">Nous</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Comment">Comment ça marche</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#tarif">Les tarifs</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#clients">Avis clients</a></li>
+        <li class="footer__item" data-target="menu.item"><a class="footer__link" href="#Contact">Contact</a></li>
+      </ul>
+
+      <div style="margin-left: auto;" data-controller="calculator">
+        <a class="footer__button button button--thin button button--light" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom" data-controller="politic">
+      <div class="footer__bottom-politic">
+        <p class="footer__copyright">© Cycover 2020 | </p>
+        <a href="#" data-target="politic.link" data-action="click->politic#showFirst">&nbsp; Politique de confidélité | </a>
+        <a href="#" data-target="politic.link" data-action="click->politic#showSecond">&nbsp; Mentions Légales </a>
+      </div>
+      <!-- <p class="footer__copyright">© Simpleo 2020 | Politique de confidélité | Mentions Légales </p> -->
+      <a class="footer__link-site" href="#">Créations des sites web en France</a>
+    </div>
+
+  </footer>
+
+  <section class="politic politic--first" data-controller="politic">
+  <div class="politic__wrapper">
+    <div class="politic__content">
+      <h3 class="politic__title">Politic's title first</h3>
+      <p>some text some text some text some text some text some text some text some text some text some text some text</p>
+    </div>
+    <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="politic.link" data-action="click->politic#closeFirst">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon" style="pointer-events: none;">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<section class="politic politic--second" data-controller="politic">
+  <div class="politic__wrapper">
+    <div class="politic__content">
+      <h3 class="politic__title">Politic's title second</h3>
+      <p>some text</p>
+    </div>
+    <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="politic.link" data-action="click->politic#closeSecond">
+      <span class="visually-hidden">close</span>
+      <svg class="button-close__icon" style="pointer-events: none;">
+        <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <div class="modal-registration__main-box" data-controller="espaceClient">
+      <section class="modal-registration">
+        <div class="modal-registration__wrap">
+          <p class="modal-registration__title">Заголовок</p>
+        <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
+          <input type="hidden" name="project_name" value="cycover">
+          <input type="hidden" name="admin_email" value="089ax@mail.ru">
+          <input type="hidden" name="form_subject" value="registration">
+          <fieldset class="form__wrap">
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
+              <label class="field__label" for="form-name">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
+              <label class="field__label" for="form-password">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
+              <label class="field__label" for="form-number">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+                </svg>
+              </label>
+            </div>
+            <div class="form__box field field--registration">
+              <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="yourmail@gmail.com">
+              <label class="field__label" for="form-email">
+                <svg class="field__icon">
+                  <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
+                </svg>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Envoyer</button>
+
+          <div class="form__box checkbox checkbox--privacy">
+            <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
+              <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy">
+              <span class="checkbox__text checkbox__text--privacy">
+                <span class="checkbox__dev--privacy">Согласен с политикой конфиденциальности</span>
+              </span>
+            </label>
+          </div>
+        </form>
+        <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
+          <span class="visually-hidden">close</span>
+          <svg class="button-close__icon" style="pointer-events: none;">
+            <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+          </svg>
+        </button>
+        </div>
+      </section>
+    </div>
+    <div id="calculator" class="calculator__main-box"></div>
+    <section class="overlay" data-controller="overlay" data-target="overlay.area" data-action="click->overlay#closeModal"></section>
+
+  <section class="cookies">
+    <div class="cookies__content">
+      <h2 class="cookies__title">Les cookies</h2>
+      <p class="cookies__text">Cycover utilise les cookies pour améliorer votre expérience.</p>
+    </div>
+    <div class="cookies__box" data-controller="politic">
+      <button class="cookies__button button button--background">Accepter</button>
+      <button class="cookies__button button button--thin" data-target="politic.link" data-action="click->politic#showFirst">Savoir plus</button>
+    </div>
+  </section>
+  <script src="js/vendor.js"></script>
+  <script src="js/general.js"></script>
+ </body>
+</html>

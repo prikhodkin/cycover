@@ -155,6 +155,59 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/blocks/cookies/cookies.js":
+/*!***************************************!*\
+  !*** ./src/blocks/cookies/cookies.js ***!
+  \***************************************/
+/*! exports provided: initialCookieModal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialCookieModal", function() { return initialCookieModal; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_util_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../js/util/cookie */ "./src/js/util/cookie.js");
+
+
+var modal = document.querySelector(".cookies"); // modules.define('cookies', ['i-bem-dom'], function(provide, bemDom) {
+// provide(bemDom.declBlock(this.name, {
+//     onSetMod: {
+//         js: {
+//             inited: function() {
+//             }
+//         }
+//     }
+// }));
+// });
+
+var initialCookieModal = function initialCookieModal() {
+  var isFirst = Object(_js_util_cookie__WEBPACK_IMPORTED_MODULE_1__["getCookie"])('is_first');
+
+  if (!isFirst) {
+    addIsFirstInfo();
+  } else {
+    modal.classList.add("cookies--hidden");
+  }
+};
+
+var addIsFirstInfo = function addIsFirstInfo() {
+  var acceptButton = modal.querySelector(".button--background");
+  var denyButton = modal.querySelector(".button--thin");
+  acceptButton.addEventListener("click", function () {
+    Object(_js_util_cookie__WEBPACK_IMPORTED_MODULE_1__["setCookie"])('is_first', 'false', {
+      expires: 365
+    });
+    modal.classList.add("cookies--hidden");
+  });
+  denyButton.addEventListener("click", function () {
+    // modal.classList.add(`cookies--hidden`)
+    denyButton.style = "pointer-events : none";
+  });
+};
+
+/***/ }),
+
 /***/ "./src/js/calculator/abstract-view.js":
 /*!********************************************!*\
   !*** ./src/js/calculator/abstract-view.js ***!
@@ -701,12 +754,16 @@ var PersonalDataScreen = /*#__PURE__*/function () {
     _classCallCheck(this, PersonalDataScreen);
 
     this._state = state;
+    this.inputErrors = 0;
     this.view = new _view_personal_data__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function (e) {
-      e.preventDefault();
+      // e.preventDefault();
+      _this._checkValid();
 
-      _this._sendAjax();
+      if (_this.inputErrors === 0) {
+        _this._sendAjax();
+      }
     };
 
     this._init();
@@ -736,6 +793,19 @@ var PersonalDataScreen = /*#__PURE__*/function () {
         mask: '+{7} (000) 000-00-00'
       };
       Object(imask__WEBPACK_IMPORTED_MODULE_3__["default"])(phone, phoneOption);
+    }
+  }, {
+    key: "_checkValid",
+    value: function _checkValid() {
+      var _this2 = this;
+
+      this.inputErrors = 0;
+      var inputs = this.view.element.querySelectorAll(".field__input");
+      inputs.forEach(function (it) {
+        if (!it.value) {
+          _this2.inputErrors += 1;
+        }
+      });
     }
   }, {
     key: "element",
@@ -909,6 +979,10 @@ var VotreScreen = /*#__PURE__*/function () {
 
       _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showAssuranse(_this._state);
     };
+
+    this.view.onClickCheck = function () {
+      _this._checkOverLay();
+    };
   }
 
   _createClass(VotreScreen, [{
@@ -917,6 +991,15 @@ var VotreScreen = /*#__PURE__*/function () {
       this._state = Object.assign({}, this._state, {
         type: target.target.innerHTML
       });
+    }
+  }, {
+    key: "_checkOverLay",
+    value: function _checkOverLay() {
+      var overlay = document.querySelector(".overlay");
+
+      if (overlay.classList.contains("overlay--active")) {
+        overlay.classList.remove("overlay--active");
+      }
     }
   }, {
     key: "element",
@@ -989,7 +1072,7 @@ var ApprovedView = /*#__PURE__*/function (_AbstractView) {
   _createClass(ApprovedView, [{
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--approved\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--approved\">\n          <div class=\"calculator__tick\"></div>\n          <p class=\"calculator__desc calculator__desc--approved\">Votre demande sera approuver</p>\n        </div>\n        <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n          <span class=\"visually-hidden\">close</span>\n          <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n            <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n          </svg>\n        </button>\n      </section>\n    ";
+      return "\n      <section class=\"calculator calculator--approved\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--approved\">\n          <div class=\"calculator__tick\"></div>\n          <p class=\"calculator__desc calculator__desc--approved\">Votre demande sera approuv\xE9e</p>\n        </div>\n        <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n          <span class=\"visually-hidden\">close</span>\n          <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n            <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n          </svg>\n        </button>\n      </section>\n    ";
     }
   }]);
 
@@ -1084,9 +1167,9 @@ var AssuranceView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Votre cyber assurance en ligne </h2>\n          <ul class=\"calculator__list calculator__list--select\">\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Chiffre d\u2019affaires consolid\xE9 HT</p>\n              <div class=\"select__box select__box--active\">\n                <select class=\"select__list\" name=\"select-list\" id=\"select-revenue\">\n                  <option class=\"select__item\" value=\"130 000\">130 000</option>\n                  <option class=\"select__item\" value=\"30 000\">30 000</option>\n                  <option class=\"select__item\" value=\"10 000\">10 000</option>\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Montant de la garantie souhait\xE9</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"garantie-list\" id=\"select-garantie\"}>\n\n\n                  ".concat(_util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].map(function (it) {
-        return "\n                      <option class=\"select__item\" value=\"".concat(it.value, "\" ").concat(it.selected ? 'selected' : '', ">").concat(it.value, "</option>\n                    ");
-      }).join(""), "\n\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Effectif</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"effectif-list\" id=\"select-effectif\">\n                  <option class=\"select__item\" value=\"10\">10</option>\n                  <option class=\"select__item\" value=\"5\">5</option>\n                  <option class=\"select__item\" value=\"3\">3</option>\n                </select>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Votre cyber assurance en ligne </h2>\n          <ul class=\"calculator__list calculator__list--select\">\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Chiffre d\u2019affaires consolid\xE9 HT</p>\n              <div class=\"select__box select__box--active\">\n                <select class=\"select__list\" name=\"select-list\" id=\"select-revenue\">\n                  <option class=\"select__item\" value=\"50 000\">< 50 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"100 000\">< 100 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"500 000\">< 500 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"1 000 000\">< 1 000 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"5 000 000\">< 5 000 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"10 000 000\">< 10 000 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"50 000 000\">< 50 000 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"100 000 000\">< 100 000 000 &#8364;</option>\n                  <option class=\"select__item\" value=\"500 000 000\">< 500 000 000 &#8364;</option>\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Montant de la garantie souhait\xE9</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"garantie-list\" id=\"select-garantie\"}>\n\n\n                  ".concat(_util_calc__WEBPACK_IMPORTED_MODULE_2__["garanties"].map(function (it) {
+        return "\n                      <option class=\"select__item\" value=\"".concat(it.value, "\" ").concat(it.selected ? 'selected' : '', ">").concat(it.text, "</option>\n                    ");
+      }).join(""), "\n\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--select select\">\n              <p class=\"select__name\">Effectif</p>\n              <div class=\"select__box\">\n                <select class=\"select__list\" name=\"effectif-list\" id=\"select-effectif\">\n                  <option class=\"select__item\" value=\"1-10\">1-10</option>\n                  <option class=\"select__item\" value=\"10-50\">10-50</option>\n                  <option class=\"select__item\" value=\"50-100\">50-100</option>\n                  <option class=\"select__item\" value=\"100-500\">100-500</option>\n                  <option class=\"select__item\" value=\"500-1000\">500-1000</option>\n                  <option class=\"select__item\" value=\"1000+\">1000+</option>\n                </select>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1344,7 +1427,7 @@ var Footer = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <div class=\"calculator__footer partner\">\n        <p class=\"partner__title calculator__name-partner\">Nos partenaires</p>\n        <ul class=\"partner__list calculator__list--partner\">\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-1.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-2.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-1.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-2.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-1.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner calculator__item--partner-6\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-1.png\" alt=\"\">\n          </li>\n        </ul>\n      </div>\n      <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n        <span class=\"visually-hidden\">close</span>\n        <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n          <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n        </svg>\n      </button>\n      ";
+      return "\n      <div class=\"calculator__footer partner\">\n        <p class=\"partner__title calculator__name-partner\">Nos partenaires</p>\n        <ul class=\"partner__list calculator__list--partner\">\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/f1.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/f2.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/f3.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/f4.svg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"../img/f5.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner calculator__item--partner-6\">\n            <img class=\"partner__img calculator__img\" src=\"../img/partner__img-1.png\" alt=\"\">\n          </li>\n        </ul>\n      </div>\n      <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n        <span class=\"visually-hidden\">close</span>\n        <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n          <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n        </svg>\n      </button>\n      ";
     }
   }]);
 
@@ -1415,8 +1498,7 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
 
       var next = this.element.querySelector(".button--forth");
       next.addEventListener("click", function (e) {
-        e.preventDefault();
-
+        // e.preventDefault()
         _this2.onClickNext(e);
       });
     }
@@ -1427,8 +1509,8 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
     key: "template",
     get: function get() {
       return "\n      <section class=\"calculator calculator--personal-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--personal-data\">\n          <form class=\"calculator__form form form--calculator\" action=\"#\" method=\"POST\">\n            <input type=\"hidden\" name=\"project_name\" value=\"cycover\">\n            <input type=\"hidden\" name=\"admin_email\" value=\"089ax@mail.ru\">\n            <input type=\"hidden\" name=\"form_subject\" value=\"calculator\">\n\n            ".concat(Object.entries(this._state).map(function (elem) {
-        return "\n              <input type=\"hidden\" name=\"".concat(elem[0], "\" value=\"").concat(elem[0] === 'garantie' ? elem[1].value : elem[1], "\">\n              ");
-      }).join(""), "\n\n            <div class=\"form__wrap form__wrap--calculator\">\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-siret\" name=\"siret\" placeholder=\"Siret\">\n                <label class=\"field__label field__label--calculator\" for=\"form-siret\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__identity-card\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-name-calc\" name=\"name-calc\" placeholder=\"Votre nom et pr\xE9nom\">\n                <label class=\"field__label field__label--calculator\" for=\"form-name-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__user\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"tel\" id=\"form-number-calc\" name=\"number-calc\" placeholder=\"Num\xE9ro de tel\">\n                <label class=\"field__label field__label--calculator\" for=\"form-number-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__phone\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"email\" id=\"form-email-calc\" name=\"email-calc\" placeholder=\"E-mail\">\n                <label class=\"field__label field__label--calculator\" for=\"form-email-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__at\"></use>\n                  </svg>\n                </label>\n              </div>\n            </div>\n\n            <button class=\"calculator__button calculator__button--form-calc button button--forth button--calc-form\" type=\"submit\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </button>\n          </form>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+        return "\n                <input type=\"hidden\" name=\"".concat(elem[0], "\" value=\"").concat(elem[0] === 'garantie' ? elem[1].value : elem[1], "\">\n              ");
+      }).join(""), "\n\n            <div class=\"form__wrap form__wrap--calculator\">\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-siret\" name=\"siret\" placeholder=\"Siret\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-siret\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__identity-card\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-name-calc\" name=\"name-calc\" placeholder=\"Votre nom et pr\xE9nom\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-name-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__user\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"tel\" id=\"form-number-calc\" name=\"number-calc\" placeholder=\"Num\xE9ro de tel\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-number-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__phone\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"email\" id=\"form-email-calc\" name=\"email-calc\" placeholder=\"E-mail\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-email-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__at\"></use>\n                  </svg>\n                </label>\n              </div>\n            </div>\n\n            <button class=\"calculator__button calculator__button--form-calc button button--forth button--calc-form\" type=\"submit\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </button>\n          </form>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1490,7 +1572,7 @@ var searchCircleView = /*#__PURE__*/function (_AbstractView) {
   _createClass(searchCircleView, [{
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--circle\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--circle\">\n          <div class=\"calculator__icon circle-c\">\n            <svg class=\"circle-c__img calculator__image\">\n              <use xlink:href=\"img/sprites/sprite.svg#icon__calc-circle\"></use>\n            </svg>\n          </div>\n          <p class=\"calculator__desc\">Nous cherchons les meilleurs propositions...</p>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      return "\n      <section class=\"calculator calculator--circle\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--circle\">\n          <div class=\"calculator__icon circle-c\">\n            <img src=\"../img/256_circ-8.png\">\n          </div>\n          <p class=\"calculator__desc\">Nous cherchons les meilleurs propositions...</p>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
     }
   }]);
 
@@ -1574,7 +1656,7 @@ var TariffView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">de base</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">$ ".concat(this._state.garantie.base, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\" data-name=\"BASE\" data-price=\"").concat(this._state.garantie.base, "\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Prime</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-unavailable tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross tariff-card__img--prime-cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">\u041A\u0430\u043A\u0438\u0435-\u0442\u043E \u043F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">$ ").concat(this._state.garantie.prime, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\" data-name=\"PRIME\" data-price=\"").concat(this._state.garantie.prime, "\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">de base</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Enqu\xEAtes et sanctions </p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Fraude</p>\n              </li>\n\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">&#8364; ".concat(this._state.garantie.base, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\" data-name=\"BASE\" data-price=\"").concat(this._state.garantie.base, "\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Prime</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Enqu\xEAtes et sanctions</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Fraude</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">&#8364; ").concat(this._state.garantie.prime, "</p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\" data-name=\"PRIME\" data-price=\"").concat(this._state.garantie.prime, "\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1639,19 +1721,26 @@ var VotreView = /*#__PURE__*/function (_AbstractView) {
       var _this = this;
 
       var next = this.element.querySelector(".situation__link--professional");
+      var check = this.element.querySelector(".situation__link--particuller");
       next.addEventListener("click", function (e) {
         e.preventDefault();
 
         _this.onClickNext(e);
+      });
+      check.addEventListener("click", function () {
+        _this.onClickCheck();
       });
     }
   }, {
     key: "onClickNext",
     value: function onClickNext() {}
   }, {
+    key: "onClickCheck",
+    value: function onClickCheck() {}
+  }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Choisissez votre situation</h2>\n          <ul class=\"calculator__list calculator__list--situation\">\n            <li class=\"calculator__item calculator__item--situation situation situation--professional\">\n              <a class=\"situation__link situation__link--professional\" href=\"#\">Professional </a>\n            </li>\n            <li class=\"calculator__item calculator__item--situation situation situation--particuller\">\n              <a class=\"situation__link situation__link--particuller\" href=\"index.html\">Particuller </a>\n            </li>\n          </ul>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      return "\n      <section class=\"calculator\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Choisissez votre situation</h2>\n          <ul class=\"calculator__list calculator__list--situation\">\n            <li class=\"calculator__item calculator__item--situation situation situation--particuller\">\n              <a class=\"situation__link situation__link--particuller\" href=\"particulier.html#tarif\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">Particuller </a>\n            </li>\n            <li class=\"calculator__item calculator__item--situation situation situation--professional\">\n              <a class=\"situation__link situation__link--professional\" href=\"#\">Professional </a>\n            </li>\n\n          </ul>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
     }
   }]);
 
@@ -1674,12 +1763,15 @@ var map = {
 	"./espaceClient_controller.js": "./src/js/controllers/espaceClient_controller.js",
 	"./filling-inner_controller.js": "./src/js/controllers/filling-inner_controller.js",
 	"./filling_controller.js": "./src/js/controllers/filling_controller.js",
+	"./map-inner_controller.js": "./src/js/controllers/map-inner_controller.js",
 	"./map_controller.js": "./src/js/controllers/map_controller.js",
 	"./menu_controller.js": "./src/js/controllers/menu_controller.js",
 	"./overlay_controller.js": "./src/js/controllers/overlay_controller.js",
 	"./parallax_controller.js": "./src/js/controllers/parallax_controller.js",
+	"./politic_controller.js": "./src/js/controllers/politic_controller.js",
 	"./scroll_controller.js": "./src/js/controllers/scroll_controller.js",
-	"./slider_controller.js": "./src/js/controllers/slider_controller.js"
+	"./slider_controller.js": "./src/js/controllers/slider_controller.js",
+	"./type-writer_controller.js": "./src/js/controllers/type-writer_controller.js"
 };
 
 
@@ -2092,6 +2184,153 @@ var _default = /*#__PURE__*/function (_Controller) {
 
 /***/ }),
 
+/***/ "./src/js/controllers/map-inner_controller.js":
+/*!****************************************************!*\
+  !*** ./src/js/controllers/map-inner_controller.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/js/util/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    var _this;
+
+    _classCallCheck(this, _default);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "options", {
+      minPinPosition: 20,
+      maxPinPosition: 70,
+      minCount: 3,
+      maxCount: 7,
+      minPrice: 10,
+      maxPrice: 50000,
+      minPlace: 0,
+      itemSelector: ".map__item",
+      place: ["R\xE9cup\xE9ration des donn\xE9es ", "D\xE9dommagement ", "Soutien juridique", "Remboursement "],
+      placeAccent: ["Usurpation d'identit\xE9", "Vol lors d'un achat", "Escroquerie", "Perte de donn\xE9es", "Vol de donn\xE9es"]
+    });
+
+    return _this;
+  }
+
+  _createClass(_default, [{
+    key: "initialize",
+    value: function initialize() {
+      this.renderPin();
+    }
+  }, {
+    key: "renderPin",
+    value: function renderPin() {
+      var _this2 = this;
+
+      var count = Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minCount, this.options.maxCount);
+      var countAccent = count % 3;
+
+      for (var i = 0; i <= count; i++) {
+        setTimeout(function () {
+          _this2.itemTarget.insertAdjacentHTML('afterbegin', _this2.pinTemplate());
+        }, 200 * (i + 1));
+      }
+
+      for (var _i = 0; _i <= countAccent; _i++) {
+        setTimeout(function () {
+          _this2.itemTarget.insertAdjacentHTML('afterbegin', _this2.pinTemplateAccent());
+        }, 200 * (_i + 1));
+      }
+
+      setTimeout(function () {
+        _this2.removePin(function () {
+          return _this2.renderPin();
+        });
+      }, 3000);
+    }
+  }, {
+    key: "removePin",
+    value: function removePin(callback) {
+      var items = this.itemTarget.querySelectorAll(this.options.itemSelector);
+      items.forEach(function (item, index) {
+        setTimeout(function () {
+          item.style.opacity = 0;
+          setTimeout(function () {
+            item.remove();
+          }, 100);
+        }, 200 * (index + 1));
+      });
+      callback();
+    }
+  }, {
+    key: "pinTemplate",
+    value: function pinTemplate() {
+      return "\n    <div class=\"map__item\" data-action=\"map.target\" style=\"left: ".concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "; top: ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "\">\n      <div class=\"map__pin\">\n      <div class=\"map__circle map__circle--big\"></div>\n      <div class=\"map__circle map__circle--middle\"></div>\n      <div class=\"map__circle map__circle--small\"></div>\n      </div>\n      ").concat(this.textTemplate(), "\n    </div>\n    ");
+    }
+  }, {
+    key: "pinTemplateAccent",
+    value: function pinTemplateAccent() {
+      return "\n    <div class=\"map__item map__item--accent\" data-action=\"map.target\" style=\"left: ".concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "; top: ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "\">\n      <div class=\"map__pin\">\n      <div class=\"map__circle map__circle--big\"></div>\n      <div class=\"map__circle map__circle--middle\"></div>\n      <div class=\"map__circle map__circle--small\"></div>\n      </div>\n      ").concat(this.textTemplateAccent(), "\n    </div>\n    ");
+    }
+  }, {
+    key: "textTemplateAccent",
+    value: function textTemplateAccent() {
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
+    }
+  }, {
+    key: "textTemplate",
+    value: function textTemplate() {
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+_defineProperty(_default, "targets", ["item", "target"]);
+
+
+
+/***/ }),
+
 /***/ "./src/js/controllers/map_controller.js":
 /*!**********************************************!*\
   !*** ./src/js/controllers/map_controller.js ***!
@@ -2153,10 +2392,11 @@ var _default = /*#__PURE__*/function (_Controller) {
       minCount: 3,
       maxCount: 7,
       minPrice: 10,
-      maxPrice: 5000,
+      maxPrice: 50000,
       minPlace: 0,
       itemSelector: ".map__item",
-      place: ["\u0441 \u043A\u0430\u0440\u0442\u044B", "c\u043E \u0441\u0447\u0435\u0442\u0430", "\u0438\u0437 \u043A\u0430\u0440\u043C\u0430\u043D\u0430"]
+      place: ["Gestion de crise", "Frais de surveillance", "Prise en charge des dommages", "Accompagnement", "Prise en charge des sanctions", "Remboursement"],
+      placeAccent: ["Piratage", "Perte ou vol de donn\xE9es", "Erreur humaine", "Cyber extorsion de fonds", "Malveillance interne"]
     });
 
     return _this;
@@ -2172,10 +2412,19 @@ var _default = /*#__PURE__*/function (_Controller) {
     value: function renderPin() {
       var _this2 = this;
 
-      for (var i = 0; i <= Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minCount, this.options.maxCount); i++) {
+      var count = Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minCount, this.options.maxCount);
+      var countAccent = count % 3;
+
+      for (var i = 0; i <= count; i++) {
         setTimeout(function () {
           _this2.itemTarget.insertAdjacentHTML('afterbegin', _this2.pinTemplate());
         }, 200 * (i + 1));
+      }
+
+      for (var _i = 0; _i <= countAccent; _i++) {
+        setTimeout(function () {
+          _this2.itemTarget.insertAdjacentHTML('afterbegin', _this2.pinTemplateAccent());
+        }, 200 * (_i + 1));
       }
 
       setTimeout(function () {
@@ -2204,9 +2453,19 @@ var _default = /*#__PURE__*/function (_Controller) {
       return "\n    <div class=\"map__item\" data-action=\"map.target\" style=\"left: ".concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "; top: ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "\">\n      <div class=\"map__pin\">\n      <div class=\"map__circle map__circle--big\"></div>\n      <div class=\"map__circle map__circle--middle\"></div>\n      <div class=\"map__circle map__circle--small\"></div>\n      </div>\n      ").concat(this.textTemplate(), "\n    </div>\n    ");
     }
   }, {
+    key: "pinTemplateAccent",
+    value: function pinTemplateAccent() {
+      return "\n    <div class=\"map__item map__item--accent\" data-action=\"map.target\" style=\"left: ".concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "; top: ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPinPosition, this.options.maxPinPosition) + "%", "\">\n      <div class=\"map__pin\">\n      <div class=\"map__circle map__circle--big\"></div>\n      <div class=\"map__circle map__circle--middle\"></div>\n      <div class=\"map__circle map__circle--small\"></div>\n      </div>\n      ").concat(this.textTemplateAccent(), "\n    </div>\n    ");
+    }
+  }, {
+    key: "textTemplateAccent",
+    value: function textTemplateAccent() {
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
+    }
+  }, {
     key: "textTemplate",
     value: function textTemplate() {
-      return "<p class=\"map__text\">\u041A\u0440\u0430\u0436\u0430 <span>$".concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), "</span> ").concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "</p>");
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
     }
   }]);
 
@@ -2354,6 +2613,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var popup = document.querySelector(".modal-registration__main-box");
+var politics = document.querySelectorAll(".politic");
 var calc = document.querySelector("#calculator");
 var overlay = document.querySelector(".overlay");
 
@@ -2380,6 +2640,11 @@ var _default = /*#__PURE__*/function (_Controller) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
+      politics.forEach(function (it) {
+        if (it.classList.contains("politic--active")) {
+          it.classList.remove("politic--active");
+        }
+      });
       popup.classList.remove("modal-registration__main-box--active");
       calc.classList.remove("calculator__main-box--active");
       overlay.classList.remove("overlay--active");
@@ -2467,6 +2732,128 @@ var _default = /*#__PURE__*/function (_Controller) {
 
   return _default;
 }(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+
+
+/***/ }),
+
+/***/ "./src/js/controllers/politic_controller.js":
+/*!**************************************************!*\
+  !*** ./src/js/controllers/politic_controller.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var firstPolitic = document.querySelector(".politic--first");
+var secondPolitic = document.querySelector(".politic--second");
+var overlay = document.querySelector(".overlay");
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    var _this;
+
+    _classCallCheck(this, _default);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "escPressHandler", function (e) {
+      if (e.keyCode && e.keyCode === 27) {
+        _this.close();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "close", function () {
+      var modals = document.querySelectorAll(".politic");
+      modals.forEach(function (it) {
+        if (it.classList.contains("politic--active")) {
+          it.classList.remove("politic--active");
+        }
+      });
+      overlay.classList.remove("overlay--active");
+      document.removeEventListener("keydown", _this.escPressHandler);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addClass", function (e, modal) {
+      e.preventDefault();
+      var scrollY = window.pageYOffset;
+      modal.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px";
+      modal.classList.add("politic--active");
+      overlay.classList.toggle("overlay--active");
+      document.addEventListener("keydown", _this.escPressHandler);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "removeClass", function (e, modal) {
+      e.preventDefault();
+      modal.classList.remove("politic--active");
+      overlay.classList.remove("overlay--active");
+    });
+
+    return _this;
+  }
+
+  _createClass(_default, [{
+    key: "showFirst",
+    value: function showFirst(e) {
+      this.addClass(e, firstPolitic);
+    }
+  }, {
+    key: "closeFirst",
+    value: function closeFirst(e) {
+      this.removeClass(e, firstPolitic);
+    }
+  }, {
+    key: "showSecond",
+    value: function showSecond(e) {
+      this.addClass(e, secondPolitic);
+    }
+  }, {
+    key: "closeSecond",
+    value: function closeSecond(e) {
+      this.removeClass(e, secondPolitic);
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+_defineProperty(_default, "targets", ["link"]);
 
 
 
@@ -2616,7 +3003,7 @@ var _default = /*#__PURE__*/function (_Controller) {
           900: {
             items: 3
           },
-          1100: {
+          1600: {
             items: 4
           }
         }
@@ -2633,6 +3020,83 @@ _defineProperty(_default, "targets", ["next", "prev", "list"]);
 
 /***/ }),
 
+/***/ "./src/js/controllers/type-writer_controller.js":
+/*!******************************************************!*\
+  !*** ./src/js/controllers/type-writer_controller.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _default; });
+/* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
+/* harmony import */ var typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typewriter-effect/dist/core */ "./node_modules/typewriter-effect/dist/core.js");
+/* harmony import */ var typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+ // https://www.npmjs.com/package/typewriter-effect Документация
+
+var _default = /*#__PURE__*/function (_Controller) {
+  _inherits(_default, _Controller);
+
+  var _super = _createSuper(_default);
+
+  function _default() {
+    _classCallCheck(this, _default);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(_default, [{
+    key: "connect",
+    value: function connect() {
+      this.init();
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      var words = this.targetTarget.getAttribute("data-words").split(',');
+      new typewriter_effect_dist_core__WEBPACK_IMPORTED_MODULE_1___default.a(this.targetTarget, {
+        strings: words,
+        autoStart: true,
+        loop: true
+      });
+    }
+  }]);
+
+  return _default;
+}(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
+
+_defineProperty(_default, "targets", ["target"]);
+
+
+
+/***/ }),
+
 /***/ "./src/js/general.js":
 /*!***************************!*\
   !*** ./src/js/general.js ***!
@@ -2644,6 +3108,14 @@ _defineProperty(_default, "targets", ["next", "prev", "list"]);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
 /* harmony import */ var stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stimulus/webpack-helpers */ "./node_modules/stimulus/webpack-helpers.js");
+/* harmony import */ var _blocks_cookies_cookies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/cookies/cookies */ "./src/blocks/cookies/cookies.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
 
 
 var application = stimulus__WEBPACK_IMPORTED_MODULE_0__["Application"].start();
@@ -2651,6 +3123,33 @@ var application = stimulus__WEBPACK_IMPORTED_MODULE_0__["Application"].start();
 var context = __webpack_require__("./src/js/controllers sync recursive \\.js$");
 
 application.load(Object(stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_1__["definitionsFromContext"])(context));
+Object(_blocks_cookies_cookies__WEBPACK_IMPORTED_MODULE_2__["initialCookieModal"])();
+var anchors = document.querySelectorAll('a[href*="#"]');
+
+var _iterator = _createForOfIteratorHelper(anchors),
+    _step;
+
+try {
+  var _loop = function _loop() {
+    var anchor = _step.value;
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      var blockID = anchor.getAttribute('href').substr(1);
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  };
+
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    _loop();
+  }
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
+}
 
 /***/ }),
 
@@ -2713,9 +3212,10 @@ var changeScreen = function changeScreen(element) {
 var INITIAL_STATE = {
   type: '',
   garantie: {
-    'value': 1000,
-    'base': 10,
-    'prime': 15,
+    'value': 50000,
+    'text': '50 000 &#8364;',
+    'base': 239,
+    'prime': 263,
     'selected': true
   }
 };
@@ -2724,54 +3224,64 @@ var state = {
   garantie: INITIAL_STATE.garantie
 };
 var garanties = [{
-  'value': 1000,
-  'base': 10,
-  'prime': 15,
+  'value': 50000,
+  'text': '50 000 &#8364;',
+  'base': 239,
+  'prime': 263,
   'selected': true
 }, {
-  'value': 10000,
-  'base': 14,
-  'prime': 20,
-  'selected': false
-}, {
-  'value': 20000,
-  'base': 18,
-  'prime': 25,
-  'selected': false
-}, {
-  'value': 40000,
-  'base': 21,
-  'prime': 28,
-  'selected': false
-}, {
-  'value': 50000,
-  'base': 25,
-  'prime': 32,
-  'selected': false
-}, {
-  'value': 80000,
-  'base': 30,
-  'prime': 36,
-  'selected': false
-}, {
   'value': 100000,
-  'base': 40,
-  'prime': 46,
+  'text': '100 000 &#8364;',
+  'base': 420,
+  'prime': 462,
   'selected': false
 }, {
-  'value': 120000,
-  'base': 45,
-  'prime': 50,
+  'value': 250000,
+  'text': '250 000 &#8364;',
+  'base': 600,
+  'prime': 660,
   'selected': false
 }, {
-  'value': 140000,
-  'base': 51,
-  'prime': 57,
+  'value': 500000,
+  'text': '500 000 &#8364;',
+  'base': 900,
+  'prime': 990,
   'selected': false
 }, {
-  'value': 200000,
-  'base': 65,
-  'prime': 70,
+  'value': 750000,
+  'text': '750 000 &#8364;',
+  'base': 1200,
+  'prime': 1320,
+  'selected': false
+}, {
+  'value': 1000000,
+  'text': '1 000 000 &#8364;',
+  'base': 1368,
+  'prime': 1505,
+  'selected': false
+}, {
+  'value': 1500000,
+  'text': '1 500 000 &#8364;',
+  'base': 1740,
+  'prime': 1914,
+  'selected': false
+}, {
+  'value': 2000000,
+  'text': '2 000 000 &#8364;',
+  'base': 1944,
+  'prime': 2138,
+  'selected': false
+}, {
+  'value': 2500000,
+  'text': '2 500 000 &#8364;',
+  'base': 2346,
+  'prime': 2581,
+  'selected': false
+}, {
+  'value': 3000000,
+  'text': '3 000 000 &#8364;',
+  'base': 2574,
+  'prime': 2831,
   'selected': false
 }];
 
@@ -2791,6 +3301,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNIT", function() { return UNIT; });
 var ADD_WIDTH = 5;
 var UNIT = "px";
+
+/***/ }),
+
+/***/ "./src/js/util/cookie.js":
+/*!*******************************!*\
+  !*** ./src/js/util/cookie.js ***!
+  \*******************************/
+/*! exports provided: setCookie, getCookie */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCookie", function() { return setCookie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCookie", function() { return getCookie; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//Дефолтные примеры
+var setCookie = function setCookie(name, value) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  options = _objectSpread({
+    path: '/'
+  }, options);
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  var updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (var optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    var optionValue = options[optionKey];
+
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+};
+var getCookie = function getCookie(name) {
+  var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
 
 /***/ }),
 

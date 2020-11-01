@@ -1033,7 +1033,7 @@ a {
 
 @media (min-width: 1280px) {
   .title {
-    font-size: 40px;
+    font-size: 40px !important;
     line-height: 142.43%; }
   --black {
     font-size: 25px;
@@ -1337,9 +1337,10 @@ a {
   color: rgba(255, 255, 255, 0.5);
   background-color: #334c8f; }
 
-.footer__copyright {
+.footer__bottom-politic {
+  display: flex;
   margin-bottom: 13px;
-  line-height: 15px; }
+  flex-wrap: wrap; }
 
 .footer__link-site {
   line-height: 12px;
@@ -1476,16 +1477,17 @@ a {
     font-size: 25px;
     line-height: 31px; }
   .security__list {
-    align-items: center; }
+    align-items: center;
+    justify-content: space-between; }
   .security__item {
     flex-direction: row;
     align-items: flex-start;
     margin: 0;
-    margin-left: 138px; }
+    margin-left: 0px; }
     .security__item--regist {
       align-items: center; }
     .security__item--connect {
-      margin-left: 132px; }
+      margin-left: 0; }
     .security__item:first-child {
       margin-left: 0; }
     .security__item::before {
@@ -1608,7 +1610,7 @@ a {
   .contact__list {
     display: flex;
     align-items: center;
-    margin-left: 100px; }
+    margin-left: auto; }
   .contact__item {
     margin-left: 45px; }
     .contact__item:first-child {
@@ -1682,7 +1684,7 @@ a {
   .feedback__title {
     padding-right: calc(50% - 640px);
     padding-left: calc(50% - 640px);
-    font-size: 45px;
+    font-size: 40px;
     line-height: 142.43%;
     text-align: center; }
   .feedback__text {
@@ -1720,12 +1722,15 @@ a {
   width: 72px;
   height: 72px;
   overflow: hidden;
-  background-color: #ababab;
-  border-radius: 20px 0 20px 20px; }
+  border-radius: 20px 0 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .customer-card__img {
-  -o-object-fit: cover;
-  object-fit: cover; }
+  width: 80%;
+  display: block;
+  margin: auto; }
 
 .customer-card__list {
   padding-left: 0;
@@ -2040,7 +2045,7 @@ a {
       padding-bottom: 10px; }
   .tariff-card__price {
     margin-bottom: 30px;
-    font-size: 45px; }
+    font-size: 40px; }
     .tariff-card__price--calc {
       margin: 0;
       font-size: 25px;
@@ -2136,29 +2141,29 @@ a {
     padding-right: calc(50% - 640px);
     padding-left: calc(50% - 640px); }
     .guide--active .guide__item:first-child .guide__number::before {
-      -webkit-animation: filling 1s both;
-      animation: filling 1s both; }
+      -webkit-animation: filling 0.5s both;
+      animation: filling 0.5s both; }
     .guide--active .guide__item:first-child .guide__box {
-      -webkit-animation: fadeIn 1s both 500ms;
-      animation: fadeIn 1s both 500ms; }
+      -webkit-animation: fadeIn 0.5s both 250ms;
+      animation: fadeIn 0.5s both 250ms; }
     .guide--active .guide__item:first-child::before {
-      -webkit-animation: fillingWidth 2s both 700ms;
-      animation: fillingWidth 2s both 700ms; }
+      -webkit-animation: fillingWidth 1s both 500ms;
+      animation: fillingWidth 1s both 500ms; }
     .guide--active .guide__item:nth-child(2) .guide__number::before {
-      -webkit-animation: filling 1s both 2200ms;
-      animation: filling 1s both 2200ms; }
+      -webkit-animation: filling 0.5s both 1200ms;
+      animation: filling 0.5s both 1200ms; }
     .guide--active .guide__item:nth-child(2) .guide__box {
-      -webkit-animation: fadeIn 1s both 2900ms;
-      animation: fadeIn 1s both 2900ms; }
+      -webkit-animation: fadeIn 0.5s both 1200ms;
+      animation: fadeIn 0.5s both 1200ms; }
     .guide--active .guide__item:nth-child(2)::before {
-      -webkit-animation: fillingWidth 2s both 2900ms;
-      animation: fillingWidth 2s both 2900ms; }
+      -webkit-animation: fillingWidth 1s both 1700ms;
+      animation: fillingWidth 1s both 1700ms; }
     .guide--active .guide__item:nth-child(3) .guide__number::before {
-      -webkit-animation: filling 1s both 4500ms;
-      animation: filling 1s both 4500ms; }
+      -webkit-animation: filling 0.5s both 2500ms;
+      animation: filling 0.5s both 2500ms; }
     .guide--active .guide__item:nth-child(3) .guide__box {
-      -webkit-animation: fadeIn 1s both 4900ms;
-      animation: fadeIn 1s both 4900ms; }
+      -webkit-animation: fadeIn 0.5s both 2300ms;
+      animation: fadeIn 0.5s both 2300ms; }
   .guide__title {
     font-size: 40px;
     text-align: center; }
@@ -2435,13 +2440,18 @@ a {
     min-width: 31px;
     height: 31px;
     margin-right: 15px;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    background-size: contain; }
   .insurance__item--vulnerabilities::before {
     background-image: url("../img/insurance__vulnerabilities.svg"); }
   .insurance__item--risks::before {
     background-image: url("../img/insurance__risks.svg"); }
   .insurance__item--insure::before {
     background-image: url("../img/insurance__insure.svg"); }
+  .insurance__item--donnes::before {
+    background-image: url("../img/ico-1-donnees.svg"); }
+  .insurance__item--identite::before {
+    background-image: url("../img/ico-2-identite.svg"); }
 
 .insurance__button:active {
   opacity: 0.5; }
@@ -2473,8 +2483,9 @@ a {
   z-index: 30;
   width: 80px;
   height: 80px;
-  background-color: #304bab;
-  background-image: url("../img/c.png");
+  background-color: #ffffff;
+  background-image: url("../img/256_circ-8.png");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
@@ -2581,10 +2592,13 @@ a {
   .insurance__list {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    justify-content: space-between; }
   .insurance__item {
     margin-bottom: 0;
-    font-size: 16px; }
+    font-size: 16px;
+    width: calc((100% / 3) - 10px);
+    max-width: unset; }
     .insurance__item::before {
       min-width: 32px;
       height: 32px;
@@ -2592,13 +2606,13 @@ a {
     .insurance__item:not(:last-child) {
       margin-bottom: 0; }
     .insurance__item:not(:first-child) {
-      margin-left: 37px; }
+      margin-left: 0px; }
     .insurance__item--vulnerabilities {
-      max-width: 162px; }
+      max-width: unset; }
     .insurance__item--risks {
-      max-width: 196px; }
+      max-width: unset; }
     .insurance__item--insure {
-      max-width: 240px; }
+      max-width: unset; }
   .insurance__button {
     max-width: 228px; }
   .insurance__box--img {
@@ -2606,29 +2620,42 @@ a {
     width: 520px;
     height: 520px;
     margin: 0;
-    margin-left: auto; }
+    margin-left: 0; }
   .insurance__center {
     width: 153px;
-    height: 153px;
-    background-image: url("../img/c@desktop.png"); }
+    height: 153px; }
   .insurance__line {
     width: 110px;
     height: 110px; }
+    .insurance__line img {
+      width: 65%; }
     .insurance__line::before {
       top: calc(100% - 5px);
       background-image: url("../img/line.png"); }
-    .insurance__line:nth-child(2)::before {
-      top: 15px;
-      left: -82px; }
-    .insurance__line:nth-child(3)::before {
-      top: -135px;
-      left: -47px; }
-    .insurance__line:nth-child(5)::before {
-      top: -137px;
-      left: 143px; }
-    .insurance__line:nth-child(4)::before {
-      top: 14px;
-      left: 176px; } }
+    .insurance__line:nth-child(1) {
+      top: 0px; }
+    .insurance__line:nth-child(2) {
+      top: 20%; }
+      .insurance__line:nth-child(2)::before {
+        top: 33px;
+        left: -74px;
+        transform: rotate(63deg); }
+    .insurance__line:nth-child(3) {
+      bottom: 13%;
+      right: 13%; }
+      .insurance__line:nth-child(3)::before {
+        top: -135px;
+        left: -47px; }
+    .insurance__line:nth-child(5) {
+      left: 5%; }
+      .insurance__line:nth-child(5)::before {
+        top: -125px;
+        left: 150px; }
+    .insurance__line:nth-child(4) {
+      left: 40px; }
+      .insurance__line:nth-child(4)::before {
+        top: 14px;
+        left: 176px; } }
 
 .popup {
   position: fixed;
@@ -2698,6 +2725,8 @@ a {
 
 .promo {
   padding: 0 20px 32.5px 20px; }
+  .promo .title > span {
+    display: block; }
 
 .promo__img {
   width: calc(100% + 40px);
@@ -2709,8 +2738,20 @@ a {
   line-height: 134.93%;
   color: #191c1f; }
 
-.promo__desc {
+.promo__txt {
+  color: #191c1f;
+  font-size: 14px;
+  line-height: 155.15%; }
+
+.promo__list {
+  padding-left: 0;
+  list-style: none;
   margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 155.15%; }
+
+.promo__desc {
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 155.15%;
   color: #000000;
@@ -2744,9 +2785,13 @@ a {
     font-size: 55px;
     line-height: 134.93%; }
   .promo__desc {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-size: 20px;
     line-height: 32px; }
+  .promo__txt {
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 120px; }
   .promo__button {
     width: 250px;
     height: 70px; }
@@ -2789,6 +2834,12 @@ a {
   align-items: center;
   opacity: 1;
   transition: all 0.3s; }
+  .map__item--accent .map__circle {
+    background-color: red; }
+    .map__item--accent .map__circle--middle {
+      background: rgba(255, 0, 0, 0.4); }
+    .map__item--accent .map__circle--big {
+      background: rgba(255, 0, 0, 0.2); }
 
 .map__text {
   margin-left: -32px;
@@ -3095,10 +3146,9 @@ a {
 
 .more__title {
   margin-bottom: 30px;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 18px;
   line-height: 147.93%;
-  font-family: "Kinetika";
   color: #ffffff; }
 
 .more__button {
@@ -3330,38 +3380,38 @@ a {
     padding-top: 90px;
     padding-bottom: 90px; }
     .insurance-advantage--active .insurance-advantage__list::after {
-      -webkit-animation: fillingWidthInner 7s both;
-      animation: fillingWidthInner 7s both; }
+      -webkit-animation: fillingWidthInner 5s both;
+      animation: fillingWidthInner 5s both; }
     .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__img {
-      -webkit-animation: noColor 2s both;
-      animation: noColor 2s both; }
+      -webkit-animation: noColor 1s both;
+      animation: noColor 1s both; }
     .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__text,
     .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__name {
-      -webkit-animation: fadeIn 1s both 500ms;
-      animation: fadeIn 1s both 500ms; }
+      -webkit-animation: fadeIn 1s both 250ms;
+      animation: fadeIn 1s both 250ms; }
     .insurance-advantage--active .insurance-advantage__item--1 .insurance-advantage__circle::before {
-      -webkit-animation: filling 1s both;
-      animation: filling 1s both; }
+      -webkit-animation: filling 0.5s both;
+      animation: filling 0.5s both; }
     .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__img {
-      -webkit-animation: noColor 2s both 2000ms;
-      animation: noColor 2s both 2000ms; }
+      -webkit-animation: noColor 1s both 1000ms;
+      animation: noColor 1s both 1000ms; }
     .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__text,
     .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__name {
-      -webkit-animation: fadeIn 1s both 2000ms;
-      animation: fadeIn 1s both 2000ms; }
+      -webkit-animation: fadeIn 1s both 1000ms;
+      animation: fadeIn 1s both 1000ms; }
     .insurance-advantage--active .insurance-advantage__item--2 .insurance-advantage__circle::before {
-      -webkit-animation: filling 1s both 2000ms;
-      animation: filling 1s both 2000ms; }
+      -webkit-animation: filling 0.5s both 1500ms;
+      animation: filling 0.5s both 1500ms; }
     .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__img {
-      -webkit-animation: noColor 2s both 5000ms;
-      animation: noColor 2s both 5000ms; }
+      -webkit-animation: noColor 1s both 3000ms;
+      animation: noColor 1s both 3000ms; }
     .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__text,
     .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__name {
-      -webkit-animation: fadeIn 1s both 5000ms;
-      animation: fadeIn 1s both 5000ms; }
+      -webkit-animation: fadeIn 1s both 3000ms;
+      animation: fadeIn 1s both 3000ms; }
     .insurance-advantage--active .insurance-advantage__item--3 .insurance-advantage__circle::before {
-      -webkit-animation: filling 1s both 5000ms;
-      animation: filling 1s both 5000ms; }
+      -webkit-animation: filling 0.5s both 3400ms;
+      animation: filling 0.5s both 3400ms; }
   .insurance-advantage__title {
     max-width: 625px;
     margin: 0 auto;
@@ -3467,6 +3517,10 @@ a {
 .contracts__title {
   margin-bottom: 30px; }
 
+.contracts__row {
+  display: flex;
+  align-items: center; }
+
 .contracts__text {
   max-width: 276px;
   margin-bottom: 45px;
@@ -3508,7 +3562,8 @@ a {
   line-height: 142.43%;
   font-family: "Kinetika";
   color: #191c1f;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-left: 20px; }
 
 .contracts__desc {
   font-size: 12px;
@@ -3991,7 +4046,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url("../img/situation__particuller.jpg");
+    background-image: url("../img/particuller.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.2; }
@@ -4016,7 +4071,7 @@ a {
 .calculator__main-box {
   position: absolute;
   top: 20px;
-  z-index: 20;
+  z-index: 1000;
   display: none;
   width: 100%;
   padding: 0 15px; }
@@ -4427,7 +4482,7 @@ a {
   align-items: center;
   width: 110px;
   height: 110px;
-  background-color: #304bab;
+  background-color: white;
   border-radius: 100px;
   box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4); }
   .circle-c::before {
@@ -4606,5 +4661,97 @@ a {
   background: rgba(0, 0, 0, 0.7); }
   .overlay--active {
     display: block; }
+
+.cookies {
+  padding: 0 20px;
+  padding-top: 27px;
+  padding-bottom: 22px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f3f6ff;
+  z-index: 10000;
+  box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4); }
+  .cookies--hidden {
+    display: none; }
+
+.cookies__content {
+  margin-bottom: 30px; }
+
+.cookies__title {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px; }
+
+.cookies__text {
+  font-size: 12px;
+  line-height: 167.43%; }
+
+.cookies__box {
+  display: flex; }
+
+.cookies__button {
+  width: 130px;
+  min-height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: "Geometria", sans-serif; }
+  .cookies__button:not(:first-child) {
+    margin-left: auto; }
+
+@media (min-width: 768px) {
+  .cookies {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    padding-top: 27px;
+    padding-bottom: 22px; }
+    .cookies--hidden {
+      display: none; }
+  .cookies__title {
+    font-size: 18px; }
+  .cookies__text {
+    font-size: 16px; }
+  .cookies__content {
+    margin-bottom: 0; }
+  .cookies__button {
+    font-size: 14px; }
+    .cookies__button:not(:first-child) {
+      margin-left: 20px; } }
+
+@media (min-width: 1280px) {
+  .cookies {
+    padding-right: calc(50% - 640px);
+    padding-left: calc(50% - 640px); }
+  .cookies__button {
+    width: 140px; } }
+
+.politic {
+  padding: 0 15px;
+  display: none;
+  position: absolute;
+  width: 100%; }
+  .politic--active {
+    display: block; }
+
+.politic__wrapper {
+  position: relative;
+  padding: 30px;
+  background-color: white;
+  min-height: 200px;
+  z-index: 100;
+  border-radius: 20px; }
+
+.politic__title {
+  text-align: center;
+  margin: 20px 0; }
+
+@media (min-width: 768px) {
+  .politic__wrapper {
+    width: 700px;
+    margin: 0 auto; } }
 
 /*# sourceMappingURL=maps/main.css.map */
