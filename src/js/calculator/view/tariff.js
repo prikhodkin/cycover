@@ -20,7 +20,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc">Gestion de crise</p>
+                <p class="tariff-card__desc tariff-card__desc--calc">Assistance dans la gestion de crise</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--available">
@@ -65,7 +65,7 @@ export default class TariffView extends AbstractView {
 
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${this._state.garantie.base}</p>
+              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${this._state.garantie.base} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
                 Continuer
                 <svg class="button__icon button__icon--forth">
@@ -83,7 +83,7 @@ export default class TariffView extends AbstractView {
                     <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                   </svg>
                 </div>
-                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Gestion de crise</p>
+                <p class="tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime">Assistance dans la gestion de crise</p>
               </li>
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -127,7 +127,7 @@ export default class TariffView extends AbstractView {
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${this._state.garantie.prime}</p>
+              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${this._state.garantie.prime} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#" data-name="PRIME" data-price="${this._state.garantie.prime}">
                 Continuer
                 <svg class="button__icon">

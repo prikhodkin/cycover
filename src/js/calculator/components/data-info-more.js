@@ -29,11 +29,11 @@ export default class DataInfoMoreScreen {
 
   _updateState(element) {
     const radios = element.querySelectorAll(`input[type="radio"]:checked`)
-    const gouvernInput = element.querySelector(`input[name="Données gouvernementale"]`);
+    // const gouvernInput = element.querySelector(`input[name="Données gouvernementale"]`);
 
-    this._state = Object.assign({}, this._state, {
-      [gouvernInput.name]: gouvernInput.value
-    })
+    // this._state = Object.assign({}, this._state, {
+    //   [gouvernInput.name]: gouvernInput.value
+    // })
 
     radios.forEach(it => {
       this._state = Object.assign({}, this._state, {

@@ -10,7 +10,7 @@ export default class Footer extends AbstractView {
             <img class="partner__img calculator__img" src="./img/f1.jpg" alt="">
           </li>
           <li class="partner__item calculator__item calculator__item--partner">
-            <img class="partner__img calculator__img" src="./img/f2.jpg" alt="">
+            <img class="partner__img calculator__img" src="./img/april.jpg" alt="">
           </li>
           <li class="partner__item calculator__item calculator__item--partner">
             <img class="partner__img calculator__img" src="./img/f3.png" alt="">
