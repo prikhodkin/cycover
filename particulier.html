@@ -69,13 +69,13 @@
       </nav>
     </div>
   </header>
-    <section id="Accueil" class="promo">
+    <section id="Accueil" class="promo" data-controller="type-writer">
       <picture>
         <source media="(min-width:700px)" srcset="img/promo__bg@desktop.png">
         <img src="img/promo__bg@mobile.png" alt="bg" class="promo__img">
       </picture>
       <div class="promo__body" data-controller="espaceClient">
-        <h1 class="promo__title title">SURFEZ COUVERT</h1>
+        <h1 class="promo__title title">Protégez <span data-words="vos données, votre identité, vos finances" data-target="type-writer.target">vos données</span></h1>
         <p class="promo__desc">Proteger votre vis numérique et celle de votre famille!</p>
         <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
       </div>
@@ -99,53 +99,65 @@
       <ul class="dangers__list" data-target="slider.list">
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-1-usurpation.svg')"></div>
-          <p class="dangers__name">Usurpation d'identité</p>
-          <p class="dangers__text">Protégez-vous en face de l’utilisation de vos données à caractère personnel</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-1-usurpation.svg')"></div>
+              <p class="dangers__name">Usurpation d'identité</p>
+            </div>
+          <p class="dangers__text">Protégez vous face à l’utilisation de vos données personnelles.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--phishing" style="background-image: url('img/ico-2-atteinte.svg')"></div>
-            <p class="dangers__name">Atteinte à l'e-réputation</p>
-            <p class="dangers__text">Condamnez le responsable et obtenez la réparation du préjudice subi</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--phishing" style="background-image: url('img/ico-2-atteinte.svg')"></div>
+              <p class="dangers__name">Atteinte à l'e-réputation</p>
+            </div>
+            <p class="dangers__text">Poursuivez le responsable et obtenez la réparation du préjudice subi.</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('img/ico-3-vol.svg')"></div>
-            <p class="dangers__name">Vol lors d'un achat sur internet</p>
-            <p class="dangers__text">Protégez vos achats à distance contre les risques de perte ou de vol</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('img/ico-3-vol.svg')"></div>
+              <p class="dangers__name">Litiges lors d’un achat sur internet</p>
+            </div>
+            <p class="dangers__text">Trouver une solution avec le vendeur ou faites vous rembourser.</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-4-escroquerie.svg')"></div>
-            <p class="dangers__name">Escroquerie sur Internet</p>
-            <p class="dangers__text">Soyez tranquilles face aux techniques les plus utilisées pour escroquer</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-4-escroquerie.svg')"></div>
+              <p class="dangers__name">Escroquerie sur Internet</p>
+            </div>
+            <p class="dangers__text">Soyez tranquilles face aux techniques les plus utilisées pour escroquer.</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-5-mal-banc.svg')"></div>
-            <p class="dangers__name">Malveillance compte bancaires</p>
-            <p class="dangers__text">N’hésitez pas à surveiller régulièrement vos comptes bancaires</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-5-mal-banc.svg')"></div>
+              <p class="dangers__name">Piratage de vos comptes</p>
+            </div>
+            <p class="dangers__text">N’hésitez pas à surveiller régulièrement vos comptes bancaires.</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
         </li>
         <li class="dangers__item" data-controller="calculator">
           <div class="dangers__wrap">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-6-perte.svg')"></div>
-            <p class="dangers__name">Perte, vol de données</p>
-            <p class="dangers__text">Identifiez et faites-vous protéger des menaces réalisables via les supports des données</p>
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('img/ico-6-perte.svg')"></div>
+              <p class="dangers__name">Perte, vol de données</p>
+            </div>
+            <p class="dangers__text">Identifiez et faites-vous protéger des menaces réalisables via les supports des données.</p>
             <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
           </div>
 
@@ -156,12 +168,12 @@
       <div class="insurance__box insurance__box--text" data-controller="calculator">
         <h2 class="insurance__title title">CYCOVER – SURFEZ COUVERT</h2>
         <p class="insurance__text">
-          <span class="insurance__text-semibold">Nous vous protégeons contre les aléas de la vie numérique. Cyber criminalité et la sécurité informatique sont prépondérantes dans la vie de chaquan. Notre objectif est de vous protéger des aléas liés à la vie numérique.</span>
+          <span class="insurance__text-semibold">Nous vous assurons contre les aléas de la vie numérique. Nos algorithmes vous trouvent la meilleure combinaison entre couverture et coût pour la protection de votre vie numérique.</span>
         </p>
         <ul class="insurance__list">
-          <li class="insurance__item insurance__item--donnes">Protéction de vos donnees</li>
-          <li class="insurance__item insurance__item--identite" >Protéction de votre identite</li>
-          <li class="insurance__item insurance__item--insure">Protection de vos finances</li>
+          <li class="insurance__item insurance__item--donnes">Assurer vos données</li>
+          <li class="insurance__item insurance__item--identite" >Assurer votre identité</li>
+          <li class="insurance__item insurance__item--insure">Assurer vos finances</li>
         </ul>
         <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
       </div>
@@ -201,10 +213,10 @@
           <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Compte en ligne & cartes</p>
             <ul class="advantages__options">
-              <li class="advantages__option">Sécurisez vos paiements en ligne</li>
-              <li class="advantages__option">Soyez protégé des tentatives de fraude</li>
+              <li class="advantages__option">Couvrez-vous en cas de piratage de vos comptes ou carte bancaire</li>
+              <li class="advantages__option">Couverture des dommages financiers causés</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -218,10 +230,11 @@
           <div class="advantages__content" data-controller="calculator">
             <p class="advantages__title title">Harcelement en ligne</p>
             <ul class="advantages__options">
-              <li class="advantages__option">Suivi santé et psycologique</li>
-              <li class="advantages__option">Soutien juridique</li>
+              <li class="advantages__option">Prise en charge de l’action judiciaire contre le responsable</li>
+              <li class="advantages__option">Soutien et accompagnement psychologique</li>
+              <li class="advantages__option">Suppression des contenus dommageables</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -233,12 +246,12 @@
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
-            <p class="advantages__title title">Shopping en ligne</p>
+            <p class="advantages__title title">Achat en ligne</p>
             <ul class="advantages__options">
-              <li class="advantages__option">Dédommagement</li>
-              <li class="advantages__option">Procédure à l’encontre du site malveillant</li>
+              <li class="advantages__option">Dédommagement des achats effectués en ligne en cas de litige</li>
+              <li class="advantages__option">Pris en charge de l’action judiciaire à l’encontre du site malveillant</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -250,13 +263,14 @@
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
-            <p class="advantages__title title">Datas et assistance<br>informatique</p>
+            <p class="advantages__title title">Couverture de vos données</p>
             <ul class="advantages__options">
-              <li class="advantages__option">Récupération des données</li>
-              <li class="advantages__option">Réparation du matériel</li>
-              <li class="advantages__option">Dédommagement</li>
+              <li class="advantages__option">Assistance technique externe en cas de sinistre</li>
+              <li class="advantages__option">Prise en charge des coûts liés à la récupération des données en cas de pertes de vol</li>
+              <li class="advantages__option">Prise en charge de l’action judiciaire à l’encontre du responsable de cette perte/vol</li>
+              <li class="advantages__option">Dédommagement en cas de préjudice financier</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Lear moree about Budgeting</a>
+            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
           </div>
         </li>
       </ul>
@@ -290,58 +304,58 @@
     <section class="tariff" id="tarif">
       <h2 class="tariff__title">Сhoisissez votre tarif</h2>
       <ul class="tariff__list ">
-        <li class="tariff__item tariff-card tariff-card--base " data-controller="espaceClient">
-          <div class="tariff-card__main-icon">
-            <svg class="tariff-card__main-img tariff-card__main-img--send">
-              <use xlink:href="img/sprites/sprite.svg#icon__send"></use>
-            </svg>
-          </div>
-          <p class="tariff-card__name">Standard</p>
-          <p class="tariff-card__price">7€/mois</p>
-          <ul class="tariff-card__list">
-            <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--available">
-                <svg class="tariff-card__img tariff-card__img--tick">
-                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc">Protection juridique </p>
-            </li>
-            <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--available">
-                <svg class="tariff-card__img tariff-card__img--tick">
-                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc">Protection en cas d’atteintes à la personnalité sur Internet </p>
-            </li>
-            <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--available">
-                <svg class="tariff-card__img tariff-card__img--tick">
-                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection du compte en ligne</p>
-            </li>
-            <li class="tariff-card__item tariff-card__item--available">
-              <div class="tariff-card__icon tariff-card__icon--available">
-                <svg class="tariff-card__img tariff-card__img--tick">
-                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Protection des achats en ligne </p>
-            </li>
-            <li class="tariff-card__item tariff-card__item--unavailable">
-              <div class="tariff-card__icon tariff-card__icon--unavailable">
-                <svg class="tariff-card__img tariff-card__img--cross">
-                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>
-                </svg>
-              </div>
-              <p class="tariff-card__desc tariff-card__desc--unavailable">Sauvetage et restauration des données </p>
-            </li>
-          </ul>
-          <a class="tariff-card__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
-        </li>
+<!--        <li class="tariff__item tariff-card tariff-card&#45;&#45;base " data-controller="espaceClient">-->
+<!--          <div class="tariff-card__main-icon">-->
+<!--            <svg class="tariff-card__main-img tariff-card__main-img&#45;&#45;send">-->
+<!--              <use xlink:href="img/sprites/sprite.svg#icon__send"></use>-->
+<!--            </svg>-->
+<!--          </div>-->
+<!--          <p class="tariff-card__name">Standard</p>-->
+<!--          <p class="tariff-card__price">7€/mois</p>-->
+<!--          <ul class="tariff-card__list">-->
+<!--            <li class="tariff-card__item tariff-card__item&#45;&#45;available">-->
+<!--              <div class="tariff-card__icon tariff-card__icon&#45;&#45;available">-->
+<!--                <svg class="tariff-card__img tariff-card__img&#45;&#45;tick">-->
+<!--                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--              <p class="tariff-card__desc">Protection juridique </p>-->
+<!--            </li>-->
+<!--            <li class="tariff-card__item tariff-card__item&#45;&#45;available">-->
+<!--              <div class="tariff-card__icon tariff-card__icon&#45;&#45;available">-->
+<!--                <svg class="tariff-card__img tariff-card__img&#45;&#45;tick">-->
+<!--                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--              <p class="tariff-card__desc">Protection en cas d’atteintes à la personnalité sur Internet </p>-->
+<!--            </li>-->
+<!--            <li class="tariff-card__item tariff-card__item&#45;&#45;available">-->
+<!--              <div class="tariff-card__icon tariff-card__icon&#45;&#45;available">-->
+<!--                <svg class="tariff-card__img tariff-card__img&#45;&#45;tick">-->
+<!--                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--              <p class="tariff-card__desc tariff-card__desc&#45;&#45;unavailable">Protection du compte en ligne</p>-->
+<!--            </li>-->
+<!--            <li class="tariff-card__item tariff-card__item&#45;&#45;available">-->
+<!--              <div class="tariff-card__icon tariff-card__icon&#45;&#45;available">-->
+<!--                <svg class="tariff-card__img tariff-card__img&#45;&#45;tick">-->
+<!--                  <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--              <p class="tariff-card__desc tariff-card__desc&#45;&#45;unavailable">Protection des achats en ligne </p>-->
+<!--            </li>-->
+<!--            <li class="tariff-card__item tariff-card__item&#45;&#45;unavailable">-->
+<!--              <div class="tariff-card__icon tariff-card__icon&#45;&#45;unavailable">-->
+<!--                <svg class="tariff-card__img tariff-card__img&#45;&#45;cross">-->
+<!--                  <use xlink:href="img/sprites/sprite.svg#icon__cross"></use>-->
+<!--                </svg>-->
+<!--              </div>-->
+<!--              <p class="tariff-card__desc tariff-card__desc&#45;&#45;unavailable">Sauvetage et restauration des données </p>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--          <a class="tariff-card__button button button&#45;&#45;background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>-->
+<!--        </li>-->
         <li class="tariff__item tariff-card tariff-card--prime" data-controller="espaceClient">
           <div class="tariff-card__main-icon">
             <svg class="tariff-card__main-img tariff-card__main-img--plane">
@@ -349,7 +363,7 @@
             </svg>
           </div>
           <p class="tariff-card__name tariff-card__name--prime">Prime</p>
-          <p class="tariff-card__price tariff-card__price--prime">12€/mois</p>
+          <p class="tariff-card__price tariff-card__price--prime">À partir de 3.80 €</p>
           <ul class="tariff-card__list">
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -410,7 +424,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Gestion de crise</p>
+              <p class="tariff-card__desc">Assistance dans la gestion de crise</p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">
@@ -426,7 +440,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Enquêtes et sanctions</p>
+              <p class="tariff-card__desc">Perte d’exploitation</p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">
@@ -434,7 +448,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Perte d’exploitation </p>
+              <p class="tariff-card__desc">Enquêtes et sanction</p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">
@@ -442,7 +456,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Cyber-extorsion</p>
+              <p class="tariff-card__desc">Cyber extorsion</p>
             </li>
             <li class="tariff-card__item tariff-card__item--available">
               <div class="tariff-card__icon tariff-card__icon--available">
@@ -450,7 +464,7 @@
                   <use xlink:href="img/sprites/sprite.svg#icon__tick"></use>
                 </svg>
               </div>
-              <p class="tariff-card__desc">Fraude</p>
+              <p class="tariff-card__desc">FRAUDE</p>
             </li>
           </ul>
           <a class="tariff-card__button button button--background" href="index.html">Souscrire</a>
@@ -458,14 +472,13 @@
       </ul>
     </section>
     <section class="map" data-controller="scroll map-inner">
-      <h2 class="map__title title">Protégez-vous - faites partie de notre communauté!</h2>
+      <h2 class="map__title title">SURFEZ COUVERT ET REGJOIGNEZ NOTRE COMMUNAUTE</h2>
       <div class="map__inner" data-target="scroll.item map-inner.item">
         <img class="map__img" src="img/map.png" alt="map">
       </div>
     </section>
     <section class="feedback" id="clients" data-controller="slider">
-  <h2 class="feedback__title">What customers say</h2>
-  <p class="feedback__text">We like to let people talk on our behalf and explain how <br> the Firewl solution improved their lives</p>
+  <h2 class="feedback__title">NOS CLIENTS TÉMOIGNENT</h2>
   <ul class="feedback__list" data-target="slider.list">
     <li class="feedback__item customer-card">
       <div class="customer-card__box">
@@ -640,8 +653,8 @@
 
     <section id="Contact" class="body__contact contact">
   <div class="contact__container">
-    <h2 class="contact__title">Avez-vous besoin d'aide?</h2>
-    <p class="contact__text">Nous sommes là pour répondre a toutes vos questions</p>
+    <h2 class="contact__title">Avez-vous besoin d'aide ?</h2>
+    <p class="contact__text">Nous sommes là pour répondre à toutes vos questions</p>
   </div>
   <ul class="contact__list">
     <li class="contact__item contact__item--phone">
@@ -660,12 +673,12 @@
 </section>
 
     <section class="body__security security">
-  <h2 class="security__title">Nous pensons et nous engageons pour votre sécurité</h2>
+  <h2 class="security__title">Nous nous engageons pour votre sécurité</h2>
   <ul class="security__list">
     <li class="security__item security__item--regist">
       <p class="security__text security__text--regist">
-        <span class="security__name">Immatriculé et<br> réglementé</span>
-        <span class="security__desc">18000011</span>
+        <span class="security__name">Immatriculé et réglementé</span>
+        <span class="security__desc">N°ORIAS IOBSP et COA 18000011</span>
       </p>
     </li>
     <li class="security__item security__item--connect">
@@ -682,7 +695,7 @@
     </li>
     <li class="security__item security__item--host">
       <p class="security__text">
-        <span class="security__name">Hébérgementent France</span>
+        <span class="security__name">Hébérgement en France</span>
         <span class="security__desc">Sous la législation<br> française</span>
       </p>
     </li>
@@ -719,7 +732,7 @@
         <a href="#" data-target="politic.link" data-action="click->politic#showSecond">&nbsp; Mentions Légales </a>
       </div>
       <!-- <p class="footer__copyright">© Simpleo 2020 | Politique de confidélité | Mentions Légales </p> -->
-      <a class="footer__link-site" href="#">Créations des sites web en France</a>
+<!--      <a class="footer__link-site" href="#">Créations des sites web en France</a>-->
     </div>
 
   </footer>

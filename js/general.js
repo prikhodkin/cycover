@@ -2313,7 +2313,7 @@ var _default = /*#__PURE__*/function (_Controller) {
   }, {
     key: "textTemplateAccent",
     value: function textTemplateAccent() {
-      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.placeAccent[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
     }
   }, {
     key: "textTemplate",
@@ -2460,7 +2460,7 @@ var _default = /*#__PURE__*/function (_Controller) {
   }, {
     key: "textTemplateAccent",
     value: function textTemplateAccent() {
-      return "\n     <p class=\"map__text\">\n        ".concat(this.options.place[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
+      return "\n     <p class=\"map__text\">\n        ".concat(this.options.placeAccent[Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPlace, this.options.place.length)], "\n        <span> - ").concat(Object(_util__WEBPACK_IMPORTED_MODULE_1__["randomCount"])(this.options.minPrice, this.options.maxPrice), " \u20AC</span>\n     </p>\n      ");
     }
   }, {
     key: "textTemplate",
