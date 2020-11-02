@@ -59,14 +59,14 @@
     </picture>
     <div class="promo__body promo__body--inner" data-controller="espaceClient">
       <p class="promo__txt">Le 1er comparateur de votre cyber-assurance</p>
-      <h1 class="title">PROTÉGEZ VOTRE <span data-words="hello, world, man, good" data-target="type-writer.target">ACTIVITÉ</span></h1>
+      <h1 class="title">PROTÉGEZ VOTRE <span data-words="activité, e-réputation, base de données" data-target="type-writer.target">ACTIVITÉ</span></h1>
       <p class="promo__desc">L’assurance des entreprises face à la cyber-criminalité qui:</p>
       <ol class="promo__list">
         <li class="promo__item">Vous protège</li>
         <li class="promo__item">Vous assiste</li>
         <li class="promo__item">Vous dédommage</li>
       </ol>
-      <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
+      <a class="promo__button button button--background" href="javascript://" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire en ligne</a>
     </div>
   </section>
   <section class="dangers" data-controller="slider">
@@ -88,16 +88,20 @@
     <ul class="dangers__list" data-target="slider.list">
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap" >
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-1-piratage.svg')"></div>
-          <p class="dangers__name">Piratage</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-1-piratage.svg')"></div>
+            <p class="dangers__name">Piratage</p>
+          </div>
           <p class="dangers__text">La prise de contrôle par un pirate d'un compte au détriment de son propriétaire légitime.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--phishing" style="background-image: url('../img/ico-2-cyber-ran.svg')"></div>
-          <p class="dangers__name">Cyber-rançonnage</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--phishing" style="background-image: url('../img/ico-2-cyber-ran.svg')"></div>
+            <p class="dangers__name">Cyber-rançonnage</p>
+          </div>
           <p class="dangers__text">Une attaque malveillante qui rend illisibles vos fichiers et qui vous demande une rançon en échange d’une clé de déchiffrement permettant de récupérer vos données.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
@@ -105,8 +109,10 @@
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('../img/ico-3-perte-donnees.svg')"></div>
-          <p class="dangers__name">Perte ou vol de données</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('../img/ico-3-perte-donnees.svg')"></div>
+            <p class="dangers__name">Perte ou vol de données</p>
+          </div>
           <p class="dangers__text">Les données (clients, fournisseurs, des salariés) de l’entreprise constituent la base du fonds de commerce de chaque société. Une assurance cyber vous couvre en cas de perte et/ou de vol.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
@@ -114,8 +120,10 @@
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-4-cyber-extorsion.svg')"></div>
-          <p class="dangers__name">Cyber extorsion de fonds</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-4-cyber-extorsion.svg')"></div>
+            <p class="dangers__name">Cyber extorsion de fonds</p>
+          </div>
           <p class="dangers__text">Toute demande d'un tiers visant à extorquer une somme d'argent suite au vol de données sensibles.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
@@ -123,32 +131,40 @@
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-5-mal-interne.svg')"></div>
-          <p class="dangers__name">Malveillance interne</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-5-mal-interne.svg')"></div>
+            <p class="dangers__name">Malveillance interne</p>
+          </div>
           <p class="dangers__text">La fuite d'information en interne est une réalité en entreprise. Il est fondamental de protéger vos données, celle de vos clients et de vos fournisseurs.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-6-denigrement.svg')"></div>
-          <p class="dangers__name">Dénigrement sur internet</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-6-denigrement.svg')"></div>
+            <p class="dangers__name">Dénigrement sur internet</p>
+          </div>
           <p class="dangers__text">La discréditation publique de votre entreprise peut avoir des répercussions financières importantes. La cyber assurance vous permet de réparer ce préjudice.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-7-usurpation.svg')"></div>
-          <p class="dangers__name">Usurpation d’identité</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-7-usurpation.svg')"></div>
+            <p class="dangers__name">Usurpation d’identité</p>
+          </div>
           <p class="dangers__text">Protégez les données liées à l'identité de vos clients, fournisseurs et collaborateurs.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
       </li>
       <li class="dangers__item" data-controller="calculator">
         <div class="dangers__wrap">
-          <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-8-erreur.svg')"></div>
-          <p class="dangers__name">Erreur humaine</p>
+          <div class="dangers__top">
+            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-8-erreur.svg')"></div>
+            <p class="dangers__name">Erreur humaine</p>
+          </div>
           <p class="dangers__text">Les pirates informatiques utiliseront toujours une erreur d’origine humaine (ex : ouverture d’un mail contenant un virus) pour s’introduire dans un réseau d’entreprise.</p>
           <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
         </div>
@@ -177,7 +193,7 @@
           <img src="../img/f1.jpg" alt="">
         </div>
         <div class="insurance__line">
-          <img src="../img/f2.jpg" alt="">
+          <img src="../img/f2.png" alt="">
         </div>
         <div class="insurance__line">
           <img src="../img/f3.png" alt="">
@@ -292,7 +308,7 @@
   </section>
 
   <section class="insurance-advantage" id="engagements" data-controller="filling-inner">
-    <h2 class="insurance-advantage__title title">les atouts de l'assurance cyber cover</h2>
+    <h2 class="insurance-advantage__title title">Nos engagements</h2>
     <ul class="insurance-advantage__list">
       <li class="insurance-advantage__item insurance-advantage__item--1">
         <div class="insurance-advantage__circle"></div>
@@ -352,19 +368,19 @@
     <h2 class="partner__title title">Ils nous font confiance</h2>
     <ul class="partner__list">
       <li class="partner__item">
-        <img class="partner__img" src="../img/partner__img-1.png" alt="">
+        <img class="partner__img" src="../img/1.png" alt="">
       </li>
       <li class="partner__item">
-        <img class="partner__img" src="../img/partner__img-2.png" alt="">
+        <img class="partner__img" src="../img/2.png" alt="">
       </li>
       <li class="partner__item">
-        <img class="partner__img" src="../img/partner__img-3.jpg" alt="">
+        <img class="partner__img" src="../img/3.png" alt="">
       </li>
       <li class="partner__item">
-        <img class="partner__img" src="../img/partner__img-4.jpg" alt="">
+        <img class="partner__img" src="../img/4.png" alt="">
       </li>
       <li class="partner__item">
-        <img class="partner__img" src="../img/partner__img-5.png" alt="">
+        <img class="partner__img" src="../img/5.png" alt="">
       </li>
     </ul>
   </section>

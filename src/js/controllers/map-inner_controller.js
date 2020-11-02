@@ -94,7 +94,7 @@ export default class extends Controller {
   textTemplateAccent() {
     return `
      <p class="map__text">
-        ${this.options.place[randomCount(this.options.minPlace, this.options.place.length)]}
+        ${this.options.placeAccent[randomCount(this.options.minPlace, this.options.place.length)]}
         <span> - ${randomCount(this.options.minPrice, this.options.maxPrice)} €</span>
      </p>
       `
