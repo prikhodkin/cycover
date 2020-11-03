@@ -11,7 +11,7 @@ export default class DataInfoView extends AbstractView {
     return `
       <section class="calculator calculator--amount-data" data-controller="calculator">
         <div class="calculator__wrap">
-          <h2 class="calculator__title title title--black">nature & volume des données personnelles traitées par le proposant et ses filiales </h2>
+          <h2 class="calculator__title title title--black">Volume des données personnelles traitées</h2>
           <ul class="calculator__list calculator__list--amount-data">
 
             <li class="calculator__item calculator__item--number field-numb">

@@ -15,7 +15,7 @@ export default class VotreView extends AbstractView {
             </li>
 
             <li class="calculator__item calculator__item--situation situation situation--particuller">
-              <a class="situation__link situation__link--particuller" href="particulier.html#tarif" data-target="calculator.link" data-action="click->calculator#closeCalc">Particuller </a>
+              <a class="situation__link situation__link--particuller" href="particulier.html#tarif" data-target="calculator.link" data-action="click->calculator#closeCalc">Particulier </a>
             </li>
 
           </ul>
@@ -37,7 +37,6 @@ export default class VotreView extends AbstractView {
       check.addEventListener(`click`, () => {
         this.onClickCheck();
       })
-
   }
 
   onClickNext() {}
