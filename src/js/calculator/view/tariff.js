@@ -65,7 +65,7 @@ export default class TariffView extends AbstractView {
 
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${this._state.garantie.base} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
+              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${Math.ceil(this._state.garantie.base/12)} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
                 Continuer
                 <svg class="button__icon button__icon--forth">
@@ -127,7 +127,7 @@ export default class TariffView extends AbstractView {
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${this._state.garantie.prime} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
+              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${Math.ceil(this._state.garantie.prime/12)} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#" data-name="PRIME" data-price="${this._state.garantie.prime}">
                 Continuer
                 <svg class="button__icon">

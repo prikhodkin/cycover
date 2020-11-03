@@ -48,7 +48,7 @@ export default class PersonalDataScreen {
   _checkPhone() {
     const phone = this.view.element.querySelector(`#form-number-calc`)
     const phoneOption = {
-      mask: '+{7} (000) 000-00-00'
+      mask: '+{33} (000) 000-00-00'
     }
     IMask(phone, phoneOption)
   }
