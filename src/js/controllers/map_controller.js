@@ -6,8 +6,8 @@ export default class extends Controller {
   options = {
     minPinPosition: 20,
     maxPinPosition: 70,
-    minCount: 3,
-    maxCount: 7,
+    minCount: 2,
+    maxCount: 5,
     minPrice: 10,
     maxPrice: 50000,
     minPlace: 0,
