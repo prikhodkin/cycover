@@ -57,7 +57,7 @@
       <source media="(min-width:700px)" srcset="../img/promo__bg@prof.png">
       <img src="../img/promo__bg-prof@mobile.png" alt="bg" class="promo__img">
     </picture>
-    <div class="promo__body promo__body--inner" data-controller="espaceClient">
+    <div class="promo__body promo__body--inner" data-controller="calculator">
       <p class="promo__txt">Le 1er comparateur de votre cyber-assurance</p>
       <h1 class="title">PROTÉGEZ VOTRE <span data-words="activité, e-réputation, base de données" data-target="type-writer.target">ACTIVITÉ</span></h1>
       <p class="promo__desc">L’assurance des entreprises face à la cyber-criminalité qui:</p>
@@ -530,7 +530,7 @@
   <div class="modal-registration__main-box" data-controller="espaceClient">
     <section class="modal-registration">
       <div class="modal-registration__wrap">
-        <p class="modal-registration__title">Заголовок</p>
+        <p class="modal-registration__title">Remplir le formulaire</p>
       <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
         <input type="hidden" name="project_name" value="cycover">
         <input type="hidden" name="admin_email" value="089ax@mail.ru">
@@ -544,14 +544,14 @@
               </svg>
             </label>
           </div>
-          <div class="form__box field field--registration">
+          <!-- <div class="form__box field field--registration">
             <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
             <label class="field__label" for="form-password">
               <svg class="field__icon">
                 <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
               </svg>
             </label>
-          </div>
+          </div> -->
           <div class="form__box field field--registration">
             <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
             <label class="field__label" for="form-number">
@@ -561,7 +561,7 @@
             </label>
           </div>
           <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="yourmail@gmail.com">
+            <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="Email">
             <label class="field__label" for="form-email">
               <svg class="field__icon">
                 <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
@@ -574,9 +574,9 @@
 
         <div class="form__box checkbox checkbox--privacy">
           <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
-            <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy">
+            <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy" checked>
             <span class="checkbox__text checkbox__text--privacy">
-              <span class="checkbox__dev--privacy">Согласен с политикой конфиденциальности</span>
+              <span class="checkbox__dev--privacy">J'accepte la politique de confidentialite</span>
             </span>
           </label>
         </div>

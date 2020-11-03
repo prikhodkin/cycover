@@ -8,7 +8,7 @@ export default class AssuranceView extends AbstractView {
     return `
       <section class="calculator" data-controller="calculator">
         <div class="calculator__wrap">
-          <h2 class="calculator__title title title--black">Votre cyber assurance en ligne </h2>
+          <h2 class="calculator__title title title--black">Votre cyber-assurance en ligne </h2>
           <ul class="calculator__list calculator__list--select">
             <li class="calculator__item calculator__item--select select">
               <p class="select__name">Chiffre d’affaires consolidé HT</p>

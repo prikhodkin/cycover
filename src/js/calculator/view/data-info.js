@@ -11,23 +11,20 @@ export default class DataInfoView extends AbstractView {
     return `
       <section class="calculator calculator--amount-data" data-controller="calculator">
         <div class="calculator__wrap">
-          <h2 class="calculator__title title title--black">nature & volume des données personnelles détenues par le proposant et ses filiales </h2>
+          <h2 class="calculator__title title title--black">nature & volume des données personnelles traitées par le proposant et ses filiales </h2>
           <ul class="calculator__list calculator__list--amount-data">
+
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__1" placeholder="3000" name="Nombre denregistrements par" value="${this._state['Nombre denregistrements par'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__1">Nombre d’enregistrements par nature de données</label>
+              <input class="field-numb__input" type="number" id="field-numb__2" placeholder="0" name="Données personnelles" value="${this._state['Données personnelles'] ?? ''}">
+              <label class="field-numb__label" for="field-numb__2">Nombre de données personnelles traitées (y compris celles des salariés)</label>
             </li>
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__2" placeholder="3000" name="Données personnelles" value="${this._state['Données personnelles'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__2">Données personnelles y compris données des employés </label>
+              <input class="field-numb__input" type="number" id="field-numb__3" placeholder="0" name="Données médicales" value="${this._state['Données médicales'] ?? ''}">
+              <label class="field-numb__label" for="field-numb__3">Dont données médicales</label>
             </li>
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__3" placeholder="500" name="Données médicales" value="${this._state['Données médicales'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__3">Dont Données médicales</label>
-            </li>
-            <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__4" placeholder="50" name="Données de carte de paiment" value="${this._state['Données de carte de paiment'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__4">Données de carte de paiment (nombre de transactions bancaires)</label>
+              <input class="field-numb__input" type="number" id="field-numb__4" placeholder="0" name="Données de carte de paiment" value="${this._state['Données de carte de paiment'] ?? ''}">
+              <label class="field-numb__label" for="field-numb__4">Nombre de paiement par carte bancaire</label>
             </li>
           </ul>
           <div class="calculator__box calculator__box--button">
