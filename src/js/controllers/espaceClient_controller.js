@@ -63,7 +63,7 @@ export default class extends Controller {
   checkPhone() {
     const phone = document.querySelector(`#form-number`);
     const phoneOption = {
-      mask: '+{7} (000) 000-00-00'
+      mask: '+{33} (0) 00-00-00-00'
     }
 
     IMask(phone, phoneOption)
