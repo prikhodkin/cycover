@@ -2582,7 +2582,7 @@ a {
   .insurance__box--text {
     max-width: 690px; }
   .insurance__title {
-    max-width: 490px;
+    max-width: 570px;
     margin-bottom: 40px;
     font-size: 35px; }
   .insurance__text {
@@ -3999,6 +3999,69 @@ a {
   margin: 0 auto;
   background: white;
   border-radius: 20px; }
+  .modal-registration--covid {
+    background: #304BAB;
+    height: auto;
+    max-width: 511px; }
+    .modal-registration--covid .modal-registration__wrap {
+      padding: 45px 35px 25px 35px; }
+    .modal-registration--covid .modal-registration__title {
+      font-family: "Kinetika";
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 27px;
+      text-align: center;
+      margin-bottom: 35px;
+      color: #FFFFFF; }
+    .modal-registration--covid .tariff-card__desc {
+      font-size: 14px;
+      line-height: 145.4%;
+      color: #FFFFFF;
+      margin-left: 0; }
+    .modal-registration--covid .tariff-card__list {
+      margin-bottom: 40px; }
+    .modal-registration--covid .modal-registration__logo {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px; }
+    .modal-registration--covid .modal-registration__bottom {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 17px;
+      color: #FFFFFF;
+      padding: 20px 35px 15px 35px;
+      margin-left: -35px;
+      margin-right: -35px;
+      margin-bottom: -25px;
+      opacity: 0.5;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 25px; }
+      .modal-registration--covid .modal-registration__bottom p {
+        max-width: 224px; }
+      .modal-registration--covid .modal-registration__bottom a {
+        text-decoration: underline; }
+    .modal-registration--covid .modal-registration__btn {
+      height: 70px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      /* identical to box height */
+      max-width: 330px;
+      margin: 0 auto;
+      text-align: center;
+      color: #304BAB; }
+      .modal-registration--covid .modal-registration__btn:hover {
+        color: #ffffff; }
+    .modal-registration--covid .tariff-card__icon--available {
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      margin-right: 17px; }
+      .modal-registration--covid .tariff-card__icon--available svg {
+        width: 15px;
+        height: 11px; }
 
 .modal-registration__main-box {
   z-index: 11;
@@ -4468,7 +4531,8 @@ a {
   text-align: center;
   border: 1px solid #304bab;
   border-radius: 5px;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  cursor: pointer; }
 
 @media (min-width: 768px) {
   .radio-calc__label {
@@ -4748,6 +4812,14 @@ a {
 .politic__title {
   text-align: center;
   margin: 20px 0; }
+
+.politic__content {
+  line-height: 140%; }
+  .politic__content p {
+    margin: 0.5em 0; }
+  .politic__content a {
+    color: #1d3474;
+    text-decoration: underline; }
 
 @media (min-width: 768px) {
   .politic__wrapper {

@@ -34,11 +34,11 @@
         <li class="modifier__item"><a href="index.html">Professionnel</a></li>
         <li class="modifier__item modifier__item--active"><a href="#">Particulier</a></li>
       </ul>
-      <a href="tel:+33661317808" class="header__phone">
+      <a href="tel:0184601005" class="header__phone">
         <svg width="17" height="17">
           <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
         </svg>
-        <span>+33 (6) 61-31-78-08</span>
+        <span>01 84 60 10 05</span>
       </a>
     </div>
     <div class="header__bottom" data-controller="menu">
@@ -60,11 +60,11 @@
           <li class="menu__item" data-target="menu.item"><a href="#clients">Avis clients</a></li>
           <li class="menu__item" data-target="menu.item"><a href="#Contact">Contact</a></li>
         </ul>
-        <div class="header__button" data-controller="calculator">
+        <div class="header__button">
           <svg width="22" height="22">
             <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
           </svg>
-          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+          <a href="#tarif" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
         </div>
       </nav>
     </div>
@@ -74,10 +74,10 @@
         <source media="(min-width:700px)" srcset="img/promo__bg@desktop.png">
         <img src="img/promo__bg@mobile.png" alt="bg" class="promo__img">
       </picture>
-      <div class="promo__body" data-controller="espaceClient">
+      <div class="promo__body">
         <h1 class="promo__title title">Protégez <span data-words="vos données, votre identité, vos finances" data-target="type-writer.target">vos données</span></h1>
         <p class="promo__desc">Proteger votre vis numérique et celle de votre famille!</p>
-        <a class="promo__button button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
+        <a class="promo__button button button--background" href="#tarif" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire en ligne</a>
       </div>
     </section>
     <section class="dangers" data-controller="slider">
@@ -104,7 +104,7 @@
               <p class="dangers__name">Usurpation d'identité</p>
             </div>
           <p class="dangers__text">Protégez vous face à l’utilisation de vos données personnelles.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
         </li>
         <li class="dangers__item" data-controller="calculator">
@@ -114,7 +114,7 @@
               <p class="dangers__name">Atteinte à l'e-réputation</p>
             </div>
             <p class="dangers__text">Poursuivez le responsable et obtenez la réparation du préjudice subi.</p>
-            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+            <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
 
         </li>
@@ -125,7 +125,7 @@
               <p class="dangers__name">Litiges lors d’un achat sur internet</p>
             </div>
             <p class="dangers__text">Trouver une solution avec le vendeur ou faites vous rembourser.</p>
-            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+            <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
 
         </li>
@@ -136,7 +136,7 @@
               <p class="dangers__name">Escroquerie sur Internet</p>
             </div>
             <p class="dangers__text">Soyez tranquilles face aux techniques les plus utilisées pour escroquer.</p>
-            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+            <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
 
         </li>
@@ -147,7 +147,7 @@
               <p class="dangers__name">Piratage de vos comptes</p>
             </div>
             <p class="dangers__text">N’hésitez pas à surveiller régulièrement vos comptes bancaires.</p>
-            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+            <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
 
         </li>
@@ -158,7 +158,7 @@
               <p class="dangers__name">Perte, vol de données</p>
             </div>
             <p class="dangers__text">Identifiez et faites-vous protéger des menaces réalisables via les supports des données.</p>
-            <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+            <a class="dangers__button button button--background" href="#tarif">Se protéger</a>
           </div>
 
         </li>
@@ -175,7 +175,7 @@
           <li class="insurance__item insurance__item--identite" >Assurer votre identité</li>
           <li class="insurance__item insurance__item--insure">Assurer vos finances</li>
         </ul>
-        <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+        <a class="insurance__button button button--thin" href="#tarif">Se protéger</a>
       </div>
 
       <div class="insurance__box insurance__box--img">
@@ -216,7 +216,7 @@
               <li class="advantages__option">Couvrez-vous en cas de piratage de vos comptes ou carte bancaire</li>
               <li class="advantages__option">Couverture des dommages financiers causés</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
+            <a class="advantages__button button button--background" href="#tarif">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -228,13 +228,13 @@
             <div class="advantages__circle"></div>
           </div>
           <div class="advantages__content" data-controller="calculator">
-            <p class="advantages__title title">Harcelement en ligne</p>
+            <p class="advantages__title title">Harcèlement en ligne</p>
             <ul class="advantages__options">
               <li class="advantages__option">Prise en charge de l’action judiciaire contre le responsable</li>
               <li class="advantages__option">Soutien et accompagnement psychologique</li>
               <li class="advantages__option">Suppression des contenus dommageables</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
+            <a class="advantages__button button button--background" href="#tarif">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -251,7 +251,7 @@
               <li class="advantages__option">Dédommagement des achats effectués en ligne en cas de litige</li>
               <li class="advantages__option">Pris en charge de l’action judiciaire à l’encontre du site malveillant</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
+            <a class="advantages__button button button--background" href="#tarif">Souscrire</a>
           </div>
         </li>
         <li class="advantages__item">
@@ -270,7 +270,7 @@
               <li class="advantages__option">Prise en charge de l’action judiciaire à l’encontre du responsable de cette perte/vol</li>
               <li class="advantages__option">Dédommagement en cas de préjudice financier</li>
             </ul>
-            <a class="advantages__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire</a>
+            <a class="advantages__button button button--background" href="#tarif">Souscrire</a>
           </div>
         </li>
       </ul>
@@ -407,7 +407,7 @@
             </li>
           </ul>
           <a class="tariff-card__button button--white button button--background" href="#" data-target="espaceClient.link" data-action="click->espaceClient#showPopup">Souscrire</a>
-          <p class="tariff-card__text-prime">Le plus populaire</p>
+<!--          <p class="tariff-card__text-prime">Le plus populaire</p>-->
         </li>
         <li class="tariff__item tariff-card tariff-card--business">
           <div class="tariff-card__main-icon">
@@ -467,7 +467,7 @@
               <p class="tariff-card__desc">FRAUDE</p>
             </li>
           </ul>
-          <a class="tariff-card__button button button--background" href="index.html">Souscrire</a>
+          <a class="tariff-card__button button button--background" href="index.html">Savoir plus</a>
         </li>
       </ul>
     </section>
@@ -659,7 +659,7 @@
   <ul class="contact__list">
     <li class="contact__item contact__item--phone">
       <div class="contact__box">
-        <a class="contact__link" href="tel:0661317808">06-61-31-78-08</a>
+        <a class="contact__link" href="tel:0184601005">01 84 60 10 05 </a>
         <span class="contact__desc">Lun - Ven de 8h a 18h</span>
       </div>
     </li>
@@ -721,7 +721,7 @@
       </ul>
 
       <div style="margin-left: auto;" data-controller="calculator">
-        <a class="footer__button button button--thin button button--light" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+        <a class="footer__button button button--thin button button--light" href="#tarif">Souscription</a>
       </div>
     </div>
 
@@ -740,8 +740,42 @@
   <section class="politic politic--first" data-controller="politic">
   <div class="politic__wrapper">
     <div class="politic__content">
-      <h3 class="politic__title">Politic's title first</h3>
-      <p>some text some text some text some text some text some text some text some text some text some text some text</p>
+      <h3 class="politic__title">Politique de confidélité</h3>
+      <div class="politic__content">
+        <p>CYCOVER s'engage à ce que la collecte et le traitement de vos données, effectués à partir du site www.cycover.com, soient conformes au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés. Chaque formulaire ou téléservice limite la collecte des données personnelles au strict nécessaire (minimisation des données) et indique notamment :</p>
+        <ul>
+          <li>quels sont les objectifs du recueil de ces données (finalités) ;</li>
+          <li>si ces données sont obligatoires ou facultatives pour la gestion de votre demande ;</li>
+          <li>qui pourra en prendre connaissance (uniquement CYCOVER) ;</li>
+          <li><a href="https://www.palvin.fr.cnil.fr/fr/comprendre-vos-droits">vos droits Informatique et Libertés</a> et la façon de les exercer auprès de la CNIL.</li>
+        </ul>
+        <p>Les données personnelles recueillies dans le cadre des services proposés sur <a href="https://cycover.com">www.cycover.com</a> sont traitées selon des protocoles sécurisés et permettent à CYCOVER de gérer les demandes reçues dans ses applications informatiques. Les données issues du formulaire de demande d'informations seront conservées pour une durée de 3 ans, soit le temps maximal nécessaire au traitement des demandes. Pour toute information ou exercice de vos droits Informatique et Libertés sur les traitements de données personnelles gérés par www.cycover.com, vous pouvez nous contacter :</p>
+        <ul>
+          <li><a href="https://www.palvin.fr/contact-_l_FR_r_13.html">par ce formulaire</a></li>
+          <li>ou par courrier à l'adresse suivante :<br> Cycover <br>13 rue Primo Levi<br> 75013 Paris</li>
+        </ul>
+
+        <h4>A propos des cookies</h4>
+        <p>Nous utilisons différents cookies sur le site pour améliorer l’interactivité du site et nos services.</p>
+        <h4>Qu'est-ce qu'un "cookie" ?</h4>
+        <p>Un "cookie" est un fichier de taille limitée, généralement constitué de lettres et de chiffres, envoyé par le serveur internet au fichier cookie du navigateur situé sur le disque dur de votre ordinateur.</p>
+        <p><a href="https://www.palvin.fr.cnil.fr/fr/cookies-les-outils-pour-les-maitriser">>En savoir plus sur les cookies, leur fonctionnement et les moyens de s’y opposer sur le site de la CNIL</a></p>
+        <h4>https://www.palvin.fr.cnil.fr/fr/cookies-les-outils-pour-les-maitriser</h4>
+        <b>Cookies internes nécessaires au site pour fonctionner</b>
+        <p>Ces cookies permettent au site de fonctionner de manière optimale. Vous pouvez vous y opposer et les supprimer en utilisant les paramètres de votre navigateur, cependant votre expérience utilisateur risque d’être dégradée.</p>
+        <b>Cookies de mesure d’audience</b>
+        <p>En vue d’adapter le site aux demandes de ses visiteurs, nous mesurons le nombre de visites, le nombre de pages vues ainsi que l'activité des visiteurs sur le site. PIWIK et Google Analytics sont les outils de statistiques utilisé par la CYCOVER.
+
+          Nous collectons également votre 13 rue Primo Levi IP, afin de déterminer la ville depuis laquelle vous vous connectez. Celle-ci est immédiatement anonymisée après utilisation. CYCOVER ne peut donc en aucun cas remonter par ce biais à une personne physique.
+
+          Les données personnelles recueillies (identifiant du cookie) sont conservées par CYCOVER pour une durée de 13 mois . Elles ne sont pas cédées à des tiers ni utilisées à d'autres
+
+          fins. Vous pouvez choisir de refuser les cookies et l’analyse statistique de vos données de navigation.</p>
+        <b>Cookies tiers destinés à améliorer l’interactivité du site.</b>
+        <p>Le site www.cycover.com s’appuie sur certains services proposés par des sites tiers. Il s’agit notamment des boutons de partage sur les réseaux sociaux (facebook google+)
+
+          Ces fonctionnalités utilisent des cookies tiers directement déposés par ces services. Lors de votre première visite sur www.cycover.com, un bandeau vous informe de la présence de ces cookies et vous invite à indiquer votre choix. Ils ne sont déposés que si vous les acceptez ou que vous poursuivez votre navigation sur le site en visitant une seconde page de www.cycover.com. Vous pouvez à tout moment vous informer et paramétrer vos cookies pour les accepter ou les refuser en cliquant sur Gestion des cookies. Vous pourrez indiquer votre préférence soit globalement pour le site, soit service par service.</p>
+      </div>
     </div>
     <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="politic.link" data-action="click->politic#closeFirst">
       <span class="visually-hidden">close</span>
@@ -755,8 +789,30 @@
 <section class="politic politic--second" data-controller="politic">
   <div class="politic__wrapper">
     <div class="politic__content">
-      <h3 class="politic__title">Politic's title second</h3>
-      <p>some text</p>
+      <h3 class="politic__title">MENTIONS LÉGALES</h3>
+      <div class="politic__content">
+        <h4>Editeur de ce site</h4>
+        <p>"Berlioz Courtage", SAS au capital de 1.000€, inscrite au registre du commerce et des sociétés de Paris sous le n° 832 917 157.</p>
+        <p>Société enregistrée auprès du registre unique des intermédiaires en assurance, banque, finance sous le numéro ORIAS : 18000011.</p>
+        <p>Société dépositaire de la marque "PALVIN" dont tous les droits sont réservés.</p>
+        <p>Siège social : 13 rue Primo Lévi 75013 Paris, France.</p>
+        <p>Responsable de publication : Alexandre Pavlov</p>
+        <p> </p>
+        <h4>Hébergeur du site</h4>
+        <p>L'hébergement de ce site Internet est assuré par la société :</p>
+        <p>OVH</p>
+        <p>2 rue Kellermann</p>
+        <p>59100 Roubaix</p>
+        <p>France</p>
+        <h4>Propriété intellectuelle.</h4>
+        <p>Le site « www.cyover.con » est protégé par les lois en vigueur sur la propriété intellectuelle et le droit d'auteur.</p>
+        <p>Cycover est une marque déposé dont tous les droits sont réservés.</p>
+        <h4>Commission Nationale Informatique et Libertés</h4>
+        <p>Conformément à la loi 78-17 du 6 janvier 1978, dite loi Informatique et Libertés, vous disposez d'un droit d'accès individuel, de rectification et de suppression de données nominatives qui vous concernent que www.palvin.fr est amenée à recueillir pour le traitement de votre dossier. Vos droits peuvent être exercés auprès du site « www.cycover.com ». Ces données demeurent à l'usage interne de « www.cycover.com » et de ses fournisseurs.
+          <a href="www.cnil.fr">www.cnil.fr</a> </p>
+        <h4>Responsabilité</h4>
+        <p>Le site « www.cycover.com » contient des liens hypertextes renvoyant à d'autres site Internet. Ne pouvant exercer aucun contrôle sur ces sites, « www.cycover.com » ne peut être tenu pour responsable de la mise à disposition de ces sites et sources externes, et ne peut supporter la responsabilité quant aux contenus créés ou publiés sur ces sites tiers.</p>
+      </div>
     </div>
     <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="politic.link" data-action="click->politic#closeSecond">
       <span class="visually-hidden">close</span>
@@ -770,7 +826,7 @@
     <div class="modal-registration__main-box" data-controller="espaceClient">
       <section class="modal-registration">
         <div class="modal-registration__wrap">
-          <p class="modal-registration__title">Заголовок</p>
+          <p class="modal-registration__title">Remplir le formulaire</p>
         <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
           <input type="hidden" name="project_name" value="cycover">
           <input type="hidden" name="admin_email" value="089ax@mail.ru">
@@ -784,14 +840,14 @@
                 </svg>
               </label>
             </div>
-            <div class="form__box field field--registration">
+            <!-- <div class="form__box field field--registration">
               <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
               <label class="field__label" for="form-password">
                 <svg class="field__icon">
                   <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
                 </svg>
               </label>
-            </div>
+            </div> -->
             <div class="form__box field field--registration">
               <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
               <label class="field__label" for="form-number">
@@ -801,7 +857,7 @@
               </label>
             </div>
             <div class="form__box field field--registration">
-              <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="yourmail@gmail.com">
+              <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="Email">
               <label class="field__label" for="form-email">
                 <svg class="field__icon">
                   <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
@@ -814,9 +870,9 @@
 
           <div class="form__box checkbox checkbox--privacy">
             <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
-              <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy">
+              <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy" checked>
               <span class="checkbox__text checkbox__text--privacy">
-                <span class="checkbox__dev--privacy">Согласен с политикой конфиденциальности</span>
+                <span class="checkbox__dev--privacy">J'accepte la politique de confidentialite</span>
               </span>
             </label>
           </div>
