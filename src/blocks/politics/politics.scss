@@ -17,6 +17,7 @@
   min-height: 200px;
   z-index: 100;
   border-radius: 20px;
+
 }
 
 .politic__title {
@@ -27,6 +28,8 @@
 
 .politic__content {
   line-height: 140%;
+  max-height: 500px;
+  overflow-x: auto;
 
   p {
     margin: 0.5em 0;

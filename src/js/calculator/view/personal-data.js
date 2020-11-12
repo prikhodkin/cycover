@@ -14,7 +14,7 @@ export default class PersonalDataView extends AbstractView {
         <div class="calculator__wrap calculator__wrap--personal-data">
           <form class="calculator__form form form--calculator" action="#" method="POST">
             <input type="hidden" name="project_name" value="cycover">
-            <input type="hidden" name="admin_email" value="089ax@mail.ru">
+            <input type="hidden" name="admin_email" value="support@cycover.com">
             <input type="hidden" name="form_subject" value="calculator">
 
             ${Object.entries(this._state).map(elem => {

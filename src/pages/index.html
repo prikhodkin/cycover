@@ -529,7 +529,7 @@
         <p class="modal-registration__title">Remplir le formulaire</p>
       <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
         <input type="hidden" name="project_name" value="cycover">
-        <input type="hidden" name="admin_email" value="089ax@mail.ru">
+        <input type="hidden" name="admin_email" value="support@cycover.com">
         <input type="hidden" name="form_subject" value="registration">
         <fieldset class="form__wrap">
           <div class="form__box field field--registration">
@@ -586,7 +586,7 @@
       </div>
     </section>
   </div>
-  <div class="modal-registration__main-box " data-controller="espaceClient">
+  <div class="modal-registration__main-box modal--covid " data-controller="espaceClient">
     <section class="modal-registration modal-registration--covid">
       <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
         <span class="visually-hidden">close</span>
@@ -629,10 +629,10 @@
           <p class="tariff-card__desc">Bénéficiez d'une réduction supplémentaire de 10% des frais de la première année.</p>
         </li>
       </ul>
-      <a class="modal-registration__btn button--white button button--background" href="#">J’ai compris</a>
+      <a class="modal-registration__btn button--white button button--background" href="javascript://" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">J’ai compris</a>
       <div class="modal-registration__bottom">
         <p>Prenez connaissance du guide de bonnes pratiques</p>
-        <a href="#">Télécharger</a>
+        <a target="_blank" href="./vendor/guide_cgpme_bonnes_pratiques.pdf">Télécharger</a>
       </div>
     </div>
   </section>
