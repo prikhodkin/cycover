@@ -6,8 +6,8 @@ export default class extends Controller {
   options = {
     minPinPosition: 20,
     maxPinPosition: 70,
-    minCount: 2,
-    maxCount: 5,
+    minCount: 1,
+    maxCount: 3,
     minPrice: 10,
     maxPrice: 50000,
     minPlace: 0,
@@ -35,22 +35,22 @@ export default class extends Controller {
 
   renderPin() {
     let count = randomCount(this.options.minCount, this.options.maxCount);
-    let countAccent = count % 3;
+    let countAccent = 1;
     for (let i = 0; i <= count; i++) {
       setTimeout(()=> {
         this.itemTarget.insertAdjacentHTML('afterbegin', this.pinTemplate());
-      }, 200 * (i + 1))
+      }, 500 * (i + 1))
     }
 
     for (let i = 0; i <= countAccent; i++) {
       setTimeout(()=> {
         this.itemTarget.insertAdjacentHTML('afterbegin', this.pinTemplateAccent());
-      }, 200 * (i + 1))
+      }, 500 * (i + 1))
     }
 
     setTimeout(() => {
       this.removePin(() => this.renderPin());
-    }, 3000)
+    }, 5000)
   }
 
   removePin(callback) {
@@ -96,7 +96,7 @@ export default class extends Controller {
   textTemplateAccent() {
     return `
      <p class="map__text">
-        ${this.options.placeAccent[randomCount(this.options.minPlace, this.options.place.length)]}
+        ${this.options.placeAccent[randomCount(this.options.minPlace, this.options.placeAccent.length)]}
         <span> - ${randomCount(this.options.minPrice, this.options.maxPrice)} €</span>
      </p>
       `

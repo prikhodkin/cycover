@@ -4,6 +4,7 @@
   position: absolute;
   width: 100%;
 
+
   &--active {
     display: block
   }
@@ -21,6 +22,20 @@
 .politic__title {
   text-align: center;
   margin: 20px 0;
+}
+
+
+.politic__content {
+  line-height: 140%;
+
+  p {
+    margin: 0.5em 0;
+  }
+
+  a {
+    color: #1d3474;
+    text-decoration: underline;
+  }
 }
 
 @media(min-width: 768px) {
