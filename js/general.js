@@ -1946,6 +1946,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var popup = document.querySelector(".modal-registration__main-box");
 var overlay = document.querySelector(".overlay");
+var covid = document.querySelector(".modal--covid");
 
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
@@ -1971,6 +1972,7 @@ var _default = /*#__PURE__*/function (_Controller) {
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
       popup.classList.remove("modal-registration__main-box--active");
+      covid.classList.remove("modal-registration__main-box--active");
       overlay.classList.remove("overlay--active");
       document.removeEventListener("keydown", _this.escPressHandler);
     });
@@ -2616,6 +2618,7 @@ var popup = document.querySelector(".modal-registration__main-box");
 var politics = document.querySelectorAll(".politic");
 var calc = document.querySelector("#calculator");
 var overlay = document.querySelector(".overlay");
+var covid = document.querySelector(".modal--covid");
 
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
@@ -2646,6 +2649,7 @@ var _default = /*#__PURE__*/function (_Controller) {
         }
       });
       popup.classList.remove("modal-registration__main-box--active");
+      covid.classList.remove("modal-registration__main-box--active");
       calc.classList.remove("calculator__main-box--active");
       overlay.classList.remove("overlay--active");
       calc.innerHTML = "";
@@ -3150,6 +3154,13 @@ try {
 } finally {
   _iterator.f();
 }
+
+var covid = document.querySelector(".modal--covid");
+var overlay = document.querySelector(".overlay");
+setTimeout(function () {
+  overlay.classList.add("overlay--active");
+  covid.classList.add("modal-registration__main-box--active");
+}, 3000);
 
 /***/ }),
 

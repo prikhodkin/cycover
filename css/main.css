@@ -4072,6 +4072,11 @@ a {
     position: absolute;
     top: 20px;
     display: block; }
+  .modal-registration__main-box--active.modal--covid {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
 
 .modal-registration__wrap {
   padding: 40px 60px; }
@@ -4814,7 +4819,9 @@ a {
   margin: 20px 0; }
 
 .politic__content {
-  line-height: 140%; }
+  line-height: 140%;
+  max-height: 500px;
+  overflow-x: auto; }
   .politic__content p {
     margin: 0.5em 0; }
   .politic__content a {
