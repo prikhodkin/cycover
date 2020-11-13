@@ -5,7 +5,6 @@ export default class DataInfoMoreView extends AbstractView {
   constructor(state) {
     super();
     this._state = state;
-    console.log(this._state)
   }
 
   get template() {

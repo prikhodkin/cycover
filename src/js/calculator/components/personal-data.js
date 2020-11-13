@@ -11,7 +11,7 @@ export default class PersonalDataScreen {
 
     this.view = new PersonalDataView(this._state);
     this.view.onClickNext = (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       this._checkValid();
 
       if(this.inputErrors === 0) {
@@ -35,10 +35,10 @@ export default class PersonalDataScreen {
 
   _sendAjax() {
     const form = this.view.element.querySelector(`.calculator__form`);
-    const postURL = `vendor/mail.php`;
+    const postURL = `../vendor/mail.php`;
     const formData = new FormData(form);
 
-    ajax(postURL, `post`, formData)
+    ajax(postURL, `POST`, formData)
       .then(() => {
         form.reset();
         Router.showApproved();

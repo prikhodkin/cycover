@@ -5,14 +5,13 @@ export default class TariffView extends AbstractView {
   constructor(state) {
     super();
     this._state = state;
-    console.log(this._state)
   }
   get template() {
     return `
       <section class="calculator calculator--tariff" data-controller="calculator">
         <ul class="calculator__wrap calculator__wrap--tariff">
           <li class="calculator__item calculator__item--tariff tariff-card tariff-card--calc">
-            <p class="tariff-card__name tariff-card__name--calc">de base</p>
+            <p class="tariff-card__name tariff-card__name--calc">Formule ZEN</p>
             <ul class="tariff-card__list">
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--available">
@@ -65,7 +64,7 @@ export default class TariffView extends AbstractView {
 
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc">&#8364; ${Math.ceil(this._state.garantie.base/12)} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
+              <p class="tariff-card__price tariff-card__price--calc">${Math.ceil(this._state.garantie.base/12)} &#8364; /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
                 Continuer
                 <svg class="button__icon button__icon--forth">
@@ -75,7 +74,7 @@ export default class TariffView extends AbstractView {
             </div>
           </li>
           <li class="calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime">
-            <p class="tariff-card__name tariff-card__name--prime tariff-card__name--calc">Prime</p>
+            <p class="tariff-card__name tariff-card__name--prime tariff-card__name--calc">Formule PRIME</p>
             <ul class="tariff-card__list">
               <li class="tariff-card__item tariff-card__item--available">
                 <div class="tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available">
@@ -127,7 +126,7 @@ export default class TariffView extends AbstractView {
               </li>
             </ul>
             <div class="calculator__box calculator__box--button">
-              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">&#8364; ${Math.ceil(this._state.garantie.prime/12)} /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
+              <p class="tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime">${Math.ceil(this._state.garantie.prime/12)} &#8364; /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
               <a class="calculator__button calculator__button--forth-tariff button button--forth-white" href="#" data-name="PRIME" data-price="${this._state.garantie.prime}">
                 Continuer
                 <svg class="button__icon">

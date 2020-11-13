@@ -5,7 +5,6 @@ import FooterScreen from './footer'
 export default class DataInfoScreen {
   constructor(state) {
     this._state = state;
-console.log(this._state)
     this.view = new DataInfoView(this._state);
     this.view.onClickNext = () => {
       this._updateState(this.view.element)
