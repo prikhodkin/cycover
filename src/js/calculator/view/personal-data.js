@@ -5,14 +5,13 @@ export default class PersonalDataView extends AbstractView {
   constructor(state) {
     super();
     this._state = state;
-    console.log(Object.entries(this._state))
   }
 
   get template() {
     return `
       <section class="calculator calculator--personal-data" data-controller="calculator">
         <div class="calculator__wrap calculator__wrap--personal-data">
-          <form class="calculator__form form form--calculator" action="#" method="POST">
+          <form class="calculator__form form form--calculator" action="#" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="project_name" value="cycover">
             <input type="hidden" name="admin_email" value="support@cycover.com">
             <input type="hidden" name="form_subject" value="calculator">

@@ -13,8 +13,8 @@ export default (url, method, data) => {
           response.status);
         return;
       }
-      return response.json();
+      // return response.json();
     }
   )
-  .catch(error => console.log(error))
+  .catch(error => console.log(error, 'смотри кетч'))
 }

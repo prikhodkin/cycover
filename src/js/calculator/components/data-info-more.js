@@ -40,6 +40,5 @@ export default class DataInfoMoreScreen {
         [it.name]: it.value
       })
     })
-    console.log(this._state)
   }
 }
