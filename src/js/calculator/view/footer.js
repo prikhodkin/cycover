@@ -21,9 +21,6 @@ export default class Footer extends AbstractView {
           <li class="partner__item calculator__item calculator__item--partner">
             <img class="partner__img calculator__img" src="./img/f5.jpg" alt="">
           </li>
-          <li class="partner__item calculator__item calculator__item--partner calculator__item--partner-6">
-            <img class="partner__img calculator__img" src="./img/partner__img-1.png" alt="">
-          </li>
         </ul>
       </div>
       <button class="calculator__button-close button-close" style="cursor: pointer;" data-target="calculator.link" data-action="click->calculator#closeCalc">
