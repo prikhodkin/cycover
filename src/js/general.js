@@ -21,10 +21,3 @@ for (let anchor of anchors) {
     })
   })
 }
-
-const covid = document.querySelector(`.modal--covid`);
-const overlay = document.querySelector(`.overlay`);
-setTimeout(() => {
-  overlay.classList.add(`overlay--active`);
-  covid.classList.add(`modal-registration__main-box--active`);
-}, 3000)
