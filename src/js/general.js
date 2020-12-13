@@ -21,3 +21,15 @@ for (let anchor of anchors) {
     })
   })
 }
+
+const inputs = document.querySelectorAll(`.field__input`);
+inputs.forEach((item) => {
+  const parent = item.parentNode;
+  item.addEventListener(`input`, ()=> {
+    if(item.value.length > 4) {
+      parent.classList.add(`field--active`)
+    } else {
+      parent.classList.remove(`field--active`)
+    }
+  });
+})

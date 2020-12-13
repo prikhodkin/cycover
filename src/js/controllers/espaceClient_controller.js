@@ -4,7 +4,6 @@ import ajax from '../util/ajaxSend'
 
 const popup = document.querySelector(`.modal-registration__main-box`);
 const overlay = document.querySelector(`.overlay`);
-const covid = document.querySelector(`.modal--covid`);
 
 export default class extends Controller {
 
@@ -18,7 +17,6 @@ export default class extends Controller {
 
   close = () => {
     popup.classList.remove(`modal-registration__main-box--active`);
-    covid.classList.remove(`modal-registration__main-box--active`);
     overlay.classList.remove(`overlay--active`);
 
     document.removeEventListener(`keydown`, this.escPressHandler)

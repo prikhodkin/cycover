@@ -4,7 +4,6 @@ const popup = document.querySelector(`.modal-registration__main-box`);
 const politics = document.querySelectorAll(`.politic`);
 const calc = document.querySelector(`#calculator`);
 const overlay = document.querySelector(`.overlay`);
-const covid = document.querySelector(`.modal--covid`);
 
 export default class extends Controller {
   static targets = [ `area` ]
@@ -22,7 +21,6 @@ export default class extends Controller {
       }
     })
     popup.classList.remove(`modal-registration__main-box--active`);
-    covid.classList.remove(`modal-registration__main-box--active`);
     calc.classList.remove(`calculator__main-box--active`);
     overlay.classList.remove(`overlay--active`)
     calc.innerHTML = ``;
