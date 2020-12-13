@@ -5,6 +5,35 @@
   &--active {
     background-color: #f3f6ff;
   }
+
+  &--video {
+    .menu__item a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 1280px) {
+      .burger__inner {
+        background-color: #ffffff;
+
+        &::before,
+        &::after {
+          background-color: #ffffff;
+        }
+
+        &--active {
+          background-color: transparent;
+        }
+      }
+
+      .header__menu {
+        background-color: #000826;
+      }
+
+      .header__bottom {
+        background-color: #000826;
+      }
+    }
+  }
 }
 
 .header__top {

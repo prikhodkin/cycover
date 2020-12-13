@@ -7,3 +7,8 @@
 .page__footer {
   margin-top: auto;
 }
+
+.page__container {
+  position: relative;
+  z-index: 300;
+}

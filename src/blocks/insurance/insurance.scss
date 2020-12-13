@@ -106,9 +106,9 @@
   height: 80px;
   background-color: #ffffff;
   background-image: url("../../img/256_circ-8.png");
-  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
   border-radius: 50%;
   box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4);
   transform: translate(-50%, -50%);
@@ -251,15 +251,15 @@
   .insurance__list {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 50px;
     justify-content: space-between;
+    margin-bottom: 50px;
   }
 
   .insurance__item {
-    margin-bottom: 0;
-    font-size: 16px;
     width: calc((100% / 3) - 10px);
     max-width: unset;
+    margin-bottom: 0;
+    font-size: 16px;
 
     &::before {
       min-width: 32px;
@@ -272,7 +272,7 @@
     }
 
     &:not(:first-child) {
-      margin-left: 0px;
+      margin-left: 0;
     }
 
     &--vulnerabilities {
@@ -320,11 +320,12 @@
     }
 
     &:nth-child(1) {
-      top: 0px;
+      top: 0;
     }
 
     &:nth-child(2) {
       top: 20%;
+
       &::before {
         top: 33px;
         left: -74px;
@@ -333,8 +334,9 @@
     }
 
     &:nth-child(3) {
-      bottom: 13%;
       right: 13%;
+      bottom: 13%;
+
       &::before {
         top: -135px;
         left: -47px;
@@ -343,6 +345,7 @@
 
     &:nth-child(5) {
       left: 5%;
+
       &::before {
         top: -125px;
         left: 150px;
@@ -351,6 +354,7 @@
 
     &:nth-child(4) {
       left: 40px;
+
       &::before {
         top: 14px;
         left: 176px;

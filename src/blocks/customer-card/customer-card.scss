@@ -9,20 +9,20 @@
 }
 
 .customer-card__foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 72px;
   height: 72px;
   overflow: hidden;
   //background-color: #ababab;
   border-radius: 20px 0 20px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .customer-card__img {
+  display: block;
   //object-fit: cover;
   width: 80%;
-  display: block;
   margin: auto;
 }
 

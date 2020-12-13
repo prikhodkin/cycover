@@ -1,13 +1,13 @@
 .cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
   padding: 0 20px;
   padding-top: 27px;
   padding-bottom: 22px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   background-color: #f3f6ff;
-  z-index: 10000;
   box-shadow: 0 30px 60px rgba(59, 93, 188, 0.4);
 
   &--hidden {

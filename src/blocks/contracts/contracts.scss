@@ -1,5 +1,6 @@
 .contracts {
   padding: 50px 20px;
+  background-color: #ffffff;
 }
 
 .contracts__title {
@@ -52,18 +53,18 @@
 .contracts__icon {
   width: 100%;
   height: 100%;
-  fill: #304bab;
+  fill: #1f4df1;
 }
 
 .contracts__name {
   margin-bottom: 20px;
+  margin-left: 20px;
   font-weight: 800;
   font-size: 16px;
   line-height: 142.43%;
   font-family: $third-font;
   color: #191c1f;
   text-transform: uppercase;
-  margin-left: 20px;
 }
 
 .contracts__desc {

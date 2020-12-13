@@ -25,595 +25,597 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT5KSCW"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-  <header class="page__header header">
-    <div class="header__top">
-      <ul class="header__control modifier">
-        <li class="modifier__item modifier__item--active"><a href="#">Professionnel</a></li>
-        <li class="modifier__item "><a href="particulier.html">Particulier</a></li>
-      </ul>
-      <a href="tel:+0184601005" class="header__phone">
-        <svg width="17" height="17">
-          <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
-        </svg>
-        <span>01 84 60 10 05</span>
-      </a>
-    </div>
-    <div class="header__bottom" data-controller="menu">
-      <a href="#" class="header__logo">
-        <picture>
-          <source type="image/webp" srcset="../img/logo-header@mobile.webp">
-          <img src="../img/logo-header@mobile.png" alt="logo">
-        </picture>
-      </a>
-      <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
-        <span class="burger__inner">Открыть меню</span>
-      </button>
-      <nav class="header__menu menu">
-        <ul class="menu__list">
-          <li class="menu__item" data-target="menu.item"><a href="#Accueil">Accueil</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#Nous">Nous</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#engagements">Nos engagements</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#clients">Avis clients</a></li>
-          <li class="menu__item" data-target="menu.item"><a href="#Contact">Contact</a></li>
+  <div class="parallax-video">
+    <video src="../img/bg.mp4" playsinline autoplay loop></video>
+  </div>
+  <div class="page__container">
+    <header class="page__header header header--video">
+      <div class="header__top">
+        <ul class="header__control modifier">
+          <li class="modifier__item modifier__item--active"><a href="#">Professionnel</a></li>
+          <li class="modifier__item "><a href="particulier.html">Particulier</a></li>
         </ul>
-        <div class="header__button" data-controller="calculator">
-          <svg width="22" height="22">
+        <a href="tel:+0184601005" class="header__phone">
+          <svg width="17" height="17">
             <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
           </svg>
-          <a href="" class="header__callback button button--thin" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+          <span>01 84 60 10 05</span>
+        </a>
+      </div>
+      <div class="header__bottom" data-controller="menu">
+        <a href="#" class="header__logo">
+          <picture>
+            <source type="image/webp" srcset="../img/logo-footer@mobile.webp">
+            <img src="../img/logo-footer@mobile.png" alt="logo">
+          </picture>
+        </a>
+        <button class="burger" data-target="menu.trigger" data-action="click->menu#showMenu">
+          <span class="burger__inner">Открыть меню</span>
+        </button>
+        <nav class="header__menu menu">
+          <ul class="menu__list">
+            <li class="menu__item" data-target="menu.item"><a href="#Accueil">Accueil</a></li>
+            <li class="menu__item" data-target="menu.item"><a href="#Nous">Nous</a></li>
+            <li class="menu__item" data-target="menu.item"><a href="#engagements">Nos engagements</a></li>
+            <li class="menu__item" data-target="menu.item"><a href="#clients">Avis clients</a></li>
+            <li class="menu__item" data-target="menu.item"><a href="#Contact">Contact</a></li>
+          </ul>
+          <div class="header__button" data-controller="calculator">
+            <svg width="22" height="22">
+              <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+            </svg>
+            <a href="" class="header__callback button button--thin button--light" data-target="calculator.link" data-action="click->calculator#showCalc">Souscription</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="promo promo--video" data-controller="type-writer" id="Accueil">
+      <div class="promo__body promo__body--inner" data-controller="calculator">
+        <h1 class="title">PROTÉGEZ VOTRE <span data-words="activité, e-réputation, base de données" data-target="type-writer.target">ACTIVITÉ</span></h1>
+        <p class="promo__desc">L’assurance des entreprises face à la cyber-criminalité qui vous protège, assiste et dédommage.</p>
+        <a class="promo__button button button--white" href="javascript://" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire en ligne</a>
+      </div>
+    </section>
+    <section class="dangers" data-controller="slider">
+      <div class="dangers__box">
+        <h2 class="dangers__title title">Des risques numériques toujours plus présents</h2>
+        <div class="dangers__control control">
+          <button class="control__button control__button--forward" data-target="slider.prev">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
+            </svg>
+          </button>
+          <button class="control__button control__button--back" data-target="slider.next">
+            <svg class="control-icon">
+              <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+            </svg>
+          </button>
         </div>
-      </nav>
-    </div>
-  </header>
-  <section class="promo" data-controller="type-writer" id="Accueil">
-    <picture>
-      <source media="(min-width:700px)" srcset="../img/promo__bg@prof.png">
-      <img src="../img/promo__bg-prof@mobile.png" alt="bg" class="promo__img">
-    </picture>
-    <div class="promo__body promo__body--inner" data-controller="calculator">
-      <p class="promo__txt">Le 1er comparateur de votre cyber-assurance</p>
-      <h1 class="title">PROTÉGEZ VOTRE <span data-words="activité, e-réputation, base de données" data-target="type-writer.target">ACTIVITÉ</span></h1>
-      <p class="promo__desc">L’assurance des entreprises face à la cyber-criminalité qui vous protège, assiste et dédommage.</p>
-      <a class="promo__button button button--background" href="javascript://" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire en ligne</a>
-    </div>
-  </section>
-  <section class="dangers" data-controller="slider">
-    <div class="dangers__box">
-      <h2 class="dangers__title title">Des risques numériques toujours plus présents</h2>
-      <div class="dangers__control control">
-        <button class="control__button control__button--forward" data-target="slider.prev">
-          <svg class="control-icon">
+      </div>
+      <ul class="dangers__list" data-target="slider.list">
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap" >
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-1-piratage.svg')"></div>
+              <p class="dangers__name">Piratage</p>
+            </div>
+            <p class="dangers__text">La prise de contrôle par un pirate d'un compte au détriment de son propriétaire légitime.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--phishing" style="background-image: url('../img/ico-2-cyber-ran.svg')"></div>
+              <p class="dangers__name">Cyber-rançonnage</p>
+            </div>
+            <p class="dangers__text">Une attaque malveillante qui rend illisibles vos fichiers et qui vous demande une rançon en échange d’une clé de déchiffrement permettant de récupérer vos données.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('../img/ico-3-perte-donnees.svg')"></div>
+              <p class="dangers__name">Perte ou vol de données</p>
+            </div>
+            <p class="dangers__text">Les données (clients, fournisseurs, des salariés) de l’entreprise constituent la base du fonds de commerce de chaque société. Une assurance cyber vous couvre en cas de perte et/ou de vol.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-4-cyber-extorsion.svg')"></div>
+              <p class="dangers__name">Cyber extorsion de fonds</p>
+            </div>
+            <p class="dangers__text">Toute demande d'un tiers visant à extorquer une somme d'argent suite au vol de données sensibles.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-5-mal-interne.svg')"></div>
+              <p class="dangers__name">Malveillance interne</p>
+            </div>
+            <p class="dangers__text">La fuite d'information en interne est une réalité en entreprise. Il est fondamental de protéger vos données, celle de vos clients et de vos fournisseurs.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-6-denigrement.svg')"></div>
+              <p class="dangers__name">Dénigrement sur internet</p>
+            </div>
+            <p class="dangers__text">La discréditation publique de votre entreprise peut avoir des répercussions financières importantes. La cyber assurance vous permet de réparer ce préjudice.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-7-usurpation.svg')"></div>
+              <p class="dangers__name">Usurpation d’identité</p>
+            </div>
+            <p class="dangers__text">Protégez les données liées à l'identité de vos clients, fournisseurs et collaborateurs.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+        <li class="dangers__item" data-controller="calculator">
+          <div class="dangers__wrap">
+            <div class="dangers__top">
+              <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-8-erreur.svg')"></div>
+              <p class="dangers__name">Erreur humaine</p>
+            </div>
+            <p class="dangers__text">Les pirates informatiques utiliseront toujours une erreur d’origine humaine (ex : ouverture d’un mail contenant un virus) pour s’introduire dans un réseau d’entreprise.</p>
+            <a class="dangers__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="insurance" id="Nous">
+      <div class="insurance__box insurance__box--text" data-controller="calculator">
+        <h2 class="insurance__title title">Cycover&nbsp;–&nbsp;Un&nbsp;algorithme pour comparer les cyber-assurance</h2>
+        <p class="insurance__text">
+          <span class="insurance__text-semibold">Grâce à une comparaison poussée des offres du marché de la cyber-assurance, nous identifions la meilleure solution pour vous et votre société.</span></p>
+        <ul class="insurance__list">
+          <li class="insurance__item insurance__item--vulnerabilities">Solutions adaptées (TPE, PME, ETI, GE)</li>
+          <li class="insurance__item insurance__item--risks">Les meilleures garanties</li>
+          <li class="insurance__item insurance__item--insure">Les meilleurs prix</li>
+        </ul>
+        <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
+      </div>
+
+      <div class="insurance__box insurance__box--img">
+        <div class="insurance__wrapper">
+          <div class="insurance__line">
+            <img src="../img/f5.jpg ">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f1.jpg" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f2.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f3.png" alt="">
+          </div>
+          <div class="insurance__line">
+            <img src="../img/f4.svg" alt="">
+          </div>
+        </div>
+        <div class="insurance__center"></div>
+      </div>
+    </section>
+
+    @@include('../blocks/more/more.html')
+    <section class="contracts">
+      <h2 class="contracts__title title">Que couvrent nos contrats de cyber-assurance ?</h2>
+      <!--    <p class="contracts__text">-->
+      <!--      <span class="contracts__subtext"> CYCOVER spécialiste de la cyberassurance en France s’appuie sur son expertise et sur les meilleures Compagnies afin de proposer des contrats d’assurance adaptés à tous les profils de risques.</span>-->
+      <!--      <span class="contracts__subtext">Notre objectif est de mesurer au mieux les conséquences financières d'une violation des données personnelles pour une entreprise afin de proportionner notre offre assurantielle. Nos solutions sont adaptées à toutes les tailles d’entreprise, de la PME à l’ETI et prennent en compte votre niveau de cyber-défense.</span>-->
+      <!--    </p>-->
+      <ul class="contracts__list">
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--1">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-1"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Gestion de crise</p>
+          </div>
+          <p class="contracts__desc">
+            • Frais d’expertises de sécurité informatique<br>
+            • Frais de communication et gestion de crise<br>
+            • Frais de restauration et récupération des données<br>
+            • Frais d’avocat<br>
+            • Frais de monitoring et de surveillance<br>
+            • Frais de notification.
+          </p>
+        </li>
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--2">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-2"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Responsabilité civile</p>
+          </div>
+          <p class="contracts__desc">
+            • Atteinte aux données personnelles et aux données confidentielles de tiers (dommages et intérêts)<br>
+            • Prise en charge des réclamations des tiers consécutives à la diffusion de contenu sur les sites internet et les réseaux sociaux (diffamation par exemple)<br>
+            • Prise en charge des dommages et intérêts même si l’assuré a sous-traité l’hébergement et le traitement de ses données.
+          </p>
+        </li>
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--3">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-3"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Enquêtes et <br>sanctions</p>
+          </div>
+          <p class="contracts__desc">
+            • Accompagnement par un conseil juridique en cas d’enquête (CNIL ou PCI-DDS)<br>
+            • Prise en charge des sanctions (CNIL) ou pénalités (PCI-DSS).
+          </p>
+        </li>
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--4">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-4"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Perte d’exploitation</p>
+          </div>
+          <p class="contracts__desc">
+            • Perte de revenus (marge brute)<br>
+            • Frais supplémentaires d’exploitation<br>
+            • Frais de transfert vers un autre prestataire d’externalisation
+          </p>
+        </li>
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--5">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-5"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Cyber-extorsion</p>
+          </div>
+          <p class="contracts__desc">
+            • Accompagnement par un consultant en gestion de crise / négociation<br>
+            • Prise en charge de la rançon (remboursement).
+          </p>
+        </li>
+        <li class="contracts__item">
+          <div class="contracts__row">
+            <div class="contracts__img contracts__img--6">
+              <svg class="contracts__icon">
+                <use xlink:href="img/sprites/sprite.svg#contracts__icon-6"></use>
+              </svg>
+            </div>
+            <p class="contracts__name">Fraude</p>
+          </div>
+          <p class="contracts__desc">
+            • Fraude informatique<br>
+            • Fraude téléphonique.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="insurance-advantage" id="engagements" data-controller="filling-inner">
+      <h2 class="insurance-advantage__title title">Nos engagements</h2>
+      <ul class="insurance-advantage__list">
+        <li class="insurance-advantage__item insurance-advantage__item--1">
+          <div class="insurance-advantage__circle"></div>
+          <div class="insurance-advantage__box">
+            <picture>
+              <source type="image/webp" srcset="../img/insurance-advantage__01@mobile.webp">
+              <img class="insurance-advantage__img" src="../img/insurance-advantage__01@mobile.jpg" alt="diagnostic">
+            </picture>
+            <p class="insurance-advantage__number">01</p>
+          </div>
+          <p class="insurance-advantage__name">On vous protège:</p>
+          <p class="insurance-advantage__text">Nos contrats cyber-assurance sont optimisés pour protéger vos données.</p>
+        </li>
+        <li class="insurance-advantage__item insurance-advantage__item--2">
+          <div class="insurance-advantage__circle"></div>
+          <div class="insurance-advantage__box">
+            <picture>
+              <source type="image/webp" srcset="../img/insurance-advantage__02@mobile.webp">
+              <img class="insurance-advantage__img" src="../img/insurance-advantage__02@mobile.jpg" alt="resilience">
+            </picture>
+            <p class="insurance-advantage__number">02</p>
+          </div>
+          <p class="insurance-advantage__name">On vous assiste:</p>
+          <p class="insurance-advantage__text">Nos experts cyber sont à votre écoute 7j/7j, 24h/24h en cas de sinistre.</p>
+        </li>
+        <li class="insurance-advantage__item insurance-advantage__item--3">
+          <div class="insurance-advantage__circle"></div>
+          <div class="insurance-advantage__box">
+            <picture>
+              <source type="image/webp" srcset="../img/insurance-advantage__03@mobile.webp">
+              <img class="insurance-advantage__img" src="../img/insurance-advantage__03@mobile.jpg" alt="assistance">
+            </picture>
+            <p class="insurance-advantage__number">03</p>
+          </div>
+          <p class="insurance-advantage__name">On vous dédommage:</p>
+          <p class="insurance-advantage__text">Nous choisissons les meilleurs niveaux de dédommagement.</p>
+        </li>
+      </ul>
+    </section>
+    @@include('../blocks/more/more.html')
+    <!--  <section class="video">-->
+    <!--    <div class="video__box video__box&#45;&#45;text">-->
+    <!--      <h2 class="video__title title">Pourquoi nous choisir ?</h2>-->
+    <!--      <p class="video__text">Vous avez des doutes sur le choix d'un entrepreneur? Notre chef vous expliquera pourquoi-->
+    <!--        notre produit est le meilleur choix pour vous.</p>-->
+    <!--    </div>-->
+    <!--    <div class="video__box video__box&#45;&#45;img">-->
+    <!--      <a class="video__button" href="#">-->
+    <!--        <svg class="video__icon">-->
+    <!--          <use xlink:href="img/sprites/sprite.svg#icon__video-play"></use>-->
+    <!--        </svg>-->
+    <!--      </a>-->
+    <!--    </div>-->
+    <!--  </section>-->
+
+    <section class="partner">
+      <h2 class="partner__title title">Ils nous font confiance</h2>
+      <ul class="partner__list">
+        <li class="partner__item">
+          <img class="partner__img" src="../img/1.png" alt="">
+        </li>
+        <li class="partner__item">
+          <img class="partner__img" src="../img/2.png" alt="">
+        </li>
+        <li class="partner__item">
+          <img class="partner__img" src="../img/3.png" alt="">
+        </li>
+        <li class="partner__item">
+          <img class="partner__img" src="../img/4.png" alt="">
+        </li>
+        <li class="partner__item">
+          <img class="partner__img" src="../img/5.png" alt="">
+        </li>
+      </ul>
+    </section>
+
+    <section class="map" data-controller="scroll map">
+      <h2 class="map__title title">Protégez-vous <br>faites partie de notre communauté!</h2>
+      <div class="map__inner" data-target="scroll.item map.item">
+        <img class="map__img" src="../img/map.png" alt="map">
+      </div>
+    </section>
+    @@include('../blocks/more/more.html')
+    <section class="feedback" id="clients" data-controller="slider">
+      <h2 class="feedback__title">Nos clients témoignent</h2>
+      <!--    <p class="feedback__text">We like to let people talk on our behalf and explain how <br> the Firewl solution improved their lives</p>-->
+      <ul class="feedback__list" data-target="slider.list">
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Timothée M.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Le concept est tres bien, la relation a été fluide afin de faire le tour des risques qu'on encours. Je recommande afin d'eviter l'embauche d'un ingénieur système supplémentaire.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Pierre M.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Nous voulions assurer les données de nos clients, se plier à la RGPD et anticiper les risques juridique et finaciers qui, par expériance, peuvent couter cher. Aujourd'hui nous gagnons la confiance de nos clients et dormons plus tranquil !</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">David R.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">CYCOVER s'adapte vite, trouve la bonne solution en fonction de la taille d'entreprise, des données a protéger et des risques estimés.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Adèle J.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Nous avons trouvé plus qu'une assurance mis un vrai réseau. Concept novateur, accessible et surtout indispansable si vous voulez se rassurer, rassurer vos clients, fournisseurs et partenaire. Nous avons constaté une vrai différence.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Armand C.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Mon site e-commerce s’est fait pirater et était HS pendant une semaine. Mes données ont été cryptées par le hacker. Cycover s'est occupé de tout, je pouvais me concentrer sur mon business.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Gabriel B.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Les enjeux de sécurité informatique sont multiples. Cycover est un partenaire disponible et réactif.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Pierre-Louis P.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Nous avons sollicité Cycover pour développer notre expertise sur les questions de sécurité. Des rendez-vous réguliers ont été mis en place afin de rester à jour, en fonction des nouvelles fonctionnalités intégrées sur la plate-forme, mais aussi de l'évolution des techniques de hacking.</p>
+          </div>
+        </li>
+        <li class="feedback__item customer-card">
+          <div class="customer-card__box">
+            <div class="customer-card__foto">
+              <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
+            </div>
+            <ul class="customer-card__list">
+              <li class="customer-card__item customer-card__item--name">Claire L.</li>
+              <li class="customer-card__item customer-card__item--position">Directeur</li>
+            </ul>
+          </div>
+          <div class="customer-card__comment">
+            <p class="customer-card__text">Un insispensable pour ne pas être disuet! On se met d'abord à la page, on corrige les erreurs et les failles et on protège a moindre cout avec des professionnels compétents !</p>
+          </div>
+        </li>
+      </ul>
+      <div class="feedback__control">
+        <button class="feedback__button feedback__button--forward" data-target="slider.prev">
+          <svg class="feedback-icon">
             <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
           </svg>
         </button>
-        <button class="control__button control__button--back" data-target="slider.next">
-          <svg class="control-icon">
+        <button class="feedback__button feedback__button--back" data-target="slider.next">
+          <svg class="feedback-icon">
             <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
           </svg>
         </button>
       </div>
-    </div>
-    <ul class="dangers__list" data-target="slider.list">
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap" >
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-1-piratage.svg')"></div>
-            <p class="dangers__name">Piratage</p>
-          </div>
-          <p class="dangers__text">La prise de contrôle par un pirate d'un compte au détriment de son propriétaire légitime.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--phishing" style="background-image: url('../img/ico-2-cyber-ran.svg')"></div>
-            <p class="dangers__name">Cyber-rançonnage</p>
-          </div>
-          <p class="dangers__text">Une attaque malveillante qui rend illisibles vos fichiers et qui vous demande une rançon en échange d’une clé de déchiffrement permettant de récupérer vos données.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
+    </section>
+    <!--  @@include('../blocks/focus/focus.html')-->
+    <section class="cycover">
 
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--data-loss" style="background-image: url('../img/ico-3-perte-donnees.svg')"></div>
-            <p class="dangers__name">Perte ou vol de données</p>
-          </div>
-          <p class="dangers__text">Les données (clients, fournisseurs, des salariés) de l’entreprise constituent la base du fonds de commerce de chaque société. Une assurance cyber vous couvre en cas de perte et/ou de vol.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
+    </section>
+    @@include('../blocks/contact/contact.html')
+    @@include('../blocks/security/security.html')
+    @@include('../blocks/footer/footer.html')
+    @@include('../blocks/politics/politics.html')
+    <div class="modal-registration__main-box" data-controller="espaceClient">
+      <section class="modal-registration">
+        <div class="modal-registration__wrap">
+          <p class="modal-registration__title">Remplissez le formulaire</p>
+          <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
+            <input type="hidden" name="project_name" value="cycover">
+            <input type="hidden" name="admin_email" value="support@cycover.com">
+            <input type="hidden" name="form_subject" value="registration">
+            <fieldset class="form__wrap">
+              <div class="form__box field field--registration">
+                <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
+                <label class="field__label" for="form-name">
+                  <svg class="field__icon">
+                    <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                  </svg>
+                </label>
+              </div>
+              <!-- <div class="form__box field field--registration">
+                <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
+                <label class="field__label" for="form-password">
+                  <svg class="field__icon">
+                    <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                  </svg>
+                </label>
+              </div> -->
+              <div class="form__box field field--registration">
+                <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
+                <label class="field__label" for="form-number">
+                  <svg class="field__icon">
+                    <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+                  </svg>
+                </label>
+              </div>
+              <div class="form__box field field--registration">
+                <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="Email">
+                <label class="field__label" for="form-email">
+                  <svg class="field__icon">
+                    <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
+                  </svg>
+                </label>
+              </div>
+            </fieldset>
 
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-4-cyber-extorsion.svg')"></div>
-            <p class="dangers__name">Cyber extorsion de fonds</p>
-          </div>
-          <p class="dangers__text">Toute demande d'un tiers visant à extorquer une somme d'argent suite au vol de données sensibles.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
+            <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Envoyer</button>
 
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-5-mal-interne.svg')"></div>
-            <p class="dangers__name">Malveillance interne</p>
-          </div>
-          <p class="dangers__text">La fuite d'information en interne est une réalité en entreprise. Il est fondamental de protéger vos données, celle de vos clients et de vos fournisseurs.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-6-denigrement.svg')"></div>
-            <p class="dangers__name">Dénigrement sur internet</p>
-          </div>
-          <p class="dangers__text">La discréditation publique de votre entreprise peut avoir des répercussions financières importantes. La cyber assurance vous permet de réparer ce préjudice.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-7-usurpation.svg')"></div>
-            <p class="dangers__name">Usurpation d’identité</p>
-          </div>
-          <p class="dangers__text">Protégez les données liées à l'identité de vos clients, fournisseurs et collaborateurs.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
-      </li>
-      <li class="dangers__item" data-controller="calculator">
-        <div class="dangers__wrap">
-          <div class="dangers__top">
-            <div class="dangers__icon dangers__icon--extorsion" style="background-image: url('../img/ico-8-erreur.svg')"></div>
-            <p class="dangers__name">Erreur humaine</p>
-          </div>
-          <p class="dangers__text">Les pirates informatiques utiliseront toujours une erreur d’origine humaine (ex : ouverture d’un mail contenant un virus) pour s’introduire dans un réseau d’entreprise.</p>
-          <a class="dangers__button button button--background" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <section class="insurance" id="Nous">
-    <div class="insurance__box insurance__box--text" data-controller="calculator">
-      <h2 class="insurance__title title">Cycover&nbsp;–&nbsp;Un&nbsp;algorithme pour comparer les cyber-assurance</h2>
-      <p class="insurance__text">
-        <span class="insurance__text-semibold">Grâce à une comparaison poussée des offres du marché de la cyber-assurance, nous identifions la meilleure solution pour vous et votre société.</span></p>
-      <ul class="insurance__list">
-        <li class="insurance__item insurance__item--vulnerabilities">Solutions adaptées (TPE, PME, ETI, GE)</li>
-        <li class="insurance__item insurance__item--risks">Les meilleures garanties</li>
-        <li class="insurance__item insurance__item--insure">Les meilleurs prix</li>
-      </ul>
-      <a class="insurance__button button button--thin" href="#" data-target="calculator.link" data-action="click->calculator#showCalc">Se protéger</a>
-    </div>
-
-    <div class="insurance__box insurance__box--img">
-      <div class="insurance__wrapper">
-        <div class="insurance__line">
-          <img src="../img/f5.jpg ">
-        </div>
-        <div class="insurance__line">
-          <img src="../img/f1.jpg" alt="">
-        </div>
-        <div class="insurance__line">
-          <img src="../img/f2.png" alt="">
-        </div>
-        <div class="insurance__line">
-          <img src="../img/f3.png" alt="">
-        </div>
-        <div class="insurance__line">
-          <img src="../img/f4.svg" alt="">
-        </div>
-      </div>
-      <div class="insurance__center"></div>
-    </div>
-  </section>
-
-  @@include('../blocks/more/more.html')
-  <section class="contracts">
-    <h2 class="contracts__title title">Que couvrent nos contrats de cyber-assurance ?</h2>
-<!--    <p class="contracts__text">-->
-<!--      <span class="contracts__subtext"> CYCOVER spécialiste de la cyberassurance en France s’appuie sur son expertise et sur les meilleures Compagnies afin de proposer des contrats d’assurance adaptés à tous les profils de risques.</span>-->
-<!--      <span class="contracts__subtext">Notre objectif est de mesurer au mieux les conséquences financières d'une violation des données personnelles pour une entreprise afin de proportionner notre offre assurantielle. Nos solutions sont adaptées à toutes les tailles d’entreprise, de la PME à l’ETI et prennent en compte votre niveau de cyber-défense.</span>-->
-<!--    </p>-->
-    <ul class="contracts__list">
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--1">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-1"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Gestion de crise</p>
-        </div>
-        <p class="contracts__desc">
-          • Frais d’expertises de sécurité informatique<br>
-          • Frais de communication et gestion de crise<br>
-          • Frais de restauration et récupération des données<br>
-          • Frais d’avocat<br>
-          • Frais de monitoring et de surveillance<br>
-          • Frais de notification.
-        </p>
-      </li>
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--2">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-2"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Responsabilité civile</p>
-        </div>
-        <p class="contracts__desc">
-          • Atteinte aux données personnelles et aux données confidentielles de tiers (dommages et intérêts)<br>
-          • Prise en charge des réclamations des tiers consécutives à la diffusion de contenu sur les sites internet et les réseaux sociaux (diffamation par exemple)<br>
-          • Prise en charge des dommages et intérêts même si l’assuré a sous-traité l’hébergement et le traitement de ses données.
-        </p>
-      </li>
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--3">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-3"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Enquêtes et <br>sanctions</p>
-        </div>
-        <p class="contracts__desc">
-          • Accompagnement par un conseil juridique en cas d’enquête (CNIL ou PCI-DDS)<br>
-          • Prise en charge des sanctions (CNIL) ou pénalités (PCI-DSS).
-        </p>
-      </li>
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--4">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-4"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Perte d’exploitation</p>
-        </div>
-        <p class="contracts__desc">
-          • Perte de revenus (marge brute)<br>
-          • Frais supplémentaires d’exploitation<br>
-          • Frais de transfert vers un autre prestataire d’externalisation
-        </p>
-      </li>
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--5">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-5"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Cyber-extorsion</p>
-        </div>
-        <p class="contracts__desc">
-          • Accompagnement par un consultant en gestion de crise / négociation<br>
-          • Prise en charge de la rançon (remboursement).
-        </p>
-      </li>
-      <li class="contracts__item">
-        <div class="contracts__row">
-          <div class="contracts__img contracts__img--6">
-            <svg class="contracts__icon">
-              <use xlink:href="img/sprites/sprite.svg#contracts__icon-6"></use>
-            </svg>
-          </div>
-          <p class="contracts__name">Fraude</p>
-        </div>
-        <p class="contracts__desc">
-          • Fraude informatique<br>
-          • Fraude téléphonique.
-        </p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="insurance-advantage" id="engagements" data-controller="filling-inner">
-    <h2 class="insurance-advantage__title title">Nos engagements</h2>
-    <ul class="insurance-advantage__list">
-      <li class="insurance-advantage__item insurance-advantage__item--1">
-        <div class="insurance-advantage__circle"></div>
-        <div class="insurance-advantage__box">
-          <picture>
-            <source type="image/webp" srcset="../img/insurance-advantage__01@mobile.webp">
-            <img class="insurance-advantage__img" src="../img/insurance-advantage__01@mobile.jpg" alt="diagnostic">
-          </picture>
-          <p class="insurance-advantage__number">01</p>
-        </div>
-        <p class="insurance-advantage__name">On vous protège:</p>
-        <p class="insurance-advantage__text">Nos contrats cyber-assurance sont optimisés pour protéger vos données.</p>
-      </li>
-      <li class="insurance-advantage__item insurance-advantage__item--2">
-        <div class="insurance-advantage__circle"></div>
-        <div class="insurance-advantage__box">
-          <picture>
-            <source type="image/webp" srcset="../img/insurance-advantage__02@mobile.webp">
-            <img class="insurance-advantage__img" src="../img/insurance-advantage__02@mobile.jpg" alt="resilience">
-          </picture>
-          <p class="insurance-advantage__number">02</p>
-        </div>
-        <p class="insurance-advantage__name">On vous assiste:</p>
-        <p class="insurance-advantage__text">Nos experts cyber sont à votre écoute 7j/7j, 24h/24h en cas de sinistre.</p>
-      </li>
-      <li class="insurance-advantage__item insurance-advantage__item--3">
-        <div class="insurance-advantage__circle"></div>
-        <div class="insurance-advantage__box">
-          <picture>
-            <source type="image/webp" srcset="../img/insurance-advantage__03@mobile.webp">
-            <img class="insurance-advantage__img" src="../img/insurance-advantage__03@mobile.jpg" alt="assistance">
-          </picture>
-          <p class="insurance-advantage__number">03</p>
-        </div>
-        <p class="insurance-advantage__name">On vous dédommage:</p>
-        <p class="insurance-advantage__text">Nous choisissons les meilleurs niveaux de dédommagement.</p>
-      </li>
-    </ul>
-  </section>
-  @@include('../blocks/more/more.html')
-<!--  <section class="video">-->
-<!--    <div class="video__box video__box&#45;&#45;text">-->
-<!--      <h2 class="video__title title">Pourquoi nous choisir ?</h2>-->
-<!--      <p class="video__text">Vous avez des doutes sur le choix d'un entrepreneur? Notre chef vous expliquera pourquoi-->
-<!--        notre produit est le meilleur choix pour vous.</p>-->
-<!--    </div>-->
-<!--    <div class="video__box video__box&#45;&#45;img">-->
-<!--      <a class="video__button" href="#">-->
-<!--        <svg class="video__icon">-->
-<!--          <use xlink:href="img/sprites/sprite.svg#icon__video-play"></use>-->
-<!--        </svg>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  </section>-->
-
-  <section class="partner">
-    <h2 class="partner__title title">Ils nous font confiance</h2>
-    <ul class="partner__list">
-      <li class="partner__item">
-        <img class="partner__img" src="../img/1.png" alt="">
-      </li>
-      <li class="partner__item">
-        <img class="partner__img" src="../img/2.png" alt="">
-      </li>
-      <li class="partner__item">
-        <img class="partner__img" src="../img/3.png" alt="">
-      </li>
-      <li class="partner__item">
-        <img class="partner__img" src="../img/4.png" alt="">
-      </li>
-      <li class="partner__item">
-        <img class="partner__img" src="../img/5.png" alt="">
-      </li>
-    </ul>
-  </section>
-
-  <section class="map" data-controller="scroll map">
-    <h2 class="map__title title">Protégez-vous <br>faites partie de notre communauté!</h2>
-    <div class="map__inner" data-target="scroll.item map.item">
-      <img class="map__img" src="../img/map.png" alt="map">
-    </div>
-  </section>
-  @@include('../blocks/more/more.html')
-  <section class="feedback" id="clients" data-controller="slider">
-    <h2 class="feedback__title">Nos clients témoignent</h2>
-<!--    <p class="feedback__text">We like to let people talk on our behalf and explain how <br> the Firewl solution improved their lives</p>-->
-    <ul class="feedback__list" data-target="slider.list">
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Timothée M.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Le concept est tres bien, la relation a été fluide afin de faire le tour des risques qu'on encours. Je recommande afin d'eviter l'embauche d'un ingénieur système supplémentaire.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Pierre M.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Nous voulions assurer les données de nos clients, se plier à la RGPD et anticiper les risques juridique et finaciers qui, par expériance, peuvent couter cher. Aujourd'hui nous gagnons la confiance de nos clients et dormons plus tranquil !</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">David R.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">CYCOVER s'adapte vite, trouve la bonne solution en fonction de la taille d'entreprise, des données a protéger et des risques estimés.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Adèle J.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Nous avons trouvé plus qu'une assurance mis un vrai réseau. Concept novateur, accessible et surtout indispansable si vous voulez se rassurer, rassurer vos clients, fournisseurs et partenaire. Nous avons constaté une vrai différence.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Armand C.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Mon site e-commerce s’est fait pirater et était HS pendant une semaine. Mes données ont été cryptées par le hacker. Cycover s'est occupé de tout, je pouvais me concentrer sur mon business.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Gabriel B.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Les enjeux de sécurité informatique sont multiples. Cycover est un partenaire disponible et réactif.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Pierre-Louis P.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Nous avons sollicité Cycover pour développer notre expertise sur les questions de sécurité. Des rendez-vous réguliers ont été mis en place afin de rester à jour, en fonction des nouvelles fonctionnalités intégrées sur la plate-forme, mais aussi de l'évolution des techniques de hacking.</p>
-        </div>
-      </li>
-      <li class="feedback__item customer-card">
-        <div class="customer-card__box">
-          <div class="customer-card__foto">
-            <img class="customer-card__img" src="../../img/quote-2.svg" alt="Фото клиента">
-          </div>
-          <ul class="customer-card__list">
-            <li class="customer-card__item customer-card__item--name">Claire L.</li>
-            <li class="customer-card__item customer-card__item--position">Directeur</li>
-          </ul>
-        </div>
-        <div class="customer-card__comment">
-          <p class="customer-card__text">Un insispensable pour ne pas être disuet! On se met d'abord à la page, on corrige les erreurs et les failles et on protège a moindre cout avec des professionnels compétents !</p>
-        </div>
-      </li>
-    </ul>
-    <div class="feedback__control">
-      <button class="feedback__button feedback__button--forward" data-target="slider.prev">
-        <svg class="feedback-icon">
-          <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
-        </svg>
-      </button>
-      <button class="feedback__button feedback__button--back" data-target="slider.next">
-        <svg class="feedback-icon">
-          <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
-        </svg>
-      </button>
-    </div>
-  </section>
-  @@include('../blocks/focus/focus.html')
-  @@include('../blocks/contact/contact.html')
-  @@include('../blocks/security/security.html')
-  @@include('../blocks/footer/footer.html')
-  @@include('../blocks/politics/politics.html')
-  <div class="modal-registration__main-box" data-controller="espaceClient">
-    <section class="modal-registration">
-      <div class="modal-registration__wrap">
-        <p class="modal-registration__title">Remplissez le formulaire</p>
-      <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
-        <input type="hidden" name="project_name" value="cycover">
-        <input type="hidden" name="admin_email" value="support@cycover.com">
-        <input type="hidden" name="form_subject" value="registration">
-        <fieldset class="form__wrap">
-          <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
-            <label class="field__label" for="form-name">
-              <svg class="field__icon">
-                <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
-              </svg>
-            </label>
-          </div>
-          <!-- <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
-            <label class="field__label" for="form-password">
-              <svg class="field__icon">
-                <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
-              </svg>
-            </label>
-          </div> -->
-          <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="tel" id="form-number" name="number" placeholder="Numéro de tel">
-            <label class="field__label" for="form-number">
-              <svg class="field__icon">
-                <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
-              </svg>
-            </label>
-          </div>
-          <div class="form__box field field--registration">
-            <input class="field__input field__input--registration" type="email" id="form-email" name="email" placeholder="Email">
-            <label class="field__label" for="form-email">
-              <svg class="field__icon">
-                <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
-              </svg>
-            </label>
-          </div>
-        </fieldset>
-
-        <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Envoyer</button>
-
-        <div class="form__box checkbox checkbox--privacy">
-          <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
-            <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy" checked>
-            <span class="checkbox__text checkbox__text--privacy">
+            <div class="form__box checkbox checkbox--privacy">
+              <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy">
+                <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy" name="privacy" checked>
+                <span class="checkbox__text checkbox__text--privacy">
               <span class="checkbox__dev--privacy">J'accepte la politique de confidentialite</span>
             </span>
-          </label>
+              </label>
+            </div>
+          </form>
+          <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
+            <span class="visually-hidden">close</span>
+            <svg class="button-close__icon" style="pointer-events: none;">
+              <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
+            </svg>
+          </button>
         </div>
-      </form>
-      <button class="modal-registration__button button-close" style="cursor: pointer;" data-target="espaceClient.link" data-action="click->espaceClient#closePopup">
-        <span class="visually-hidden">close</span>
-        <svg class="button-close__icon" style="pointer-events: none;">
-          <use xlink:href="img/sprites/sprite.svg#icon__close"></use>
-        </svg>
-      </button>
+      </section>
+    </div>
+    <!-- Calculator -->
+    <div id="calculator" class="calculator__main-box"></div>
+
+    <section class="overlay " data-controller="overlay" data-target="overlay.area" data-action="click->overlay#closeModal"></section>
+
+    <section class="cookies">
+      <div class="cookies__content">
+        <h2 class="cookies__title">Les cookies</h2>
+        <p class="cookies__text">Cycover utilise les cookies pour améliorer votre expérience.</p>
+      </div>
+      <div class="cookies__box" data-controller="politic">
+        <button class="cookies__button button button--background">Accepter</button>
+        <button class="cookies__button button button--thin" data-target="politic.link" data-action="click->politic#showFirst">Savoir plus</button>
       </div>
     </section>
   </div>
-  <!-- Calculator -->
-  <div id="calculator" class="calculator__main-box"></div>
-
-  <section class="overlay " data-controller="overlay" data-target="overlay.area" data-action="click->overlay#closeModal"></section>
-
-  <section class="cookies">
-    <div class="cookies__content">
-      <h2 class="cookies__title">Les cookies</h2>
-      <p class="cookies__text">Cycover utilise les cookies pour améliorer votre expérience.</p>
-    </div>
-    <div class="cookies__box" data-controller="politic">
-      <button class="cookies__button button button--background">Accepter</button>
-      <button class="cookies__button button button--thin" data-target="politic.link" data-action="click->politic#showFirst">Savoir plus</button>
-    </div>
-  </section>
   <script src="js/vendor.js"></script>
   <script src="js/general.js" ></script>
   <script src="//code.jivosite.com/widget/tUvGzHxoMf" async></script>

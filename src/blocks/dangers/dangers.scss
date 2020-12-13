@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 40px 20px;
   padding-bottom: 130px;
+  background-color: #ffffff;
 }
 
 .dangers__title {
@@ -42,11 +43,12 @@
   min-width: 80px;
   height: 79px;
   //margin-bottom: 30px;
-  background-color: #f5f5f5;
+  background: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 32px 36px;
   border-radius: 30px 0 30px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   &--extorsion {
     background-image: url("../../img/dangers__extorsion.svg");
@@ -194,8 +196,8 @@
   }
 
   .dangers__name {
-    font-size: 20px;
     margin-left: 25px;
+    font-size: 20px;
   }
 
   .dangers__text {

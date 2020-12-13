@@ -13,11 +13,11 @@
   &--thin {
     min-height: 50px;
     color: #304bab;
-    border: 1px solid #304bab;
+    border: 1px solid #1f4df1;
 
     &:hover {
       color: #ffffff;
-      background: #304bab;
+      background: #1f4df1;
     }
   }
 
@@ -26,7 +26,7 @@
     border: 1px solid #ffffff;
 
     &:hover {
-      color: #304bab;
+      color: #1f4df1;
       background-color: #ffffff;
     }
   }
@@ -36,7 +36,7 @@
     font-size: 12px;
     font-family: $fourth-font, sans-serif;
     color: #ffffff;
-    background-color: #304bab;
+    background-color: #1f4df1;
     background-image: url("../../img/button__background-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,13 +44,13 @@
     transition: all 0.3s;
 
     &:hover {
-      //background-image: unset;
       // transition: all 0.3s;
-      background-color: #f1f4fd;
+      background-color: #304bab;
+      background-image: unset;
     }
 
     &:active {
-      opacity: 0.5;
+      background-color: #4465dc;
     }
   }
 
@@ -62,8 +62,8 @@
 
     &:hover {
       color: #ffffff;
-      background-color: #304bab;
-      background-image: url("../../img/button__background-blue.png");
+      background-color: #1f4df1;
+      //background-image: url("../../img/button__background-blue.png");
       background-repeat: no-repeat;
       background-size: cover;
       transition: all 0.3s;
@@ -93,7 +93,7 @@
     font-size: 12px;
     font-family: $fourth-font, sans-serif;
     color: #ffffff;
-    background-color: #304bab;
+    background-color: #1f4df1;
 
     &:active {
       opacity: 0.7;

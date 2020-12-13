@@ -130,15 +130,15 @@
   }
 
   .security__list {
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
   }
 
   .security__item {
     flex-direction: row;
     align-items: flex-start;
     margin: 0;
-    margin-left: 0px;
+    margin-left: 0;
 
     &--regist {
       align-items: center;

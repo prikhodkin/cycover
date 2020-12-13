@@ -7,41 +7,41 @@
   border-radius: 20px;
 
   &--covid {
-    background: #304BAB;
-    height: auto;
     max-width: 511px;
+    height: auto;
+    background: #304bab;
 
     .modal-registration__wrap {
       padding: 45px 35px 25px 35px;
     }
 
     .modal-registration__link {
-      font-size: 12px;
-      line-height: 15px;
-      text-align: center;
-      color: #FFFFFF;
-      text-decoration: underline;
+      display: block;
 
       margin: 0 auto;
       margin-top: 19px;
-      display: block;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      color: #ffffff;
+      text-decoration: underline;
     }
 
     .modal-registration__title {
-      font-family: $third-font;
+      margin-bottom: 35px;
       font-weight: 800;
       font-size: 22px;
       line-height: 27px;
+      font-family: $third-font;
       text-align: center;
-      margin-bottom: 35px;
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     .tariff-card__desc {
+      margin-left: 0;
       font-size: 14px;
       line-height: 145.4%;
-      color: #FFFFFF;
-      margin-left: 0;
+      color: #ffffff;
     }
 
     .tariff-card__list {
@@ -57,17 +57,17 @@
     .modal-registration__bottom {
       display: flex;
       justify-content: space-between;
+      margin-top: 25px;
+      margin-right: -35px;
+      margin-bottom: -25px;
+      margin-left: -35px;
+      padding: 20px 35px 15px 35px;
       font-size: 14px;
       line-height: 17px;
 
-      color: #FFFFFF;
-      padding: 20px 35px 15px 35px;
-      margin-left: -35px;
-      margin-right: -35px;
-      margin-bottom: -25px;
+      color: #ffffff;
+      border-top: 1px solid rgba(#ffffff, 0.1);
       opacity: 0.5;
-      border-top: 1px solid rgba(#FFFFFF, 0.1);
-      margin-top: 25px;
 
       p {
         max-width: 224px;
@@ -77,27 +77,30 @@
         text-decoration: underline;
       }
     }
+
     .modal-registration__btn {
+      /* identical to box height */
+      max-width: 330px;
       height: 70px;
+      margin: 0 auto;
       font-weight: 600;
       font-size: 18px;
       line-height: 22px;
-      /* identical to box height */
-      max-width: 330px;
-      margin: 0 auto;
       text-align: center;
+
+      color: #304bab;
+
       &:hover {
         color: #ffffff;
       }
-
-      color: #304BAB;
     }
+
     .tariff-card__icon--available {
-      background-color: rgba(#FFFFFF, 0.1);
       width: 32px;
-      height: 32px;
       min-width: 32px;
+      height: 32px;
       margin-right: 17px;
+      background-color: rgba(#ffffff, 0.1);
 
       svg {
         width: 15px;
@@ -108,7 +111,7 @@
 }
 
 .modal-registration__main-box {
-  z-index: 11;
+  z-index: 1100;
   display: none;
   width: 100%;
   padding: 0 15px;
@@ -122,8 +125,8 @@
   &--active {
     &.modal--covid {
       position: fixed;
-      left: 50%;
       top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
     }
   }
