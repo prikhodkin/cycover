@@ -4,11 +4,40 @@
 
   &--active {
     background-color: #f3f6ff;
+
+    &.header--video {
+      .header__top {
+        @media (max-width: 1280px) {
+          background-color: #000826;
+        }
+      }
+    }
   }
 
   &--video {
     .menu__item a {
       color: #ffffff;
+    }
+
+    .header__phone {
+      color: #ffffff;
+
+      svg {
+        fill: #ffffff;
+        opacity: 1;
+      }
+    }
+
+    .modifier__item {
+      color: rgba(#ffffff, 0.4);
+      &--active {
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+    }
+
+    .header__top {
+      border-color: rgba(255, 255, 255, 0.44);
     }
 
     @media (max-width: 1280px) {
@@ -99,6 +128,22 @@
     top: 0;
     left: 0;
     width: 100%;
+
+    &--video {
+      .header__top {
+        padding-top: 15px;
+      }
+
+      .modifier__item {
+        padding-bottom: 15px;
+      }
+
+
+      .header__phone {
+        margin-top: -12px;
+        margin-bottom: 0;
+      }
+    }
   }
 
   .header__top {

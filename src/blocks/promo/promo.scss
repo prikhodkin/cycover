@@ -37,6 +37,29 @@
   color: #191c1f;
 }
 
+.promo__form {
+  display: block;
+  padding: 0;
+  margin-top: 20px;
+  .modal-registration {
+    margin: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .modal-registration__title {
+    margin-bottom: 29px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+  }
+
+  .modal-registration__wrap {
+    padding: 20px;
+  }
+}
+
 
 .promo__list {
   @include list-reset;
@@ -64,6 +87,16 @@
     flex-direction: row-reverse;
     align-items: center;
     overflow: hidden;
+
+    &--video {
+      flex-direction: row;
+    }
+  }
+
+  .promo__form {
+    .modal-registration__wrap {
+      padding: 40px 60px;
+    }
   }
 
   .promo__img {
@@ -78,6 +111,22 @@
     padding-top: 40px;
     padding-right: 0;
     padding-left: calc(50% - 640px);
+
+    &--video {
+      padding-right: calc(50% - 640px);
+      justify-content: space-between;
+      padding-top: 156px;
+      padding-bottom: 50px;
+    }
+
+    .promo__form {
+      margin-left: auto;
+      .modal-registration {
+        margin-right: 79px;
+        margin-left: auto;
+
+      }
+    }
   }
 
   .promo__img {

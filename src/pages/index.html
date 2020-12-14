@@ -75,6 +75,62 @@
         <p class="promo__desc">L’assurance des entreprises face à la cyber-criminalité qui vous protège, assiste et dédommage.</p>
         <a class="promo__button button button--white" href="javascript://" data-target="calculator.link" data-action="click->calculator#showCalc">Souscrire en ligne</a>
       </div>
+      <div class="modal-registration__main-box promo__form" data-controller="espaceClient">
+        <section class="modal-registration">
+          <div class="modal-registration__wrap">
+            <p class="modal-registration__title">Obtenez une conseille personalisée</p>
+            <form class="modal-registration__form form" action="#" method="POST" data-target="espaceClient.form">
+              <input type="hidden" name="project_name" value="cycover">
+              <input type="hidden" name="admin_email" value="support@cycover.com">
+              <input type="hidden" name="form_subject" value="registration">
+              <fieldset class="form__wrap">
+                <div class="form__box field field--registration">
+                  <input class="field__input field__input--registration" type="text" id="form-name1" name="name" placeholder="Nom et Prénom">
+                  <label class="field__label" for="form-name1">
+                    <svg class="field__icon">
+                      <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                    </svg>
+                  </label>
+                </div>
+                <!-- <div class="form__box field field--registration">
+                  <input class="field__input field__input--registration" type="password" id="form-password" name="password" placeholder="Votre prenom">
+                  <label class="field__label" for="form-password">
+                    <svg class="field__icon">
+                      <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                    </svg>
+                  </label>
+                </div> -->
+                <div class="form__box field field--registration">
+                  <input class="field__input field__input--registration" type="tel" id="form-number2" name="number" placeholder="Numéro de tel">
+                  <label class="field__label" for="form-number2">
+                    <svg class="field__icon">
+                      <use xlink:href="img/sprites/sprite.svg#icon__phone"></use>
+                    </svg>
+                  </label>
+                </div>
+                <div class="form__box field field--registration">
+                  <input class="field__input field__input--registration" type="email" id="form-email1" name="email" placeholder="Email">
+                  <label class="field__label" for="form-email1">
+                    <svg class="field__icon">
+                      <use xlink:href="img/sprites/sprite.svg#icon__at"></use>
+                    </svg>
+                  </label>
+                </div>
+              </fieldset>
+
+              <button class="form__button button button--background" type="submit" data-target="espaceClient.link" data-action="click->espaceClient#makeRequest">Obtenir une conseiile</button>
+
+              <div class="form__box checkbox checkbox--privacy">
+                <label class="checkbox__label checkbox__label--privacy" for="form-checkbox-privacy1">
+                  <input class="checkbox__input checkbox__input--privacy visually-hidden" type="checkbox" id="form-checkbox-privacy1" name="privacy" checked>
+                  <span class="checkbox__text checkbox__text--privacy">
+              <span class="checkbox__dev--privacy">J'accepte la politique de confidentialite</span>
+            </span>
+                </label>
+              </div>
+            </form></div>
+        </section>
+      </div>
     </section>
     <section class="dangers" data-controller="slider">
       <div class="dangers__box">
