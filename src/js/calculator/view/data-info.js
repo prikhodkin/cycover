@@ -11,20 +11,43 @@ export default class DataInfoView extends AbstractView {
     return `
       <section class="calculator calculator--amount-data" data-controller="calculator">
         <div class="calculator__wrap">
-          <h2 class="calculator__title title title--black">Volume des données personnelles traitées</h2>
+          <h2 class="calculator__title title title--black">Précisez la territorialité de votre entreprise:</h2>
           <ul class="calculator__list calculator__list--amount-data">
 
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__2" placeholder="0" name="Données personnelles" value="${this._state['Données personnelles'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__2">Nombre de données personnelles traitées (y compris celles des salariés)</label>
+              <label class="calculator__amount-label">
+                <p class="calculator__amount-description">France métropolitain</p>
+                <input checked class="calculator__amount-checkbox" type="checkbox" name="France métropolitain">
+                <p class="calculator__check"></p>
+              </label>
             </li>
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__3" placeholder="0" name="Données médicales" value="${this._state['Données médicales'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__3">Dont données médicales</label>
+              <label class="calculator__amount-label">
+                <p class="calculator__amount-description">Pays de l'UE</p>
+                <input class="calculator__amount-checkbox" type="checkbox" name="Pays de l'UE">
+                <p class="calculator__check"></p>
+              </label>
             </li>
             <li class="calculator__item calculator__item--number field-numb">
-              <input class="field-numb__input" type="number" id="field-numb__4" placeholder="0" name="Données de carte de paiment" value="${this._state['Données de carte de paiment'] ?? ''}">
-              <label class="field-numb__label" for="field-numb__4">Nombre de paiement par carte bancaire</label>
+              <label class="calculator__amount-label">
+                <p class="calculator__amount-description">Pays de l'UE <br> + Suisse, Andorre et Monaco</p>
+                <input class="calculator__amount-checkbox" type="checkbox" name="Pays de l'UE + Suisse, Andorre et Monaco">
+                <p class="calculator__check"></p>
+              </label>
+            </li>
+            <li class="calculator__item calculator__item--number field-numb">
+              <label class="calculator__amount-label">
+                <p class="calculator__amount-description">Monde entier hors <br> USA / Canada</p>
+                <input class="calculator__amount-checkbox" type="checkbox" name="Monde entier hors USA / Canada">
+                <p class="calculator__check"></p>
+              </label>
+            </li>
+            <li class="calculator__item calculator__item--number field-numb">
+              <label class="calculator__amount-label">
+                <p class="calculator__amount-description">Monde entier avec <br> USA / Canada</p>
+                <input class="calculator__amount-checkbox" type="checkbox" name="Monde entier avec USA / Canada">
+                <p class="calculator__check"></p>
+              </label>
             </li>
           </ul>
           <div class="calculator__box calculator__box--button">

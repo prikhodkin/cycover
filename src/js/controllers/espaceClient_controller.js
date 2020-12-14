@@ -3,11 +3,12 @@ import IMask from 'imask';
 import ajax from '../util/ajaxSend'
 
 const popup = document.querySelector(`.modal-registration__main-box`);
+const thanks = document.querySelector(`.modal-registration__main-box--thanks`);
 const overlay = document.querySelector(`.overlay`);
 
 export default class extends Controller {
 
-  static targets = [ `form`,`link` ]
+  static targets = [ `form`,`link`, `closeThanks` ]
 
   escPressHandler = (e) => {
     if(e.keyCode && e.keyCode === 27) {
@@ -17,6 +18,7 @@ export default class extends Controller {
 
   close = () => {
     popup.classList.remove(`modal-registration__main-box--active`);
+    thanks.classList.remove(`modal-registration__main-box--active`);
     overlay.classList.remove(`overlay--active`);
 
     document.removeEventListener(`keydown`, this.escPressHandler)
@@ -43,7 +45,7 @@ export default class extends Controller {
 
   makeRequest(e) {
     e.preventDefault();
-    this.sendAjax()
+    this.sendAjax();
   }
 
   sendAjax() {
@@ -53,17 +55,42 @@ export default class extends Controller {
 
     ajax(postURL, `post`, formData)
       .then(() => {
-        this.close()
+        this.showThanks();
         form.reset();
       })
   }
 
   checkPhone() {
-    const phone = document.querySelector(`#form-number`);
+    const phone = document.querySelector(`input[type="tel"]`);
     const phoneOption = {
       mask: '+{33} (0) 00-00-00-00'
     }
 
     IMask(phone, phoneOption)
+  }
+
+  showThanks() {
+    thanks.classList.add(`calculator__approver--show`);
+    popup.classList.remove(`modal-registration__main-box--active`);
+
+    const scrollY = window.pageYOffset;
+
+    thanks.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"
+    thanks.classList.toggle(`modal-registration__main-box--active`);
+
+    window.timeID  = setTimeout(() =>{
+      this.closeThanks();
+    },4000)
+  }
+
+  closeThanks() {
+    thanks.classList.add(`calculator__approver--close`);
+    setTimeout(() => {
+      thanks.classList.remove(`modal-registration__main-box--active`);
+      thanks.classList.remove(`calculator__approver--show`);
+      thanks.classList.remove(`calculator__approver--close`);
+      overlay.classList.remove(`overlay--active`);
+      clearTimeout(window.timeID)
+    }, 300)
   }
 }

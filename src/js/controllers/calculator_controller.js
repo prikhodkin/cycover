@@ -14,9 +14,18 @@ export default class extends Controller {
   }
 
   close = () => {
-    calc.classList.remove(`calculator__main-box--active`);
-    overlay.classList.remove(`overlay--active`)
-    calc.innerHTML = ``;
+    //Добавляем анимацию закрытия
+    calc.classList.add(`calculator__approver--close`)
+
+
+    setTimeout(() => {
+      calc.classList.remove(`calculator__main-box--active`);
+      calc.classList.remove(`calculator__approver--show`);
+      calc.classList.remove(`calculator__approver--close`)
+
+      overlay.classList.remove(`overlay--active`)
+      calc.innerHTML = ``;
+    }, 300)
 
     document.removeEventListener(`keydown`, this.escPressHandler)
   }

@@ -6,8 +6,8 @@ export default class ApprovedView extends AbstractView {
       <section class="calculator calculator--approved" data-controller="calculator">
         <div class="calculator__wrap calculator__wrap--approved">
           <div class="calculator__tick"></div>
-          <p class="calculator__desc calculator__desc--approved">"Votre demande est bien reçu !
-          <br>
+          <p class="calculator__desc calculator__desc--approved">"Votre demande est bien reçu !</p>
+          <p class="calculator__desc calculator__desc--thanks">
           Nous allons prendre contact avec vous afin de valider ensemble les éléments."</p>
         </div>
         <button class="calculator__button-close button-close" style="cursor: pointer;" data-target="calculator.link" data-action="click->calculator#closeCalc">
