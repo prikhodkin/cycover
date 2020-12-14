@@ -385,10 +385,38 @@ var ApprovedScreen = /*#__PURE__*/function () {
   function ApprovedScreen() {
     _classCallCheck(this, ApprovedScreen);
 
-    this.view = new _view_approved__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this._showAnimation();
+
+    this.view = new _view_approved__WEBPACK_IMPORTED_MODULE_0__["default"](); //Автозакрытие окна
+
+    this.timeID = setTimeout(this._closePage, 4000);
   }
 
   _createClass(ApprovedScreen, [{
+    key: "_closePage",
+    value: function _closePage() {
+      var _this = this;
+
+      var calc = document.querySelector("#calculator");
+      var overlay = document.querySelector(".overlay"); //Добавляем анимацию закрытия
+
+      calc.classList.add("calculator__approver--close");
+      setTimeout(function () {
+        calc.classList.remove("calculator__main-box--active");
+        calc.classList.remove("calculator__approver--show");
+        calc.classList.remove("calculator__approver--close");
+        overlay.classList.remove("overlay--active");
+        calc.innerHTML = "";
+        clearTimeout(_this.timeID);
+      }, 300);
+    }
+  }, {
+    key: "_showAnimation",
+    value: function _showAnimation() {
+      var calc = document.querySelector("#calculator");
+      calc.classList.add("calculator__approver--show");
+    }
+  }, {
     key: "element",
     get: function get() {
       return this.view.element;
@@ -566,7 +594,6 @@ var DataInfoMoreScreen = /*#__PURE__*/function () {
       radios.forEach(function (it) {
         _this2._state = Object.assign({}, _this2._state, _defineProperty({}, it.name, it.value));
       });
-      console.log(this._state);
     }
   }, {
     key: "element",
@@ -622,7 +649,6 @@ var DataInfoScreen = /*#__PURE__*/function () {
     _classCallCheck(this, DataInfoScreen);
 
     this._state = state;
-    console.log(this._state);
     this.view = new _view_data_info__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function () {
@@ -760,7 +786,8 @@ var PersonalDataScreen = /*#__PURE__*/function () {
     this.view = new _view_personal_data__WEBPACK_IMPORTED_MODULE_0__["default"](this._state);
 
     this.view.onClickNext = function (e) {
-      // e.preventDefault();
+      e.preventDefault();
+
       _this._checkValid();
 
       if (_this.inputErrors === 0) {
@@ -780,9 +807,9 @@ var PersonalDataScreen = /*#__PURE__*/function () {
     key: "_sendAjax",
     value: function _sendAjax() {
       var form = this.view.element.querySelector(".calculator__form");
-      var postURL = "vendor/mail.php";
+      var postURL = "../vendor/mail.php";
       var formData = new FormData(form);
-      Object(_util_ajaxSend__WEBPACK_IMPORTED_MODULE_4__["default"])(postURL, "post", formData).then(function () {
+      Object(_util_ajaxSend__WEBPACK_IMPORTED_MODULE_4__["default"])(postURL, "POST", formData).then(function () {
         form.reset();
         _application_js__WEBPACK_IMPORTED_MODULE_1__["default"].showApproved();
       });
@@ -1074,7 +1101,7 @@ var ApprovedView = /*#__PURE__*/function (_AbstractView) {
   _createClass(ApprovedView, [{
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--approved\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--approved\">\n          <div class=\"calculator__tick\"></div>\n          <p class=\"calculator__desc calculator__desc--approved\">Votre demande sera approuv\xE9e</p>\n        </div>\n        <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n          <span class=\"visually-hidden\">close</span>\n          <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n            <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n          </svg>\n        </button>\n      </section>\n    ";
+      return "\n      <section class=\"calculator calculator--approved\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--approved\">\n          <div class=\"calculator__tick\"></div>\n          <p class=\"calculator__desc calculator__desc--approved\">\"Votre demande est bien re\xE7u !</p>\n          <p class=\"calculator__desc calculator__desc--thanks\">\n          Nous allons prendre contact avec vous afin de valider ensemble les \xE9l\xE9ments.\"</p>\n        </div>\n        <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n          <span class=\"visually-hidden\">close</span>\n          <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n            <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n          </svg>\n        </button>\n      </section>\n    ";
     }
   }]);
 
@@ -1231,7 +1258,6 @@ var DataInfoMoreView = /*#__PURE__*/function (_AbstractView) {
 
     _this = _super.call(this);
     _this._state = state;
-    console.log(_this._state);
     return _this;
   }
 
@@ -1262,7 +1288,7 @@ var DataInfoMoreView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--amount-data-next\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Activit\xE9 en ligne</h2>\n          <ul class=\"calculator__list calculator__list--amount-data-next\">\n\n\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez-vous plus de 25 % de votre chiffre d'affaires en ligne ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 en ligne\" value=\"yes\" id=\"radio-yes-1\">\n                  <label class=\"radio-calc__label\" for=\"radio-yes-1\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 en ligne\" value=\"not\" id=\"radio-not-1\" checked>\n                  <label class=\"radio-calc__label\" for=\"radio-not-1\">Non</label>\n                </div>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text\">R\xE9alisez vous plus de 25% de vos chiffres d\u2019affaires via des paiements par carte bancaire ?</p>\n              <div class=\"calculator__container\">\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 cartes bancaires\" value=\"yes\" id=\"radio-yes-2\">\n                  <label class=\"radio-calc__label\" for=\"radio-yes-2\">Oui</label>\n                </div>\n                <div class=\"calculator__box calculator__box--radio radio-calc\">\n                  <input class=\"radio-calc__input\" type=\"radio\" name=\"25 cartes bancaires\" value=\"not\" id=\"radio-not-2\" checked>\n                  <label class=\"radio-calc__label\" for=\"radio-not-2\">Non</label>\n                </div>\n              </div>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
+      return "\n      <section class=\"calculator calculator--amount-data-next\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">NATURE & VOLUME DES DONN\xC9ES PERSONNELLES</h2>\n          <ul class=\"calculator__list calculator__list--amount-data-next\">\n\n\n            <li class=\"calculator__item calculator__item--radio calculator__item--amount-top\">\n              <p class=\"calculator__field-text calculator__field-text--title\">Nombre estim\xE9 de donn\xE9es personnelles trait\xE9es / detenues :</p>\n\n              <div class=\"calculator__amount-select select__box\">\n                <select class=\"select__list\" name=\"Nombre estim\xE9 de donn\xE9es personnelles trait\xE9es\" id=\"select-effectif\">\n                  <option class=\"select__item\" value=\"1-10\">1 - 10</option>\n                  <option class=\"select__item\" value=\"10-50\">10 - 50</option>\n                  <option class=\"select__item\" value=\"50-100\">50 - 100</option>\n                  <option class=\"select__item\" value=\"100-500\">100 - 500</option>\n                  <option class=\"select__item\" value=\"500-1000\">500 - 1000</option>\n                  <option class=\"select__item\" value=\"1000+\">1000 +</option>\n                </select>\n              </div>\n            </li>\n            <li class=\"calculator__item calculator__item--radio\">\n              <p class=\"calculator__field-text calculator__field-text--amount\">Donn\xE9e personnelle consiste en \xAB toute information relative \xE0 une personne physique identifi\xE9e ou qui peut \xEAtre identifi\xE9e, directement ou indirectement, par r\xE9f\xE9rence \xE0 un num\xE9ro d'identification ou \xE0 un ou plusieurs \xE9l\xE9ments qui lui sont propres (images, enregistrements, codes personnels...) \xBB</p>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
     }
   }]);
 
@@ -1352,9 +1378,7 @@ var DataInfoView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      var _this$_state$DonnEs, _this$_state$DonnEs2, _this$_state$DonnEs3;
-
-      return "\n      <section class=\"calculator calculator--amount-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Volume des donn\xE9es personnelles trait\xE9es</h2>\n          <ul class=\"calculator__list calculator__list--amount-data\">\n\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__2\" placeholder=\"0\" name=\"Donn\xE9es personnelles\" value=\"".concat((_this$_state$DonnEs = this._state['Données personnelles']) !== null && _this$_state$DonnEs !== void 0 ? _this$_state$DonnEs : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__2\">Nombre de donn\xE9es personnelles trait\xE9es (y compris celles des salari\xE9s)</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__3\" placeholder=\"0\" name=\"Donn\xE9es m\xE9dicales\" value=\"").concat((_this$_state$DonnEs2 = this._state['Données médicales']) !== null && _this$_state$DonnEs2 !== void 0 ? _this$_state$DonnEs2 : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__3\">Dont donn\xE9es m\xE9dicales</label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <input class=\"field-numb__input\" type=\"number\" id=\"field-numb__4\" placeholder=\"0\" name=\"Donn\xE9es de carte de paiment\" value=\"").concat((_this$_state$DonnEs3 = this._state['Données de carte de paiment']) !== null && _this$_state$DonnEs3 !== void 0 ? _this$_state$DonnEs3 : '', "\">\n              <label class=\"field-numb__label\" for=\"field-numb__4\">Nombre de paiement par carte bancaire</label>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      return "\n      <section class=\"calculator calculator--amount-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap\">\n          <h2 class=\"calculator__title title title--black\">Pr\xE9cisez la territorialit\xE9 de votre entreprise:</h2>\n          <ul class=\"calculator__list calculator__list--amount-data\">\n\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <label class=\"calculator__amount-label\">\n                <p class=\"calculator__amount-description\">France m\xE9tropolitain</p>\n                <input checked class=\"calculator__amount-checkbox\" type=\"checkbox\" name=\"France m\xE9tropolitain\">\n                <p class=\"calculator__check\"></p>\n              </label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <label class=\"calculator__amount-label\">\n                <p class=\"calculator__amount-description\">Pays de l'UE</p>\n                <input class=\"calculator__amount-checkbox\" type=\"checkbox\" name=\"Pays de l'UE\">\n                <p class=\"calculator__check\"></p>\n              </label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <label class=\"calculator__amount-label\">\n                <p class=\"calculator__amount-description\">Pays de l'UE <br> + Suisse, Andorre et Monaco</p>\n                <input class=\"calculator__amount-checkbox\" type=\"checkbox\" name=\"Pays de l'UE + Suisse, Andorre et Monaco\">\n                <p class=\"calculator__check\"></p>\n              </label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <label class=\"calculator__amount-label\">\n                <p class=\"calculator__amount-description\">Monde entier hors <br> USA / Canada</p>\n                <input class=\"calculator__amount-checkbox\" type=\"checkbox\" name=\"Monde entier hors USA / Canada\">\n                <p class=\"calculator__check\"></p>\n              </label>\n            </li>\n            <li class=\"calculator__item calculator__item--number field-numb\">\n              <label class=\"calculator__amount-label\">\n                <p class=\"calculator__amount-description\">Monde entier avec <br> USA / Canada</p>\n                <input class=\"calculator__amount-checkbox\" type=\"checkbox\" name=\"Monde entier avec USA / Canada\">\n                <p class=\"calculator__check\"></p>\n              </label>\n            </li>\n          </ul>\n          <div class=\"calculator__box calculator__box--button\">\n            <a class=\"calculator__button calculator__button--back button button--back\" href=\"#\">\n              <svg class=\"button__icon\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-back\"></use>\n              </svg>\n            </a>\n            <a class=\"calculator__button calculator__button--forth button button--forth\" href=\"#\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </a>\n          </div>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ";
     }
   }]);
 
@@ -1427,7 +1451,7 @@ var Footer = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <div class=\"calculator__footer partner\">\n        <p class=\"partner__title calculator__name-partner\">Nos partenaires</p>\n        <ul class=\"partner__list calculator__list--partner\">\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f1.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f2.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f3.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f4.svg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f5.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner calculator__item--partner-6\">\n            <img class=\"partner__img calculator__img\" src=\"./img/partner__img-1.png\" alt=\"\">\n          </li>\n        </ul>\n      </div>\n      <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n        <span class=\"visually-hidden\">close</span>\n        <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n          <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n        </svg>\n      </button>\n      ";
+      return "\n      <div class=\"calculator__footer partner\">\n        <p class=\"partner__title calculator__name-partner\">Nos partenaires</p>\n        <ul class=\"partner__list calculator__list--partner\">\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f1.jpg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f2.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f3.png\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f4.svg\" alt=\"\">\n          </li>\n          <li class=\"partner__item calculator__item calculator__item--partner\">\n            <img class=\"partner__img calculator__img\" src=\"./img/f5.jpg\" alt=\"\">\n          </li>\n        </ul>\n      </div>\n      <button class=\"calculator__button-close button-close\" style=\"cursor: pointer;\" data-target=\"calculator.link\" data-action=\"click->calculator#closeCalc\">\n        <span class=\"visually-hidden\">close</span>\n        <svg class=\"button-close__icon\" style=\"pointer-events: none;\">\n          <use xlink:href=\"img/sprites/sprite.svg#icon__close\"></use>\n        </svg>\n      </button>\n      ";
     }
   }]);
 
@@ -1487,7 +1511,6 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
 
     _this = _super.call(this);
     _this._state = state;
-    console.log(Object.entries(_this._state));
     return _this;
   }
 
@@ -1508,7 +1531,7 @@ var PersonalDataView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--personal-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--personal-data\">\n          <form class=\"calculator__form form form--calculator\" action=\"#\" method=\"POST\">\n            <input type=\"hidden\" name=\"project_name\" value=\"cycover\">\n            <input type=\"hidden\" name=\"admin_email\" value=\"support@cycover.com\">\n            <input type=\"hidden\" name=\"form_subject\" value=\"calculator\">\n\n            ".concat(Object.entries(this._state).map(function (elem) {
+      return "\n      <section class=\"calculator calculator--personal-data\" data-controller=\"calculator\">\n        <div class=\"calculator__wrap calculator__wrap--personal-data\">\n          <form class=\"calculator__form form form--calculator\" action=\"#\" method=\"POST\" enctype=\"multipart/form-data\">\n            <input type=\"hidden\" name=\"project_name\" value=\"cycover\">\n            <input type=\"hidden\" name=\"admin_email\" value=\"support@cycover.com\">\n            <input type=\"hidden\" name=\"form_subject\" value=\"calculator\">\n\n            ".concat(Object.entries(this._state).map(function (elem) {
         return "\n                <input type=\"hidden\" name=\"".concat(elem[0], "\" value=\"").concat(elem[0] === 'garantie' ? elem[1].value : elem[1], "\">\n              ");
       }).join(""), "\n\n            <div class=\"form__wrap form__wrap--calculator\">\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-siret\" name=\"siret\" placeholder=\"Siret\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-siret\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__identity-card\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"text\" id=\"form-name-calc\" name=\"name-calc\" placeholder=\"Votre nom et pr\xE9nom\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-name-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__user\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"tel\" id=\"form-number-calc\" name=\"number-calc\" placeholder=\"Num\xE9ro de tel\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-number-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__phone\"></use>\n                  </svg>\n                </label>\n              </div>\n              <div class=\"form__box form__box--calculator field field--calculator\">\n                <input class=\"field__input field__input--calculator\" type=\"email\" id=\"form-email-calc\" name=\"email-calc\" placeholder=\"E-mail\" required>\n                <label class=\"field__label field__label--calculator\" for=\"form-email-calc\">\n                  <svg class=\"field__icon field__icon--calculator\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__at\"></use>\n                  </svg>\n                </label>\n              </div>\n            </div>\n\n            <button class=\"calculator__button calculator__button--form-calc button button--forth button--calc-form\" type=\"submit\">\n              Continuer\n              <svg class=\"button__icon button__icon--forth\">\n                <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n              </svg>\n            </button>\n          </form>\n        </div>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
@@ -1632,7 +1655,6 @@ var TariffView = /*#__PURE__*/function (_AbstractView) {
 
     _this = _super.call(this);
     _this._state = state;
-    console.log(_this._state);
     return _this;
   }
 
@@ -1656,7 +1678,7 @@ var TariffView = /*#__PURE__*/function (_AbstractView) {
   }, {
     key: "template",
     get: function get() {
-      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">de base</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Assistance dans la gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Enqu\xEAtes et sanctions </p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Fraude</p>\n              </li>\n\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">&#8364; ".concat(Math.ceil(this._state.garantie.base / 12), " /<span style=\"text-transform:lowercase;font-size: 14px;\">par mois</span></p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\" data-name=\"BASE\" data-price=\"").concat(this._state.garantie.base, "\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Prime</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Assistance dans la gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Enqu\xEAtes et sanctions</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Fraude</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">&#8364; ").concat(Math.ceil(this._state.garantie.prime / 12), " /<span style=\"text-transform:lowercase;font-size: 14px;\">par mois</span></p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\" data-name=\"PRIME\" data-price=\"").concat(this._state.garantie.prime, "\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
+      return "\n      <section class=\"calculator calculator--tariff\" data-controller=\"calculator\">\n        <ul class=\"calculator__wrap calculator__wrap--tariff\">\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--calc\">\n            <p class=\"tariff-card__name tariff-card__name--calc\">Formule ZEN</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Assistance dans la gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Enqu\xEAtes et sanctions </p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--unavailable\">\n                <div class=\"tariff-card__icon tariff-card__icon--unavailable\">\n                  <svg class=\"tariff-card__img tariff-card__img--cross\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__cross\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc\">Fraude</p>\n              </li>\n\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc\">".concat(Math.ceil(this._state.garantie.base / 12), " &#8364; /<span style=\"text-transform:lowercase;font-size: 14px;\">par mois</span></p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth\" href=\"#\" data-name=\"BASE\" data-price=\"").concat(this._state.garantie.base, "\">\n                Continuer\n                <svg class=\"button__icon button__icon--forth\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n          <li class=\"calculator__item calculator__item--tariff tariff-card tariff-card--prime tariff-card--calc tariff-card--calc-prime\">\n            <p class=\"tariff-card__name tariff-card__name--prime tariff-card__name--calc\">Formule PRIME</p>\n            <ul class=\"tariff-card__list\">\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Assistance dans la gestion de crise</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Responsabilit\xE9 civile</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Enqu\xEAtes et sanctions</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Perte d\u2019exploitation</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Cyber-extorsion</p>\n              </li>\n              <li class=\"tariff-card__item tariff-card__item--available\">\n                <div class=\"tariff-card__icon tariff-card__icon--prime-available tariff-card__icon--available\">\n                  <svg class=\"tariff-card__img tariff-card__img--tick tariff-card__img--prime-tick\">\n                    <use xlink:href=\"img/sprites/sprite.svg#icon__tick\"></use>\n                  </svg>\n                </div>\n                <p class=\"tariff-card__desc tariff-card__desc--calc tariff-card__desc--prime\">Fraude</p>\n              </li>\n            </ul>\n            <div class=\"calculator__box calculator__box--button\">\n              <p class=\"tariff-card__price tariff-card__price--calc tariff-card__price--calc-prime\">").concat(Math.ceil(this._state.garantie.prime / 12), " &#8364; /<span style=\"text-transform:lowercase;font-size: 14px;\">par mois</span></p>\n              <a class=\"calculator__button calculator__button--forth-tariff button button--forth-white\" href=\"#\" data-name=\"PRIME\" data-price=\"").concat(this._state.garantie.prime, "\">\n                Continuer\n                <svg class=\"button__icon\">\n                  <use xlink:href=\"img/sprites/sprite.svg#icon_arrow-forward\"></use>\n                </svg>\n              </a>\n            </div>\n          </li>\n        </ul>\n        <div id=\"calc-footer\"></div>\n      </section>\n    ");
     }
   }]);
 
@@ -1860,9 +1882,15 @@ var _default = /*#__PURE__*/function (_Controller) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
-      calc.classList.remove("calculator__main-box--active");
-      overlay.classList.remove("overlay--active");
-      calc.innerHTML = "";
+      //Добавляем анимацию закрытия
+      calc.classList.add("calculator__approver--close");
+      setTimeout(function () {
+        calc.classList.remove("calculator__main-box--active");
+        calc.classList.remove("calculator__approver--show");
+        calc.classList.remove("calculator__approver--close");
+        overlay.classList.remove("overlay--active");
+        calc.innerHTML = "";
+      }, 300);
       document.removeEventListener("keydown", _this.escPressHandler);
     });
 
@@ -1945,8 +1973,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var popup = document.querySelector(".modal-registration__main-box");
+var thanks = document.querySelector(".modal-registration__main-box--thanks");
 var overlay = document.querySelector(".overlay");
-var covid = document.querySelector(".modal--covid");
 
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
@@ -1972,7 +2000,7 @@ var _default = /*#__PURE__*/function (_Controller) {
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
       popup.classList.remove("modal-registration__main-box--active");
-      covid.classList.remove("modal-registration__main-box--active");
+      thanks.classList.remove("modal-registration__main-box--active");
       overlay.classList.remove("overlay--active");
       document.removeEventListener("keydown", _this.escPressHandler);
     });
@@ -2015,7 +2043,7 @@ var _default = /*#__PURE__*/function (_Controller) {
       var formData = new FormData(form);
       var postURL = "vendor/mail.php";
       Object(_util_ajaxSend__WEBPACK_IMPORTED_MODULE_2__["default"])(postURL, "post", formData).then(function () {
-        _this2.close();
+        _this2.showThanks();
 
         form.reset();
       });
@@ -2023,18 +2051,45 @@ var _default = /*#__PURE__*/function (_Controller) {
   }, {
     key: "checkPhone",
     value: function checkPhone() {
-      var phone = document.querySelector("#form-number");
+      var phone = document.querySelector("input[type=\"tel\"]");
       var phoneOption = {
-        mask: '+{7} (000) 000-00-00'
+        mask: '+{33} (0) 00-00-00-00'
       };
       Object(imask__WEBPACK_IMPORTED_MODULE_1__["default"])(phone, phoneOption);
+    }
+  }, {
+    key: "showThanks",
+    value: function showThanks() {
+      var _this3 = this;
+
+      thanks.classList.add("calculator__approver--show");
+      popup.classList.remove("modal-registration__main-box--active");
+      overlay.classList.add("overlay--active");
+      var scrollY = window.pageYOffset;
+      thanks.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px";
+      thanks.classList.toggle("modal-registration__main-box--active");
+      window.timeID = setTimeout(function () {
+        _this3.closeThanks();
+      }, 4000);
+    }
+  }, {
+    key: "closeThanks",
+    value: function closeThanks() {
+      thanks.classList.add("calculator__approver--close");
+      setTimeout(function () {
+        thanks.classList.remove("modal-registration__main-box--active");
+        thanks.classList.remove("calculator__approver--show");
+        thanks.classList.remove("calculator__approver--close");
+        overlay.classList.remove("overlay--active");
+        clearTimeout(window.timeID);
+      }, 300);
     }
   }]);
 
   return _default;
 }(stimulus__WEBPACK_IMPORTED_MODULE_0__["Controller"]);
 
-_defineProperty(_default, "targets", ["form", "link"]);
+_defineProperty(_default, "targets", ["form", "link", "closeThanks"]);
 
 
 
@@ -2618,7 +2673,7 @@ var popup = document.querySelector(".modal-registration__main-box");
 var politics = document.querySelectorAll(".politic");
 var calc = document.querySelector("#calculator");
 var overlay = document.querySelector(".overlay");
-var covid = document.querySelector(".modal--covid");
+var thanks = document.querySelector(".modal-registration__main-box--thanks");
 
 var _default = /*#__PURE__*/function (_Controller) {
   _inherits(_default, _Controller);
@@ -2649,9 +2704,9 @@ var _default = /*#__PURE__*/function (_Controller) {
         }
       });
       popup.classList.remove("modal-registration__main-box--active");
-      covid.classList.remove("modal-registration__main-box--active");
       calc.classList.remove("calculator__main-box--active");
       overlay.classList.remove("overlay--active");
+      thanks.classList.remove("modal-registration__main-box--active");
       calc.innerHTML = "";
       document.removeEventListener("keydown", _this.escPressHandler);
     });
@@ -3113,11 +3168,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var stimulus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stimulus */ "./node_modules/stimulus/index.js");
 /* harmony import */ var stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stimulus/webpack-helpers */ "./node_modules/stimulus/webpack-helpers.js");
 /* harmony import */ var _blocks_cookies_cookies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../blocks/cookies/cookies */ "./src/blocks/cookies/cookies.js");
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -3155,12 +3212,24 @@ try {
   _iterator.f();
 }
 
-var covid = document.querySelector(".modal--covid");
-var overlay = document.querySelector(".overlay");
-setTimeout(function () {
-  overlay.classList.add("overlay--active");
-  covid.classList.add("modal-registration__main-box--active");
-}, 3000);
+var inputs = document.querySelectorAll(".field__input");
+inputs.forEach(function (item) {
+  var parent = item.parentNode;
+  item.addEventListener("input", function () {
+    if (item.value.length > 5) {
+      parent.classList.add("field--active");
+    } else {
+      parent.classList.remove("field--active");
+    }
+  });
+});
+var phones = document.querySelectorAll("input[type=\"tel\"]");
+var phoneOption = {
+  mask: '+{33} (0) 00-00-00-00'
+};
+phones.forEach(function (item) {
+  return Object(imask__WEBPACK_IMPORTED_MODULE_3__["default"])(item, phoneOption);
+});
 
 /***/ }),
 
@@ -3184,11 +3253,10 @@ __webpack_require__.r(__webpack_exports__);
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' + response.status);
       return;
-    }
+    } // return response.json();
 
-    return response.json();
   })["catch"](function (error) {
-    return console.log(error);
+    return console.log(error, 'смотри кетч');
   });
 });
 
