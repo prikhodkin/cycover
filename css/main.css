@@ -2999,7 +2999,8 @@ a {
 
 .map {
   background: #f3f6ff;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .map::before {
     content: "";
     display: block;
