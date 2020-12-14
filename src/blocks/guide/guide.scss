@@ -28,7 +28,7 @@
     left: 15px;
     width: 2px;
     height: 100%;
-    background-color: #304bab;
+    background-color: #1f4df1;
   }
 }
 
@@ -44,7 +44,7 @@
   line-height: 158.68%;
   font-family: $second-font, sans-serif;
   color: #ffffff;
-  background-color: #304bab;
+  background-color: #1f4df1;
   border-radius: 50%;
 }
 
@@ -146,7 +146,7 @@
       z-index: 5;
       width: 0;
       height: 2px;
-      background-color: #304bab;
+      background-color: #1f4df1;
     }
 
     &:not(:last-child)::after {
@@ -196,7 +196,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #304bab;
+      background: #1f4df1;
       transform: translateX(-100%);
     }
 

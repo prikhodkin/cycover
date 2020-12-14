@@ -1,12 +1,15 @@
 .focus {
   padding: 30px 20px;
   padding-bottom: 50px;
-  background-image: url("../../img/focus__background-cycover@mobile.png"),
-    url("../../img/focus__background-cycover@mobile.png"),
-    url("../../img/focus__background-cycover@mobile.png");
+  background-color: #ffffff;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: center 40px, center 110px, center 180px;
   background-size: 90%;
+
+  img {
+    margin-bottom: 25px;
+    padding: 0 30px;
+  }
 }
 
 .focus__wrap {
@@ -44,41 +47,36 @@
   width: 214px;
   height: 57px;
   margin: 0 auto;
-}
-
-@media (min-width: 450px) {
-  .focus {
-    background-image: url("../../img/focus__background-cycover@mobile.png");
-    background-position: center 110px;
-    background-size: 90%;
-  }
+  background-image: none;
 }
 
 @media (min-width: 768px) {
   .focus {
+    position: relative;
     padding: 30px;
     padding-bottom: 50px;
-    background-image: url("../../img/focus__background-cycover@mobile.png");
+
     background-position: center;
     background-size: 90%;
   }
 
-  .focus__wrap {
 
+  .focus__wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    max-width: 550px;
+    width: 100%;
+    max-width: unset;
+    height: 100%;
   }
 
   .focus__box {
-    &--img {
-      margin: 0;
-    }
-
-    &--text {
-      max-width: 260px;
-      margin-left: auto;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .focus__title {
@@ -98,25 +96,20 @@
   .focus {
     padding-top: 50px;
     padding-bottom: 60px;
-    background-image: url("../../img/focus__background-cycover@desktop.png");
+
     background-position: center;
     background-size: 90%;
 
     @include page-wrapper;
+
+    img {
+      padding: 0;
+    }
   }
 
-  .focus__wrap {
-    max-width: 1040px;
-  }
 
   .focus__box {
-    &--img {
-      width: 420px;
-    }
-
-    &--text {
-      max-width: 450px;
-    }
+    margin-bottom: 45px;
   }
 
   .focus__img {
@@ -125,17 +118,18 @@
   }
 
   .focus__title {
-    margin-bottom: 30px;
+    margin-bottom: 0;
     font-size: 35px;
   }
 
   .focus__text {
-    margin-bottom: 45px;
+    margin-bottom: 0;
     font-size: 25px;
   }
 
   .focus__button {
     width: 248px;
     height: 69px;
+    margin-left: 10px;
   }
 }

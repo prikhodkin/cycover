@@ -49,7 +49,9 @@
     width: 27px;
     height: 27px;
     background-image: url("../../img/shield@2x.png");
-    background-size: 27px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   &--host::before {

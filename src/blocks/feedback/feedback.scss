@@ -36,7 +36,7 @@
   width: 49px;
   height: 49px;
   background-color: #ffffff;
-  border: 1px solid #304bab;
+  border: 1px solid #1f4df1;
   transition: all 0.3s;
 
   &--forward {
@@ -49,7 +49,7 @@
   }
 
   &:hover {
-    background-color: #304bab;
+    background-color: #1f4df1;
   }
 
   &:hover .feedback-icon {
@@ -64,7 +64,7 @@
 .feedback-icon {
   width: 18px;
   height: 100%;
-  fill: #304bab;
+  fill: #1f4df1;
 }
 
 @media (min-width: 600px) {

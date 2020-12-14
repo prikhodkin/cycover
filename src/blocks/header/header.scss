@@ -23,13 +23,14 @@
       color: #ffffff;
 
       svg {
-        fill: #ffffff;
         opacity: 1;
+        fill: #ffffff;
       }
     }
 
     .modifier__item {
       color: rgba(#ffffff, 0.4);
+
       &--active {
         color: #ffffff;
         border-color: #ffffff;
@@ -114,7 +115,7 @@
 
   svg {
     margin-right: 29px;
-    fill: #304bab;
+    fill: #1f4df1;
   }
 }
 
@@ -205,11 +206,11 @@
     }
 
     &:hover {
-      color: #304bab;
+      color: #1f4df1;
 
       svg {
         opacity: 1;
-        fill: #304bab;
+        fill: #1f4df1;
       }
     }
   }

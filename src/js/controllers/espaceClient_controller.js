@@ -72,7 +72,7 @@ export default class extends Controller {
   showThanks() {
     thanks.classList.add(`calculator__approver--show`);
     popup.classList.remove(`modal-registration__main-box--active`);
-
+    overlay.classList.add(`overlay--active`)
     const scrollY = window.pageYOffset;
 
     thanks.style.top = scrollY + document.documentElement.clientHeight / 2 - 250 + "px"

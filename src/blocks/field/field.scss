@@ -7,13 +7,13 @@
     }
 
     .field__input {
-      border-color: #304bab;
+      border-color: #1f4df1;
       opacity: 1;
     }
 
     .field__icon {
       opacity: 1;
-      fill: #304bab;
+      fill: #1f4df1;
     }
   }
 }
@@ -47,7 +47,7 @@
     width: 15px;
     height: 15px;
     opacity: 0.3;
-    fill: #304bab;
+    fill: #1f4df1;
   }
 }
 
@@ -70,14 +70,14 @@
 
   &:hover,
   &:focus {
-    border-color: #304bab;
+    border-color: #1f4df1;
     opacity: 1;
   }
 
   &:hover + .field__label,
   &:focus + .field__label {
     opacity: 1;
-    fill: #304bab;
+    fill: #1f4df1;
   }
 
   &--calculator {

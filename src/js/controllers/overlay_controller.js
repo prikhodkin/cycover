@@ -4,6 +4,7 @@ const popup = document.querySelector(`.modal-registration__main-box`);
 const politics = document.querySelectorAll(`.politic`);
 const calc = document.querySelector(`#calculator`);
 const overlay = document.querySelector(`.overlay`);
+const thanks = document.querySelector(`.modal-registration__main-box--thanks`);
 
 export default class extends Controller {
   static targets = [ `area` ]
@@ -23,7 +24,9 @@ export default class extends Controller {
     popup.classList.remove(`modal-registration__main-box--active`);
     calc.classList.remove(`calculator__main-box--active`);
     overlay.classList.remove(`overlay--active`)
+    thanks.classList.remove(`modal-registration__main-box--active`);
     calc.innerHTML = ``;
+
 
     document.removeEventListener(`keydown`, this.escPressHandler)
   }

@@ -146,7 +146,7 @@
   line-height: 19px;
 
   &--amount {
-    opacity:0.6;
+    opacity: 0.6;
   }
 }
 
@@ -165,7 +165,7 @@
   height: 103px;
   margin: 0 auto;
   margin-bottom: 30px;
-  background-color: #304bab;
+  background-color: #1f4df1;
   background-image: url("../../img/checkbox__tick.svg");
   background-size: 42px;
   border-radius: 50%;
@@ -187,42 +187,46 @@
 }
 
 .calculator__amount-label {
-  background: #F4F6FD;
-  border: 1px solid #DEE5FF;
+  position: relative;
+  background: #f4f6fd;
+  border: 1px solid #dee5ff;
   border-radius: 5px;
   cursor: pointer;
-  position: relative;
 }
+
 .calculator__amount-checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
+
 .calculator__amount-description {
   padding: 15px 0 15px 40px;
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
 }
+
 .calculator__check {
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
-  background-color: white;
   position: absolute;
   top: calc(50% - 10px);
   left: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 3px;
 }
+
 .calculator__amount-checkbox:checked + .calculator__check {
   background: no-repeat center url("../img/check.png");
-  background-color: #304BAB;
+  background-color: #1f4df1;
 }
 
 @media (min-width: 768px) {
   .calculator__amount-label {
-    height: 62px;
     display: flex;
     align-items: center;
+    height: 62px;
   }
 
   .calculator__amount-description {
@@ -365,8 +369,8 @@
     }
 
     &--number {
-      margin-left: 10px;
       margin-right: 10px;
+      margin-left: 10px;
     }
 
     &--number:nth-child(4) {
@@ -397,13 +401,13 @@
 }
 
 .calculator__desc--approved {
-  font-size: 18px;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .calculator__desc--thanks {
-  font-size: 13px;
   margin-top: 20px;
+  font-size: 13px;
 }
 
 @media (min-width: 1120px) {
@@ -508,25 +512,25 @@
 
   @keyframes calculator__thanks {
     0% {
-      opacity: 0;
       transform: scale(0);
+      opacity: 0;
     }
 
     100% {
-      opacity: 1;
       transform: scale(1);
+      opacity: 1;
     }
   }
 
   @keyframes calculator__close {
-    0%{
+    0% {
       opacity: 1;
     }
 
     100% {
-      opacity: 0;
-      transform: scale(1.3);
       display: none;
+      transform: scale(1.3);
+      opacity: 0;
     }
   }
 }
