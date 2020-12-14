@@ -11,35 +11,26 @@ export default class DataInfoMoreView extends AbstractView {
     return `
       <section class="calculator calculator--amount-data-next" data-controller="calculator">
         <div class="calculator__wrap">
-          <h2 class="calculator__title title title--black">Activité en ligne</h2>
+          <h2 class="calculator__title title title--black">NATURE & VOLUME DES DONNÉES PERSONNELLES</h2>
           <ul class="calculator__list calculator__list--amount-data-next">
 
 
-            <li class="calculator__item calculator__item--radio">
-              <p class="calculator__field-text">Réalisez-vous plus de 25 % de votre chiffre d'affaires en ligne ?</p>
-              <div class="calculator__container">
-                <div class="calculator__box calculator__box--radio radio-calc">
-                  <input class="radio-calc__input" type="radio" name="25 en ligne" value="yes" id="radio-yes-1">
-                  <label class="radio-calc__label" for="radio-yes-1">Oui</label>
-                </div>
-                <div class="calculator__box calculator__box--radio radio-calc">
-                  <input class="radio-calc__input" type="radio" name="25 en ligne" value="not" id="radio-not-1" checked>
-                  <label class="radio-calc__label" for="radio-not-1">Non</label>
-                </div>
+            <li class="calculator__item calculator__item--radio calculator__item--amount-top">
+              <p class="calculator__field-text calculator__field-text--title">Nombre estimé de données personnelles traitées / detenues :</p>
+
+              <div class="calculator__amount-select select__box">
+                <select class="select__list" name="Nombre estimé de données personnelles traitées" id="select-effectif">
+                  <option class="select__item" value="1-10">1 - 10</option>
+                  <option class="select__item" value="10-50">10 - 50</option>
+                  <option class="select__item" value="50-100">50 - 100</option>
+                  <option class="select__item" value="100-500">100 - 500</option>
+                  <option class="select__item" value="500-1000">500 - 1000</option>
+                  <option class="select__item" value="1000+">1000 +</option>
+                </select>
               </div>
             </li>
             <li class="calculator__item calculator__item--radio">
-              <p class="calculator__field-text">Réalisez vous plus de 25% de vos chiffres d’affaires via des paiements par carte bancaire ?</p>
-              <div class="calculator__container">
-                <div class="calculator__box calculator__box--radio radio-calc">
-                  <input class="radio-calc__input" type="radio" name="25 cartes bancaires" value="yes" id="radio-yes-2">
-                  <label class="radio-calc__label" for="radio-yes-2">Oui</label>
-                </div>
-                <div class="calculator__box calculator__box--radio radio-calc">
-                  <input class="radio-calc__input" type="radio" name="25 cartes bancaires" value="not" id="radio-not-2" checked>
-                  <label class="radio-calc__label" for="radio-not-2">Non</label>
-                </div>
-              </div>
+              <p class="calculator__field-text calculator__field-text--amount">Donnée personnelle consiste en « toute information relative à une personne physique identifiée ou qui peut être identifiée, directement ou indirectement, par référence à un numéro d'identification ou à un ou plusieurs éléments qui lui sont propres (images, enregistrements, codes personnels...) »</p>
             </li>
           </ul>
           <div class="calculator__box calculator__box--button">
