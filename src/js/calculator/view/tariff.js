@@ -65,11 +65,13 @@ export default class TariffView extends AbstractView {
             </ul>
             <div class="calculator__box calculator__box--button">
               <p class="tariff-card__price tariff-card__price--calc">${Math.ceil(this._state.garantie.base/12)} &#8364; /<span style="text-transform:lowercase;font-size: 14px;">par mois</span></p>
-              <a class="calculator__button calculator__button--forth-tariff button button--forth" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
-                Continuer
-                <svg class="button__icon button__icon--forth">
-                  <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
-                </svg>
+              <a class="calculator__button calculator__button--forth-tariff button button--forth button--background" href="#" data-name="BASE" data-price="${this._state.garantie.base}">
+                <span>
+                  Continuer</span>
+                  <svg class="button__icon button__icon--forth">
+                    <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+                  </svg>
+
               </a>
             </div>
           </li>

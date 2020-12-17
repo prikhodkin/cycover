@@ -56,11 +56,13 @@ export default class DataInfoView extends AbstractView {
                 <use xlink:href="img/sprites/sprite.svg#icon_arrow-back"></use>
               </svg>
             </a>
-            <a class="calculator__button calculator__button--forth button button--forth" href="#">
-              Continuer
-              <svg class="button__icon button__icon--forth">
-                <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
-              </svg>
+            <a class="calculator__button calculator__button--forth button button--forth button--background" href="#">
+              <span>
+                Continuer
+                <svg class="button__icon button__icon--forth">
+                  <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+                </svg>
+              </span>
             </a>
           </div>
         </div>

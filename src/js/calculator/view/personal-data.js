@@ -57,11 +57,13 @@ export default class PersonalDataView extends AbstractView {
               </div>
             </div>
 
-            <button class="calculator__button calculator__button--form-calc button button--forth button--calc-form" type="submit">
-              Continuer
-              <svg class="button__icon button__icon--forth">
-                <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
-              </svg>
+            <button class="calculator__button calculator__button--form-calc button button--forth button--calc-form button--background" type="submit">
+              <span>
+                Continuer
+                <svg class="button__icon button__icon--forth">
+                  <use xlink:href="img/sprites/sprite.svg#icon_arrow-forward"></use>
+                </svg>
+              </span>
             </button>
           </form>
         </div>
