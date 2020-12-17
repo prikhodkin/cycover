@@ -1,6 +1,7 @@
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import {initialCookieModal} from "../blocks/cookies/cookies"
+import { tns } from "tiny-slider/src/tiny-slider"
 import IMask from "imask";
 
 const application = Application.start()
@@ -40,3 +41,20 @@ const phoneOption = {
   mask: '+{33} (0) 00-00-00-00'
 }
 phones.forEach(item => IMask(item, phoneOption));
+
+
+if(window.matchMedia('(max-width: 700px)').matches){
+  const slider = tns({
+    container: '.partner__list',
+    items: 1,
+    controls: false,
+    nav: true,
+    navPosition: 'bottom',
+    loop: true,
+    swipeAngle: false,
+    speed: 400,
+    edgePadding: 72,
+    // gutter: 18,
+
+  });
+}

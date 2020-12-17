@@ -59,8 +59,10 @@
         background-color: #000826;
       }
 
-      .header__bottom {
-        background-color: #000826;
+      &.header--active {
+        .header__bottom {
+          background-color: #000826;
+        }
       }
     }
   }
@@ -137,6 +139,12 @@
 
       .modifier__item {
         padding-bottom: 15px;
+      }
+
+      .menu__item {
+        a:hover {
+          color: #1f4df1;
+        }
       }
 
 

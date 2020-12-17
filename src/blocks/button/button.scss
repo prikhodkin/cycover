@@ -32,21 +32,40 @@
   }
 
   &--background {
+    position: relative;
+    overflow: hidden;
     font-weight: 500;
     font-size: 12px;
     font-family: $fourth-font, sans-serif;
     color: #ffffff;
     background-color: #1f4df1;
-    background-image: url("../../img/button__background-blue.png");
+    //background-image: url("../../img/button__background-blue.png");
     background-repeat: no-repeat;
     background-size: cover;
     border: 1px solid transparent;
     transition: all 0.3s;
 
+    span {
+      z-index: 20;
+    }
+
+    &::before {
+      @include pseudo;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      background: #1841d5;
+      transform: translateX(-100%);
+      transition: all 0.3s;
+    }
+
     &:hover {
-      // transition: all 0.3s;
-      background-color: #304bab;
-      background-image: unset;
+      &::before {
+        transform: translateX(0);
+      }
     }
 
     &:active {

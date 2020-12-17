@@ -30,7 +30,10 @@ export default class extends Controller {
   }
 
   initialize() {
-    this.renderPin();
+    if(window.matchMedia('(min-width: 1000px)').matches){
+      this.renderPin();
+    }
+
   }
 
   renderPin() {
