@@ -49,14 +49,18 @@
   margin-bottom: 30px;
 
   &--secture-data {
-    // overflow-y: scroll;
     height: 50vh;
 
     .simplebar-content {
       display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
+  }
+
+  &--partner {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
