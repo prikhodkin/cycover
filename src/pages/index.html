@@ -85,8 +85,16 @@
               <input type="hidden" name="form_subject" value="registration">
               <fieldset class="form__wrap" >
                 <div class="form__box field field--registration">
-                  <input class="field__input field__input--registration" required type="text" id="form-name1" name="name" placeholder="Nom et Prénom">
+                  <input class="field__input field__input--registration" required type="text" id="form-name1" name="name" placeholder="Nom">
                   <label class="field__label" for="form-name1">
+                    <svg class="field__icon">
+                      <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                    </svg>
+                  </label>
+                </div>
+                <div class="form__box field field--registration">
+                  <input class="field__input field__input--registration" type="text" id="form-surname1" name="surname" placeholder="Prénom">
+                  <label class="field__label" for="form-surname1">
                     <svg class="field__icon">
                       <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
                     </svg>
@@ -603,8 +611,16 @@
             <input type="hidden" name="form_subject" value="registration">
             <fieldset class="form__wrap">
               <div class="form__box field field--registration">
-                <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom et Prénom">
+                <input class="field__input field__input--registration" type="text" id="form-name" name="name" placeholder="Nom">
                 <label class="field__label" for="form-name">
+                  <svg class="field__icon">
+                    <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
+                  </svg>
+                </label>
+              </div>
+              <div class="form__box field field--registration">
+                <input class="field__input field__input--registration" type="text" id="form-surname" name="surname" placeholder="Prénom">
+                <label class="field__label" for="form-surname">
                   <svg class="field__icon">
                     <use xlink:href="img/sprites/sprite.svg#icon__user"></use>
                   </svg>

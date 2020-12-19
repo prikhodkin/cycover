@@ -11,7 +11,7 @@ export default class DataInfoScreen {
       Router.showDataInfoMore(this._state);
     };
     this.view.onClickBack = () => {
-      Router.showAssuranse(this._state);
+      Router.showSecteur(this._state);
     }
   }
 

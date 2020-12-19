@@ -18,7 +18,7 @@ export default class AssuranceScreen {
        this._checkSelects(selects.effectif)
        //
 
-      Router.showDataInfo(this._state);
+      Router.showSecteur(this._state);
     };
     this.view.onClickBack = () => {
       Router.initial(this._state);
