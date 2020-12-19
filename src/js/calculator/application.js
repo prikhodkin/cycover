@@ -1,6 +1,7 @@
 import {changeScreen} from '../util/calc';
 import VotreScreen from './components/votre';
 import AssuranceScreen from './components/cyber-assurance';
+import SecteurScreen from './components/secteur-dactivity';
 import DataInfoScreen from './components/data-info'
 import DataInfoMoreScreen from './components/data-info-more'
 import SearchCircleScreen from './components/search-circle'
@@ -18,6 +19,11 @@ export default class Router {
   static showAssuranse(data) {
     const assuranceScreen = new AssuranceScreen(data);
     changeScreen(assuranceScreen.element);
+  }
+
+  static showSecteur(data) {
+    const secteurScreen = new SecteurScreen(data);
+    changeScreen(secteurScreen.element);
   }
 
   static showDataInfo(data) {
