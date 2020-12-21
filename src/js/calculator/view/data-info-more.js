@@ -20,12 +20,13 @@ export default class DataInfoMoreView extends AbstractView {
 
               <div class="calculator__amount-select select__box">
                 <select class="select__list" name="Nombre estimé de données personnelles traitées" id="select-effectif">
-                  <option class="select__item" value="1-10">1 - 10</option>
-                  <option class="select__item" value="10-50">10 - 50</option>
-                  <option class="select__item" value="50-100">50 - 100</option>
-                  <option class="select__item" value="100-500">100 - 500</option>
-                  <option class="select__item" value="500-1000">500 - 1000</option>
-                  <option class="select__item" value="1000+">1000 +</option>
+                  <option class="select__item" value="Aucun">Aucun</option>
+                  <option class="select__item" value="1-100">1 - 100</option>
+                  <option class="select__item" value="101-1000">101 - 1000</option>
+                  <option class="select__item" value="1001-10000">1001 - 10 000</option>
+                  <option class="select__item" value="10 001-100 000">10 001 - 100 000</option>
+                  <option class="select__item" value="100 000-1M">100 000 - 1M</option>
+                  <option class="select__item" value="1M+">1M +</option>
                 </select>
               </div>
             </li>
