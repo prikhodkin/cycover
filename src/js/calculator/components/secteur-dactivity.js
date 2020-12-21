@@ -39,8 +39,18 @@ export default class SecteurScreen {
 
   _initSimpleBar() {
     const element = this.view.element.querySelector(`#secture-bar`);
-    console.log(element)
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      new SimpleBar(element, {
+        classNames: {
+          visible: 'calculator__secture-scrollbar-unvisible',
+          track: 'calculator__secture-scrollbar-unvisible'
+        }
+      })
+    } else {
+
     new SimpleBar(element, {
+      forceVisible: true,
       scrollbarMaxSize: 70,
       classNames: {
         // defaults
@@ -49,5 +59,6 @@ export default class SecteurScreen {
         track: 'calculator__secture-scrollbar-track'
       }
     })
+  }
   }
 }

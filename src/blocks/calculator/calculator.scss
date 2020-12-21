@@ -49,14 +49,18 @@
   margin-bottom: 30px;
 
   &--secture-data {
-    // overflow-y: scroll;
     height: 50vh;
 
     .simplebar-content {
       display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
+  }
+
+  &--partner {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -122,8 +126,9 @@
   }
 
   &--partner {
-    margin-bottom: 0;
-    margin-left: 17px;
+    box-shadow: none;
+    background-color: transparent;
+    margin: 0 5px 5px 5px;
   }
 
   &--partner:not(:last-child) {
@@ -282,15 +287,22 @@
   }
 }
 
-.calculator__secture-scrollbar {
-  width: 6px;
-  background-color:#304BAB;
-  border-radius: 3px;
-}
+// .calculator__secture-scrollbar {
+//   width: 6px;
+//   background-color:#304BAB;
+//   border-radius: 3px;
+// }
+// .calculator__secture-scrollbar-track {
+//   height: 100%;
+//   background-color: #E7E7E7;
+//   box-shadow: 0 0 0 2px white inset;
+// }
+
 .calculator__secture-scrollbar-track {
-  height: 100%;
-  background-color: #E7E7E7;
-  box-shadow: 0 0 0 2px white inset;
+  display: none !important;
+}
+.calculator__secture-scrollbar-unvisible {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -528,6 +540,18 @@
 
 .calculator__sub-description {
   margin-top: 10px;
+}
+
+.calculator__secture-scrollbar {
+  width: 6px;
+  background-color:#304BAB;
+  border-radius: 3px;
+}
+.calculator__secture-scrollbar-track {
+  display: block !important;
+  height: 100%;
+  background-color: #E7E7E7;
+  box-shadow: 0 0 0 2px white inset;
 }
 
 @media (min-width: 1120px) {
